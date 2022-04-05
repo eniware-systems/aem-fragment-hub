@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated ContentHub -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="de.enithing.contenthub.model.contenthub.presentation.ContentHubModelWizardID"
+            name="%_UI_ContentHubModelWizard_label"
+            class="de.enithing.contenthub.model.contenthub.presentation.ContentHubModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/ContentHubModelFile.gif">
+         <description>%_UI_ContentHubModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated ContentHub -->
+      <editor
+            id="de.enithing.contenthub.model.contenthub.presentation.ContentHubEditorID"
+            name="%_UI_ContentHubEditor_label"
+            icon="icons/full/obj16/ContentHubModelFile.gif"
+            extensions="chub"
+            class="de.enithing.contenthub.model.contenthub.presentation.ContentHubEditor"
+            contributorClass="de.enithing.contenthub.model.contenthub.presentation.ContentHubActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated ContentHub -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="de.enithing.contenthub.model.contenthub.contentfragment.presentation.ContentfragmentModelWizardID"
+            name="%_UI_ContentfragmentModelWizard_label"
+            class="de.enithing.contenthub.model.contenthub.contentfragment.presentation.ContentfragmentModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/ContentfragmentModelFile.gif">
+         <description>%_UI_ContentfragmentModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated ContentHub -->
+      <editor
+            id="de.enithing.contenthub.model.contenthub.contentfragment.presentation.ContentfragmentEditorID"
+            name="%_UI_ContentfragmentEditor_label"
+            icon="icons/full/obj16/ContentfragmentModelFile.gif"
+            extensions="contentfragment"
+            class="de.enithing.contenthub.model.contenthub.contentfragment.presentation.ContentfragmentEditor"
+            contributorClass="de.enithing.contenthub.model.contenthub.contentfragment.presentation.ContentfragmentActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated ContentHub -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="de.enithing.contenthub.model.contenthub.contentfragment.corefields.presentation.CorefieldsModelWizardID"
+            name="%_UI_CorefieldsModelWizard_label"
+            class="de.enithing.contenthub.model.contenthub.contentfragment.corefields.presentation.CorefieldsModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/CorefieldsModelFile.gif">
+         <description>%_UI_CorefieldsModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated ContentHub -->
+      <editor
+            id="de.enithing.contenthub.model.contenthub.contentfragment.corefields.presentation.CorefieldsEditorID"
+            name="%_UI_CorefieldsEditor_label"
+            icon="icons/full/obj16/CorefieldsModelFile.gif"
+            extensions="corefields"
+            class="de.enithing.contenthub.model.contenthub.contentfragment.corefields.presentation.CorefieldsEditor"
+            contributorClass="de.enithing.contenthub.model.contenthub.contentfragment.corefields.presentation.CorefieldsActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

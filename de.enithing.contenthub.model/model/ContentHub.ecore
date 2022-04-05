@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="contenthub" nsURI="https://aemcontenthub.eniware-systems.de/ns/contenthub"
+    nsPrefix="chub">
+  <eClassifiers xsi:type="ecore:EDataType" name="Path" instanceClassName="java.nio.file.Path"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Package">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contexts" upperBound="-1"
+        eType="#//RootContext" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="path" lowerBound="1" eType="#//Path"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Context">
+    <eOperations name="getRootContext" lowerBound="1" eType="#//RootContext"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="childContexts" upperBound="-1"
+        eType="#//ChildContext" containment="true" eOpposite="#//ChildContext/parentContext"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contentFragmentModels"
+        upperBound="-1" eType="#//contentfragment/ContentFragmentModel" containment="true"
+        eOpposite="#//contentfragment/ContentFragmentModel/context"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contentFragments" upperBound="-1"
+        eType="#//contentfragment/ContentFragmentInstance" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootContext" eSuperTypes="#//Context">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="jcrRootPath" lowerBound="1"
+        eType="#//Path" defaultValueLiteral="/src/main/content/jcr_root"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ChildContext" eSuperTypes="#//Context">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parentContext" lowerBound="1"
+        eType="#//Context" eOpposite="#//Context/childContexts"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="relativePath" lowerBound="1"
+        eType="#//Path" defaultValueLiteral="/child"/>
+  </eClassifiers>
+  <eSubpackages name="contentfragment" nsURI="https://aemcontenthub.eniware-systems.de/ns/contentfragments"
+      nsPrefix="chub">
+    <eClassifiers xsi:type="ecore:EClass" name="ContentFragmentModel">
+      <eOperations name="getAllChildren" upperBound="-1">
+        <eGenericType eClassifier="#//contentfragment/ContentFragmentFieldType">
+          <eTypeArguments/>
+        </eGenericType>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="fields" upperBound="-1"
+          eType="#//contentfragment/ContentFragmentFieldType" containment="true" eKeys="#//contentfragment/ContentFragmentFieldType/id"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="context" lowerBound="1"
+          eType="#//Context" eOpposite="#//Context/contentFragmentModels"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ContentFragmentFieldType" abstract="true">
+      <eTypeParameters name="TValue">
+        <eBounds eClassifier="#//contentfragment/ContentFragmentFieldValue"/>
+      </eTypeParameters>
+      <eOperations name="createEmptyValue" lowerBound="1">
+        <eGenericType eTypeParameter="#//contentfragment/ContentFragmentFieldType/TValue"/>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ContentFragmentInstance">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="model" lowerBound="1"
+          eType="#//contentfragment/ContentFragmentModel"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="fields" upperBound="-1"
+          eType="#//contentfragment/ContentFragmentFieldInstance" changeable="false"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ContentFragmentFieldInstance">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="fieldtype" lowerBound="1"
+          eType="#//contentfragment/ContentFragmentFieldType"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1"
+          eType="#//contentfragment/ContentFragmentFieldValue" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SimpleFieldType" abstract="true" interface="true">
+      <eTypeParameters name="TValue">
+        <eBounds eClassifier="#//contentfragment/ContentFragmentFieldValue"/>
+      </eTypeParameters>
+      <eGenericSuperTypes eClassifier="#//contentfragment/ContentFragmentFieldType">
+        <eTypeArguments eTypeParameter="#//contentfragment/SimpleFieldType/TValue"/>
+      </eGenericSuperTypes>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="GroupFieldType" abstract="true" interface="true">
+      <eTypeParameters name="TValue">
+        <eBounds eClassifier="#//contentfragment/ContentFragmentFieldValue"/>
+      </eTypeParameters>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="fields" upperBound="-1"
+          eType="#//contentfragment/SimpleFieldType" containment="true" eKeys="#//contentfragment/ContentFragmentFieldType/id"/>
+      <eGenericSuperTypes eClassifier="#//contentfragment/ContentFragmentFieldType">
+        <eTypeArguments eTypeParameter="#//contentfragment/GroupFieldType/TValue"/>
+      </eGenericSuperTypes>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ContentFragmentFieldValue" abstract="true"
+        interface="true"/>
+    <eSubpackages name="corefields" nsURI="https://aemcontenthub.eniware-systems.de/ns/contentfragments/corefields"
+        nsPrefix="chub">
+      <eClassifiers xsi:type="ecore:EClass" name="SingleLineText">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="placeholderText" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eGenericSuperTypes eClassifier="#//contentfragment/SimpleFieldType">
+          <eTypeArguments eClassifier="#//contentfragment/corefields/SingleLineTextValue"/>
+        </eGenericSuperTypes>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="SingleLineTextValue" eSuperTypes="#//contentfragment/ContentFragmentFieldValue"/>
+      <eClassifiers xsi:type="ecore:EClass" name="Tab">
+        <eGenericSuperTypes eClassifier="#//contentfragment/GroupFieldType">
+          <eTypeArguments eClassifier="#//contentfragment/ContentFragmentFieldValue"/>
+        </eGenericSuperTypes>
+      </eClassifiers>
+    </eSubpackages>
+  </eSubpackages>
+</ecore:EPackage>
