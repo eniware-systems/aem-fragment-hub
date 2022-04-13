@@ -7,6 +7,7 @@ import de.enithing.contenthub.model.contenthub.ContentHubFactory;
 import de.enithing.contenthub.model.contenthub.ContentHubPackage;
 import de.enithing.contenthub.model.contenthub.Context;
 import de.enithing.contenthub.model.contenthub.RootContext;
+
 import java.nio.file.Path;
 
 import org.eclipse.emf.ecore.EClass;
@@ -40,6 +41,7 @@ public class ContentHubFactoryImpl extends EFactoryImpl implements ContentHubFac
 		catch (Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
+		// This was changed manually to get the extended factory.
 		return new ContentHubFactoryExtendedImpl();
 	}
 
@@ -105,6 +107,7 @@ public class ContentHubFactoryImpl extends EFactoryImpl implements ContentHubFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public de.enithing.contenthub.model.contenthub.Package createPackage() {
 		PackageImpl package_ = new PackageImpl();
 		return package_;
@@ -115,6 +118,7 @@ public class ContentHubFactoryImpl extends EFactoryImpl implements ContentHubFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Context createContext() {
 		ContextImpl context = new ContextImpl();
 		return context;
@@ -125,6 +129,7 @@ public class ContentHubFactoryImpl extends EFactoryImpl implements ContentHubFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public RootContext createRootContext() {
 		RootContextImpl rootContext = new RootContextImpl();
 		return rootContext;
@@ -135,6 +140,7 @@ public class ContentHubFactoryImpl extends EFactoryImpl implements ContentHubFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ChildContext createChildContext() {
 		ChildContextImpl childContext = new ChildContextImpl();
 		return childContext;
@@ -163,6 +169,7 @@ public class ContentHubFactoryImpl extends EFactoryImpl implements ContentHubFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ContentHubPackage getContentHubPackage() {
 		return (ContentHubPackage)getEPackage();
 	}

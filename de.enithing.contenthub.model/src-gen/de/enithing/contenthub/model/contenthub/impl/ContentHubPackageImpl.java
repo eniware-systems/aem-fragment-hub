@@ -2,17 +2,19 @@
  */
 package de.enithing.contenthub.model.contenthub.impl;
 
+import de.enithing.contenthub.model.contentfragment.ContentFragmentPackage;
+
+import de.enithing.contenthub.model.contentfragment.corefields.CorefieldsPackage;
+
+import de.enithing.contenthub.model.contentfragment.corefields.impl.CorefieldsPackageImpl;
+
+import de.enithing.contenthub.model.contentfragment.impl.ContentFragmentPackageImpl;
+
 import de.enithing.contenthub.model.contenthub.ChildContext;
 import de.enithing.contenthub.model.contenthub.ContentHubFactory;
 import de.enithing.contenthub.model.contenthub.ContentHubPackage;
 import de.enithing.contenthub.model.contenthub.Context;
-
 import de.enithing.contenthub.model.contenthub.RootContext;
-import de.enithing.contenthub.model.contenthub.contentfragment.ContentfragmentPackage;
-
-import de.enithing.contenthub.model.contenthub.contentfragment.corefields.CorefieldsPackage;
-import de.enithing.contenthub.model.contenthub.contentfragment.corefields.impl.CorefieldsPackageImpl;
-import de.enithing.contenthub.model.contenthub.contentfragment.impl.ContentfragmentPackageImpl;
 
 import java.nio.file.Path;
 
@@ -115,19 +117,19 @@ public class ContentHubPackageImpl extends EPackageImpl implements ContentHubPac
 		isInited = true;
 
 		// Obtain or create and register interdependencies
-		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ContentfragmentPackage.eNS_URI);
-		ContentfragmentPackageImpl theContentfragmentPackage = (ContentfragmentPackageImpl)(registeredPackage instanceof ContentfragmentPackageImpl ? registeredPackage : ContentfragmentPackage.eINSTANCE);
+		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ContentFragmentPackage.eNS_URI);
+		ContentFragmentPackageImpl theContentFragmentPackage = (ContentFragmentPackageImpl)(registeredPackage instanceof ContentFragmentPackageImpl ? registeredPackage : ContentFragmentPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(CorefieldsPackage.eNS_URI);
 		CorefieldsPackageImpl theCorefieldsPackage = (CorefieldsPackageImpl)(registeredPackage instanceof CorefieldsPackageImpl ? registeredPackage : CorefieldsPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theContentHubPackage.createPackageContents();
-		theContentfragmentPackage.createPackageContents();
+		theContentFragmentPackage.createPackageContents();
 		theCorefieldsPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theContentHubPackage.initializePackageContents();
-		theContentfragmentPackage.initializePackageContents();
+		theContentFragmentPackage.initializePackageContents();
 		theCorefieldsPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
@@ -143,6 +145,7 @@ public class ContentHubPackageImpl extends EPackageImpl implements ContentHubPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getPackage() {
 		return packageEClass;
 	}
@@ -152,6 +155,7 @@ public class ContentHubPackageImpl extends EPackageImpl implements ContentHubPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getPackage_Contexts() {
 		return (EReference)packageEClass.getEStructuralFeatures().get(0);
 	}
@@ -161,6 +165,7 @@ public class ContentHubPackageImpl extends EPackageImpl implements ContentHubPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getPackage_Path() {
 		return (EAttribute)packageEClass.getEStructuralFeatures().get(1);
 	}
@@ -170,6 +175,7 @@ public class ContentHubPackageImpl extends EPackageImpl implements ContentHubPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getContext() {
 		return contextEClass;
 	}
@@ -179,6 +185,7 @@ public class ContentHubPackageImpl extends EPackageImpl implements ContentHubPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getContext_ChildContexts() {
 		return (EReference)contextEClass.getEStructuralFeatures().get(0);
 	}
@@ -188,6 +195,7 @@ public class ContentHubPackageImpl extends EPackageImpl implements ContentHubPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getContext_ContentFragmentModels() {
 		return (EReference)contextEClass.getEStructuralFeatures().get(1);
 	}
@@ -197,6 +205,7 @@ public class ContentHubPackageImpl extends EPackageImpl implements ContentHubPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getContext_ContentFragments() {
 		return (EReference)contextEClass.getEStructuralFeatures().get(2);
 	}
@@ -206,6 +215,7 @@ public class ContentHubPackageImpl extends EPackageImpl implements ContentHubPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getContext__GetRootContext() {
 		return contextEClass.getEOperations().get(0);
 	}
@@ -215,6 +225,7 @@ public class ContentHubPackageImpl extends EPackageImpl implements ContentHubPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getRootContext() {
 		return rootContextEClass;
 	}
@@ -224,6 +235,7 @@ public class ContentHubPackageImpl extends EPackageImpl implements ContentHubPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getRootContext_JcrRootPath() {
 		return (EAttribute)rootContextEClass.getEStructuralFeatures().get(0);
 	}
@@ -233,6 +245,7 @@ public class ContentHubPackageImpl extends EPackageImpl implements ContentHubPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getChildContext() {
 		return childContextEClass;
 	}
@@ -242,6 +255,7 @@ public class ContentHubPackageImpl extends EPackageImpl implements ContentHubPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getChildContext_ParentContext() {
 		return (EReference)childContextEClass.getEStructuralFeatures().get(0);
 	}
@@ -251,6 +265,7 @@ public class ContentHubPackageImpl extends EPackageImpl implements ContentHubPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getChildContext_RelativePath() {
 		return (EAttribute)childContextEClass.getEStructuralFeatures().get(1);
 	}
@@ -260,6 +275,7 @@ public class ContentHubPackageImpl extends EPackageImpl implements ContentHubPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EDataType getPath() {
 		return pathEDataType;
 	}
@@ -269,6 +285,7 @@ public class ContentHubPackageImpl extends EPackageImpl implements ContentHubPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ContentHubFactory getContentHubFactory() {
 		return (ContentHubFactory)getEFactoryInstance();
 	}
@@ -337,10 +354,10 @@ public class ContentHubPackageImpl extends EPackageImpl implements ContentHubPac
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		ContentfragmentPackage theContentfragmentPackage = (ContentfragmentPackage)EPackage.Registry.INSTANCE.getEPackage(ContentfragmentPackage.eNS_URI);
+		ContentFragmentPackage theContentFragmentPackage = (ContentFragmentPackage)EPackage.Registry.INSTANCE.getEPackage(ContentFragmentPackage.eNS_URI);
 
 		// Add subpackages
-		getESubpackages().add(theContentfragmentPackage);
+		getESubpackages().add(theContentFragmentPackage);
 
 		// Create type parameters
 
@@ -357,8 +374,8 @@ public class ContentHubPackageImpl extends EPackageImpl implements ContentHubPac
 
 		initEClass(contextEClass, Context.class, "Context", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getContext_ChildContexts(), this.getChildContext(), this.getChildContext_ParentContext(), "childContexts", null, 0, -1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getContext_ContentFragmentModels(), theContentfragmentPackage.getContentFragmentModel(), theContentfragmentPackage.getContentFragmentModel_Context(), "contentFragmentModels", null, 0, -1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getContext_ContentFragments(), theContentfragmentPackage.getContentFragmentInstance(), null, "contentFragments", null, 0, -1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getContext_ContentFragmentModels(), theContentFragmentPackage.getContentFragmentModel(), theContentFragmentPackage.getContentFragmentModel_Context(), "contentFragmentModels", null, 0, -1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getContext_ContentFragments(), theContentFragmentPackage.getContentFragmentInstance(), null, "contentFragments", null, 0, -1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getContext__GetRootContext(), this.getRootContext(), "getRootContext", 1, 1, IS_UNIQUE, IS_ORDERED);
 

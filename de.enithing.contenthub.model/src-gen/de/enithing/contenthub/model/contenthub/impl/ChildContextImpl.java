@@ -6,13 +6,17 @@ import de.enithing.contenthub.model.contenthub.ChildContext;
 import de.enithing.contenthub.model.contenthub.ContentHubFactory;
 import de.enithing.contenthub.model.contenthub.ContentHubPackage;
 import de.enithing.contenthub.model.contenthub.Context;
+
 import java.nio.file.Path;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
@@ -39,6 +43,7 @@ public class ChildContextImpl extends ContextImpl implements ChildContext {
 	 * @ordered
 	 */
 	protected static final Path RELATIVE_PATH_EDEFAULT = (Path)ContentHubFactory.eINSTANCE.createFromString(ContentHubPackage.eINSTANCE.getPath(), "/child");
+
 	/**
 	 * The cached value of the '{@link #getRelativePath() <em>Relative Path</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -73,6 +78,7 @@ public class ChildContextImpl extends ContextImpl implements ChildContext {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Context getParentContext() {
 		if (eContainerFeatureID() != ContentHubPackage.CHILD_CONTEXT__PARENT_CONTEXT) return null;
 		return (Context)eInternalContainer();
@@ -93,6 +99,7 @@ public class ChildContextImpl extends ContextImpl implements ChildContext {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setParentContext(Context newParentContext) {
 		if (newParentContext != eInternalContainer() || (eContainerFeatureID() != ContentHubPackage.CHILD_CONTEXT__PARENT_CONTEXT && newParentContext != null)) {
 			if (EcoreUtil.isAncestor(this, newParentContext))
@@ -114,6 +121,7 @@ public class ChildContextImpl extends ContextImpl implements ChildContext {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Path getRelativePath() {
 		return relativePath;
 	}
@@ -123,6 +131,7 @@ public class ChildContextImpl extends ContextImpl implements ChildContext {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setRelativePath(Path newRelativePath) {
 		Path oldRelativePath = relativePath;
 		relativePath = newRelativePath;
@@ -195,7 +204,6 @@ public class ChildContextImpl extends ContextImpl implements ChildContext {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {

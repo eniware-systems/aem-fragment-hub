@@ -94,13 +94,27 @@
         interface="true"/>
     <eSubpackages name="corefields" nsURI="https://aemcontenthub.eniware-systems.de/ns/contentfragments/corefields"
         nsPrefix="chub">
+      <eClassifiers xsi:type="ecore:EClass" name="Number">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="placeholderText" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eGenericSuperTypes eClassifier="#//contentfragment/SimpleFieldType">
+          <eTypeArguments eClassifier="#//contentfragment/corefields/NumberValue"/>
+        </eGenericSuperTypes>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="NumberValue" eSuperTypes="#//contentfragment/ContentFragmentFieldValue">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1"
+            eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+            defaultValueLiteral="0"/>
+      </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="SingleLineText">
         <eStructuralFeatures xsi:type="ecore:EAttribute" name="placeholderText" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
         <eGenericSuperTypes eClassifier="#//contentfragment/SimpleFieldType">
-          <eTypeArguments eClassifier="#//contentfragment/corefields/SingleLineTextValue"/>
+          <eTypeArguments eClassifier="#//contentfragment/corefields/TextValue"/>
         </eGenericSuperTypes>
       </eClassifiers>
-      <eClassifiers xsi:type="ecore:EClass" name="SingleLineTextValue" eSuperTypes="#//contentfragment/ContentFragmentFieldValue"/>
+      <eClassifiers xsi:type="ecore:EClass" name="TextValue" eSuperTypes="#//contentfragment/ContentFragmentFieldValue">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" lowerBound="1"
+            eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="Tab">
         <eGenericSuperTypes eClassifier="#//contentfragment/GroupFieldType">
           <eTypeArguments eClassifier="#//contentfragment/ContentFragmentFieldValue"/>
