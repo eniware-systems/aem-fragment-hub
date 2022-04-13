@@ -30,21 +30,21 @@
          unpack="false"/>
 
    <plugin
+         id="de.enithing.contenthub.edit"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="de.enithing.contenthub.editor"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
          id="de.enithing.contenthub.model"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="de.enithing.contenthub.model.edit"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="de.enithing.contenthub.model.editor"
          download-size="0"
          install-size="0"
          version="0.0.0"

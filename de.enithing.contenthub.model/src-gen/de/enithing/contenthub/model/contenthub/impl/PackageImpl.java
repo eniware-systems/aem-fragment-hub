@@ -4,6 +4,7 @@ package de.enithing.contenthub.model.contenthub.impl;
 
 import de.enithing.contenthub.model.contenthub.ContentHubPackage;
 import de.enithing.contenthub.model.contenthub.RootContext;
+
 import java.nio.file.Path;
 
 import java.util.Collection;
@@ -91,6 +92,7 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.enit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<RootContext> getContexts() {
 		if (contexts == null) {
 			contexts = new EObjectContainmentEList<RootContext>(RootContext.class, this, ContentHubPackage.PACKAGE__CONTEXTS);
@@ -103,6 +105,7 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.enit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Path getPath() {
 		return path;
 	}
@@ -112,6 +115,7 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.enit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setPath(Path newPath) {
 		Path oldPath = path;
 		path = newPath;

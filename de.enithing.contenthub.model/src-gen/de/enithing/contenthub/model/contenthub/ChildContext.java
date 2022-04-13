@@ -4,7 +4,6 @@ package de.enithing.contenthub.model.contenthub;
 
 import java.nio.file.Path;
 
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Child Context</b></em>'.
@@ -23,7 +22,6 @@ import java.nio.file.Path;
  * @generated
  */
 public interface ChildContext extends Context {
-
 	/**
 	 * Returns the value of the '<em><b>Parent Context</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link de.enithing.contenthub.model.contenthub.Context#getChildContexts <em>Child Contexts</em>}'.
@@ -70,4 +68,5 @@ public interface ChildContext extends Context {
 	 * @generated
 	 */
 	void setRelativePath(Path value);
+
 } // ChildContext

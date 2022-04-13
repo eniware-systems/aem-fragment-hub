@@ -2,24 +2,26 @@
  */
 package de.enithing.contenthub.model.contenthub.impl;
 
+import de.enithing.contenthub.model.contentfragment.ContentFragmentInstance;
+import de.enithing.contenthub.model.contentfragment.ContentFragmentModel;
+import de.enithing.contenthub.model.contentfragment.ContentFragmentPackage;
+
 import de.enithing.contenthub.model.contenthub.ChildContext;
 import de.enithing.contenthub.model.contenthub.ContentHubPackage;
 import de.enithing.contenthub.model.contenthub.Context;
-
 import de.enithing.contenthub.model.contenthub.RootContext;
-import de.enithing.contenthub.model.contenthub.contentfragment.ContentFragmentInstance;
-import de.enithing.contenthub.model.contenthub.contentfragment.ContentFragmentModel;
-import de.enithing.contenthub.model.contenthub.contentfragment.ContentfragmentPackage;
-import de.enithing.contenthub.model.contenthub.util.ContextUtils;
 
 import java.lang.reflect.InvocationTargetException;
+
 import java.util.Collection;
+
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
@@ -96,6 +98,7 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<ChildContext> getChildContexts() {
 		if (childContexts == null) {
 			childContexts = new EObjectContainmentWithInverseEList<ChildContext>(ChildContext.class, this, ContentHubPackage.CONTEXT__CHILD_CONTEXTS, ContentHubPackage.CHILD_CONTEXT__PARENT_CONTEXT);
@@ -108,9 +111,10 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<ContentFragmentModel> getContentFragmentModels() {
 		if (contentFragmentModels == null) {
-			contentFragmentModels = new EObjectContainmentWithInverseEList<ContentFragmentModel>(ContentFragmentModel.class, this, ContentHubPackage.CONTEXT__CONTENT_FRAGMENT_MODELS, ContentfragmentPackage.CONTENT_FRAGMENT_MODEL__CONTEXT);
+			contentFragmentModels = new EObjectContainmentWithInverseEList<ContentFragmentModel>(ContentFragmentModel.class, this, ContentHubPackage.CONTEXT__CONTENT_FRAGMENT_MODELS, ContentFragmentPackage.CONTENT_FRAGMENT_MODEL__CONTEXT);
 		}
 		return contentFragmentModels;
 	}
@@ -120,6 +124,7 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<ContentFragmentInstance> getContentFragments() {
 		if (contentFragments == null) {
 			contentFragments = new EObjectContainmentEList<ContentFragmentInstance>(ContentFragmentInstance.class, this, ContentHubPackage.CONTEXT__CONTENT_FRAGMENTS);
@@ -130,9 +135,13 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
 	 */
+	@Override
 	public RootContext getRootContext() {
-		return ContextUtils.getRootContext(this);
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**

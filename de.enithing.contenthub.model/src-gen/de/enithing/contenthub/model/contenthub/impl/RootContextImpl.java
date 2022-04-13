@@ -5,9 +5,13 @@ package de.enithing.contenthub.model.contenthub.impl;
 import de.enithing.contenthub.model.contenthub.ContentHubFactory;
 import de.enithing.contenthub.model.contenthub.ContentHubPackage;
 import de.enithing.contenthub.model.contenthub.RootContext;
+
 import java.nio.file.Path;
+
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EClass;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -68,6 +72,7 @@ public class RootContextImpl extends ContextImpl implements RootContext {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Path getJcrRootPath() {
 		return jcrRootPath;
 	}
@@ -77,6 +82,7 @@ public class RootContextImpl extends ContextImpl implements RootContext {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setJcrRootPath(Path newJcrRootPath) {
 		Path oldJcrRootPath = jcrRootPath;
 		jcrRootPath = newJcrRootPath;
@@ -103,7 +109,6 @@ public class RootContextImpl extends ContextImpl implements RootContext {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
