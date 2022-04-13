@@ -3,10 +3,7 @@
 package de.enithing.contenthub.model.contenthub.contentfragment.corefields.provider;
 
 
-import de.enithing.contenthub.model.contenthub.contentfragment.ContentfragmentPackage;
-import de.enithing.contenthub.model.contenthub.contentfragment.corefields.CorefieldsFactory;
 import de.enithing.contenthub.model.contenthub.contentfragment.corefields.CorefieldsPackage;
-import de.enithing.contenthub.model.contenthub.contentfragment.corefields.Tab;
 
 import de.enithing.contenthub.model.contenthub.contentfragment.provider.ContentFragmentFieldTypeItemProvider;
 
@@ -20,24 +17,25 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
-import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link de.enithing.contenthub.model.contenthub.contentfragment.corefields.Tab} object.
+ * This is the item provider adapter for a {@link de.enithing.contenthub.model.contenthub.contentfragment.corefields.Number} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class TabItemProvider extends ContentFragmentFieldTypeItemProvider {
+public class NumberItemProvider extends ContentFragmentFieldTypeItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TabItemProvider(AdapterFactory adapterFactory) {
+	public NumberItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -52,49 +50,42 @@ public class TabItemProvider extends ContentFragmentFieldTypeItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addPlaceholderTextPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * This adds a property descriptor for the Placeholder Text feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(ContentfragmentPackage.Literals.GROUP_FIELD_TYPE__FIELDS);
-		}
-		return childrenFeatures;
+	protected void addPlaceholderTextPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Number_placeholderText_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Number_placeholderText_feature", "_UI_Number_type"),
+				 CorefieldsPackage.Literals.NUMBER__PLACEHOLDER_TEXT,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
-	}
-
-	/**
-	 * This returns Tab.gif.
+	 * This returns Number.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Tab"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Number"));
 	}
 
 	/**
@@ -105,10 +96,10 @@ public class TabItemProvider extends ContentFragmentFieldTypeItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Tab)object).getId();
+		String label = ((de.enithing.contenthub.model.contenthub.contentfragment.corefields.Number)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Tab_type") :
-			getString("_UI_Tab_type") + " " + label;
+			getString("_UI_Number_type") :
+			getString("_UI_Number_type") + " " + label;
 	}
 
 
@@ -123,9 +114,9 @@ public class TabItemProvider extends ContentFragmentFieldTypeItemProvider {
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Tab.class)) {
-			case CorefieldsPackage.TAB__FIELDS:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+		switch (notification.getFeatureID(de.enithing.contenthub.model.contenthub.contentfragment.corefields.Number.class)) {
+			case CorefieldsPackage.NUMBER__PLACEHOLDER_TEXT:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
 		super.notifyChanged(notification);
@@ -141,16 +132,6 @@ public class TabItemProvider extends ContentFragmentFieldTypeItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ContentfragmentPackage.Literals.GROUP_FIELD_TYPE__FIELDS,
-				 CorefieldsFactory.eINSTANCE.createNumber()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ContentfragmentPackage.Literals.GROUP_FIELD_TYPE__FIELDS,
-				 CorefieldsFactory.eINSTANCE.createSingleLineText()));
 	}
 
 	/**

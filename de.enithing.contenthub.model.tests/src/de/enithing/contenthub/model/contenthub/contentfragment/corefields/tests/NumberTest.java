@@ -3,7 +3,6 @@
 package de.enithing.contenthub.model.contenthub.contentfragment.corefields.tests;
 
 import de.enithing.contenthub.model.contenthub.contentfragment.corefields.CorefieldsFactory;
-import de.enithing.contenthub.model.contenthub.contentfragment.corefields.SingleLineText;
 
 import de.enithing.contenthub.model.contenthub.contentfragment.tests.ContentFragmentFieldTypeTest;
 
@@ -11,11 +10,11 @@ import junit.textui.TestRunner;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Single Line Text</b></em>'.
+ * A test case for the model object '<em><b>Number</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
-public class SingleLineTextTest extends ContentFragmentFieldTypeTest {
+public class NumberTest extends ContentFragmentFieldTypeTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -23,28 +22,28 @@ public class SingleLineTextTest extends ContentFragmentFieldTypeTest {
 	 * @generated
 	 */
 	public static void main(String[] args) {
-		TestRunner.run(SingleLineTextTest.class);
+		TestRunner.run(NumberTest.class);
 	}
 
 	/**
-	 * Constructs a new Single Line Text test case with the given name.
+	 * Constructs a new Number test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SingleLineTextTest(String name) {
+	public NumberTest(String name) {
 		super(name);
 	}
 
 	/**
-	 * Returns the fixture for this Single Line Text test case.
+	 * Returns the fixture for this Number test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	protected SingleLineText getFixture() {
-		return (SingleLineText)fixture;
+	protected de.enithing.contenthub.model.contenthub.contentfragment.corefields.Number getFixture() {
+		return (de.enithing.contenthub.model.contenthub.contentfragment.corefields.Number)fixture;
 	}
 
 	/**
@@ -55,7 +54,7 @@ public class SingleLineTextTest extends ContentFragmentFieldTypeTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(CorefieldsFactory.eINSTANCE.createSingleLineText());
+		setFixture(CorefieldsFactory.eINSTANCE.createNumber());
 	}
 
 	/**
@@ -69,4 +68,4 @@ public class SingleLineTextTest extends ContentFragmentFieldTypeTest {
 		setFixture(null);
 	}
 
-} //SingleLineTextTest
+} //NumberTest

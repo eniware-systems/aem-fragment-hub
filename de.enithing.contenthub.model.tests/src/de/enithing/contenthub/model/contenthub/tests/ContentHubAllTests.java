@@ -3,7 +3,9 @@
 package de.enithing.contenthub.model.contenthub.tests;
 
 import de.enithing.contenthub.model.contenthub.contentfragment.corefields.tests.CorefieldsTests;
+
 import de.enithing.contenthub.model.contenthub.contentfragment.tests.ContentfragmentTests;
+
 import junit.framework.Test;
 import junit.framework.TestSuite;
 

@@ -6,35 +6,35 @@ import de.enithing.contenthub.model.contenthub.contentfragment.SimpleFieldType;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Single Line Text</b></em>'.
+ * A representation of the model object '<em><b>Number</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link de.enithing.contenthub.model.contenthub.contentfragment.corefields.SingleLineText#getPlaceholderText <em>Placeholder Text</em>}</li>
+ *   <li>{@link de.enithing.contenthub.model.contenthub.contentfragment.corefields.Number#getPlaceholderText <em>Placeholder Text</em>}</li>
  * </ul>
  *
- * @see de.enithing.contenthub.model.contenthub.contentfragment.corefields.CorefieldsPackage#getSingleLineText()
+ * @see de.enithing.contenthub.model.contenthub.contentfragment.corefields.CorefieldsPackage#getNumber()
  * @model
  * @generated
  */
-public interface SingleLineText extends SimpleFieldType<TextValue> {
+public interface Number extends SimpleFieldType<NumberValue> {
 	/**
 	 * Returns the value of the '<em><b>Placeholder Text</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Placeholder Text</em>' attribute.
 	 * @see #setPlaceholderText(String)
-	 * @see de.enithing.contenthub.model.contenthub.contentfragment.corefields.CorefieldsPackage#getSingleLineText_PlaceholderText()
+	 * @see de.enithing.contenthub.model.contenthub.contentfragment.corefields.CorefieldsPackage#getNumber_PlaceholderText()
 	 * @model
 	 * @generated
 	 */
 	String getPlaceholderText();
 
 	/**
-	 * Sets the value of the '{@link de.enithing.contenthub.model.contenthub.contentfragment.corefields.SingleLineText#getPlaceholderText <em>Placeholder Text</em>}' attribute.
+	 * Sets the value of the '{@link de.enithing.contenthub.model.contenthub.contentfragment.corefields.Number#getPlaceholderText <em>Placeholder Text</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Placeholder Text</em>' attribute.
@@ -43,4 +43,4 @@ public interface SingleLineText extends SimpleFieldType<TextValue> {
 	 */
 	void setPlaceholderText(String value);
 
-} // SingleLineText
+} // Number

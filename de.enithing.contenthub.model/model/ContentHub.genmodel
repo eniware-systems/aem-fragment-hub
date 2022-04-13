@@ -63,10 +63,18 @@
       </genClasses>
       <genClasses image="false" ecoreClass="ContentHub.ecore#//contentfragment/ContentFragmentFieldValue"/>
       <nestedGenPackages prefix="Corefields" disposableProviderFactory="true" ecorePackage="ContentHub.ecore#//contentfragment/corefields">
+        <genClasses ecoreClass="ContentHub.ecore#//contentfragment/corefields/Number">
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/Number/placeholderText"/>
+        </genClasses>
+        <genClasses ecoreClass="ContentHub.ecore#//contentfragment/corefields/NumberValue">
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/NumberValue/value"/>
+        </genClasses>
         <genClasses ecoreClass="ContentHub.ecore#//contentfragment/corefields/SingleLineText">
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/SingleLineText/placeholderText"/>
         </genClasses>
-        <genClasses ecoreClass="ContentHub.ecore#//contentfragment/corefields/SingleLineTextValue"/>
+        <genClasses ecoreClass="ContentHub.ecore#//contentfragment/corefields/TextValue">
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/TextValue/text"/>
+        </genClasses>
         <genClasses ecoreClass="ContentHub.ecore#//contentfragment/corefields/Tab"/>
       </nestedGenPackages>
     </nestedGenPackages>

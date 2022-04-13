@@ -58,6 +58,116 @@ public interface CorefieldsPackage extends EPackage {
 	CorefieldsPackage eINSTANCE = de.enithing.contenthub.model.contenthub.contentfragment.corefields.impl.CorefieldsPackageImpl.init();
 
 	/**
+	 * The meta object id for the '{@link de.enithing.contenthub.model.contenthub.contentfragment.corefields.impl.NumberImpl <em>Number</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.enithing.contenthub.model.contenthub.contentfragment.corefields.impl.NumberImpl
+	 * @see de.enithing.contenthub.model.contenthub.contentfragment.corefields.impl.CorefieldsPackageImpl#getNumber()
+	 * @generated
+	 */
+	int NUMBER = 0;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER__ID = ContentfragmentPackage.SIMPLE_FIELD_TYPE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER__LABEL = ContentfragmentPackage.SIMPLE_FIELD_TYPE__LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER__DESCRIPTION = ContentfragmentPackage.SIMPLE_FIELD_TYPE__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Placeholder Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER__PLACEHOLDER_TEXT = ContentfragmentPackage.SIMPLE_FIELD_TYPE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Number</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_FEATURE_COUNT = ContentfragmentPackage.SIMPLE_FIELD_TYPE_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Create Empty Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER___CREATE_EMPTY_VALUE = ContentfragmentPackage.SIMPLE_FIELD_TYPE___CREATE_EMPTY_VALUE;
+
+	/**
+	 * The number of operations of the '<em>Number</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_OPERATION_COUNT = ContentfragmentPackage.SIMPLE_FIELD_TYPE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link de.enithing.contenthub.model.contenthub.contentfragment.corefields.impl.NumberValueImpl <em>Number Value</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.enithing.contenthub.model.contenthub.contentfragment.corefields.impl.NumberValueImpl
+	 * @see de.enithing.contenthub.model.contenthub.contentfragment.corefields.impl.CorefieldsPackageImpl#getNumberValue()
+	 * @generated
+	 */
+	int NUMBER_VALUE = 1;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_VALUE__VALUE = ContentfragmentPackage.CONTENT_FRAGMENT_FIELD_VALUE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Number Value</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_VALUE_FEATURE_COUNT = ContentfragmentPackage.CONTENT_FRAGMENT_FIELD_VALUE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Number Value</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_VALUE_OPERATION_COUNT = ContentfragmentPackage.CONTENT_FRAGMENT_FIELD_VALUE_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link de.enithing.contenthub.model.contenthub.contentfragment.corefields.impl.SingleLineTextImpl <em>Single Line Text</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -65,7 +175,7 @@ public interface CorefieldsPackage extends EPackage {
 	 * @see de.enithing.contenthub.model.contenthub.contentfragment.corefields.impl.CorefieldsPackageImpl#getSingleLineText()
 	 * @generated
 	 */
-	int SINGLE_LINE_TEXT = 0;
+	int SINGLE_LINE_TEXT = 2;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -131,32 +241,41 @@ public interface CorefieldsPackage extends EPackage {
 	int SINGLE_LINE_TEXT_OPERATION_COUNT = ContentfragmentPackage.SIMPLE_FIELD_TYPE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link de.enithing.contenthub.model.contenthub.contentfragment.corefields.impl.SingleLineTextValueImpl <em>Single Line Text Value</em>}' class.
+	 * The meta object id for the '{@link de.enithing.contenthub.model.contenthub.contentfragment.corefields.impl.TextValueImpl <em>Text Value</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see de.enithing.contenthub.model.contenthub.contentfragment.corefields.impl.SingleLineTextValueImpl
-	 * @see de.enithing.contenthub.model.contenthub.contentfragment.corefields.impl.CorefieldsPackageImpl#getSingleLineTextValue()
+	 * @see de.enithing.contenthub.model.contenthub.contentfragment.corefields.impl.TextValueImpl
+	 * @see de.enithing.contenthub.model.contenthub.contentfragment.corefields.impl.CorefieldsPackageImpl#getTextValue()
 	 * @generated
 	 */
-	int SINGLE_LINE_TEXT_VALUE = 1;
+	int TEXT_VALUE = 3;
 
 	/**
-	 * The number of structural features of the '<em>Single Line Text Value</em>' class.
+	 * The feature id for the '<em><b>Text</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SINGLE_LINE_TEXT_VALUE_FEATURE_COUNT = ContentfragmentPackage.CONTENT_FRAGMENT_FIELD_VALUE_FEATURE_COUNT + 0;
+	int TEXT_VALUE__TEXT = ContentfragmentPackage.CONTENT_FRAGMENT_FIELD_VALUE_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of operations of the '<em>Single Line Text Value</em>' class.
+	 * The number of structural features of the '<em>Text Value</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SINGLE_LINE_TEXT_VALUE_OPERATION_COUNT = ContentfragmentPackage.CONTENT_FRAGMENT_FIELD_VALUE_OPERATION_COUNT + 0;
+	int TEXT_VALUE_FEATURE_COUNT = ContentfragmentPackage.CONTENT_FRAGMENT_FIELD_VALUE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Text Value</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_VALUE_OPERATION_COUNT = ContentfragmentPackage.CONTENT_FRAGMENT_FIELD_VALUE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link de.enithing.contenthub.model.contenthub.contentfragment.corefields.impl.TabImpl <em>Tab</em>}' class.
@@ -166,7 +285,7 @@ public interface CorefieldsPackage extends EPackage {
 	 * @see de.enithing.contenthub.model.contenthub.contentfragment.corefields.impl.CorefieldsPackageImpl#getTab()
 	 * @generated
 	 */
-	int TAB = 2;
+	int TAB = 4;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -232,6 +351,48 @@ public interface CorefieldsPackage extends EPackage {
 	int TAB_OPERATION_COUNT = ContentfragmentPackage.GROUP_FIELD_TYPE_OPERATION_COUNT + 0;
 
 	/**
+	 * Returns the meta object for class '{@link de.enithing.contenthub.model.contenthub.contentfragment.corefields.Number <em>Number</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Number</em>'.
+	 * @see de.enithing.contenthub.model.contenthub.contentfragment.corefields.Number
+	 * @generated
+	 */
+	EClass getNumber();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.enithing.contenthub.model.contenthub.contentfragment.corefields.Number#getPlaceholderText <em>Placeholder Text</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Placeholder Text</em>'.
+	 * @see de.enithing.contenthub.model.contenthub.contentfragment.corefields.Number#getPlaceholderText()
+	 * @see #getNumber()
+	 * @generated
+	 */
+	EAttribute getNumber_PlaceholderText();
+
+	/**
+	 * Returns the meta object for class '{@link de.enithing.contenthub.model.contenthub.contentfragment.corefields.NumberValue <em>Number Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Number Value</em>'.
+	 * @see de.enithing.contenthub.model.contenthub.contentfragment.corefields.NumberValue
+	 * @generated
+	 */
+	EClass getNumberValue();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.enithing.contenthub.model.contenthub.contentfragment.corefields.NumberValue#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see de.enithing.contenthub.model.contenthub.contentfragment.corefields.NumberValue#getValue()
+	 * @see #getNumberValue()
+	 * @generated
+	 */
+	EAttribute getNumberValue_Value();
+
+	/**
 	 * Returns the meta object for class '{@link de.enithing.contenthub.model.contenthub.contentfragment.corefields.SingleLineText <em>Single Line Text</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -253,14 +414,25 @@ public interface CorefieldsPackage extends EPackage {
 	EAttribute getSingleLineText_PlaceholderText();
 
 	/**
-	 * Returns the meta object for class '{@link de.enithing.contenthub.model.contenthub.contentfragment.corefields.SingleLineTextValue <em>Single Line Text Value</em>}'.
+	 * Returns the meta object for class '{@link de.enithing.contenthub.model.contenthub.contentfragment.corefields.TextValue <em>Text Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Single Line Text Value</em>'.
-	 * @see de.enithing.contenthub.model.contenthub.contentfragment.corefields.SingleLineTextValue
+	 * @return the meta object for class '<em>Text Value</em>'.
+	 * @see de.enithing.contenthub.model.contenthub.contentfragment.corefields.TextValue
 	 * @generated
 	 */
-	EClass getSingleLineTextValue();
+	EClass getTextValue();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.enithing.contenthub.model.contenthub.contentfragment.corefields.TextValue#getText <em>Text</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Text</em>'.
+	 * @see de.enithing.contenthub.model.contenthub.contentfragment.corefields.TextValue#getText()
+	 * @see #getTextValue()
+	 * @generated
+	 */
+	EAttribute getTextValue_Text();
 
 	/**
 	 * Returns the meta object for class '{@link de.enithing.contenthub.model.contenthub.contentfragment.corefields.Tab <em>Tab</em>}'.
@@ -296,6 +468,42 @@ public interface CorefieldsPackage extends EPackage {
 	 */
 	interface Literals {
 		/**
+		 * The meta object literal for the '{@link de.enithing.contenthub.model.contenthub.contentfragment.corefields.impl.NumberImpl <em>Number</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.enithing.contenthub.model.contenthub.contentfragment.corefields.impl.NumberImpl
+		 * @see de.enithing.contenthub.model.contenthub.contentfragment.corefields.impl.CorefieldsPackageImpl#getNumber()
+		 * @generated
+		 */
+		EClass NUMBER = eINSTANCE.getNumber();
+
+		/**
+		 * The meta object literal for the '<em><b>Placeholder Text</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NUMBER__PLACEHOLDER_TEXT = eINSTANCE.getNumber_PlaceholderText();
+
+		/**
+		 * The meta object literal for the '{@link de.enithing.contenthub.model.contenthub.contentfragment.corefields.impl.NumberValueImpl <em>Number Value</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.enithing.contenthub.model.contenthub.contentfragment.corefields.impl.NumberValueImpl
+		 * @see de.enithing.contenthub.model.contenthub.contentfragment.corefields.impl.CorefieldsPackageImpl#getNumberValue()
+		 * @generated
+		 */
+		EClass NUMBER_VALUE = eINSTANCE.getNumberValue();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NUMBER_VALUE__VALUE = eINSTANCE.getNumberValue_Value();
+
+		/**
 		 * The meta object literal for the '{@link de.enithing.contenthub.model.contenthub.contentfragment.corefields.impl.SingleLineTextImpl <em>Single Line Text</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -314,14 +522,22 @@ public interface CorefieldsPackage extends EPackage {
 		EAttribute SINGLE_LINE_TEXT__PLACEHOLDER_TEXT = eINSTANCE.getSingleLineText_PlaceholderText();
 
 		/**
-		 * The meta object literal for the '{@link de.enithing.contenthub.model.contenthub.contentfragment.corefields.impl.SingleLineTextValueImpl <em>Single Line Text Value</em>}' class.
+		 * The meta object literal for the '{@link de.enithing.contenthub.model.contenthub.contentfragment.corefields.impl.TextValueImpl <em>Text Value</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see de.enithing.contenthub.model.contenthub.contentfragment.corefields.impl.SingleLineTextValueImpl
-		 * @see de.enithing.contenthub.model.contenthub.contentfragment.corefields.impl.CorefieldsPackageImpl#getSingleLineTextValue()
+		 * @see de.enithing.contenthub.model.contenthub.contentfragment.corefields.impl.TextValueImpl
+		 * @see de.enithing.contenthub.model.contenthub.contentfragment.corefields.impl.CorefieldsPackageImpl#getTextValue()
 		 * @generated
 		 */
-		EClass SINGLE_LINE_TEXT_VALUE = eINSTANCE.getSingleLineTextValue();
+		EClass TEXT_VALUE = eINSTANCE.getTextValue();
+
+		/**
+		 * The meta object literal for the '<em><b>Text</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TEXT_VALUE__TEXT = eINSTANCE.getTextValue_Text();
 
 		/**
 		 * The meta object literal for the '{@link de.enithing.contenthub.model.contenthub.contentfragment.corefields.impl.TabImpl <em>Tab</em>}' class.

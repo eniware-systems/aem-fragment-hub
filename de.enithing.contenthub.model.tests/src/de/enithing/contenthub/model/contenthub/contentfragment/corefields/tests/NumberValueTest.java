@@ -3,7 +3,7 @@
 package de.enithing.contenthub.model.contenthub.contentfragment.corefields.tests;
 
 import de.enithing.contenthub.model.contenthub.contentfragment.corefields.CorefieldsFactory;
-import de.enithing.contenthub.model.contenthub.contentfragment.corefields.SingleLineTextValue;
+import de.enithing.contenthub.model.contenthub.contentfragment.corefields.NumberValue;
 
 import junit.framework.TestCase;
 
@@ -11,19 +11,19 @@ import junit.textui.TestRunner;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Single Line Text Value</b></em>'.
+ * A test case for the model object '<em><b>Number Value</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
-public class SingleLineTextValueTest extends TestCase {
+public class NumberValueTest extends TestCase {
 
 	/**
-	 * The fixture for this Single Line Text Value test case.
+	 * The fixture for this Number Value test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected SingleLineTextValue fixture = null;
+	protected NumberValue fixture = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -31,36 +31,36 @@ public class SingleLineTextValueTest extends TestCase {
 	 * @generated
 	 */
 	public static void main(String[] args) {
-		TestRunner.run(SingleLineTextValueTest.class);
+		TestRunner.run(NumberValueTest.class);
 	}
 
 	/**
-	 * Constructs a new Single Line Text Value test case with the given name.
+	 * Constructs a new Number Value test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SingleLineTextValueTest(String name) {
+	public NumberValueTest(String name) {
 		super(name);
 	}
 
 	/**
-	 * Sets the fixture for this Single Line Text Value test case.
+	 * Sets the fixture for this Number Value test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void setFixture(SingleLineTextValue fixture) {
+	protected void setFixture(NumberValue fixture) {
 		this.fixture = fixture;
 	}
 
 	/**
-	 * Returns the fixture for this Single Line Text Value test case.
+	 * Returns the fixture for this Number Value test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected SingleLineTextValue getFixture() {
+	protected NumberValue getFixture() {
 		return fixture;
 	}
 
@@ -72,7 +72,7 @@ public class SingleLineTextValueTest extends TestCase {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(CorefieldsFactory.eINSTANCE.createSingleLineTextValue());
+		setFixture(CorefieldsFactory.eINSTANCE.createNumberValue());
 	}
 
 	/**
@@ -86,4 +86,4 @@ public class SingleLineTextValueTest extends TestCase {
 		setFixture(null);
 	}
 
-} //SingleLineTextValueTest
+} //NumberValueTest

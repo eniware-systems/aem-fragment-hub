@@ -72,6 +72,52 @@ public class CorefieldsItemProviderAdapterFactory extends CorefieldsAdapterFacto
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.enithing.contenthub.model.contenthub.contentfragment.corefields.Number} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected NumberItemProvider numberItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.enithing.contenthub.model.contenthub.contentfragment.corefields.Number}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createNumberAdapter() {
+		if (numberItemProvider == null) {
+			numberItemProvider = new NumberItemProvider(this);
+		}
+
+		return numberItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.enithing.contenthub.model.contenthub.contentfragment.corefields.NumberValue} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected NumberValueItemProvider numberValueItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.enithing.contenthub.model.contenthub.contentfragment.corefields.NumberValue}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createNumberValueAdapter() {
+		if (numberValueItemProvider == null) {
+			numberValueItemProvider = new NumberValueItemProvider(this);
+		}
+
+		return numberValueItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link de.enithing.contenthub.model.contenthub.contentfragment.corefields.SingleLineText} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -95,26 +141,26 @@ public class CorefieldsItemProviderAdapterFactory extends CorefieldsAdapterFacto
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.enithing.contenthub.model.contenthub.contentfragment.corefields.SingleLineTextValue} instances.
+	 * This keeps track of the one adapter used for all {@link de.enithing.contenthub.model.contenthub.contentfragment.corefields.TextValue} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected SingleLineTextValueItemProvider singleLineTextValueItemProvider;
+	protected TextValueItemProvider textValueItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.enithing.contenthub.model.contenthub.contentfragment.corefields.SingleLineTextValue}.
+	 * This creates an adapter for a {@link de.enithing.contenthub.model.contenthub.contentfragment.corefields.TextValue}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createSingleLineTextValueAdapter() {
-		if (singleLineTextValueItemProvider == null) {
-			singleLineTextValueItemProvider = new SingleLineTextValueItemProvider(this);
+	public Adapter createTextValueAdapter() {
+		if (textValueItemProvider == null) {
+			textValueItemProvider = new TextValueItemProvider(this);
 		}
 
-		return singleLineTextValueItemProvider;
+		return textValueItemProvider;
 	}
 
 	/**
@@ -239,8 +285,10 @@ public class CorefieldsItemProviderAdapterFactory extends CorefieldsAdapterFacto
 	 * @generated
 	 */
 	public void dispose() {
+		if (numberItemProvider != null) numberItemProvider.dispose();
+		if (numberValueItemProvider != null) numberValueItemProvider.dispose();
 		if (singleLineTextItemProvider != null) singleLineTextItemProvider.dispose();
-		if (singleLineTextValueItemProvider != null) singleLineTextValueItemProvider.dispose();
+		if (textValueItemProvider != null) textValueItemProvider.dispose();
 		if (tabItemProvider != null) tabItemProvider.dispose();
 	}
 

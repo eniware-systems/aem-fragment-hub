@@ -8,9 +8,10 @@ import de.enithing.contenthub.model.contenthub.contentfragment.ContentfragmentPa
 
 import de.enithing.contenthub.model.contenthub.contentfragment.corefields.CorefieldsFactory;
 import de.enithing.contenthub.model.contenthub.contentfragment.corefields.CorefieldsPackage;
+import de.enithing.contenthub.model.contenthub.contentfragment.corefields.NumberValue;
 import de.enithing.contenthub.model.contenthub.contentfragment.corefields.SingleLineText;
-import de.enithing.contenthub.model.contenthub.contentfragment.corefields.SingleLineTextValue;
 import de.enithing.contenthub.model.contenthub.contentfragment.corefields.Tab;
+import de.enithing.contenthub.model.contenthub.contentfragment.corefields.TextValue;
 import de.enithing.contenthub.model.contenthub.contentfragment.impl.ContentfragmentPackageImpl;
 
 import de.enithing.contenthub.model.contenthub.impl.ContentHubPackageImpl;
@@ -32,6 +33,20 @@ public class CorefieldsPackageImpl extends EPackageImpl implements CorefieldsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass numberEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass numberValueEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass singleLineTextEClass = null;
 
 	/**
@@ -39,7 +54,7 @@ public class CorefieldsPackageImpl extends EPackageImpl implements CorefieldsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass singleLineTextValueEClass = null;
+	private EClass textValueEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -124,6 +139,42 @@ public class CorefieldsPackageImpl extends EPackageImpl implements CorefieldsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getNumber() {
+		return numberEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getNumber_PlaceholderText() {
+		return (EAttribute)numberEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getNumberValue() {
+		return numberValueEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getNumberValue_Value() {
+		return (EAttribute)numberValueEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getSingleLineText() {
 		return singleLineTextEClass;
 	}
@@ -142,8 +193,17 @@ public class CorefieldsPackageImpl extends EPackageImpl implements CorefieldsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getSingleLineTextValue() {
-		return singleLineTextValueEClass;
+	public EClass getTextValue() {
+		return textValueEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTextValue_Text() {
+		return (EAttribute)textValueEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -183,10 +243,17 @@ public class CorefieldsPackageImpl extends EPackageImpl implements CorefieldsPac
 		isCreated = true;
 
 		// Create classes and their features
+		numberEClass = createEClass(NUMBER);
+		createEAttribute(numberEClass, NUMBER__PLACEHOLDER_TEXT);
+
+		numberValueEClass = createEClass(NUMBER_VALUE);
+		createEAttribute(numberValueEClass, NUMBER_VALUE__VALUE);
+
 		singleLineTextEClass = createEClass(SINGLE_LINE_TEXT);
 		createEAttribute(singleLineTextEClass, SINGLE_LINE_TEXT__PLACEHOLDER_TEXT);
 
-		singleLineTextValueEClass = createEClass(SINGLE_LINE_TEXT_VALUE);
+		textValueEClass = createEClass(TEXT_VALUE);
+		createEAttribute(textValueEClass, TEXT_VALUE__TEXT);
 
 		tabEClass = createEClass(TAB);
 	}
@@ -223,20 +290,32 @@ public class CorefieldsPackageImpl extends EPackageImpl implements CorefieldsPac
 
 		// Add supertypes to classes
 		EGenericType g1 = createEGenericType(theContentfragmentPackage.getSimpleFieldType());
-		EGenericType g2 = createEGenericType(this.getSingleLineTextValue());
+		EGenericType g2 = createEGenericType(this.getNumberValue());
+		g1.getETypeArguments().add(g2);
+		numberEClass.getEGenericSuperTypes().add(g1);
+		numberValueEClass.getESuperTypes().add(theContentfragmentPackage.getContentFragmentFieldValue());
+		g1 = createEGenericType(theContentfragmentPackage.getSimpleFieldType());
+		g2 = createEGenericType(this.getTextValue());
 		g1.getETypeArguments().add(g2);
 		singleLineTextEClass.getEGenericSuperTypes().add(g1);
-		singleLineTextValueEClass.getESuperTypes().add(theContentfragmentPackage.getContentFragmentFieldValue());
+		textValueEClass.getESuperTypes().add(theContentfragmentPackage.getContentFragmentFieldValue());
 		g1 = createEGenericType(theContentfragmentPackage.getGroupFieldType());
 		g2 = createEGenericType(theContentfragmentPackage.getContentFragmentFieldValue());
 		g1.getETypeArguments().add(g2);
 		tabEClass.getEGenericSuperTypes().add(g1);
 
 		// Initialize classes, features, and operations; add parameters
+		initEClass(numberEClass, de.enithing.contenthub.model.contenthub.contentfragment.corefields.Number.class, "Number", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getNumber_PlaceholderText(), ecorePackage.getEString(), "placeholderText", null, 0, 1, de.enithing.contenthub.model.contenthub.contentfragment.corefields.Number.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(numberValueEClass, NumberValue.class, "NumberValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getNumberValue_Value(), ecorePackage.getEDouble(), "value", "0", 1, 1, NumberValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(singleLineTextEClass, SingleLineText.class, "SingleLineText", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSingleLineText_PlaceholderText(), ecorePackage.getEString(), "placeholderText", null, 0, 1, SingleLineText.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(singleLineTextValueEClass, SingleLineTextValue.class, "SingleLineTextValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(textValueEClass, TextValue.class, "TextValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTextValue_Text(), ecorePackage.getEString(), "text", null, 1, 1, TextValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(tabEClass, Tab.class, "Tab", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 	}

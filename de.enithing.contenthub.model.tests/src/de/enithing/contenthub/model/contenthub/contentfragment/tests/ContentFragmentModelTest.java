@@ -13,6 +13,12 @@ import junit.textui.TestRunner;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Content Fragment Model</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following operations are tested:
+ * <ul>
+ *   <li>{@link de.enithing.contenthub.model.contenthub.contentfragment.ContentFragmentModel#getAllChildren() <em>Get All Children</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
 public class ContentFragmentModelTest extends TestCase {
@@ -84,6 +90,19 @@ public class ContentFragmentModelTest extends TestCase {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+	}
+
+	/**
+	 * Tests the '{@link de.enithing.contenthub.model.contenthub.contentfragment.ContentFragmentModel#getAllChildren() <em>Get All Children</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.enithing.contenthub.model.contenthub.contentfragment.ContentFragmentModel#getAllChildren()
+	 * @generated
+	 */
+	public void testGetAllChildren() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 } //ContentFragmentModelTest

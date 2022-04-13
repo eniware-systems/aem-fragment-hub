@@ -22,6 +22,24 @@ public interface CorefieldsFactory extends EFactory {
 	CorefieldsFactory eINSTANCE = de.enithing.contenthub.model.contenthub.contentfragment.corefields.impl.CorefieldsFactoryImpl.init();
 
 	/**
+	 * Returns a new object of class '<em>Number</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Number</em>'.
+	 * @generated
+	 */
+	Number createNumber();
+
+	/**
+	 * Returns a new object of class '<em>Number Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Number Value</em>'.
+	 * @generated
+	 */
+	NumberValue createNumberValue();
+
+	/**
 	 * Returns a new object of class '<em>Single Line Text</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -31,13 +49,13 @@ public interface CorefieldsFactory extends EFactory {
 	SingleLineText createSingleLineText();
 
 	/**
-	 * Returns a new object of class '<em>Single Line Text Value</em>'.
+	 * Returns a new object of class '<em>Text Value</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Single Line Text Value</em>'.
+	 * @return a new object of class '<em>Text Value</em>'.
 	 * @generated
 	 */
-	SingleLineTextValue createSingleLineTextValue();
+	TextValue createTextValue();
 
 	/**
 	 * Returns a new object of class '<em>Tab</em>'.

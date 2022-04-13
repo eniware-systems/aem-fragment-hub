@@ -233,6 +233,11 @@ public class ContentFragmentModelItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(ContentfragmentPackage.Literals.CONTENT_FRAGMENT_MODEL__FIELDS,
+				 CorefieldsFactory.eINSTANCE.createNumber()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ContentfragmentPackage.Literals.CONTENT_FRAGMENT_MODEL__FIELDS,
 				 CorefieldsFactory.eINSTANCE.createSingleLineText()));
 
 		newChildDescriptors.add

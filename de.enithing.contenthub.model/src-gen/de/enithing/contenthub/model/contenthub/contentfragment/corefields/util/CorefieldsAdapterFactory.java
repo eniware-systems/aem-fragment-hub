@@ -6,8 +6,11 @@ import de.enithing.contenthub.model.contenthub.contentfragment.ContentFragmentFi
 import de.enithing.contenthub.model.contenthub.contentfragment.ContentFragmentFieldValue;
 import de.enithing.contenthub.model.contenthub.contentfragment.GroupFieldType;
 import de.enithing.contenthub.model.contenthub.contentfragment.SimpleFieldType;
-import de.enithing.contenthub.model.contenthub.contentfragment.corefields.*;
-
+import de.enithing.contenthub.model.contenthub.contentfragment.corefields.CorefieldsPackage;
+import de.enithing.contenthub.model.contenthub.contentfragment.corefields.NumberValue;
+import de.enithing.contenthub.model.contenthub.contentfragment.corefields.SingleLineText;
+import de.enithing.contenthub.model.contenthub.contentfragment.corefields.Tab;
+import de.enithing.contenthub.model.contenthub.contentfragment.corefields.TextValue;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 
@@ -72,12 +75,20 @@ public class CorefieldsAdapterFactory extends AdapterFactoryImpl {
 	protected CorefieldsSwitch<Adapter> modelSwitch =
 		new CorefieldsSwitch<Adapter>() {
 			@Override
+			public Adapter caseNumber(de.enithing.contenthub.model.contenthub.contentfragment.corefields.Number object) {
+				return createNumberAdapter();
+			}
+			@Override
+			public Adapter caseNumberValue(NumberValue object) {
+				return createNumberValueAdapter();
+			}
+			@Override
 			public Adapter caseSingleLineText(SingleLineText object) {
 				return createSingleLineTextAdapter();
 			}
 			@Override
-			public Adapter caseSingleLineTextValue(SingleLineTextValue object) {
-				return createSingleLineTextValueAdapter();
+			public Adapter caseTextValue(TextValue object) {
+				return createTextValueAdapter();
 			}
 			@Override
 			public Adapter caseTab(Tab object) {
@@ -120,6 +131,34 @@ public class CorefieldsAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
+	 * Creates a new adapter for an object of class '{@link de.enithing.contenthub.model.contenthub.contentfragment.corefields.Number <em>Number</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.enithing.contenthub.model.contenthub.contentfragment.corefields.Number
+	 * @generated
+	 */
+	public Adapter createNumberAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.enithing.contenthub.model.contenthub.contentfragment.corefields.NumberValue <em>Number Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.enithing.contenthub.model.contenthub.contentfragment.corefields.NumberValue
+	 * @generated
+	 */
+	public Adapter createNumberValueAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link de.enithing.contenthub.model.contenthub.contentfragment.corefields.SingleLineText <em>Single Line Text</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -134,16 +173,16 @@ public class CorefieldsAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.enithing.contenthub.model.contenthub.contentfragment.corefields.SingleLineTextValue <em>Single Line Text Value</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.enithing.contenthub.model.contenthub.contentfragment.corefields.TextValue <em>Text Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.enithing.contenthub.model.contenthub.contentfragment.corefields.SingleLineTextValue
+	 * @see de.enithing.contenthub.model.contenthub.contentfragment.corefields.TextValue
 	 * @generated
 	 */
-	public Adapter createSingleLineTextValueAdapter() {
+	public Adapter createTextValueAdapter() {
 		return null;
 	}
 

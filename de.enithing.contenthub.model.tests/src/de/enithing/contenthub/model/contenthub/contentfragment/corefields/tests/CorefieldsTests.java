@@ -31,6 +31,7 @@ public class CorefieldsTests extends TestSuite {
 	 */
 	public static Test suite() {
 		TestSuite suite = new CorefieldsTests("corefields Tests");
+		suite.addTestSuite(NumberTest.class);
 		suite.addTestSuite(SingleLineTextTest.class);
 		suite.addTestSuite(TabTest.class);
 		return suite;

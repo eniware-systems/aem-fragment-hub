@@ -7,8 +7,11 @@ import de.enithing.contenthub.model.contenthub.contentfragment.ContentFragmentFi
 import de.enithing.contenthub.model.contenthub.contentfragment.GroupFieldType;
 import de.enithing.contenthub.model.contenthub.contentfragment.SimpleFieldType;
 
-import de.enithing.contenthub.model.contenthub.contentfragment.corefields.*;
-
+import de.enithing.contenthub.model.contenthub.contentfragment.corefields.CorefieldsPackage;
+import de.enithing.contenthub.model.contenthub.contentfragment.corefields.NumberValue;
+import de.enithing.contenthub.model.contenthub.contentfragment.corefields.SingleLineText;
+import de.enithing.contenthub.model.contenthub.contentfragment.corefields.Tab;
+import de.enithing.contenthub.model.contenthub.contentfragment.corefields.TextValue;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -71,6 +74,21 @@ public class CorefieldsSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
+			case CorefieldsPackage.NUMBER: {
+				de.enithing.contenthub.model.contenthub.contentfragment.corefields.Number number = (de.enithing.contenthub.model.contenthub.contentfragment.corefields.Number)theEObject;
+				T result = caseNumber(number);
+				if (result == null) result = caseSimpleFieldType(number);
+				if (result == null) result = caseContentFragmentFieldType(number);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CorefieldsPackage.NUMBER_VALUE: {
+				NumberValue numberValue = (NumberValue)theEObject;
+				T result = caseNumberValue(numberValue);
+				if (result == null) result = caseContentFragmentFieldValue(numberValue);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case CorefieldsPackage.SINGLE_LINE_TEXT: {
 				SingleLineText singleLineText = (SingleLineText)theEObject;
 				T result = caseSingleLineText(singleLineText);
@@ -79,10 +97,10 @@ public class CorefieldsSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case CorefieldsPackage.SINGLE_LINE_TEXT_VALUE: {
-				SingleLineTextValue singleLineTextValue = (SingleLineTextValue)theEObject;
-				T result = caseSingleLineTextValue(singleLineTextValue);
-				if (result == null) result = caseContentFragmentFieldValue(singleLineTextValue);
+			case CorefieldsPackage.TEXT_VALUE: {
+				TextValue textValue = (TextValue)theEObject;
+				T result = caseTextValue(textValue);
+				if (result == null) result = caseContentFragmentFieldValue(textValue);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -96,6 +114,36 @@ public class CorefieldsSwitch<T> extends Switch<T> {
 			}
 			default: return defaultCase(theEObject);
 		}
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Number</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Number</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseNumber(de.enithing.contenthub.model.contenthub.contentfragment.corefields.Number object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Number Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Number Value</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseNumberValue(NumberValue object) {
+		return null;
 	}
 
 	/**
@@ -114,17 +162,17 @@ public class CorefieldsSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Single Line Text Value</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Text Value</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Single Line Text Value</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Text Value</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSingleLineTextValue(SingleLineTextValue object) {
+	public T caseTextValue(TextValue object) {
 		return null;
 	}
 

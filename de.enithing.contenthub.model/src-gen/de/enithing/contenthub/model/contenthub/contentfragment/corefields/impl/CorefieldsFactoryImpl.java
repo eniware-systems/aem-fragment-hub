@@ -2,8 +2,12 @@
  */
 package de.enithing.contenthub.model.contenthub.contentfragment.corefields.impl;
 
-import de.enithing.contenthub.model.contenthub.contentfragment.corefields.*;
-
+import de.enithing.contenthub.model.contenthub.contentfragment.corefields.CorefieldsFactory;
+import de.enithing.contenthub.model.contenthub.contentfragment.corefields.CorefieldsPackage;
+import de.enithing.contenthub.model.contenthub.contentfragment.corefields.NumberValue;
+import de.enithing.contenthub.model.contenthub.contentfragment.corefields.SingleLineText;
+import de.enithing.contenthub.model.contenthub.contentfragment.corefields.Tab;
+import de.enithing.contenthub.model.contenthub.contentfragment.corefields.TextValue;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -56,12 +60,34 @@ public class CorefieldsFactoryImpl extends EFactoryImpl implements CorefieldsFac
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
+			case CorefieldsPackage.NUMBER: return createNumber();
+			case CorefieldsPackage.NUMBER_VALUE: return createNumberValue();
 			case CorefieldsPackage.SINGLE_LINE_TEXT: return createSingleLineText();
-			case CorefieldsPackage.SINGLE_LINE_TEXT_VALUE: return createSingleLineTextValue();
+			case CorefieldsPackage.TEXT_VALUE: return createTextValue();
 			case CorefieldsPackage.TAB: return createTab();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public de.enithing.contenthub.model.contenthub.contentfragment.corefields.Number createNumber() {
+		NumberImpl number = new NumberImpl();
+		return number;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NumberValue createNumberValue() {
+		NumberValueImpl numberValue = new NumberValueImpl();
+		return numberValue;
 	}
 
 	/**
@@ -79,9 +105,9 @@ public class CorefieldsFactoryImpl extends EFactoryImpl implements CorefieldsFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SingleLineTextValue createSingleLineTextValue() {
-		SingleLineTextValueImpl singleLineTextValue = new SingleLineTextValueImpl();
-		return singleLineTextValue;
+	public TextValue createTextValue() {
+		TextValueImpl textValue = new TextValueImpl();
+		return textValue;
 	}
 
 	/**

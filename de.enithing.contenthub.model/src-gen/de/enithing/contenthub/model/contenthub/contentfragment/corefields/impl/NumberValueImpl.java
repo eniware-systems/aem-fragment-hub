@@ -3,53 +3,55 @@
 package de.enithing.contenthub.model.contenthub.contentfragment.corefields.impl;
 
 import de.enithing.contenthub.model.contenthub.contentfragment.corefields.CorefieldsPackage;
-import de.enithing.contenthub.model.contenthub.contentfragment.corefields.SingleLineText;
-import de.enithing.contenthub.model.contenthub.contentfragment.corefields.TextValue;
-import de.enithing.contenthub.model.contenthub.contentfragment.impl.ContentFragmentFieldTypeImpl;
+import de.enithing.contenthub.model.contenthub.contentfragment.corefields.NumberValue;
+
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EClass;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Single Line Text</b></em>'.
+ * An implementation of the model object '<em><b>Number Value</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link de.enithing.contenthub.model.contenthub.contentfragment.corefields.impl.SingleLineTextImpl#getPlaceholderText <em>Placeholder Text</em>}</li>
+ *   <li>{@link de.enithing.contenthub.model.contenthub.contentfragment.corefields.impl.NumberValueImpl#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class SingleLineTextImpl extends ContentFragmentFieldTypeImpl<TextValue> implements SingleLineText {
+public class NumberValueImpl extends MinimalEObjectImpl.Container implements NumberValue {
 	/**
-	 * The default value of the '{@link #getPlaceholderText() <em>Placeholder Text</em>}' attribute.
+	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPlaceholderText()
+	 * @see #getValue()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String PLACEHOLDER_TEXT_EDEFAULT = null;
+	protected static final double VALUE_EDEFAULT = 0.0;
 
 	/**
-	 * The cached value of the '{@link #getPlaceholderText() <em>Placeholder Text</em>}' attribute.
+	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPlaceholderText()
+	 * @see #getValue()
 	 * @generated
 	 * @ordered
 	 */
-	protected String placeholderText = PLACEHOLDER_TEXT_EDEFAULT;
+	protected double value = VALUE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected SingleLineTextImpl() {
+	protected NumberValueImpl() {
 		super();
 	}
 
@@ -60,7 +62,7 @@ public class SingleLineTextImpl extends ContentFragmentFieldTypeImpl<TextValue> 
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return CorefieldsPackage.Literals.SINGLE_LINE_TEXT;
+		return CorefieldsPackage.Literals.NUMBER_VALUE;
 	}
 
 	/**
@@ -68,8 +70,8 @@ public class SingleLineTextImpl extends ContentFragmentFieldTypeImpl<TextValue> 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getPlaceholderText() {
-		return placeholderText;
+	public double getValue() {
+		return value;
 	}
 
 	/**
@@ -77,11 +79,11 @@ public class SingleLineTextImpl extends ContentFragmentFieldTypeImpl<TextValue> 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setPlaceholderText(String newPlaceholderText) {
-		String oldPlaceholderText = placeholderText;
-		placeholderText = newPlaceholderText;
+	public void setValue(double newValue) {
+		double oldValue = value;
+		value = newValue;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorefieldsPackage.SINGLE_LINE_TEXT__PLACEHOLDER_TEXT, oldPlaceholderText, placeholderText));
+			eNotify(new ENotificationImpl(this, Notification.SET, CorefieldsPackage.NUMBER_VALUE__VALUE, oldValue, value));
 	}
 
 	/**
@@ -92,8 +94,8 @@ public class SingleLineTextImpl extends ContentFragmentFieldTypeImpl<TextValue> 
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CorefieldsPackage.SINGLE_LINE_TEXT__PLACEHOLDER_TEXT:
-				return getPlaceholderText();
+			case CorefieldsPackage.NUMBER_VALUE__VALUE:
+				return getValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -106,8 +108,8 @@ public class SingleLineTextImpl extends ContentFragmentFieldTypeImpl<TextValue> 
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CorefieldsPackage.SINGLE_LINE_TEXT__PLACEHOLDER_TEXT:
-				setPlaceholderText((String)newValue);
+			case CorefieldsPackage.NUMBER_VALUE__VALUE:
+				setValue((Double)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -121,8 +123,8 @@ public class SingleLineTextImpl extends ContentFragmentFieldTypeImpl<TextValue> 
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CorefieldsPackage.SINGLE_LINE_TEXT__PLACEHOLDER_TEXT:
-				setPlaceholderText(PLACEHOLDER_TEXT_EDEFAULT);
+			case CorefieldsPackage.NUMBER_VALUE__VALUE:
+				setValue(VALUE_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -136,8 +138,8 @@ public class SingleLineTextImpl extends ContentFragmentFieldTypeImpl<TextValue> 
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CorefieldsPackage.SINGLE_LINE_TEXT__PLACEHOLDER_TEXT:
-				return PLACEHOLDER_TEXT_EDEFAULT == null ? placeholderText != null : !PLACEHOLDER_TEXT_EDEFAULT.equals(placeholderText);
+			case CorefieldsPackage.NUMBER_VALUE__VALUE:
+				return value != VALUE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -152,10 +154,10 @@ public class SingleLineTextImpl extends ContentFragmentFieldTypeImpl<TextValue> 
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (placeholderText: ");
-		result.append(placeholderText);
+		result.append(" (value: ");
+		result.append(value);
 		result.append(')');
 		return result.toString();
 	}
 
-} //SingleLineTextImpl
+} //NumberValueImpl

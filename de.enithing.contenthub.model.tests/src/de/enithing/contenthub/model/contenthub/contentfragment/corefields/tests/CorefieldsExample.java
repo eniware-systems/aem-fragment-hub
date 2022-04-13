@@ -4,7 +4,7 @@ package de.enithing.contenthub.model.contenthub.contentfragment.corefields.tests
 
 import de.enithing.contenthub.model.contenthub.contentfragment.corefields.CorefieldsFactory;
 import de.enithing.contenthub.model.contenthub.contentfragment.corefields.CorefieldsPackage;
-import de.enithing.contenthub.model.contenthub.contentfragment.corefields.SingleLineText;
+
 import java.io.File;
 import java.io.IOException;
 
@@ -59,7 +59,7 @@ public class CorefieldsExample {
 			System.out.println("Enter a list of file paths or URIs that have content like this:");
 			try {
 				Resource resource = resourceSet.createResource(URI.createURI("http:///My.corefields"));
-				SingleLineText root = CorefieldsFactory.eINSTANCE.createSingleLineText();
+				de.enithing.contenthub.model.contenthub.contentfragment.corefields.Number root = CorefieldsFactory.eINSTANCE.createNumber();
 				resource.getContents().add(root);
 				resource.save(System.out, null);
 			}
