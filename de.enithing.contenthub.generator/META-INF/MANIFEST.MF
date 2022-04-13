@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ContentHub Generator
+Bundle-SymbolicName: de.enithing.contenthub.generator
+Bundle-Version: 1.0.0.qualifier
+Automatic-Module-Name: de.enithing.contenthub.generator
+Bundle-RequiredExecutionEnvironment: JavaSE-17
+Require-Bundle: de.enithing.contenthub.model
+Export-Package: de.enithing.contenthub.generator

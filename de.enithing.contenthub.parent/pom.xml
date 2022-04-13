@@ -63,5 +63,7 @@
 		<module>../de.enithing.contenthub.editor</module>
 		<module>../de.enithing.contenthub.feature</module>
 		<module>../de.enithing.contenthub.product</module>
+		
+		<module>../de.enithing.contenthub.generator</module>
 	</modules>
 </project>
