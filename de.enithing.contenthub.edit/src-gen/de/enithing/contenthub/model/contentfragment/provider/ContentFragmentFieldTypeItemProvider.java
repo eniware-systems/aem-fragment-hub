@@ -62,27 +62,27 @@ public class ContentFragmentFieldTypeItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addIdPropertyDescriptor(object);
-			addLabelPropertyDescriptor(object);
+			addPropertyNamePropertyDescriptor(object);
+			addFieldLabelPropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Id feature.
+	 * This adds a property descriptor for the Property Name feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addIdPropertyDescriptor(Object object) {
+	protected void addPropertyNamePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ContentFragmentFieldType_id_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ContentFragmentFieldType_id_feature", "_UI_ContentFragmentFieldType_type"),
-				 ContentFragmentPackage.Literals.CONTENT_FRAGMENT_FIELD_TYPE__ID,
+				 getString("_UI_ContentFragmentFieldType_propertyName_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ContentFragmentFieldType_propertyName_feature", "_UI_ContentFragmentFieldType_type"),
+				 ContentFragmentPackage.Literals.CONTENT_FRAGMENT_FIELD_TYPE__PROPERTY_NAME,
 				 true,
 				 false,
 				 false,
@@ -92,19 +92,19 @@ public class ContentFragmentFieldTypeItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Label feature.
+	 * This adds a property descriptor for the Field Label feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addLabelPropertyDescriptor(Object object) {
+	protected void addFieldLabelPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ContentFragmentFieldType_label_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ContentFragmentFieldType_label_feature", "_UI_ContentFragmentFieldType_type"),
-				 ContentFragmentPackage.Literals.CONTENT_FRAGMENT_FIELD_TYPE__LABEL,
+				 getString("_UI_ContentFragmentFieldType_fieldLabel_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ContentFragmentFieldType_fieldLabel_feature", "_UI_ContentFragmentFieldType_type"),
+				 ContentFragmentPackage.Literals.CONTENT_FRAGMENT_FIELD_TYPE__FIELD_LABEL,
 				 true,
 				 false,
 				 false,
@@ -143,7 +143,7 @@ public class ContentFragmentFieldTypeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ContentFragmentFieldType<?>)object).getId();
+		String label = ((ContentFragmentFieldType<?>)object).getPropertyName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_ContentFragmentFieldType_type") :
 			getString("_UI_ContentFragmentFieldType_type") + " " + label;
@@ -162,8 +162,8 @@ public class ContentFragmentFieldTypeItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ContentFragmentFieldType.class)) {
-			case ContentFragmentPackage.CONTENT_FRAGMENT_FIELD_TYPE__ID:
-			case ContentFragmentPackage.CONTENT_FRAGMENT_FIELD_TYPE__LABEL:
+			case ContentFragmentPackage.CONTENT_FRAGMENT_FIELD_TYPE__PROPERTY_NAME:
+			case ContentFragmentPackage.CONTENT_FRAGMENT_FIELD_TYPE__FIELD_LABEL:
 			case ContentFragmentPackage.CONTENT_FRAGMENT_FIELD_TYPE__DESCRIPTION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

@@ -4,6 +4,7 @@ package de.enithing.contenthub.model.contentfragment.util;
 
 import de.enithing.contenthub.model.contentfragment.*;
 
+import de.enithing.contenthub.model.contenthub.ContextPolicy;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 
@@ -94,6 +95,22 @@ public class ContentFragmentAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseContentFragmentFieldValue(ContentFragmentFieldValue object) {
 				return createContentFragmentFieldValueAdapter();
+			}
+			@Override
+			public Adapter caseIdContentFragmentFieldType(IdContentFragmentFieldType object) {
+				return createIdContentFragmentFieldTypeAdapter();
+			}
+			@Override
+			public Adapter caseAllowedContentFragmentModelPolicy(AllowedContentFragmentModelPolicy object) {
+				return createAllowedContentFragmentModelPolicyAdapter();
+			}
+			@Override
+			public <TValue extends ContentFragmentFieldValue> Adapter caseMultiFieldType(MultiFieldType<TValue> object) {
+				return createMultiFieldTypeAdapter();
+			}
+			@Override
+			public Adapter caseContextPolicy(ContextPolicy object) {
+				return createContextPolicyAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -210,6 +227,62 @@ public class ContentFragmentAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createContentFragmentFieldValueAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.enithing.contenthub.model.contentfragment.IdContentFragmentFieldType <em>Id Content Fragment Field Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.enithing.contenthub.model.contentfragment.IdContentFragmentFieldType
+	 * @generated
+	 */
+	public Adapter createIdContentFragmentFieldTypeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.enithing.contenthub.model.contentfragment.AllowedContentFragmentModelPolicy <em>Allowed Content Fragment Model Policy</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.enithing.contenthub.model.contentfragment.AllowedContentFragmentModelPolicy
+	 * @generated
+	 */
+	public Adapter createAllowedContentFragmentModelPolicyAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.enithing.contenthub.model.contentfragment.MultiFieldType <em>Multi Field Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.enithing.contenthub.model.contentfragment.MultiFieldType
+	 * @generated
+	 */
+	public Adapter createMultiFieldTypeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.enithing.contenthub.model.contenthub.ContextPolicy <em>Context Policy</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.enithing.contenthub.model.contenthub.ContextPolicy
+	 * @generated
+	 */
+	public Adapter createContextPolicyAdapter() {
 		return null;
 	}
 

@@ -5,6 +5,7 @@ package de.enithing.contenthub.model.contenthub.util;
 import de.enithing.contenthub.model.contenthub.ChildContext;
 import de.enithing.contenthub.model.contenthub.ContentHubPackage;
 import de.enithing.contenthub.model.contenthub.Context;
+import de.enithing.contenthub.model.contenthub.ContextPolicy;
 import de.enithing.contenthub.model.contenthub.RootContext;
 
 import org.eclipse.emf.common.notify.Adapter;
@@ -87,6 +88,10 @@ public class ContentHubAdapterFactory extends AdapterFactoryImpl {
 				return createChildContextAdapter();
 			}
 			@Override
+			public Adapter caseContextPolicy(ContextPolicy object) {
+				return createContextPolicyAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -159,6 +164,20 @@ public class ContentHubAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createChildContextAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.enithing.contenthub.model.contenthub.ContextPolicy <em>Context Policy</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.enithing.contenthub.model.contenthub.ContextPolicy
+	 * @generated
+	 */
+	public Adapter createContextPolicyAdapter() {
 		return null;
 	}
 

@@ -49,6 +49,15 @@ public interface ContentFragmentFactory extends EFactory {
 	ContentFragmentFieldInstance createContentFragmentFieldInstance();
 
 	/**
+	 * Returns a new object of class '<em>Allowed Content Fragment Model Policy</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Allowed Content Fragment Model Policy</em>'.
+	 * @generated
+	 */
+	AllowedContentFragmentModelPolicy createAllowedContentFragmentModelPolicy();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

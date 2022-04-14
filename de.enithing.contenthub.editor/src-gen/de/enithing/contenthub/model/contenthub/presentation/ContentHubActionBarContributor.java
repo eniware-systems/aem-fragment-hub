@@ -3,8 +3,6 @@
 package de.enithing.contenthub.model.contenthub.presentation;
 
 import de.enithing.contenthub.editor.ContentHubEditorPlugin;
-import de.enithing.contenthub.editor.GenerateAction;
-
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -198,15 +196,12 @@ public class ContentHubActionBarContributor
 		//
 		createSiblingMenuManager = new MenuManager(ContentHubEditorPlugin.INSTANCE.getString("_UI_CreateSibling_menu_item"));
 		submenuManager.insertBefore("additions", createSiblingMenuManager);
-		
-		Action generateAction = new GenerateAction();
-		
-		submenuManager.insertAfter("actions", generateAction);
 
 		// Force an update because Eclipse hides empty menus now.
 		//
 		submenuManager.addMenuListener
 			(new IMenuListener() {
+				 @Override
 				 public void menuAboutToShow(IMenuManager menuManager) {
 					 menuManager.updateAll(true);
 				 }
@@ -254,6 +249,7 @@ public class ContentHubActionBarContributor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void selectionChanged(SelectionChangedEvent event) {
 		// Remove any menu items for old selection.
 		//

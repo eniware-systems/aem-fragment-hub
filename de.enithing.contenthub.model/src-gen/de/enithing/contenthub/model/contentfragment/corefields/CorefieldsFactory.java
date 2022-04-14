@@ -49,6 +49,15 @@ public interface CorefieldsFactory extends EFactory {
 	SingleLineText createSingleLineText();
 
 	/**
+	 * Returns a new object of class '<em>Multi Line Text</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Multi Line Text</em>'.
+	 * @generated
+	 */
+	MultiLineText createMultiLineText();
+
+	/**
 	 * Returns a new object of class '<em>Text Value</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -65,6 +74,24 @@ public interface CorefieldsFactory extends EFactory {
 	 * @generated
 	 */
 	Tab createTab();
+
+	/**
+	 * Returns a new object of class '<em>Content Fragment Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Content Fragment Reference</em>'.
+	 * @generated
+	 */
+	ContentFragmentReference createContentFragmentReference();
+
+	/**
+	 * Returns a new object of class '<em>Content Fragment Reference Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Content Fragment Reference Value</em>'.
+	 * @generated
+	 */
+	ContentFragmentReferenceValue createContentFragmentReferenceValue();
 
 	/**
 	 * Returns the package supported by this factory.

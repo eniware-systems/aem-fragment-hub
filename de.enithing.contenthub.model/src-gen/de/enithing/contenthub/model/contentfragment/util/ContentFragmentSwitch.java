@@ -4,6 +4,7 @@ package de.enithing.contenthub.model.contentfragment.util;
 
 import de.enithing.contenthub.model.contentfragment.*;
 
+import de.enithing.contenthub.model.contenthub.ContextPolicy;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -107,6 +108,27 @@ public class ContentFragmentSwitch<T> extends Switch<T> {
 			case ContentFragmentPackage.CONTENT_FRAGMENT_FIELD_VALUE: {
 				ContentFragmentFieldValue contentFragmentFieldValue = (ContentFragmentFieldValue)theEObject;
 				T result = caseContentFragmentFieldValue(contentFragmentFieldValue);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ContentFragmentPackage.ID_CONTENT_FRAGMENT_FIELD_TYPE: {
+				IdContentFragmentFieldType idContentFragmentFieldType = (IdContentFragmentFieldType)theEObject;
+				T result = caseIdContentFragmentFieldType(idContentFragmentFieldType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ContentFragmentPackage.ALLOWED_CONTENT_FRAGMENT_MODEL_POLICY: {
+				AllowedContentFragmentModelPolicy allowedContentFragmentModelPolicy = (AllowedContentFragmentModelPolicy)theEObject;
+				T result = caseAllowedContentFragmentModelPolicy(allowedContentFragmentModelPolicy);
+				if (result == null) result = caseContextPolicy(allowedContentFragmentModelPolicy);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ContentFragmentPackage.MULTI_FIELD_TYPE: {
+				MultiFieldType<?> multiFieldType = (MultiFieldType<?>)theEObject;
+				T result = caseMultiFieldType(multiFieldType);
+				if (result == null) result = caseSimpleFieldType(multiFieldType);
+				if (result == null) result = caseContentFragmentFieldType(multiFieldType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -216,6 +238,66 @@ public class ContentFragmentSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseContentFragmentFieldValue(ContentFragmentFieldValue object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Id Content Fragment Field Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Id Content Fragment Field Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIdContentFragmentFieldType(IdContentFragmentFieldType object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Allowed Content Fragment Model Policy</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Allowed Content Fragment Model Policy</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAllowedContentFragmentModelPolicy(AllowedContentFragmentModelPolicy object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Multi Field Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Multi Field Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public <TValue extends ContentFragmentFieldValue> T caseMultiFieldType(MultiFieldType<TValue> object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Context Policy</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Context Policy</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseContextPolicy(ContextPolicy object) {
 		return null;
 	}
 

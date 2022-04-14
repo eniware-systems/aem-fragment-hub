@@ -13,8 +13,8 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link de.enithing.contenthub.model.contentfragment.ContentFragmentFieldType#getId <em>Id</em>}</li>
- *   <li>{@link de.enithing.contenthub.model.contentfragment.ContentFragmentFieldType#getLabel <em>Label</em>}</li>
+ *   <li>{@link de.enithing.contenthub.model.contentfragment.ContentFragmentFieldType#getPropertyName <em>Property Name</em>}</li>
+ *   <li>{@link de.enithing.contenthub.model.contentfragment.ContentFragmentFieldType#getFieldLabel <em>Field Label</em>}</li>
  *   <li>{@link de.enithing.contenthub.model.contentfragment.ContentFragmentFieldType#getDescription <em>Description</em>}</li>
  * </ul>
  *
@@ -24,48 +24,48 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface ContentFragmentFieldType<TValue extends ContentFragmentFieldValue> extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Id</b></em>' attribute.
+	 * Returns the value of the '<em><b>Property Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Id</em>' attribute.
-	 * @see #setId(String)
-	 * @see de.enithing.contenthub.model.contentfragment.ContentFragmentPackage#getContentFragmentFieldType_Id()
+	 * @return the value of the '<em>Property Name</em>' attribute.
+	 * @see #setPropertyName(String)
+	 * @see de.enithing.contenthub.model.contentfragment.ContentFragmentPackage#getContentFragmentFieldType_PropertyName()
 	 * @model id="true" required="true"
 	 * @generated
 	 */
-	String getId();
+	String getPropertyName();
 
 	/**
-	 * Sets the value of the '{@link de.enithing.contenthub.model.contentfragment.ContentFragmentFieldType#getId <em>Id</em>}' attribute.
+	 * Sets the value of the '{@link de.enithing.contenthub.model.contentfragment.ContentFragmentFieldType#getPropertyName <em>Property Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Id</em>' attribute.
-	 * @see #getId()
+	 * @param value the new value of the '<em>Property Name</em>' attribute.
+	 * @see #getPropertyName()
 	 * @generated
 	 */
-	void setId(String value);
+	void setPropertyName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Label</b></em>' attribute.
+	 * Returns the value of the '<em><b>Field Label</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Label</em>' attribute.
-	 * @see #setLabel(String)
-	 * @see de.enithing.contenthub.model.contentfragment.ContentFragmentPackage#getContentFragmentFieldType_Label()
+	 * @return the value of the '<em>Field Label</em>' attribute.
+	 * @see #setFieldLabel(String)
+	 * @see de.enithing.contenthub.model.contentfragment.ContentFragmentPackage#getContentFragmentFieldType_FieldLabel()
 	 * @model required="true"
 	 * @generated
 	 */
-	String getLabel();
+	String getFieldLabel();
 
 	/**
-	 * Sets the value of the '{@link de.enithing.contenthub.model.contentfragment.ContentFragmentFieldType#getLabel <em>Label</em>}' attribute.
+	 * Sets the value of the '{@link de.enithing.contenthub.model.contentfragment.ContentFragmentFieldType#getFieldLabel <em>Field Label</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Label</em>' attribute.
-	 * @see #getLabel()
+	 * @param value the new value of the '<em>Field Label</em>' attribute.
+	 * @see #getFieldLabel()
 	 * @generated
 	 */
-	void setLabel(String value);
+	void setFieldLabel(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Description</b></em>' attribute.

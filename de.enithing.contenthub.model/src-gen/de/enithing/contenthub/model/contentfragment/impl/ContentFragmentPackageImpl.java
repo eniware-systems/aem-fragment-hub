@@ -2,6 +2,7 @@
  */
 package de.enithing.contenthub.model.contentfragment.impl;
 
+import de.enithing.contenthub.model.contentfragment.AllowedContentFragmentModelPolicy;
 import de.enithing.contenthub.model.contentfragment.ContentFragmentFactory;
 import de.enithing.contenthub.model.contentfragment.ContentFragmentFieldInstance;
 import de.enithing.contenthub.model.contentfragment.ContentFragmentFieldType;
@@ -10,6 +11,8 @@ import de.enithing.contenthub.model.contentfragment.ContentFragmentInstance;
 import de.enithing.contenthub.model.contentfragment.ContentFragmentModel;
 import de.enithing.contenthub.model.contentfragment.ContentFragmentPackage;
 import de.enithing.contenthub.model.contentfragment.GroupFieldType;
+import de.enithing.contenthub.model.contentfragment.IdContentFragmentFieldType;
+import de.enithing.contenthub.model.contentfragment.MultiFieldType;
 import de.enithing.contenthub.model.contentfragment.SimpleFieldType;
 
 import de.enithing.contenthub.model.contentfragment.corefields.CorefieldsPackage;
@@ -85,6 +88,27 @@ public class ContentFragmentPackageImpl extends EPackageImpl implements ContentF
 	 * @generated
 	 */
 	private EClass contentFragmentFieldValueEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass idContentFragmentFieldTypeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass allowedContentFragmentModelPolicyEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass multiFieldTypeEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -243,7 +267,7 @@ public class ContentFragmentPackageImpl extends EPackageImpl implements ContentF
 	 * @generated
 	 */
 	@Override
-	public EAttribute getContentFragmentFieldType_Id() {
+	public EAttribute getContentFragmentFieldType_PropertyName() {
 		return (EAttribute)contentFragmentFieldTypeEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -253,7 +277,7 @@ public class ContentFragmentPackageImpl extends EPackageImpl implements ContentF
 	 * @generated
 	 */
 	@Override
-	public EAttribute getContentFragmentFieldType_Label() {
+	public EAttribute getContentFragmentFieldType_FieldLabel() {
 		return (EAttribute)contentFragmentFieldTypeEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -293,8 +317,38 @@ public class ContentFragmentPackageImpl extends EPackageImpl implements ContentF
 	 * @generated
 	 */
 	@Override
+	public EAttribute getContentFragmentInstance_Id() {
+		return (EAttribute)contentFragmentInstanceEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getContentFragmentInstance_Title() {
+		return (EAttribute)contentFragmentInstanceEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getContentFragmentInstance_Description() {
+		return (EAttribute)contentFragmentInstanceEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EReference getContentFragmentInstance_Model() {
-		return (EReference)contentFragmentInstanceEClass.getEStructuralFeatures().get(0);
+		return (EReference)contentFragmentInstanceEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -304,7 +358,17 @@ public class ContentFragmentPackageImpl extends EPackageImpl implements ContentF
 	 */
 	@Override
 	public EReference getContentFragmentInstance_Fields() {
-		return (EReference)contentFragmentInstanceEClass.getEStructuralFeatures().get(1);
+		return (EReference)contentFragmentInstanceEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getContentFragmentInstance_Context() {
+		return (EReference)contentFragmentInstanceEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -383,6 +447,56 @@ public class ContentFragmentPackageImpl extends EPackageImpl implements ContentF
 	 * @generated
 	 */
 	@Override
+	public EClass getIdContentFragmentFieldType() {
+		return idContentFragmentFieldTypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getAllowedContentFragmentModelPolicy() {
+		return allowedContentFragmentModelPolicyEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getAllowedContentFragmentModelPolicy_Models() {
+		return (EReference)allowedContentFragmentModelPolicyEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getMultiFieldType() {
+		return multiFieldTypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMultiFieldType_AllowMultiple() {
+		return (EAttribute)multiFieldTypeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public ContentFragmentFactory getContentFragmentFactory() {
 		return (ContentFragmentFactory)getEFactoryInstance();
 	}
@@ -415,14 +529,18 @@ public class ContentFragmentPackageImpl extends EPackageImpl implements ContentF
 		createEOperation(contentFragmentModelEClass, CONTENT_FRAGMENT_MODEL___GET_ALL_CHILDREN);
 
 		contentFragmentFieldTypeEClass = createEClass(CONTENT_FRAGMENT_FIELD_TYPE);
-		createEAttribute(contentFragmentFieldTypeEClass, CONTENT_FRAGMENT_FIELD_TYPE__ID);
-		createEAttribute(contentFragmentFieldTypeEClass, CONTENT_FRAGMENT_FIELD_TYPE__LABEL);
+		createEAttribute(contentFragmentFieldTypeEClass, CONTENT_FRAGMENT_FIELD_TYPE__PROPERTY_NAME);
+		createEAttribute(contentFragmentFieldTypeEClass, CONTENT_FRAGMENT_FIELD_TYPE__FIELD_LABEL);
 		createEAttribute(contentFragmentFieldTypeEClass, CONTENT_FRAGMENT_FIELD_TYPE__DESCRIPTION);
 		createEOperation(contentFragmentFieldTypeEClass, CONTENT_FRAGMENT_FIELD_TYPE___CREATE_EMPTY_VALUE);
 
 		contentFragmentInstanceEClass = createEClass(CONTENT_FRAGMENT_INSTANCE);
+		createEAttribute(contentFragmentInstanceEClass, CONTENT_FRAGMENT_INSTANCE__ID);
+		createEAttribute(contentFragmentInstanceEClass, CONTENT_FRAGMENT_INSTANCE__TITLE);
+		createEAttribute(contentFragmentInstanceEClass, CONTENT_FRAGMENT_INSTANCE__DESCRIPTION);
 		createEReference(contentFragmentInstanceEClass, CONTENT_FRAGMENT_INSTANCE__MODEL);
 		createEReference(contentFragmentInstanceEClass, CONTENT_FRAGMENT_INSTANCE__FIELDS);
+		createEReference(contentFragmentInstanceEClass, CONTENT_FRAGMENT_INSTANCE__CONTEXT);
 
 		contentFragmentFieldInstanceEClass = createEClass(CONTENT_FRAGMENT_FIELD_INSTANCE);
 		createEReference(contentFragmentFieldInstanceEClass, CONTENT_FRAGMENT_FIELD_INSTANCE__FIELDTYPE);
@@ -434,6 +552,14 @@ public class ContentFragmentPackageImpl extends EPackageImpl implements ContentF
 		createEReference(groupFieldTypeEClass, GROUP_FIELD_TYPE__FIELDS);
 
 		contentFragmentFieldValueEClass = createEClass(CONTENT_FRAGMENT_FIELD_VALUE);
+
+		idContentFragmentFieldTypeEClass = createEClass(ID_CONTENT_FRAGMENT_FIELD_TYPE);
+
+		allowedContentFragmentModelPolicyEClass = createEClass(ALLOWED_CONTENT_FRAGMENT_MODEL_POLICY);
+		createEReference(allowedContentFragmentModelPolicyEClass, ALLOWED_CONTENT_FRAGMENT_MODEL_POLICY__MODELS);
+
+		multiFieldTypeEClass = createEClass(MULTI_FIELD_TYPE);
+		createEAttribute(multiFieldTypeEClass, MULTI_FIELD_TYPE__ALLOW_MULTIPLE);
 	}
 
 	/**
@@ -470,6 +596,7 @@ public class ContentFragmentPackageImpl extends EPackageImpl implements ContentF
 		ETypeParameter contentFragmentFieldTypeEClass_TValue = addETypeParameter(contentFragmentFieldTypeEClass, "TValue");
 		ETypeParameter simpleFieldTypeEClass_TValue = addETypeParameter(simpleFieldTypeEClass, "TValue");
 		ETypeParameter groupFieldTypeEClass_TValue = addETypeParameter(groupFieldTypeEClass, "TValue");
+		ETypeParameter multiFieldTypeEClass_TValue = addETypeParameter(multiFieldTypeEClass, "TValue");
 
 		// Set bounds for type parameters
 		EGenericType g1 = createEGenericType(this.getContentFragmentFieldValue());
@@ -478,6 +605,8 @@ public class ContentFragmentPackageImpl extends EPackageImpl implements ContentF
 		simpleFieldTypeEClass_TValue.getEBounds().add(g1);
 		g1 = createEGenericType(this.getContentFragmentFieldValue());
 		groupFieldTypeEClass_TValue.getEBounds().add(g1);
+		g1 = createEGenericType(this.getContentFragmentFieldValue());
+		multiFieldTypeEClass_TValue.getEBounds().add(g1);
 
 		// Add supertypes to classes
 		g1 = createEGenericType(this.getContentFragmentFieldType());
@@ -488,11 +617,16 @@ public class ContentFragmentPackageImpl extends EPackageImpl implements ContentF
 		g2 = createEGenericType(groupFieldTypeEClass_TValue);
 		g1.getETypeArguments().add(g2);
 		groupFieldTypeEClass.getEGenericSuperTypes().add(g1);
+		allowedContentFragmentModelPolicyEClass.getESuperTypes().add(theContentHubPackage.getContextPolicy());
+		g1 = createEGenericType(this.getSimpleFieldType());
+		g2 = createEGenericType(multiFieldTypeEClass_TValue);
+		g1.getETypeArguments().add(g2);
+		multiFieldTypeEClass.getEGenericSuperTypes().add(g1);
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(contentFragmentModelEClass, ContentFragmentModel.class, "ContentFragmentModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getContentFragmentModel_Fields(), this.getContentFragmentFieldType(), null, "fields", null, 0, -1, ContentFragmentModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		getContentFragmentModel_Fields().getEKeys().add(this.getContentFragmentFieldType_Id());
+		getContentFragmentModel_Fields().getEKeys().add(this.getContentFragmentFieldType_PropertyName());
 		initEReference(getContentFragmentModel_Context(), theContentHubPackage.getContext(), theContentHubPackage.getContext_ContentFragmentModels(), "context", null, 1, 1, ContentFragmentModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getContentFragmentModel_Id(), ecorePackage.getEString(), "id", null, 1, 1, ContentFragmentModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getContentFragmentModel_Title(), ecorePackage.getEString(), "title", null, 1, 1, ContentFragmentModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -505,8 +639,8 @@ public class ContentFragmentPackageImpl extends EPackageImpl implements ContentF
 		initEOperation(op, g1);
 
 		initEClass(contentFragmentFieldTypeEClass, ContentFragmentFieldType.class, "ContentFragmentFieldType", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getContentFragmentFieldType_Id(), ecorePackage.getEString(), "id", null, 1, 1, ContentFragmentFieldType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getContentFragmentFieldType_Label(), ecorePackage.getEString(), "label", null, 1, 1, ContentFragmentFieldType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getContentFragmentFieldType_PropertyName(), ecorePackage.getEString(), "propertyName", null, 1, 1, ContentFragmentFieldType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getContentFragmentFieldType_FieldLabel(), ecorePackage.getEString(), "fieldLabel", null, 1, 1, ContentFragmentFieldType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getContentFragmentFieldType_Description(), ecorePackage.getEString(), "description", null, 0, 1, ContentFragmentFieldType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getContentFragmentFieldType__CreateEmptyValue(), null, "createEmptyValue", 1, 1, IS_UNIQUE, IS_ORDERED);
@@ -514,8 +648,12 @@ public class ContentFragmentPackageImpl extends EPackageImpl implements ContentF
 		initEOperation(op, g1);
 
 		initEClass(contentFragmentInstanceEClass, ContentFragmentInstance.class, "ContentFragmentInstance", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getContentFragmentInstance_Id(), ecorePackage.getEString(), "id", null, 1, 1, ContentFragmentInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getContentFragmentInstance_Title(), ecorePackage.getEString(), "title", null, 1, 1, ContentFragmentInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getContentFragmentInstance_Description(), ecorePackage.getEString(), "description", null, 0, 1, ContentFragmentInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getContentFragmentInstance_Model(), this.getContentFragmentModel(), null, "model", null, 1, 1, ContentFragmentInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getContentFragmentInstance_Fields(), this.getContentFragmentFieldInstance(), null, "fields", null, 0, -1, ContentFragmentInstance.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getContentFragmentInstance_Context(), theContentHubPackage.getContext(), theContentHubPackage.getContext_ContentFragments(), "context", null, 1, 1, ContentFragmentInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(contentFragmentFieldInstanceEClass, ContentFragmentFieldInstance.class, "ContentFragmentFieldInstance", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getContentFragmentFieldInstance_Fieldtype(), this.getContentFragmentFieldType(), null, "fieldtype", null, 1, 1, ContentFragmentFieldInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -525,9 +663,17 @@ public class ContentFragmentPackageImpl extends EPackageImpl implements ContentF
 
 		initEClass(groupFieldTypeEClass, GroupFieldType.class, "GroupFieldType", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getGroupFieldType_Fields(), this.getSimpleFieldType(), null, "fields", null, 0, -1, GroupFieldType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		getGroupFieldType_Fields().getEKeys().add(this.getContentFragmentFieldType_Id());
+		getGroupFieldType_Fields().getEKeys().add(this.getContentFragmentFieldType_PropertyName());
 
 		initEClass(contentFragmentFieldValueEClass, ContentFragmentFieldValue.class, "ContentFragmentFieldValue", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(idContentFragmentFieldTypeEClass, IdContentFragmentFieldType.class, "IdContentFragmentFieldType", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(allowedContentFragmentModelPolicyEClass, AllowedContentFragmentModelPolicy.class, "AllowedContentFragmentModelPolicy", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getAllowedContentFragmentModelPolicy_Models(), this.getContentFragmentModel(), null, "models", null, 0, -1, AllowedContentFragmentModelPolicy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(multiFieldTypeEClass, MultiFieldType.class, "MultiFieldType", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getMultiFieldType_AllowMultiple(), ecorePackage.getEBoolean(), "allowMultiple", "false", 1, 1, MultiFieldType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 	}
 
 } //ContentFragmentPackageImpl

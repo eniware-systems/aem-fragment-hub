@@ -107,7 +107,7 @@ public class TabItemProvider extends ContentFragmentFieldTypeItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Tab)object).getId();
+		String label = ((Tab)object).getPropertyName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Tab_type") :
 			getString("_UI_Tab_type") + " " + label;
@@ -153,6 +153,16 @@ public class TabItemProvider extends ContentFragmentFieldTypeItemProvider {
 			(createChildParameter
 				(ContentFragmentPackage.Literals.GROUP_FIELD_TYPE__FIELDS,
 				 CorefieldsFactory.eINSTANCE.createSingleLineText()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ContentFragmentPackage.Literals.GROUP_FIELD_TYPE__FIELDS,
+				 CorefieldsFactory.eINSTANCE.createMultiLineText()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ContentFragmentPackage.Literals.GROUP_FIELD_TYPE__FIELDS,
+				 CorefieldsFactory.eINSTANCE.createContentFragmentReference()));
 	}
 
 	/**

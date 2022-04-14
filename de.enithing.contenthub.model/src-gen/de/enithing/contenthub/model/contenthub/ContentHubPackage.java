@@ -69,22 +69,58 @@ public interface ContentHubPackage extends EPackage {
 	int PACKAGE = 0;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Group</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE__GROUP = 1;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE__DESCRIPTION = 2;
+
+	/**
+	 * The feature id for the '<em><b>Author</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE__AUTHOR = 3;
+
+	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE__VERSION = 4;
+
+	/**
 	 * The feature id for the '<em><b>Contexts</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__CONTEXTS = 0;
-
-	/**
-	 * The feature id for the '<em><b>Path</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PACKAGE__PATH = 1;
+	int PACKAGE__CONTEXTS = 5;
 
 	/**
 	 * The number of structural features of the '<em>Package</em>' class.
@@ -93,7 +129,7 @@ public interface ContentHubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE_FEATURE_COUNT = 2;
+	int PACKAGE_FEATURE_COUNT = 6;
 
 	/**
 	 * The number of operations of the '<em>Package</em>' class.
@@ -142,13 +178,22 @@ public interface ContentHubPackage extends EPackage {
 	int CONTEXT__CONTENT_FRAGMENTS = 2;
 
 	/**
+	 * The feature id for the '<em><b>Policies</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTEXT__POLICIES = 3;
+
+	/**
 	 * The number of structural features of the '<em>Context</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTEXT_FEATURE_COUNT = 3;
+	int CONTEXT_FEATURE_COUNT = 4;
 
 	/**
 	 * The operation id for the '<em>Get Root Context</em>' operation.
@@ -160,13 +205,31 @@ public interface ContentHubPackage extends EPackage {
 	int CONTEXT___GET_ROOT_CONTEXT = 0;
 
 	/**
+	 * The operation id for the '<em>Get Related Contexts</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTEXT___GET_RELATED_CONTEXTS = 1;
+
+	/**
+	 * The operation id for the '<em>Get Related Policies</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTEXT___GET_RELATED_POLICIES = 2;
+
+	/**
 	 * The number of operations of the '<em>Context</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTEXT_OPERATION_COUNT = 1;
+	int CONTEXT_OPERATION_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link de.enithing.contenthub.model.contenthub.impl.RootContextImpl <em>Root Context</em>}' class.
@@ -206,6 +269,15 @@ public interface ContentHubPackage extends EPackage {
 	int ROOT_CONTEXT__CONTENT_FRAGMENTS = CONTEXT__CONTENT_FRAGMENTS;
 
 	/**
+	 * The feature id for the '<em><b>Policies</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOT_CONTEXT__POLICIES = CONTEXT__POLICIES;
+
+	/**
 	 * The feature id for the '<em><b>Jcr Root Path</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -231,6 +303,24 @@ public interface ContentHubPackage extends EPackage {
 	 * @ordered
 	 */
 	int ROOT_CONTEXT___GET_ROOT_CONTEXT = CONTEXT___GET_ROOT_CONTEXT;
+
+	/**
+	 * The operation id for the '<em>Get Related Contexts</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOT_CONTEXT___GET_RELATED_CONTEXTS = CONTEXT___GET_RELATED_CONTEXTS;
+
+	/**
+	 * The operation id for the '<em>Get Related Policies</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOT_CONTEXT___GET_RELATED_POLICIES = CONTEXT___GET_RELATED_POLICIES;
 
 	/**
 	 * The number of operations of the '<em>Root Context</em>' class.
@@ -279,6 +369,15 @@ public interface ContentHubPackage extends EPackage {
 	int CHILD_CONTEXT__CONTENT_FRAGMENTS = CONTEXT__CONTENT_FRAGMENTS;
 
 	/**
+	 * The feature id for the '<em><b>Policies</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHILD_CONTEXT__POLICIES = CONTEXT__POLICIES;
+
+	/**
 	 * The feature id for the '<em><b>Parent Context</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -315,6 +414,24 @@ public interface ContentHubPackage extends EPackage {
 	int CHILD_CONTEXT___GET_ROOT_CONTEXT = CONTEXT___GET_ROOT_CONTEXT;
 
 	/**
+	 * The operation id for the '<em>Get Related Contexts</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHILD_CONTEXT___GET_RELATED_CONTEXTS = CONTEXT___GET_RELATED_CONTEXTS;
+
+	/**
+	 * The operation id for the '<em>Get Related Policies</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHILD_CONTEXT___GET_RELATED_POLICIES = CONTEXT___GET_RELATED_POLICIES;
+
+	/**
 	 * The number of operations of the '<em>Child Context</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -324,6 +441,34 @@ public interface ContentHubPackage extends EPackage {
 	int CHILD_CONTEXT_OPERATION_COUNT = CONTEXT_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link de.enithing.contenthub.model.contenthub.ContextPolicy <em>Context Policy</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.enithing.contenthub.model.contenthub.ContextPolicy
+	 * @see de.enithing.contenthub.model.contenthub.impl.ContentHubPackageImpl#getContextPolicy()
+	 * @generated
+	 */
+	int CONTEXT_POLICY = 4;
+
+	/**
+	 * The number of structural features of the '<em>Context Policy</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTEXT_POLICY_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Context Policy</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTEXT_POLICY_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '<em>Path</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -331,7 +476,7 @@ public interface ContentHubPackage extends EPackage {
 	 * @see de.enithing.contenthub.model.contenthub.impl.ContentHubPackageImpl#getPath()
 	 * @generated
 	 */
-	int PATH = 4;
+	int PATH = 5;
 
 
 	/**
@@ -345,6 +490,61 @@ public interface ContentHubPackage extends EPackage {
 	EClass getPackage();
 
 	/**
+	 * Returns the meta object for the attribute '{@link de.enithing.contenthub.model.contenthub.Package#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see de.enithing.contenthub.model.contenthub.Package#getName()
+	 * @see #getPackage()
+	 * @generated
+	 */
+	EAttribute getPackage_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.enithing.contenthub.model.contenthub.Package#getGroup <em>Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Group</em>'.
+	 * @see de.enithing.contenthub.model.contenthub.Package#getGroup()
+	 * @see #getPackage()
+	 * @generated
+	 */
+	EAttribute getPackage_Group();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.enithing.contenthub.model.contenthub.Package#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see de.enithing.contenthub.model.contenthub.Package#getDescription()
+	 * @see #getPackage()
+	 * @generated
+	 */
+	EAttribute getPackage_Description();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.enithing.contenthub.model.contenthub.Package#getAuthor <em>Author</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Author</em>'.
+	 * @see de.enithing.contenthub.model.contenthub.Package#getAuthor()
+	 * @see #getPackage()
+	 * @generated
+	 */
+	EAttribute getPackage_Author();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.enithing.contenthub.model.contenthub.Package#getVersion <em>Version</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Version</em>'.
+	 * @see de.enithing.contenthub.model.contenthub.Package#getVersion()
+	 * @see #getPackage()
+	 * @generated
+	 */
+	EAttribute getPackage_Version();
+
+	/**
 	 * Returns the meta object for the containment reference list '{@link de.enithing.contenthub.model.contenthub.Package#getContexts <em>Contexts</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -354,17 +554,6 @@ public interface ContentHubPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getPackage_Contexts();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.enithing.contenthub.model.contenthub.Package#getPath <em>Path</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Path</em>'.
-	 * @see de.enithing.contenthub.model.contenthub.Package#getPath()
-	 * @see #getPackage()
-	 * @generated
-	 */
-	EAttribute getPackage_Path();
 
 	/**
 	 * Returns the meta object for class '{@link de.enithing.contenthub.model.contenthub.Context <em>Context</em>}'.
@@ -410,6 +599,17 @@ public interface ContentHubPackage extends EPackage {
 	EReference getContext_ContentFragments();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link de.enithing.contenthub.model.contenthub.Context#getPolicies <em>Policies</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Policies</em>'.
+	 * @see de.enithing.contenthub.model.contenthub.Context#getPolicies()
+	 * @see #getContext()
+	 * @generated
+	 */
+	EReference getContext_Policies();
+
+	/**
 	 * Returns the meta object for the '{@link de.enithing.contenthub.model.contenthub.Context#getRootContext() <em>Get Root Context</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -418,6 +618,26 @@ public interface ContentHubPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getContext__GetRootContext();
+
+	/**
+	 * Returns the meta object for the '{@link de.enithing.contenthub.model.contenthub.Context#getRelatedContexts() <em>Get Related Contexts</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Related Contexts</em>' operation.
+	 * @see de.enithing.contenthub.model.contenthub.Context#getRelatedContexts()
+	 * @generated
+	 */
+	EOperation getContext__GetRelatedContexts();
+
+	/**
+	 * Returns the meta object for the '{@link de.enithing.contenthub.model.contenthub.Context#getRelatedPolicies() <em>Get Related Policies</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Related Policies</em>' operation.
+	 * @see de.enithing.contenthub.model.contenthub.Context#getRelatedPolicies()
+	 * @generated
+	 */
+	EOperation getContext__GetRelatedPolicies();
 
 	/**
 	 * Returns the meta object for class '{@link de.enithing.contenthub.model.contenthub.RootContext <em>Root Context</em>}'.
@@ -473,6 +693,16 @@ public interface ContentHubPackage extends EPackage {
 	EAttribute getChildContext_RelativePath();
 
 	/**
+	 * Returns the meta object for class '{@link de.enithing.contenthub.model.contenthub.ContextPolicy <em>Context Policy</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Context Policy</em>'.
+	 * @see de.enithing.contenthub.model.contenthub.ContextPolicy
+	 * @generated
+	 */
+	EClass getContextPolicy();
+
+	/**
 	 * Returns the meta object for data type '{@link java.nio.file.Path <em>Path</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -517,20 +747,52 @@ public interface ContentHubPackage extends EPackage {
 		EClass PACKAGE = eINSTANCE.getPackage();
 
 		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PACKAGE__NAME = eINSTANCE.getPackage_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Group</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PACKAGE__GROUP = eINSTANCE.getPackage_Group();
+
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PACKAGE__DESCRIPTION = eINSTANCE.getPackage_Description();
+
+		/**
+		 * The meta object literal for the '<em><b>Author</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PACKAGE__AUTHOR = eINSTANCE.getPackage_Author();
+
+		/**
+		 * The meta object literal for the '<em><b>Version</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PACKAGE__VERSION = eINSTANCE.getPackage_Version();
+
+		/**
 		 * The meta object literal for the '<em><b>Contexts</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference PACKAGE__CONTEXTS = eINSTANCE.getPackage_Contexts();
-
-		/**
-		 * The meta object literal for the '<em><b>Path</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PACKAGE__PATH = eINSTANCE.getPackage_Path();
 
 		/**
 		 * The meta object literal for the '{@link de.enithing.contenthub.model.contenthub.impl.ContextImpl <em>Context</em>}' class.
@@ -567,12 +829,36 @@ public interface ContentHubPackage extends EPackage {
 		EReference CONTEXT__CONTENT_FRAGMENTS = eINSTANCE.getContext_ContentFragments();
 
 		/**
+		 * The meta object literal for the '<em><b>Policies</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONTEXT__POLICIES = eINSTANCE.getContext_Policies();
+
+		/**
 		 * The meta object literal for the '<em><b>Get Root Context</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EOperation CONTEXT___GET_ROOT_CONTEXT = eINSTANCE.getContext__GetRootContext();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Related Contexts</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation CONTEXT___GET_RELATED_CONTEXTS = eINSTANCE.getContext__GetRelatedContexts();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Related Policies</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation CONTEXT___GET_RELATED_POLICIES = eINSTANCE.getContext__GetRelatedPolicies();
 
 		/**
 		 * The meta object literal for the '{@link de.enithing.contenthub.model.contenthub.impl.RootContextImpl <em>Root Context</em>}' class.
@@ -617,6 +903,16 @@ public interface ContentHubPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute CHILD_CONTEXT__RELATIVE_PATH = eINSTANCE.getChildContext_RelativePath();
+
+		/**
+		 * The meta object literal for the '{@link de.enithing.contenthub.model.contenthub.ContextPolicy <em>Context Policy</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.enithing.contenthub.model.contenthub.ContextPolicy
+		 * @see de.enithing.contenthub.model.contenthub.impl.ContentHubPackageImpl#getContextPolicy()
+		 * @generated
+		 */
+		EClass CONTEXT_POLICY = eINSTANCE.getContextPolicy();
 
 		/**
 		 * The meta object literal for the '<em>Path</em>' data type.

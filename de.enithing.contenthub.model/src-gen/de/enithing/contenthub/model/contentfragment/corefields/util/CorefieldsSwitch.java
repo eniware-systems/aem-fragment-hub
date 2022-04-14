@@ -5,9 +5,13 @@ package de.enithing.contenthub.model.contentfragment.corefields.util;
 import de.enithing.contenthub.model.contentfragment.ContentFragmentFieldType;
 import de.enithing.contenthub.model.contentfragment.ContentFragmentFieldValue;
 import de.enithing.contenthub.model.contentfragment.GroupFieldType;
+import de.enithing.contenthub.model.contentfragment.MultiFieldType;
 import de.enithing.contenthub.model.contentfragment.SimpleFieldType;
 
+import de.enithing.contenthub.model.contentfragment.corefields.ContentFragmentReference;
+import de.enithing.contenthub.model.contentfragment.corefields.ContentFragmentReferenceValue;
 import de.enithing.contenthub.model.contentfragment.corefields.CorefieldsPackage;
+import de.enithing.contenthub.model.contentfragment.corefields.MultiLineText;
 import de.enithing.contenthub.model.contentfragment.corefields.NumberValue;
 import de.enithing.contenthub.model.contentfragment.corefields.SingleLineText;
 import de.enithing.contenthub.model.contentfragment.corefields.Tab;
@@ -93,8 +97,18 @@ public class CorefieldsSwitch<T> extends Switch<T> {
 			case CorefieldsPackage.SINGLE_LINE_TEXT: {
 				SingleLineText singleLineText = (SingleLineText)theEObject;
 				T result = caseSingleLineText(singleLineText);
+				if (result == null) result = caseMultiFieldType(singleLineText);
 				if (result == null) result = caseSimpleFieldType(singleLineText);
 				if (result == null) result = caseContentFragmentFieldType(singleLineText);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CorefieldsPackage.MULTI_LINE_TEXT: {
+				MultiLineText multiLineText = (MultiLineText)theEObject;
+				T result = caseMultiLineText(multiLineText);
+				if (result == null) result = caseMultiFieldType(multiLineText);
+				if (result == null) result = caseSimpleFieldType(multiLineText);
+				if (result == null) result = caseContentFragmentFieldType(multiLineText);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -110,6 +124,22 @@ public class CorefieldsSwitch<T> extends Switch<T> {
 				T result = caseTab(tab);
 				if (result == null) result = caseGroupFieldType(tab);
 				if (result == null) result = caseContentFragmentFieldType(tab);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CorefieldsPackage.CONTENT_FRAGMENT_REFERENCE: {
+				ContentFragmentReference contentFragmentReference = (ContentFragmentReference)theEObject;
+				T result = caseContentFragmentReference(contentFragmentReference);
+				if (result == null) result = caseMultiFieldType(contentFragmentReference);
+				if (result == null) result = caseSimpleFieldType(contentFragmentReference);
+				if (result == null) result = caseContentFragmentFieldType(contentFragmentReference);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CorefieldsPackage.CONTENT_FRAGMENT_REFERENCE_VALUE: {
+				ContentFragmentReferenceValue contentFragmentReferenceValue = (ContentFragmentReferenceValue)theEObject;
+				T result = caseContentFragmentReferenceValue(contentFragmentReferenceValue);
+				if (result == null) result = caseContentFragmentFieldValue(contentFragmentReferenceValue);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -163,6 +193,21 @@ public class CorefieldsSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Multi Line Text</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Multi Line Text</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMultiLineText(MultiLineText object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Text Value</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -189,6 +234,36 @@ public class CorefieldsSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseTab(Tab object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Content Fragment Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Content Fragment Reference</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseContentFragmentReference(ContentFragmentReference object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Content Fragment Reference Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Content Fragment Reference Value</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseContentFragmentReferenceValue(ContentFragmentReferenceValue object) {
 		return null;
 	}
 
@@ -249,6 +324,21 @@ public class CorefieldsSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public <TValue extends ContentFragmentFieldValue> T caseGroupFieldType(GroupFieldType<TValue> object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Multi Field Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Multi Field Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public <TValue extends ContentFragmentFieldValue> T caseMultiFieldType(MultiFieldType<TValue> object) {
 		return null;
 	}
 

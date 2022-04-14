@@ -7,9 +7,6 @@ import de.enithing.contenthub.edit.ContentHubEditPlugin;
 
 import de.enithing.contenthub.model.contenthub.ContentHubFactory;
 import de.enithing.contenthub.model.contenthub.ContentHubPackage;
-
-import java.nio.file.Path;
-
 import java.util.Collection;
 import java.util.List;
 
@@ -66,10 +63,124 @@ public class PackageItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addNamePropertyDescriptor(object);
+			addGroupPropertyDescriptor(object);
+			addDescriptionPropertyDescriptor(object);
+			addAuthorPropertyDescriptor(object);
+			addVersionPropertyDescriptor(object);
 			addContextsPropertyDescriptor(object);
-			addPathPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Package_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Package_name_feature", "_UI_Package_type"),
+				 ContentHubPackage.Literals.PACKAGE__NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Group feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addGroupPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Package_group_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Package_group_feature", "_UI_Package_type"),
+				 ContentHubPackage.Literals.PACKAGE__GROUP,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Description feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDescriptionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Package_description_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Package_description_feature", "_UI_Package_type"),
+				 ContentHubPackage.Literals.PACKAGE__DESCRIPTION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Author feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addAuthorPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Package_author_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Package_author_feature", "_UI_Package_type"),
+				 ContentHubPackage.Literals.PACKAGE__AUTHOR,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Version feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addVersionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Package_version_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Package_version_feature", "_UI_Package_type"),
+				 ContentHubPackage.Literals.PACKAGE__VERSION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -90,28 +201,6 @@ public class PackageItemProvider
 				 false,
 				 true,
 				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Path feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addPathPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Package_path_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Package_path_feature", "_UI_Package_type"),
-				 ContentHubPackage.Literals.PACKAGE__PATH,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -165,8 +254,7 @@ public class PackageItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		Path labelValue = ((de.enithing.contenthub.model.contenthub.Package)object).getPath();
-		String label = labelValue == null ? null : labelValue.toString();
+		String label = ((de.enithing.contenthub.model.contenthub.Package)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Package_type") :
 			getString("_UI_Package_type") + " " + label;
@@ -185,7 +273,11 @@ public class PackageItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(de.enithing.contenthub.model.contenthub.Package.class)) {
-			case ContentHubPackage.PACKAGE__PATH:
+			case ContentHubPackage.PACKAGE__NAME:
+			case ContentHubPackage.PACKAGE__GROUP:
+			case ContentHubPackage.PACKAGE__DESCRIPTION:
+			case ContentHubPackage.PACKAGE__AUTHOR:
+			case ContentHubPackage.PACKAGE__VERSION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case ContentHubPackage.PACKAGE__CONTEXTS:

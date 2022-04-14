@@ -4,7 +4,6 @@ package de.enithing.contenthub.model.contentfragment.corefields.provider;
 
 
 import de.enithing.contenthub.edit.ContentHubEditPlugin;
-
 import de.enithing.contenthub.model.contentfragment.corefields.CorefieldsPackage;
 
 import de.enithing.contenthub.model.contentfragment.provider.ContentFragmentFieldTypeItemProvider;
@@ -96,7 +95,7 @@ public class NumberItemProvider extends ContentFragmentFieldTypeItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((de.enithing.contenthub.model.contentfragment.corefields.Number)object).getId();
+		String label = ((de.enithing.contenthub.model.contentfragment.corefields.Number)object).getPropertyName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Number_type") :
 			getString("_UI_Number_type") + " " + label;

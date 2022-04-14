@@ -2,6 +2,7 @@
  */
 package de.enithing.contenthub.model.contentfragment;
 
+import de.enithing.contenthub.model.contenthub.ContentHubPackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EOperation;
@@ -150,22 +151,22 @@ public interface ContentFragmentPackage extends EPackage {
 	int CONTENT_FRAGMENT_FIELD_TYPE = 1;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Property Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTENT_FRAGMENT_FIELD_TYPE__ID = 0;
+	int CONTENT_FRAGMENT_FIELD_TYPE__PROPERTY_NAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * The feature id for the '<em><b>Field Label</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTENT_FRAGMENT_FIELD_TYPE__LABEL = 1;
+	int CONTENT_FRAGMENT_FIELD_TYPE__FIELD_LABEL = 1;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -214,13 +215,40 @@ public interface ContentFragmentPackage extends EPackage {
 	int CONTENT_FRAGMENT_INSTANCE = 2;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_FRAGMENT_INSTANCE__ID = 0;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_FRAGMENT_INSTANCE__TITLE = 1;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_FRAGMENT_INSTANCE__DESCRIPTION = 2;
+
+	/**
 	 * The feature id for the '<em><b>Model</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTENT_FRAGMENT_INSTANCE__MODEL = 0;
+	int CONTENT_FRAGMENT_INSTANCE__MODEL = 3;
 
 	/**
 	 * The feature id for the '<em><b>Fields</b></em>' containment reference list.
@@ -229,7 +257,16 @@ public interface ContentFragmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTENT_FRAGMENT_INSTANCE__FIELDS = 1;
+	int CONTENT_FRAGMENT_INSTANCE__FIELDS = 4;
+
+	/**
+	 * The feature id for the '<em><b>Context</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_FRAGMENT_INSTANCE__CONTEXT = 5;
 
 	/**
 	 * The number of structural features of the '<em>Instance</em>' class.
@@ -238,7 +275,7 @@ public interface ContentFragmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTENT_FRAGMENT_INSTANCE_FEATURE_COUNT = 2;
+	int CONTENT_FRAGMENT_INSTANCE_FEATURE_COUNT = 6;
 
 	/**
 	 * The number of operations of the '<em>Instance</em>' class.
@@ -306,22 +343,22 @@ public interface ContentFragmentPackage extends EPackage {
 	int SIMPLE_FIELD_TYPE = 4;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Property Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SIMPLE_FIELD_TYPE__ID = CONTENT_FRAGMENT_FIELD_TYPE__ID;
+	int SIMPLE_FIELD_TYPE__PROPERTY_NAME = CONTENT_FRAGMENT_FIELD_TYPE__PROPERTY_NAME;
 
 	/**
-	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * The feature id for the '<em><b>Field Label</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SIMPLE_FIELD_TYPE__LABEL = CONTENT_FRAGMENT_FIELD_TYPE__LABEL;
+	int SIMPLE_FIELD_TYPE__FIELD_LABEL = CONTENT_FRAGMENT_FIELD_TYPE__FIELD_LABEL;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -370,22 +407,22 @@ public interface ContentFragmentPackage extends EPackage {
 	int GROUP_FIELD_TYPE = 5;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Property Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GROUP_FIELD_TYPE__ID = CONTENT_FRAGMENT_FIELD_TYPE__ID;
+	int GROUP_FIELD_TYPE__PROPERTY_NAME = CONTENT_FRAGMENT_FIELD_TYPE__PROPERTY_NAME;
 
 	/**
-	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * The feature id for the '<em><b>Field Label</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GROUP_FIELD_TYPE__LABEL = CONTENT_FRAGMENT_FIELD_TYPE__LABEL;
+	int GROUP_FIELD_TYPE__FIELD_LABEL = CONTENT_FRAGMENT_FIELD_TYPE__FIELD_LABEL;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -460,6 +497,145 @@ public interface ContentFragmentPackage extends EPackage {
 	 */
 	int CONTENT_FRAGMENT_FIELD_VALUE_OPERATION_COUNT = 0;
 
+
+	/**
+	 * The meta object id for the '{@link de.enithing.contenthub.model.contentfragment.IdContentFragmentFieldType <em>Id Content Fragment Field Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.enithing.contenthub.model.contentfragment.IdContentFragmentFieldType
+	 * @see de.enithing.contenthub.model.contentfragment.impl.ContentFragmentPackageImpl#getIdContentFragmentFieldType()
+	 * @generated
+	 */
+	int ID_CONTENT_FRAGMENT_FIELD_TYPE = 7;
+
+	/**
+	 * The number of structural features of the '<em>Id Content Fragment Field Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ID_CONTENT_FRAGMENT_FIELD_TYPE_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Id Content Fragment Field Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ID_CONTENT_FRAGMENT_FIELD_TYPE_OPERATION_COUNT = 0;
+
+
+	/**
+	 * The meta object id for the '{@link de.enithing.contenthub.model.contentfragment.impl.AllowedContentFragmentModelPolicyImpl <em>Allowed Content Fragment Model Policy</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.enithing.contenthub.model.contentfragment.impl.AllowedContentFragmentModelPolicyImpl
+	 * @see de.enithing.contenthub.model.contentfragment.impl.ContentFragmentPackageImpl#getAllowedContentFragmentModelPolicy()
+	 * @generated
+	 */
+	int ALLOWED_CONTENT_FRAGMENT_MODEL_POLICY = 8;
+
+	/**
+	 * The feature id for the '<em><b>Models</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALLOWED_CONTENT_FRAGMENT_MODEL_POLICY__MODELS = ContentHubPackage.CONTEXT_POLICY_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Allowed Content Fragment Model Policy</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALLOWED_CONTENT_FRAGMENT_MODEL_POLICY_FEATURE_COUNT = ContentHubPackage.CONTEXT_POLICY_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Allowed Content Fragment Model Policy</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALLOWED_CONTENT_FRAGMENT_MODEL_POLICY_OPERATION_COUNT = ContentHubPackage.CONTEXT_POLICY_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link de.enithing.contenthub.model.contentfragment.MultiFieldType <em>Multi Field Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.enithing.contenthub.model.contentfragment.MultiFieldType
+	 * @see de.enithing.contenthub.model.contentfragment.impl.ContentFragmentPackageImpl#getMultiFieldType()
+	 * @generated
+	 */
+	int MULTI_FIELD_TYPE = 9;
+
+	/**
+	 * The feature id for the '<em><b>Property Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTI_FIELD_TYPE__PROPERTY_NAME = SIMPLE_FIELD_TYPE__PROPERTY_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Field Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTI_FIELD_TYPE__FIELD_LABEL = SIMPLE_FIELD_TYPE__FIELD_LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTI_FIELD_TYPE__DESCRIPTION = SIMPLE_FIELD_TYPE__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Allow Multiple</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTI_FIELD_TYPE__ALLOW_MULTIPLE = SIMPLE_FIELD_TYPE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Multi Field Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTI_FIELD_TYPE_FEATURE_COUNT = SIMPLE_FIELD_TYPE_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Create Empty Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTI_FIELD_TYPE___CREATE_EMPTY_VALUE = SIMPLE_FIELD_TYPE___CREATE_EMPTY_VALUE;
+
+	/**
+	 * The number of operations of the '<em>Multi Field Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTI_FIELD_TYPE_OPERATION_COUNT = SIMPLE_FIELD_TYPE_OPERATION_COUNT + 0;
 
 	/**
 	 * Returns the meta object for class '{@link de.enithing.contenthub.model.contentfragment.ContentFragmentModel <em>Model</em>}'.
@@ -547,26 +723,26 @@ public interface ContentFragmentPackage extends EPackage {
 	EClass getContentFragmentFieldType();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.enithing.contenthub.model.contentfragment.ContentFragmentFieldType#getId <em>Id</em>}'.
+	 * Returns the meta object for the attribute '{@link de.enithing.contenthub.model.contentfragment.ContentFragmentFieldType#getPropertyName <em>Property Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Id</em>'.
-	 * @see de.enithing.contenthub.model.contentfragment.ContentFragmentFieldType#getId()
+	 * @return the meta object for the attribute '<em>Property Name</em>'.
+	 * @see de.enithing.contenthub.model.contentfragment.ContentFragmentFieldType#getPropertyName()
 	 * @see #getContentFragmentFieldType()
 	 * @generated
 	 */
-	EAttribute getContentFragmentFieldType_Id();
+	EAttribute getContentFragmentFieldType_PropertyName();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.enithing.contenthub.model.contentfragment.ContentFragmentFieldType#getLabel <em>Label</em>}'.
+	 * Returns the meta object for the attribute '{@link de.enithing.contenthub.model.contentfragment.ContentFragmentFieldType#getFieldLabel <em>Field Label</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Label</em>'.
-	 * @see de.enithing.contenthub.model.contentfragment.ContentFragmentFieldType#getLabel()
+	 * @return the meta object for the attribute '<em>Field Label</em>'.
+	 * @see de.enithing.contenthub.model.contentfragment.ContentFragmentFieldType#getFieldLabel()
 	 * @see #getContentFragmentFieldType()
 	 * @generated
 	 */
-	EAttribute getContentFragmentFieldType_Label();
+	EAttribute getContentFragmentFieldType_FieldLabel();
 
 	/**
 	 * Returns the meta object for the attribute '{@link de.enithing.contenthub.model.contentfragment.ContentFragmentFieldType#getDescription <em>Description</em>}'.
@@ -600,6 +776,39 @@ public interface ContentFragmentPackage extends EPackage {
 	EClass getContentFragmentInstance();
 
 	/**
+	 * Returns the meta object for the attribute '{@link de.enithing.contenthub.model.contentfragment.ContentFragmentInstance#getId <em>Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Id</em>'.
+	 * @see de.enithing.contenthub.model.contentfragment.ContentFragmentInstance#getId()
+	 * @see #getContentFragmentInstance()
+	 * @generated
+	 */
+	EAttribute getContentFragmentInstance_Id();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.enithing.contenthub.model.contentfragment.ContentFragmentInstance#getTitle <em>Title</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Title</em>'.
+	 * @see de.enithing.contenthub.model.contentfragment.ContentFragmentInstance#getTitle()
+	 * @see #getContentFragmentInstance()
+	 * @generated
+	 */
+	EAttribute getContentFragmentInstance_Title();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.enithing.contenthub.model.contentfragment.ContentFragmentInstance#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see de.enithing.contenthub.model.contentfragment.ContentFragmentInstance#getDescription()
+	 * @see #getContentFragmentInstance()
+	 * @generated
+	 */
+	EAttribute getContentFragmentInstance_Description();
+
+	/**
 	 * Returns the meta object for the reference '{@link de.enithing.contenthub.model.contentfragment.ContentFragmentInstance#getModel <em>Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -620,6 +829,17 @@ public interface ContentFragmentPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getContentFragmentInstance_Fields();
+
+	/**
+	 * Returns the meta object for the container reference '{@link de.enithing.contenthub.model.contentfragment.ContentFragmentInstance#getContext <em>Context</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Context</em>'.
+	 * @see de.enithing.contenthub.model.contentfragment.ContentFragmentInstance#getContext()
+	 * @see #getContentFragmentInstance()
+	 * @generated
+	 */
+	EReference getContentFragmentInstance_Context();
 
 	/**
 	 * Returns the meta object for class '{@link de.enithing.contenthub.model.contentfragment.ContentFragmentFieldInstance <em>Field Instance</em>}'.
@@ -693,6 +913,58 @@ public interface ContentFragmentPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getContentFragmentFieldValue();
+
+	/**
+	 * Returns the meta object for class '{@link de.enithing.contenthub.model.contentfragment.IdContentFragmentFieldType <em>Id Content Fragment Field Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Id Content Fragment Field Type</em>'.
+	 * @see de.enithing.contenthub.model.contentfragment.IdContentFragmentFieldType
+	 * @generated
+	 */
+	EClass getIdContentFragmentFieldType();
+
+	/**
+	 * Returns the meta object for class '{@link de.enithing.contenthub.model.contentfragment.AllowedContentFragmentModelPolicy <em>Allowed Content Fragment Model Policy</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Allowed Content Fragment Model Policy</em>'.
+	 * @see de.enithing.contenthub.model.contentfragment.AllowedContentFragmentModelPolicy
+	 * @generated
+	 */
+	EClass getAllowedContentFragmentModelPolicy();
+
+	/**
+	 * Returns the meta object for the reference list '{@link de.enithing.contenthub.model.contentfragment.AllowedContentFragmentModelPolicy#getModels <em>Models</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Models</em>'.
+	 * @see de.enithing.contenthub.model.contentfragment.AllowedContentFragmentModelPolicy#getModels()
+	 * @see #getAllowedContentFragmentModelPolicy()
+	 * @generated
+	 */
+	EReference getAllowedContentFragmentModelPolicy_Models();
+
+	/**
+	 * Returns the meta object for class '{@link de.enithing.contenthub.model.contentfragment.MultiFieldType <em>Multi Field Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Multi Field Type</em>'.
+	 * @see de.enithing.contenthub.model.contentfragment.MultiFieldType
+	 * @generated
+	 */
+	EClass getMultiFieldType();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.enithing.contenthub.model.contentfragment.MultiFieldType#isAllowMultiple <em>Allow Multiple</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Allow Multiple</em>'.
+	 * @see de.enithing.contenthub.model.contentfragment.MultiFieldType#isAllowMultiple()
+	 * @see #getMultiFieldType()
+	 * @generated
+	 */
+	EAttribute getMultiFieldType_AllowMultiple();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -786,20 +1058,20 @@ public interface ContentFragmentPackage extends EPackage {
 		EClass CONTENT_FRAGMENT_FIELD_TYPE = eINSTANCE.getContentFragmentFieldType();
 
 		/**
-		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Property Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute CONTENT_FRAGMENT_FIELD_TYPE__ID = eINSTANCE.getContentFragmentFieldType_Id();
+		EAttribute CONTENT_FRAGMENT_FIELD_TYPE__PROPERTY_NAME = eINSTANCE.getContentFragmentFieldType_PropertyName();
 
 		/**
-		 * The meta object literal for the '<em><b>Label</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Field Label</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute CONTENT_FRAGMENT_FIELD_TYPE__LABEL = eINSTANCE.getContentFragmentFieldType_Label();
+		EAttribute CONTENT_FRAGMENT_FIELD_TYPE__FIELD_LABEL = eINSTANCE.getContentFragmentFieldType_FieldLabel();
 
 		/**
 		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
@@ -828,6 +1100,30 @@ public interface ContentFragmentPackage extends EPackage {
 		EClass CONTENT_FRAGMENT_INSTANCE = eINSTANCE.getContentFragmentInstance();
 
 		/**
+		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONTENT_FRAGMENT_INSTANCE__ID = eINSTANCE.getContentFragmentInstance_Id();
+
+		/**
+		 * The meta object literal for the '<em><b>Title</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONTENT_FRAGMENT_INSTANCE__TITLE = eINSTANCE.getContentFragmentInstance_Title();
+
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONTENT_FRAGMENT_INSTANCE__DESCRIPTION = eINSTANCE.getContentFragmentInstance_Description();
+
+		/**
 		 * The meta object literal for the '<em><b>Model</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -842,6 +1138,14 @@ public interface ContentFragmentPackage extends EPackage {
 		 * @generated
 		 */
 		EReference CONTENT_FRAGMENT_INSTANCE__FIELDS = eINSTANCE.getContentFragmentInstance_Fields();
+
+		/**
+		 * The meta object literal for the '<em><b>Context</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONTENT_FRAGMENT_INSTANCE__CONTEXT = eINSTANCE.getContentFragmentInstance_Context();
 
 		/**
 		 * The meta object literal for the '{@link de.enithing.contenthub.model.contentfragment.impl.ContentFragmentFieldInstanceImpl <em>Field Instance</em>}' class.
@@ -906,6 +1210,52 @@ public interface ContentFragmentPackage extends EPackage {
 		 * @generated
 		 */
 		EClass CONTENT_FRAGMENT_FIELD_VALUE = eINSTANCE.getContentFragmentFieldValue();
+
+		/**
+		 * The meta object literal for the '{@link de.enithing.contenthub.model.contentfragment.IdContentFragmentFieldType <em>Id Content Fragment Field Type</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.enithing.contenthub.model.contentfragment.IdContentFragmentFieldType
+		 * @see de.enithing.contenthub.model.contentfragment.impl.ContentFragmentPackageImpl#getIdContentFragmentFieldType()
+		 * @generated
+		 */
+		EClass ID_CONTENT_FRAGMENT_FIELD_TYPE = eINSTANCE.getIdContentFragmentFieldType();
+
+		/**
+		 * The meta object literal for the '{@link de.enithing.contenthub.model.contentfragment.impl.AllowedContentFragmentModelPolicyImpl <em>Allowed Content Fragment Model Policy</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.enithing.contenthub.model.contentfragment.impl.AllowedContentFragmentModelPolicyImpl
+		 * @see de.enithing.contenthub.model.contentfragment.impl.ContentFragmentPackageImpl#getAllowedContentFragmentModelPolicy()
+		 * @generated
+		 */
+		EClass ALLOWED_CONTENT_FRAGMENT_MODEL_POLICY = eINSTANCE.getAllowedContentFragmentModelPolicy();
+
+		/**
+		 * The meta object literal for the '<em><b>Models</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ALLOWED_CONTENT_FRAGMENT_MODEL_POLICY__MODELS = eINSTANCE.getAllowedContentFragmentModelPolicy_Models();
+
+		/**
+		 * The meta object literal for the '{@link de.enithing.contenthub.model.contentfragment.MultiFieldType <em>Multi Field Type</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.enithing.contenthub.model.contentfragment.MultiFieldType
+		 * @see de.enithing.contenthub.model.contentfragment.impl.ContentFragmentPackageImpl#getMultiFieldType()
+		 * @generated
+		 */
+		EClass MULTI_FIELD_TYPE = eINSTANCE.getMultiFieldType();
+
+		/**
+		 * The meta object literal for the '<em><b>Allow Multiple</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MULTI_FIELD_TYPE__ALLOW_MULTIPLE = eINSTANCE.getMultiFieldType_AllowMultiple();
 
 	}
 

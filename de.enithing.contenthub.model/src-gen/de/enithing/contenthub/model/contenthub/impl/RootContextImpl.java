@@ -36,7 +36,7 @@ public class RootContextImpl extends ContextImpl implements RootContext {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Path JCR_ROOT_PATH_EDEFAULT = (Path)ContentHubFactory.eINSTANCE.createFromString(ContentHubPackage.eINSTANCE.getPath(), "/src/main/content/jcr_root");
+	protected static final Path JCR_ROOT_PATH_EDEFAULT = (Path)ContentHubFactory.eINSTANCE.createFromString(ContentHubPackage.eINSTANCE.getPath(), "/jcr_root");
 
 	/**
 	 * The cached value of the '{@link #getJcrRootPath() <em>Jcr Root Path</em>}' attribute.

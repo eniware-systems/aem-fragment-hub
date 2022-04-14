@@ -3,6 +3,7 @@ package de.enithing.contenthub.model.contentfragment.provider;
 import java.util.Collection;
 import java.util.List;
 
+import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
@@ -10,9 +11,11 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 
 import de.enithing.contenthub.model.contentfragment.ContentFragmentFieldInstance;
 import de.enithing.contenthub.model.contentfragment.ContentFragmentFieldType;
+import de.enithing.contenthub.model.contentfragment.ContentFragmentFieldValue;
 import de.enithing.contenthub.model.contentfragment.ContentFragmentInstance;
 import de.enithing.contenthub.model.contentfragment.ContentFragmentPackage;
 import de.enithing.contenthub.model.contentfragment.SimpleFieldType;
+import de.enithing.contenthub.model.contentfragment.util.ContentFragmentAdapterFactory;
 
 /**
  * Extensions for the ContentFragmentFieldInstanceItemProvider
@@ -50,6 +53,18 @@ public class ExtendedContentFragmentFieldInstanceItemProvider extends ContentFra
 				return choiceOfValues;
 			}
 		});
+	}
+	
+	@Override
+	public String getText(Object object) {
+		ContentFragmentFieldInstance fieldInstance = (ContentFragmentFieldInstance) object;
+		ContentFragmentFieldType<?> fieldType = fieldInstance.getFieldtype();
+		
+		if(fieldType == null) {
+			return "???";
+		}
+		
+		return fieldType.getPropertyName();
 	}
 
 }

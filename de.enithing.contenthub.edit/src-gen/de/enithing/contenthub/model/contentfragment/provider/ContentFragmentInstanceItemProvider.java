@@ -26,6 +26,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
@@ -64,9 +65,78 @@ public class ContentFragmentInstanceItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addIdPropertyDescriptor(object);
+			addTitlePropertyDescriptor(object);
+			addDescriptionPropertyDescriptor(object);
 			addModelPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Id feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addIdPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ContentFragmentInstance_id_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ContentFragmentInstance_id_feature", "_UI_ContentFragmentInstance_type"),
+				 ContentFragmentPackage.Literals.CONTENT_FRAGMENT_INSTANCE__ID,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Title feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTitlePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ContentFragmentInstance_title_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ContentFragmentInstance_title_feature", "_UI_ContentFragmentInstance_type"),
+				 ContentFragmentPackage.Literals.CONTENT_FRAGMENT_INSTANCE__TITLE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Description feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDescriptionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ContentFragmentInstance_description_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ContentFragmentInstance_description_feature", "_UI_ContentFragmentInstance_type"),
+				 ContentFragmentPackage.Literals.CONTENT_FRAGMENT_INSTANCE__DESCRIPTION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -140,7 +210,10 @@ public class ContentFragmentInstanceItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_ContentFragmentInstance_type");
+		String label = ((ContentFragmentInstance)object).getId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_ContentFragmentInstance_type") :
+			getString("_UI_ContentFragmentInstance_type") + " " + label;
 	}
 
 
@@ -156,6 +229,11 @@ public class ContentFragmentInstanceItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ContentFragmentInstance.class)) {
+			case ContentFragmentPackage.CONTENT_FRAGMENT_INSTANCE__ID:
+			case ContentFragmentPackage.CONTENT_FRAGMENT_INSTANCE__TITLE:
+			case ContentFragmentPackage.CONTENT_FRAGMENT_INSTANCE__DESCRIPTION:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 			case ContentFragmentPackage.CONTENT_FRAGMENT_INSTANCE__FIELDS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;

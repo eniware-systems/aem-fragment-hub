@@ -12,14 +12,21 @@
       ecorePackage="ContentHub.ecore#/" loadInitializationFileExtension="chub">
     <genDataTypes ecoreDataType="ContentHub.ecore#//Path"/>
     <genClasses ecoreClass="ContentHub.ecore#//Package">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//Package/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//Package/group"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//Package/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//Package/author"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//Package/version"/>
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference ContentHub.ecore#//Package/contexts"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//Package/path"/>
     </genClasses>
     <genClasses ecoreClass="ContentHub.ecore#//Context">
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference ContentHub.ecore#//Context/childContexts"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ContentHub.ecore#//Context/contentFragmentModels"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ContentHub.ecore#//Context/contentFragments"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ContentHub.ecore#//Context/policies"/>
       <genOperations ecoreOperation="ContentHub.ecore#//Context/getRootContext"/>
+      <genOperations ecoreOperation="ContentHub.ecore#//Context/getRelatedContexts"/>
+      <genOperations ecoreOperation="ContentHub.ecore#//Context/getRelatedPolicies"/>
     </genClasses>
     <genClasses ecoreClass="ContentHub.ecore#//RootContext">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//RootContext/jcrRootPath"/>
@@ -28,6 +35,7 @@
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ContentHub.ecore#//ChildContext/parentContext"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//ChildContext/relativePath"/>
     </genClasses>
+    <genClasses image="false" ecoreClass="ContentHub.ecore#//ContextPolicy"/>
     <nestedGenPackages prefix="ContentFragment" basePackage="de.enithing.contenthub.model"
         disposableProviderFactory="true" ecorePackage="ContentHub.ecore#//contentfragment">
       <genClasses ecoreClass="ContentHub.ecore#//contentfragment/ContentFragmentModel">
@@ -40,15 +48,19 @@
       </genClasses>
       <genClasses image="false" ecoreClass="ContentHub.ecore#//contentfragment/ContentFragmentFieldType">
         <genTypeParameters ecoreTypeParameter="ContentHub.ecore#//contentfragment/ContentFragmentFieldType/TValue"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/ContentFragmentFieldType/id"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/ContentFragmentFieldType/label"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/ContentFragmentFieldType/propertyName"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/ContentFragmentFieldType/fieldLabel"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/ContentFragmentFieldType/description"/>
         <genOperations ecoreOperation="ContentHub.ecore#//contentfragment/ContentFragmentFieldType/createEmptyValue"/>
       </genClasses>
       <genClasses ecoreClass="ContentHub.ecore#//contentfragment/ContentFragmentInstance">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/ContentFragmentInstance/id"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/ContentFragmentInstance/title"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/ContentFragmentInstance/description"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference ContentHub.ecore#//contentfragment/ContentFragmentInstance/model"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ContentHub.ecore#//contentfragment/ContentFragmentInstance/fields"/>
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ContentHub.ecore#//contentfragment/ContentFragmentInstance/context"/>
       </genClasses>
       <genClasses ecoreClass="ContentHub.ecore#//contentfragment/ContentFragmentFieldInstance">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -65,8 +77,22 @@
             ecoreFeature="ecore:EReference ContentHub.ecore#//contentfragment/GroupFieldType/fields"/>
       </genClasses>
       <genClasses image="false" ecoreClass="ContentHub.ecore#//contentfragment/ContentFragmentFieldValue"/>
+      <genClasses image="false" ecoreClass="ContentHub.ecore#//contentfragment/IdContentFragmentFieldType"/>
+      <genClasses ecoreClass="ContentHub.ecore#//contentfragment/AllowedContentFragmentModelPolicy">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference ContentHub.ecore#//contentfragment/AllowedContentFragmentModelPolicy/models"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="ContentHub.ecore#//contentfragment/MultiFieldType">
+        <genTypeParameters ecoreTypeParameter="ContentHub.ecore#//contentfragment/MultiFieldType/TValue"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/MultiFieldType/allowMultiple"/>
+      </genClasses>
       <nestedGenPackages prefix="Corefields" basePackage="de.enithing.contenthub.model.contentfragment"
           disposableProviderFactory="true" ecorePackage="ContentHub.ecore#//contentfragment/corefields">
+        <genEnums typeSafeEnumCompatible="false" ecoreEnum="ContentHub.ecore#//contentfragment/corefields/MultiLineTextType">
+          <genEnumLiterals ecoreEnumLiteral="ContentHub.ecore#//contentfragment/corefields/MultiLineTextType/RichText"/>
+          <genEnumLiterals ecoreEnumLiteral="ContentHub.ecore#//contentfragment/corefields/MultiLineTextType/Markdown"/>
+          <genEnumLiterals ecoreEnumLiteral="ContentHub.ecore#//contentfragment/corefields/MultiLineTextType/PlainText"/>
+        </genEnums>
         <genClasses ecoreClass="ContentHub.ecore#//contentfragment/corefields/Number">
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/Number/placeholderText"/>
         </genClasses>
@@ -75,11 +101,27 @@
         </genClasses>
         <genClasses ecoreClass="ContentHub.ecore#//contentfragment/corefields/SingleLineText">
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/SingleLineText/placeholderText"/>
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/SingleLineText/defaultValue"/>
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/SingleLineText/maxLength"/>
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/SingleLineText/required"/>
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/SingleLineText/unique"/>
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/SingleLineText/translatable"/>
+        </genClasses>
+        <genClasses ecoreClass="ContentHub.ecore#//contentfragment/corefields/MultiLineText">
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/MultiLineText/defaultType"/>
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/MultiLineText/allowFragmentReference"/>
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/MultiLineText/required"/>
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/MultiLineText/translatable"/>
         </genClasses>
         <genClasses ecoreClass="ContentHub.ecore#//contentfragment/corefields/TextValue">
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/TextValue/text"/>
         </genClasses>
         <genClasses ecoreClass="ContentHub.ecore#//contentfragment/corefields/Tab"/>
+        <genClasses ecoreClass="ContentHub.ecore#//contentfragment/corefields/ContentFragmentReference"/>
+        <genClasses ecoreClass="ContentHub.ecore#//contentfragment/corefields/ContentFragmentReferenceValue">
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference ContentHub.ecore#//contentfragment/corefields/ContentFragmentReferenceValue/fragments"/>
+        </genClasses>
       </nestedGenPackages>
     </nestedGenPackages>
   </genPackages>

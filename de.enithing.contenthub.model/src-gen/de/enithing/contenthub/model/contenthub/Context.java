@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link de.enithing.contenthub.model.contenthub.Context#getChildContexts <em>Child Contexts</em>}</li>
  *   <li>{@link de.enithing.contenthub.model.contenthub.Context#getContentFragmentModels <em>Content Fragment Models</em>}</li>
  *   <li>{@link de.enithing.contenthub.model.contenthub.Context#getContentFragments <em>Content Fragments</em>}</li>
+ *   <li>{@link de.enithing.contenthub.model.contenthub.Context#getPolicies <em>Policies</em>}</li>
  * </ul>
  *
  * @see de.enithing.contenthub.model.contenthub.ContentHubPackage#getContext()
@@ -59,14 +60,28 @@ public interface Context extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Content Fragments</b></em>' containment reference list.
 	 * The list contents are of type {@link de.enithing.contenthub.model.contentfragment.ContentFragmentInstance}.
+	 * It is bidirectional and its opposite is '{@link de.enithing.contenthub.model.contentfragment.ContentFragmentInstance#getContext <em>Context</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Content Fragments</em>' containment reference list.
 	 * @see de.enithing.contenthub.model.contenthub.ContentHubPackage#getContext_ContentFragments()
-	 * @model containment="true"
+	 * @see de.enithing.contenthub.model.contentfragment.ContentFragmentInstance#getContext
+	 * @model opposite="context" containment="true"
 	 * @generated
 	 */
 	EList<ContentFragmentInstance> getContentFragments();
+
+	/**
+	 * Returns the value of the '<em><b>Policies</b></em>' containment reference list.
+	 * The list contents are of type {@link de.enithing.contenthub.model.contenthub.ContextPolicy}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Policies</em>' containment reference list.
+	 * @see de.enithing.contenthub.model.contenthub.ContentHubPackage#getContext_Policies()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<ContextPolicy> getPolicies();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -75,5 +90,21 @@ public interface Context extends EObject {
 	 * @generated
 	 */
 	RootContext getRootContext();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	EList<Context> getRelatedContexts();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	EList<ContextPolicy> getRelatedPolicies();
 
 } // Context

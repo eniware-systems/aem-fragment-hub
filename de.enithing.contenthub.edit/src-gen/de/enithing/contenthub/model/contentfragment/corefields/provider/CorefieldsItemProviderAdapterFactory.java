@@ -141,6 +141,29 @@ public class CorefieldsItemProviderAdapterFactory extends CorefieldsAdapterFacto
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.enithing.contenthub.model.contentfragment.corefields.MultiLineText} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MultiLineTextItemProvider multiLineTextItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.enithing.contenthub.model.contentfragment.corefields.MultiLineText}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMultiLineTextAdapter() {
+		if (multiLineTextItemProvider == null) {
+			multiLineTextItemProvider = new MultiLineTextItemProvider(this);
+		}
+
+		return multiLineTextItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link de.enithing.contenthub.model.contentfragment.corefields.TextValue} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -187,11 +210,58 @@ public class CorefieldsItemProviderAdapterFactory extends CorefieldsAdapterFacto
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.enithing.contenthub.model.contentfragment.corefields.ContentFragmentReference} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ContentFragmentReferenceItemProvider contentFragmentReferenceItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.enithing.contenthub.model.contentfragment.corefields.ContentFragmentReference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createContentFragmentReferenceAdapter() {
+		if (contentFragmentReferenceItemProvider == null) {
+			contentFragmentReferenceItemProvider = new ContentFragmentReferenceItemProvider(this);
+		}
+
+		return contentFragmentReferenceItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.enithing.contenthub.model.contentfragment.corefields.ContentFragmentReferenceValue} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ContentFragmentReferenceValueItemProvider contentFragmentReferenceValueItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.enithing.contenthub.model.contentfragment.corefields.ContentFragmentReferenceValue}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createContentFragmentReferenceValueAdapter() {
+		if (contentFragmentReferenceValueItemProvider == null) {
+			contentFragmentReferenceValueItemProvider = new ContentFragmentReferenceValueItemProvider(this);
+		}
+
+		return contentFragmentReferenceValueItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ComposeableAdapterFactory getRootAdapterFactory() {
 		return parentAdapterFactory == null ? this : parentAdapterFactory.getRootAdapterFactory();
 	}
@@ -202,6 +272,7 @@ public class CorefieldsItemProviderAdapterFactory extends CorefieldsAdapterFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setParentAdapterFactory(ComposedAdapterFactory parentAdapterFactory) {
 		this.parentAdapterFactory = parentAdapterFactory;
 	}
@@ -250,6 +321,7 @@ public class CorefieldsItemProviderAdapterFactory extends CorefieldsAdapterFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void addListener(INotifyChangedListener notifyChangedListener) {
 		changeNotifier.addListener(notifyChangedListener);
 	}
@@ -260,6 +332,7 @@ public class CorefieldsItemProviderAdapterFactory extends CorefieldsAdapterFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void removeListener(INotifyChangedListener notifyChangedListener) {
 		changeNotifier.removeListener(notifyChangedListener);
 	}
@@ -270,6 +343,7 @@ public class CorefieldsItemProviderAdapterFactory extends CorefieldsAdapterFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void fireNotifyChanged(Notification notification) {
 		changeNotifier.fireNotifyChanged(notification);
 
@@ -284,12 +358,16 @@ public class CorefieldsItemProviderAdapterFactory extends CorefieldsAdapterFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void dispose() {
 		if (numberItemProvider != null) numberItemProvider.dispose();
 		if (numberValueItemProvider != null) numberValueItemProvider.dispose();
 		if (singleLineTextItemProvider != null) singleLineTextItemProvider.dispose();
+		if (multiLineTextItemProvider != null) multiLineTextItemProvider.dispose();
 		if (textValueItemProvider != null) textValueItemProvider.dispose();
 		if (tabItemProvider != null) tabItemProvider.dispose();
+		if (contentFragmentReferenceItemProvider != null) contentFragmentReferenceItemProvider.dispose();
+		if (contentFragmentReferenceValueItemProvider != null) contentFragmentReferenceValueItemProvider.dispose();
 	}
 
 }

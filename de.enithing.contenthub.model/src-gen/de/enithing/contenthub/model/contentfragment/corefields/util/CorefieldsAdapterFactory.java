@@ -5,9 +5,13 @@ package de.enithing.contenthub.model.contentfragment.corefields.util;
 import de.enithing.contenthub.model.contentfragment.ContentFragmentFieldType;
 import de.enithing.contenthub.model.contentfragment.ContentFragmentFieldValue;
 import de.enithing.contenthub.model.contentfragment.GroupFieldType;
+import de.enithing.contenthub.model.contentfragment.MultiFieldType;
 import de.enithing.contenthub.model.contentfragment.SimpleFieldType;
 
+import de.enithing.contenthub.model.contentfragment.corefields.ContentFragmentReference;
+import de.enithing.contenthub.model.contentfragment.corefields.ContentFragmentReferenceValue;
 import de.enithing.contenthub.model.contentfragment.corefields.CorefieldsPackage;
+import de.enithing.contenthub.model.contentfragment.corefields.MultiLineText;
 import de.enithing.contenthub.model.contentfragment.corefields.NumberValue;
 import de.enithing.contenthub.model.contentfragment.corefields.SingleLineText;
 import de.enithing.contenthub.model.contentfragment.corefields.Tab;
@@ -89,12 +93,24 @@ public class CorefieldsAdapterFactory extends AdapterFactoryImpl {
 				return createSingleLineTextAdapter();
 			}
 			@Override
+			public Adapter caseMultiLineText(MultiLineText object) {
+				return createMultiLineTextAdapter();
+			}
+			@Override
 			public Adapter caseTextValue(TextValue object) {
 				return createTextValueAdapter();
 			}
 			@Override
 			public Adapter caseTab(Tab object) {
 				return createTabAdapter();
+			}
+			@Override
+			public Adapter caseContentFragmentReference(ContentFragmentReference object) {
+				return createContentFragmentReferenceAdapter();
+			}
+			@Override
+			public Adapter caseContentFragmentReferenceValue(ContentFragmentReferenceValue object) {
+				return createContentFragmentReferenceValueAdapter();
 			}
 			@Override
 			public <TValue extends ContentFragmentFieldValue> Adapter caseContentFragmentFieldType(ContentFragmentFieldType<TValue> object) {
@@ -107,6 +123,10 @@ public class CorefieldsAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseContentFragmentFieldValue(ContentFragmentFieldValue object) {
 				return createContentFragmentFieldValueAdapter();
+			}
+			@Override
+			public <TValue extends ContentFragmentFieldValue> Adapter caseMultiFieldType(MultiFieldType<TValue> object) {
+				return createMultiFieldTypeAdapter();
 			}
 			@Override
 			public <TValue extends ContentFragmentFieldValue> Adapter caseGroupFieldType(GroupFieldType<TValue> object) {
@@ -175,6 +195,20 @@ public class CorefieldsAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link de.enithing.contenthub.model.contentfragment.corefields.MultiLineText <em>Multi Line Text</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.enithing.contenthub.model.contentfragment.corefields.MultiLineText
+	 * @generated
+	 */
+	public Adapter createMultiLineTextAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link de.enithing.contenthub.model.contentfragment.corefields.TextValue <em>Text Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -199,6 +233,34 @@ public class CorefieldsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTabAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.enithing.contenthub.model.contentfragment.corefields.ContentFragmentReference <em>Content Fragment Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.enithing.contenthub.model.contentfragment.corefields.ContentFragmentReference
+	 * @generated
+	 */
+	public Adapter createContentFragmentReferenceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.enithing.contenthub.model.contentfragment.corefields.ContentFragmentReferenceValue <em>Content Fragment Reference Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.enithing.contenthub.model.contentfragment.corefields.ContentFragmentReferenceValue
+	 * @generated
+	 */
+	public Adapter createContentFragmentReferenceValueAdapter() {
 		return null;
 	}
 
@@ -255,6 +317,20 @@ public class CorefieldsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createGroupFieldTypeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.enithing.contenthub.model.contentfragment.MultiFieldType <em>Multi Field Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.enithing.contenthub.model.contentfragment.MultiFieldType
+	 * @generated
+	 */
+	public Adapter createMultiFieldTypeAdapter() {
 		return null;
 	}
 

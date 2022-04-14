@@ -26,8 +26,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link de.enithing.contenthub.model.contentfragment.impl.ContentFragmentFieldTypeImpl#getId <em>Id</em>}</li>
- *   <li>{@link de.enithing.contenthub.model.contentfragment.impl.ContentFragmentFieldTypeImpl#getLabel <em>Label</em>}</li>
+ *   <li>{@link de.enithing.contenthub.model.contentfragment.impl.ContentFragmentFieldTypeImpl#getPropertyName <em>Property Name</em>}</li>
+ *   <li>{@link de.enithing.contenthub.model.contentfragment.impl.ContentFragmentFieldTypeImpl#getFieldLabel <em>Field Label</em>}</li>
  *   <li>{@link de.enithing.contenthub.model.contentfragment.impl.ContentFragmentFieldTypeImpl#getDescription <em>Description</em>}</li>
  * </ul>
  *
@@ -35,44 +35,44 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  */
 public abstract class ContentFragmentFieldTypeImpl<TValue extends ContentFragmentFieldValue> extends MinimalEObjectImpl.Container implements ContentFragmentFieldType<TValue> {
 	/**
-	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * The default value of the '{@link #getPropertyName() <em>Property Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getId()
+	 * @see #getPropertyName()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String ID_EDEFAULT = null;
+	protected static final String PROPERTY_NAME_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * The cached value of the '{@link #getPropertyName() <em>Property Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getId()
+	 * @see #getPropertyName()
 	 * @generated
 	 * @ordered
 	 */
-	protected String id = ID_EDEFAULT;
+	protected String propertyName = PROPERTY_NAME_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getLabel() <em>Label</em>}' attribute.
+	 * The default value of the '{@link #getFieldLabel() <em>Field Label</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getLabel()
+	 * @see #getFieldLabel()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String LABEL_EDEFAULT = null;
+	protected static final String FIELD_LABEL_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getLabel() <em>Label</em>}' attribute.
+	 * The cached value of the '{@link #getFieldLabel() <em>Field Label</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getLabel()
+	 * @see #getFieldLabel()
 	 * @generated
 	 * @ordered
 	 */
-	protected String label = LABEL_EDEFAULT;
+	protected String fieldLabel = FIELD_LABEL_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
@@ -119,8 +119,8 @@ public abstract class ContentFragmentFieldTypeImpl<TValue extends ContentFragmen
 	 * @generated
 	 */
 	@Override
-	public String getId() {
-		return id;
+	public String getPropertyName() {
+		return propertyName;
 	}
 
 	/**
@@ -129,11 +129,11 @@ public abstract class ContentFragmentFieldTypeImpl<TValue extends ContentFragmen
 	 * @generated
 	 */
 	@Override
-	public void setId(String newId) {
-		String oldId = id;
-		id = newId;
+	public void setPropertyName(String newPropertyName) {
+		String oldPropertyName = propertyName;
+		propertyName = newPropertyName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ContentFragmentPackage.CONTENT_FRAGMENT_FIELD_TYPE__ID, oldId, id));
+			eNotify(new ENotificationImpl(this, Notification.SET, ContentFragmentPackage.CONTENT_FRAGMENT_FIELD_TYPE__PROPERTY_NAME, oldPropertyName, propertyName));
 	}
 
 	/**
@@ -142,8 +142,8 @@ public abstract class ContentFragmentFieldTypeImpl<TValue extends ContentFragmen
 	 * @generated
 	 */
 	@Override
-	public String getLabel() {
-		return label;
+	public String getFieldLabel() {
+		return fieldLabel;
 	}
 
 	/**
@@ -152,11 +152,11 @@ public abstract class ContentFragmentFieldTypeImpl<TValue extends ContentFragmen
 	 * @generated
 	 */
 	@Override
-	public void setLabel(String newLabel) {
-		String oldLabel = label;
-		label = newLabel;
+	public void setFieldLabel(String newFieldLabel) {
+		String oldFieldLabel = fieldLabel;
+		fieldLabel = newFieldLabel;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ContentFragmentPackage.CONTENT_FRAGMENT_FIELD_TYPE__LABEL, oldLabel, label));
+			eNotify(new ENotificationImpl(this, Notification.SET, ContentFragmentPackage.CONTENT_FRAGMENT_FIELD_TYPE__FIELD_LABEL, oldFieldLabel, fieldLabel));
 	}
 
 	/**
@@ -199,10 +199,10 @@ public abstract class ContentFragmentFieldTypeImpl<TValue extends ContentFragmen
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ContentFragmentPackage.CONTENT_FRAGMENT_FIELD_TYPE__ID:
-				return getId();
-			case ContentFragmentPackage.CONTENT_FRAGMENT_FIELD_TYPE__LABEL:
-				return getLabel();
+			case ContentFragmentPackage.CONTENT_FRAGMENT_FIELD_TYPE__PROPERTY_NAME:
+				return getPropertyName();
+			case ContentFragmentPackage.CONTENT_FRAGMENT_FIELD_TYPE__FIELD_LABEL:
+				return getFieldLabel();
 			case ContentFragmentPackage.CONTENT_FRAGMENT_FIELD_TYPE__DESCRIPTION:
 				return getDescription();
 		}
@@ -217,11 +217,11 @@ public abstract class ContentFragmentFieldTypeImpl<TValue extends ContentFragmen
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ContentFragmentPackage.CONTENT_FRAGMENT_FIELD_TYPE__ID:
-				setId((String)newValue);
+			case ContentFragmentPackage.CONTENT_FRAGMENT_FIELD_TYPE__PROPERTY_NAME:
+				setPropertyName((String)newValue);
 				return;
-			case ContentFragmentPackage.CONTENT_FRAGMENT_FIELD_TYPE__LABEL:
-				setLabel((String)newValue);
+			case ContentFragmentPackage.CONTENT_FRAGMENT_FIELD_TYPE__FIELD_LABEL:
+				setFieldLabel((String)newValue);
 				return;
 			case ContentFragmentPackage.CONTENT_FRAGMENT_FIELD_TYPE__DESCRIPTION:
 				setDescription((String)newValue);
@@ -238,11 +238,11 @@ public abstract class ContentFragmentFieldTypeImpl<TValue extends ContentFragmen
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ContentFragmentPackage.CONTENT_FRAGMENT_FIELD_TYPE__ID:
-				setId(ID_EDEFAULT);
+			case ContentFragmentPackage.CONTENT_FRAGMENT_FIELD_TYPE__PROPERTY_NAME:
+				setPropertyName(PROPERTY_NAME_EDEFAULT);
 				return;
-			case ContentFragmentPackage.CONTENT_FRAGMENT_FIELD_TYPE__LABEL:
-				setLabel(LABEL_EDEFAULT);
+			case ContentFragmentPackage.CONTENT_FRAGMENT_FIELD_TYPE__FIELD_LABEL:
+				setFieldLabel(FIELD_LABEL_EDEFAULT);
 				return;
 			case ContentFragmentPackage.CONTENT_FRAGMENT_FIELD_TYPE__DESCRIPTION:
 				setDescription(DESCRIPTION_EDEFAULT);
@@ -259,10 +259,10 @@ public abstract class ContentFragmentFieldTypeImpl<TValue extends ContentFragmen
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ContentFragmentPackage.CONTENT_FRAGMENT_FIELD_TYPE__ID:
-				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
-			case ContentFragmentPackage.CONTENT_FRAGMENT_FIELD_TYPE__LABEL:
-				return LABEL_EDEFAULT == null ? label != null : !LABEL_EDEFAULT.equals(label);
+			case ContentFragmentPackage.CONTENT_FRAGMENT_FIELD_TYPE__PROPERTY_NAME:
+				return PROPERTY_NAME_EDEFAULT == null ? propertyName != null : !PROPERTY_NAME_EDEFAULT.equals(propertyName);
+			case ContentFragmentPackage.CONTENT_FRAGMENT_FIELD_TYPE__FIELD_LABEL:
+				return FIELD_LABEL_EDEFAULT == null ? fieldLabel != null : !FIELD_LABEL_EDEFAULT.equals(fieldLabel);
 			case ContentFragmentPackage.CONTENT_FRAGMENT_FIELD_TYPE__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
 		}
@@ -293,10 +293,10 @@ public abstract class ContentFragmentFieldTypeImpl<TValue extends ContentFragmen
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (id: ");
-		result.append(id);
-		result.append(", label: ");
-		result.append(label);
+		result.append(" (propertyName: ");
+		result.append(propertyName);
+		result.append(", fieldLabel: ");
+		result.append(fieldLabel);
 		result.append(", description: ");
 		result.append(description);
 		result.append(')');

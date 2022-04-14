@@ -243,7 +243,17 @@ public class ContentFragmentModelItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(ContentFragmentPackage.Literals.CONTENT_FRAGMENT_MODEL__FIELDS,
+				 CorefieldsFactory.eINSTANCE.createMultiLineText()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ContentFragmentPackage.Literals.CONTENT_FRAGMENT_MODEL__FIELDS,
 				 CorefieldsFactory.eINSTANCE.createTab()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ContentFragmentPackage.Literals.CONTENT_FRAGMENT_MODEL__FIELDS,
+				 CorefieldsFactory.eINSTANCE.createContentFragmentReference()));
 	}
 
 	/**

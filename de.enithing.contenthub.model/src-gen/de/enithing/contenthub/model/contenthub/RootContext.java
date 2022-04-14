@@ -23,13 +23,13 @@ import java.nio.file.Path;
 public interface RootContext extends Context {
 	/**
 	 * Returns the value of the '<em><b>Jcr Root Path</b></em>' attribute.
-	 * The default value is <code>"/src/main/content/jcr_root"</code>.
+	 * The default value is <code>"/jcr_root"</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Jcr Root Path</em>' attribute.
 	 * @see #setJcrRootPath(Path)
 	 * @see de.enithing.contenthub.model.contenthub.ContentHubPackage#getRootContext_JcrRootPath()
-	 * @model default="/src/main/content/jcr_root" dataType="de.enithing.contenthub.model.contenthub.Path" required="true"
+	 * @model default="/jcr_root" dataType="de.enithing.contenthub.model.contenthub.Path" required="true"
 	 * @generated
 	 */
 	Path getJcrRootPath();

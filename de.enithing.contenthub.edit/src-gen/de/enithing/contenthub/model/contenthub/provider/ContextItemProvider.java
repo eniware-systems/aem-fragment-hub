@@ -108,6 +108,7 @@ public class ContextItemProvider
 			childrenFeatures.add(ContentHubPackage.Literals.CONTEXT__CHILD_CONTEXTS);
 			childrenFeatures.add(ContentHubPackage.Literals.CONTEXT__CONTENT_FRAGMENT_MODELS);
 			childrenFeatures.add(ContentHubPackage.Literals.CONTEXT__CONTENT_FRAGMENTS);
+			childrenFeatures.add(ContentHubPackage.Literals.CONTEXT__POLICIES);
 		}
 		return childrenFeatures;
 	}
@@ -163,6 +164,7 @@ public class ContextItemProvider
 			case ContentHubPackage.CONTEXT__CHILD_CONTEXTS:
 			case ContentHubPackage.CONTEXT__CONTENT_FRAGMENT_MODELS:
 			case ContentHubPackage.CONTEXT__CONTENT_FRAGMENTS:
+			case ContentHubPackage.CONTEXT__POLICIES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -194,6 +196,11 @@ public class ContextItemProvider
 			(createChildParameter
 				(ContentHubPackage.Literals.CONTEXT__CONTENT_FRAGMENTS,
 				 ContentFragmentFactory.eINSTANCE.createContentFragmentInstance()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ContentHubPackage.Literals.CONTEXT__POLICIES,
+				 ContentFragmentFactory.eINSTANCE.createAllowedContentFragmentModelPolicy()));
 	}
 
 	/**
