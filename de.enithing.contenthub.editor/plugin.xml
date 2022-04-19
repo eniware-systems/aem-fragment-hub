@@ -90,4 +90,32 @@
       </editor>
    </extension>
 
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated ContentHub -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="de.enithing.contenthub.model.contentfragment.corefields.validation.presentation.ValidationModelWizardID"
+            name="%_UI_ValidationModelWizard_label"
+            class="de.enithing.contenthub.model.contentfragment.corefields.validation.presentation.ValidationModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/ValidationModelFile.gif">
+         <description>%_UI_ValidationModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated ContentHub -->
+      <editor
+            id="de.enithing.contenthub.model.contentfragment.corefields.validation.presentation.ValidationEditorID"
+            name="%_UI_ValidationEditor_label"
+            icon="icons/full/obj16/ValidationModelFile.gif"
+            extensions="validation"
+            class="de.enithing.contenthub.model.contentfragment.corefields.validation.presentation.ValidationEditor"
+            contributorClass="de.enithing.contenthub.model.contentfragment.corefields.validation.presentation.ValidationActionBarContributor">
+      </editor>
+   </extension>
+
 </plugin>

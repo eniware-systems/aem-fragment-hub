@@ -7,16 +7,22 @@ import de.enithing.contenthub.model.contentfragment.ContentFragmentFieldValue;
 import de.enithing.contenthub.model.contentfragment.GroupFieldType;
 import de.enithing.contenthub.model.contentfragment.MultiFieldType;
 import de.enithing.contenthub.model.contentfragment.SimpleFieldType;
-
-import de.enithing.contenthub.model.contentfragment.corefields.ContentFragmentReference;
-import de.enithing.contenthub.model.contentfragment.corefields.ContentFragmentReferenceValue;
+import de.enithing.contenthub.model.contentfragment.corefields.BooleanValue;
+import de.enithing.contenthub.model.contentfragment.corefields.ContentReference;
+import de.enithing.contenthub.model.contentfragment.corefields.ContentReferenceValue;
 import de.enithing.contenthub.model.contentfragment.corefields.CorefieldsPackage;
+import de.enithing.contenthub.model.contentfragment.corefields.DateTime;
+import de.enithing.contenthub.model.contentfragment.corefields.DateTimeValue;
+import de.enithing.contenthub.model.contentfragment.corefields.Enumeration;
+import de.enithing.contenthub.model.contentfragment.corefields.FragmentReference;
+import de.enithing.contenthub.model.contentfragment.corefields.FragmentReferenceValue;
+import de.enithing.contenthub.model.contentfragment.corefields.Json;
 import de.enithing.contenthub.model.contentfragment.corefields.MultiLineText;
 import de.enithing.contenthub.model.contentfragment.corefields.NumberValue;
 import de.enithing.contenthub.model.contentfragment.corefields.SingleLineText;
+import de.enithing.contenthub.model.contentfragment.corefields.StringValue;
 import de.enithing.contenthub.model.contentfragment.corefields.Tab;
-import de.enithing.contenthub.model.contentfragment.corefields.TextValue;
-
+import de.enithing.contenthub.model.contentfragment.corefields.Tags;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -79,18 +85,10 @@ public class CorefieldsSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case CorefieldsPackage.NUMBER: {
-				de.enithing.contenthub.model.contentfragment.corefields.Number number = (de.enithing.contenthub.model.contentfragment.corefields.Number)theEObject;
-				T result = caseNumber(number);
-				if (result == null) result = caseSimpleFieldType(number);
-				if (result == null) result = caseContentFragmentFieldType(number);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case CorefieldsPackage.NUMBER_VALUE: {
-				NumberValue numberValue = (NumberValue)theEObject;
-				T result = caseNumberValue(numberValue);
-				if (result == null) result = caseContentFragmentFieldValue(numberValue);
+			case CorefieldsPackage.STRING_VALUE: {
+				StringValue stringValue = (StringValue)theEObject;
+				T result = caseStringValue(stringValue);
+				if (result == null) result = caseContentFragmentFieldValue(stringValue);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -112,10 +110,105 @@ public class CorefieldsSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case CorefieldsPackage.TEXT_VALUE: {
-				TextValue textValue = (TextValue)theEObject;
-				T result = caseTextValue(textValue);
-				if (result == null) result = caseContentFragmentFieldValue(textValue);
+			case CorefieldsPackage.NUMBER: {
+				de.enithing.contenthub.model.contentfragment.corefields.Number number = (de.enithing.contenthub.model.contentfragment.corefields.Number)theEObject;
+				T result = caseNumber(number);
+				if (result == null) result = caseSimpleFieldType(number);
+				if (result == null) result = caseContentFragmentFieldType(number);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CorefieldsPackage.NUMBER_VALUE: {
+				NumberValue numberValue = (NumberValue)theEObject;
+				T result = caseNumberValue(numberValue);
+				if (result == null) result = caseContentFragmentFieldValue(numberValue);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CorefieldsPackage.BOOLEAN: {
+				de.enithing.contenthub.model.contentfragment.corefields.Boolean boolean_ = (de.enithing.contenthub.model.contentfragment.corefields.Boolean)theEObject;
+				T result = caseBoolean(boolean_);
+				if (result == null) result = caseSimpleFieldType(boolean_);
+				if (result == null) result = caseContentFragmentFieldType(boolean_);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CorefieldsPackage.BOOLEAN_VALUE: {
+				BooleanValue booleanValue = (BooleanValue)theEObject;
+				T result = caseBooleanValue(booleanValue);
+				if (result == null) result = caseContentFragmentFieldValue(booleanValue);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CorefieldsPackage.DATE_TIME: {
+				DateTime dateTime = (DateTime)theEObject;
+				T result = caseDateTime(dateTime);
+				if (result == null) result = caseSimpleFieldType(dateTime);
+				if (result == null) result = caseContentFragmentFieldType(dateTime);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CorefieldsPackage.DATE_TIME_VALUE: {
+				DateTimeValue dateTimeValue = (DateTimeValue)theEObject;
+				T result = caseDateTimeValue(dateTimeValue);
+				if (result == null) result = caseContentFragmentFieldValue(dateTimeValue);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CorefieldsPackage.ENUMERATION: {
+				Enumeration enumeration = (Enumeration)theEObject;
+				T result = caseEnumeration(enumeration);
+				if (result == null) result = caseSimpleFieldType(enumeration);
+				if (result == null) result = caseContentFragmentFieldType(enumeration);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CorefieldsPackage.TAGS: {
+				Tags tags = (Tags)theEObject;
+				T result = caseTags(tags);
+				if (result == null) result = caseMultiFieldType(tags);
+				if (result == null) result = caseSimpleFieldType(tags);
+				if (result == null) result = caseContentFragmentFieldType(tags);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CorefieldsPackage.CONTENT_REFERENCE: {
+				ContentReference contentReference = (ContentReference)theEObject;
+				T result = caseContentReference(contentReference);
+				if (result == null) result = caseMultiFieldType(contentReference);
+				if (result == null) result = caseSimpleFieldType(contentReference);
+				if (result == null) result = caseContentFragmentFieldType(contentReference);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CorefieldsPackage.CONTENT_REFERENCE_VALUE: {
+				ContentReferenceValue contentReferenceValue = (ContentReferenceValue)theEObject;
+				T result = caseContentReferenceValue(contentReferenceValue);
+				if (result == null) result = caseContentFragmentFieldValue(contentReferenceValue);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CorefieldsPackage.FRAGMENT_REFERENCE: {
+				FragmentReference fragmentReference = (FragmentReference)theEObject;
+				T result = caseFragmentReference(fragmentReference);
+				if (result == null) result = caseMultiFieldType(fragmentReference);
+				if (result == null) result = caseSimpleFieldType(fragmentReference);
+				if (result == null) result = caseContentFragmentFieldType(fragmentReference);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CorefieldsPackage.FRAGMENT_REFERENCE_VALUE: {
+				FragmentReferenceValue fragmentReferenceValue = (FragmentReferenceValue)theEObject;
+				T result = caseFragmentReferenceValue(fragmentReferenceValue);
+				if (result == null) result = caseContentFragmentFieldValue(fragmentReferenceValue);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CorefieldsPackage.JSON: {
+				Json json = (Json)theEObject;
+				T result = caseJson(json);
+				if (result == null) result = caseSimpleFieldType(json);
+				if (result == null) result = caseContentFragmentFieldType(json);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -127,24 +220,23 @@ public class CorefieldsSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case CorefieldsPackage.CONTENT_FRAGMENT_REFERENCE: {
-				ContentFragmentReference contentFragmentReference = (ContentFragmentReference)theEObject;
-				T result = caseContentFragmentReference(contentFragmentReference);
-				if (result == null) result = caseMultiFieldType(contentFragmentReference);
-				if (result == null) result = caseSimpleFieldType(contentFragmentReference);
-				if (result == null) result = caseContentFragmentFieldType(contentFragmentReference);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case CorefieldsPackage.CONTENT_FRAGMENT_REFERENCE_VALUE: {
-				ContentFragmentReferenceValue contentFragmentReferenceValue = (ContentFragmentReferenceValue)theEObject;
-				T result = caseContentFragmentReferenceValue(contentFragmentReferenceValue);
-				if (result == null) result = caseContentFragmentFieldValue(contentFragmentReferenceValue);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			default: return defaultCase(theEObject);
 		}
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>String Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>String Value</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseStringValue(StringValue object) {
+		return null;
 	}
 
 	/**
@@ -174,6 +266,171 @@ public class CorefieldsSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseNumberValue(NumberValue object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Boolean</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Boolean</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBoolean(de.enithing.contenthub.model.contentfragment.corefields.Boolean object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Boolean Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Boolean Value</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBooleanValue(BooleanValue object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Date Time</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Date Time</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDateTime(DateTime object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Date Time Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Date Time Value</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDateTimeValue(DateTimeValue object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Enumeration</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Enumeration</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEnumeration(Enumeration object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Tags</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Tags</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTags(Tags object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Content Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Content Reference</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseContentReference(ContentReference object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Content Reference Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Content Reference Value</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseContentReferenceValue(ContentReferenceValue object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Fragment Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Fragment Reference</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseFragmentReference(FragmentReference object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Fragment Reference Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Fragment Reference Value</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseFragmentReferenceValue(FragmentReferenceValue object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Json</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Json</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseJson(Json object) {
 		return null;
 	}
 
@@ -208,21 +465,6 @@ public class CorefieldsSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Text Value</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Text Value</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseTextValue(TextValue object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Tab</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -234,36 +476,6 @@ public class CorefieldsSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseTab(Tab object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Content Fragment Reference</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Content Fragment Reference</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseContentFragmentReference(ContentFragmentReference object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Content Fragment Reference Value</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Content Fragment Reference Value</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseContentFragmentReferenceValue(ContentFragmentReferenceValue object) {
 		return null;
 	}
 

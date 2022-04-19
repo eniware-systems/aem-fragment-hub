@@ -23,32 +23,32 @@ import de.enithing.contenthub.model.contentfragment.MultiFieldType;
  * @model
  * @generated
  */
-public interface MultiLineText extends MultiFieldType<TextValue> {
+public interface MultiLineText extends MultiFieldType<StringValue> {
 	/**
 	 * Returns the value of the '<em><b>Default Type</b></em>' attribute.
 	 * The default value is <code>"text/html"</code>.
-	 * The literals are from the enumeration {@link de.enithing.contenthub.model.contentfragment.corefields.MultiLineTextType}.
+	 * The literals are from the enumeration {@link de.enithing.contenthub.model.contentfragment.corefields.TextMimeType}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Default Type</em>' attribute.
-	 * @see de.enithing.contenthub.model.contentfragment.corefields.MultiLineTextType
-	 * @see #setDefaultType(MultiLineTextType)
+	 * @see de.enithing.contenthub.model.contentfragment.corefields.TextMimeType
+	 * @see #setDefaultType(TextMimeType)
 	 * @see de.enithing.contenthub.model.contentfragment.corefields.CorefieldsPackage#getMultiLineText_DefaultType()
 	 * @model default="text/html" required="true"
 	 * @generated
 	 */
-	MultiLineTextType getDefaultType();
+	TextMimeType getDefaultType();
 
 	/**
 	 * Sets the value of the '{@link de.enithing.contenthub.model.contentfragment.corefields.MultiLineText#getDefaultType <em>Default Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Default Type</em>' attribute.
-	 * @see de.enithing.contenthub.model.contentfragment.corefields.MultiLineTextType
+	 * @see de.enithing.contenthub.model.contentfragment.corefields.TextMimeType
 	 * @see #getDefaultType()
 	 * @generated
 	 */
-	void setDefaultType(MultiLineTextType value);
+	void setDefaultType(TextMimeType value);
 
 	/**
 	 * Returns the value of the '<em><b>Allow Fragment Reference</b></em>' attribute.

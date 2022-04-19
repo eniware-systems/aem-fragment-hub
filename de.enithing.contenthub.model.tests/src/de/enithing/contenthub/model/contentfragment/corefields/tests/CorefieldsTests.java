@@ -31,11 +31,17 @@ public class CorefieldsTests extends TestSuite {
 	 */
 	public static Test suite() {
 		TestSuite suite = new CorefieldsTests("corefields Tests");
-		suite.addTestSuite(NumberTest.class);
 		suite.addTestSuite(SingleLineTextTest.class);
 		suite.addTestSuite(MultiLineTextTest.class);
+		suite.addTestSuite(NumberTest.class);
+		suite.addTestSuite(BooleanTest.class);
+		suite.addTestSuite(DateTimeTest.class);
+		suite.addTestSuite(EnumerationTest.class);
+		suite.addTestSuite(TagsTest.class);
+		suite.addTestSuite(ContentReferenceTest.class);
+		suite.addTestSuite(FragmentReferenceTest.class);
+		suite.addTestSuite(JsonTest.class);
 		suite.addTestSuite(TabTest.class);
-		suite.addTestSuite(ContentFragmentReferenceTest.class);
 		return suite;
 	}
 

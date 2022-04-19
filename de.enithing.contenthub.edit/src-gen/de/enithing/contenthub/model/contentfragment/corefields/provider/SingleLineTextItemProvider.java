@@ -52,12 +52,15 @@ public class SingleLineTextItemProvider extends ContentFragmentFieldTypeItemProv
 			super.getPropertyDescriptors(object);
 
 			addAllowMultiplePropertyDescriptor(object);
-			addPlaceholderTextPropertyDescriptor(object);
+			addPlaceholderPropertyDescriptor(object);
 			addDefaultValuePropertyDescriptor(object);
 			addMaxLengthPropertyDescriptor(object);
 			addRequiredPropertyDescriptor(object);
 			addUniquePropertyDescriptor(object);
 			addTranslatablePropertyDescriptor(object);
+			addValidationTypePropertyDescriptor(object);
+			addValidationRegexPropertyDescriptor(object);
+			addCustomErrorMessagePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -85,19 +88,19 @@ public class SingleLineTextItemProvider extends ContentFragmentFieldTypeItemProv
 	}
 
 	/**
-	 * This adds a property descriptor for the Placeholder Text feature.
+	 * This adds a property descriptor for the Placeholder feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addPlaceholderTextPropertyDescriptor(Object object) {
+	protected void addPlaceholderPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SingleLineText_placeholderText_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SingleLineText_placeholderText_feature", "_UI_SingleLineText_type"),
-				 CorefieldsPackage.Literals.SINGLE_LINE_TEXT__PLACEHOLDER_TEXT,
+				 getString("_UI_SingleLineText_placeholder_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SingleLineText_placeholder_feature", "_UI_SingleLineText_type"),
+				 CorefieldsPackage.Literals.SINGLE_LINE_TEXT__PLACEHOLDER,
 				 true,
 				 false,
 				 false,
@@ -217,6 +220,72 @@ public class SingleLineTextItemProvider extends ContentFragmentFieldTypeItemProv
 	}
 
 	/**
+	 * This adds a property descriptor for the Validation Type feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addValidationTypePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SingleLineText_validationType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SingleLineText_validationType_feature", "_UI_SingleLineText_type"),
+				 CorefieldsPackage.Literals.SINGLE_LINE_TEXT__VALIDATION_TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Validation Regex feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addValidationRegexPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SingleLineText_validationRegex_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SingleLineText_validationRegex_feature", "_UI_SingleLineText_type"),
+				 CorefieldsPackage.Literals.SINGLE_LINE_TEXT__VALIDATION_REGEX,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Custom Error Message feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addCustomErrorMessagePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SingleLineText_customErrorMessage_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SingleLineText_customErrorMessage_feature", "_UI_SingleLineText_type"),
+				 CorefieldsPackage.Literals.SINGLE_LINE_TEXT__CUSTOM_ERROR_MESSAGE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns SingleLineText.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -255,12 +324,15 @@ public class SingleLineTextItemProvider extends ContentFragmentFieldTypeItemProv
 
 		switch (notification.getFeatureID(SingleLineText.class)) {
 			case CorefieldsPackage.SINGLE_LINE_TEXT__ALLOW_MULTIPLE:
-			case CorefieldsPackage.SINGLE_LINE_TEXT__PLACEHOLDER_TEXT:
+			case CorefieldsPackage.SINGLE_LINE_TEXT__PLACEHOLDER:
 			case CorefieldsPackage.SINGLE_LINE_TEXT__DEFAULT_VALUE:
 			case CorefieldsPackage.SINGLE_LINE_TEXT__MAX_LENGTH:
 			case CorefieldsPackage.SINGLE_LINE_TEXT__REQUIRED:
 			case CorefieldsPackage.SINGLE_LINE_TEXT__UNIQUE:
 			case CorefieldsPackage.SINGLE_LINE_TEXT__TRANSLATABLE:
+			case CorefieldsPackage.SINGLE_LINE_TEXT__VALIDATION_TYPE:
+			case CorefieldsPackage.SINGLE_LINE_TEXT__VALIDATION_REGEX:
+			case CorefieldsPackage.SINGLE_LINE_TEXT__CUSTOM_ERROR_MESSAGE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

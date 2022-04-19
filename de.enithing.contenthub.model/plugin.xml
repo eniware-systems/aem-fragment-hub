@@ -32,4 +32,12 @@
             genModel="model/ContentHub.genmodel"/>
    </extension>
 
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated ContentHub -->
+      <package
+            uri="https://aemcontenthub.eniware-systems.de/ns/contentfragments/corefields/validation"
+            class="de.enithing.contenthub.model.contentfragment.corefields.validation.ValidationPackage"
+            genModel="model/ContentHub.genmodel"/>
+   </extension>
+
 </plugin>

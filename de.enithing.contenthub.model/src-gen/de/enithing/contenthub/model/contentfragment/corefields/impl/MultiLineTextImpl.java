@@ -4,11 +4,11 @@ package de.enithing.contenthub.model.contentfragment.corefields.impl;
 
 import de.enithing.contenthub.model.contentfragment.corefields.CorefieldsPackage;
 import de.enithing.contenthub.model.contentfragment.corefields.MultiLineText;
-import de.enithing.contenthub.model.contentfragment.corefields.MultiLineTextType;
-import de.enithing.contenthub.model.contentfragment.corefields.TextValue;
-
+import de.enithing.contenthub.model.contentfragment.corefields.StringValue;
+import de.enithing.contenthub.model.contentfragment.corefields.TextMimeType;
 import de.enithing.contenthub.model.contentfragment.impl.ContentFragmentFieldTypeImpl;
 
+import java.lang.Boolean;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
@@ -32,7 +32,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class MultiLineTextImpl extends ContentFragmentFieldTypeImpl<TextValue> implements MultiLineText {
+public class MultiLineTextImpl extends ContentFragmentFieldTypeImpl<StringValue> implements MultiLineText {
 	/**
 	 * The default value of the '{@link #isAllowMultiple() <em>Allow Multiple</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -61,7 +61,7 @@ public class MultiLineTextImpl extends ContentFragmentFieldTypeImpl<TextValue> i
 	 * @generated
 	 * @ordered
 	 */
-	protected static final MultiLineTextType DEFAULT_TYPE_EDEFAULT = MultiLineTextType.RICH_TEXT;
+	protected static final TextMimeType DEFAULT_TYPE_EDEFAULT = TextMimeType.RICHTEXT;
 
 	/**
 	 * The cached value of the '{@link #getDefaultType() <em>Default Type</em>}' attribute.
@@ -71,7 +71,7 @@ public class MultiLineTextImpl extends ContentFragmentFieldTypeImpl<TextValue> i
 	 * @generated
 	 * @ordered
 	 */
-	protected MultiLineTextType defaultType = DEFAULT_TYPE_EDEFAULT;
+	protected TextMimeType defaultType = DEFAULT_TYPE_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #isAllowFragmentReference() <em>Allow Fragment Reference</em>}' attribute.
@@ -181,7 +181,7 @@ public class MultiLineTextImpl extends ContentFragmentFieldTypeImpl<TextValue> i
 	 * @generated
 	 */
 	@Override
-	public MultiLineTextType getDefaultType() {
+	public TextMimeType getDefaultType() {
 		return defaultType;
 	}
 
@@ -191,8 +191,8 @@ public class MultiLineTextImpl extends ContentFragmentFieldTypeImpl<TextValue> i
 	 * @generated
 	 */
 	@Override
-	public void setDefaultType(MultiLineTextType newDefaultType) {
-		MultiLineTextType oldDefaultType = defaultType;
+	public void setDefaultType(TextMimeType newDefaultType) {
+		TextMimeType oldDefaultType = defaultType;
 		defaultType = newDefaultType == null ? DEFAULT_TYPE_EDEFAULT : newDefaultType;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, CorefieldsPackage.MULTI_LINE_TEXT__DEFAULT_TYPE, oldDefaultType, defaultType));
@@ -301,7 +301,7 @@ public class MultiLineTextImpl extends ContentFragmentFieldTypeImpl<TextValue> i
 				setAllowMultiple((Boolean)newValue);
 				return;
 			case CorefieldsPackage.MULTI_LINE_TEXT__DEFAULT_TYPE:
-				setDefaultType((MultiLineTextType)newValue);
+				setDefaultType((TextMimeType)newValue);
 				return;
 			case CorefieldsPackage.MULTI_LINE_TEXT__ALLOW_FRAGMENT_REFERENCE:
 				setAllowFragmentReference((Boolean)newValue);

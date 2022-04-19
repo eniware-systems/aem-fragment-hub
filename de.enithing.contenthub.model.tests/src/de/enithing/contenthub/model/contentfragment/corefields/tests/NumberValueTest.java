@@ -4,9 +4,7 @@ package de.enithing.contenthub.model.contentfragment.corefields.tests;
 
 import de.enithing.contenthub.model.contentfragment.corefields.CorefieldsFactory;
 import de.enithing.contenthub.model.contentfragment.corefields.NumberValue;
-
 import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
 
 /**
@@ -60,6 +58,7 @@ public class NumberValueTest extends TestCase {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected NumberValue getFixture() {
 		return fixture;
 	}

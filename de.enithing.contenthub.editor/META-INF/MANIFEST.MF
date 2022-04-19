@@ -11,6 +11,7 @@ Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-17
 Export-Package: de.enithing.contenthub.editor,
  de.enithing.contenthub.model.contentfragment.corefields.presentation,
+ de.enithing.contenthub.model.contentfragment.corefields.validation.presentation,
  de.enithing.contenthub.model.contentfragment.presentation,
  de.enithing.contenthub.model.contenthub.presentation
 Require-Bundle: org.eclipse.core.runtime,

@@ -14,11 +14,12 @@ import de.enithing.contenthub.model.contentfragment.GroupFieldType;
 import de.enithing.contenthub.model.contentfragment.IdContentFragmentFieldType;
 import de.enithing.contenthub.model.contentfragment.MultiFieldType;
 import de.enithing.contenthub.model.contentfragment.SimpleFieldType;
-
 import de.enithing.contenthub.model.contentfragment.corefields.CorefieldsPackage;
 
 import de.enithing.contenthub.model.contentfragment.corefields.impl.CorefieldsPackageImpl;
 
+import de.enithing.contenthub.model.contentfragment.corefields.validation.ValidationPackage;
+import de.enithing.contenthub.model.contentfragment.corefields.validation.impl.ValidationPackageImpl;
 import de.enithing.contenthub.model.contenthub.ContentHubPackage;
 
 import de.enithing.contenthub.model.contenthub.impl.ContentHubPackageImpl;
@@ -162,16 +163,20 @@ public class ContentFragmentPackageImpl extends EPackageImpl implements ContentF
 		ContentHubPackageImpl theContentHubPackage = (ContentHubPackageImpl)(registeredPackage instanceof ContentHubPackageImpl ? registeredPackage : ContentHubPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(CorefieldsPackage.eNS_URI);
 		CorefieldsPackageImpl theCorefieldsPackage = (CorefieldsPackageImpl)(registeredPackage instanceof CorefieldsPackageImpl ? registeredPackage : CorefieldsPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ValidationPackage.eNS_URI);
+		ValidationPackageImpl theValidationPackage = (ValidationPackageImpl)(registeredPackage instanceof ValidationPackageImpl ? registeredPackage : ValidationPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theContentFragmentPackage.createPackageContents();
 		theContentHubPackage.createPackageContents();
 		theCorefieldsPackage.createPackageContents();
+		theValidationPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theContentFragmentPackage.initializePackageContents();
 		theContentHubPackage.initializePackageContents();
 		theCorefieldsPackage.initializePackageContents();
+		theValidationPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theContentFragmentPackage.freeze();

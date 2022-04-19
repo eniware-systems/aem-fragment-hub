@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="types" nsURI="http://cfdesigner.eniware-systems.de/core-types"
+    nsPrefix="cf">
+  <eClassifiers xsi:type="ecore:EClass" name="SingleLineText" eSuperTypes="file:/home/mvonkeil/Projects/CFDesigner/de.enithing.cfdesigner.core/model/cfCoreStructuralTypes.ecore#//CfProperty">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="slingResourceType" ordered="false"
+        unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" defaultValueLiteral="granite/ui/components/coral/foundation/form/textfield">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="sling:resourceType"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="metaType" ordered="false"
+        unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" defaultValueLiteral="text-single"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="valueType" ordered="false"
+        unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" defaultValueLiteral="string"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="renderAs" ordered="false"
+        unique="false" lowerBound="1" eType="#//TextRenderMode" defaultValueLiteral="textfield"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="emptyText" ordered="false"
+        unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" ordered="false"
+        unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxlength" ordered="false"
+        unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="255"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="required" ordered="false"
+        unique="false" lowerBound="1" eType="#//OptionFlag" defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="unique" ordered="false"
+        unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="translatable" ordered="false"
+        unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="validation" lowerBound="1"
+        eType="#//TextValidationType" defaultValueLiteral="None"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="customErrorMsg" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="path" value="granite:data"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="validationRegex" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MultiLineText" eSuperTypes="file:/home/mvonkeil/Projects/CFDesigner/de.enithing.cfdesigner.core/model/cfCoreStructuralTypes.ecore#//CfProperty">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="slingResourceType" ordered="false"
+        unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" defaultValueLiteral="dam/cfm/admin/components/authoring/contenteditor/multieditor">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="sling:resourceType"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="metaType" ordered="false"
+        unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" defaultValueLiteral="text-multi"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="valueType" ordered="false"
+        unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" defaultValueLiteral="string/multiline"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="required" ordered="false"
+        unique="false" lowerBound="1" eType="#//OptionFlag" defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="translatable" ordered="false"
+        unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fragmentmodelreference"
+        upperBound="-1" eType="ecore:EClass file:/home/mvonkeil/Projects/CFDesigner/de.enithing.cfdesigner.core/model/cfCoreStructuralTypes.ecore#//CfModel"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="renderAs" ordered="false"
+        unique="false" lowerBound="1" eType="#//TextRenderMode" defaultValueLiteral="textfield"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="checked" ordered="false"
+        unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultMimeType" lowerBound="1"
+        eType="#//TextMimeType" defaultValueLiteral="text/html">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="default-meta-type"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Number" eSuperTypes="file:/home/mvonkeil/Projects/CFDesigner/de.enithing.cfdesigner.core/model/cfCoreStructuralTypes.ecore#//CfProperty">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="slingResourceType" ordered="false"
+        unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" defaultValueLiteral="granite/ui/components/coral/foundation/form/numberfield">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="sling:resourceType"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="metaType" ordered="false"
+        unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" defaultValueLiteral="number"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="valueType" ordered="false"
+        unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" defaultValueLiteral="double"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="renderAs" ordered="false"
+        unique="false" lowerBound="1" eType="#//NumberRenderMode" defaultValueLiteral="numberfield"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+        defaultValueLiteral="0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="required" ordered="false"
+        unique="false" lowerBound="1" eType="#//OptionFlag" defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="emptyText" ordered="false"
+        unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="step" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="1"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeHint" lowerBound="1"
+        eType="#//NumberTypeHint" defaultValueLiteral="long"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Boolean" eSuperTypes="file:/home/mvonkeil/Projects/CFDesigner/de.enithing.cfdesigner.core/model/cfCoreStructuralTypes.ecore#//CfProperty">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="slingResourceType" ordered="false"
+        unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" defaultValueLiteral="granite/ui/components/coral/foundation/form/checkbox">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="sling:resourceType"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="metaType" ordered="false"
+        unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" defaultValueLiteral="boolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="valueType" ordered="false"
+        unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" defaultValueLiteral="boolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="required" ordered="false"
+        unique="false" lowerBound="1" eType="#//OptionFlag" defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="checked" ordered="false"
+        unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DateTime" eSuperTypes="file:/home/mvonkeil/Projects/CFDesigner/de.enithing.cfdesigner.core/model/cfCoreStructuralTypes.ecore#//CfProperty">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="slingResourceType" ordered="false"
+        unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" defaultValueLiteral="dam/cfm/models/editor/components/datatypes/datepicker">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="sling:resourceType"/>
+        <details key="multifield_value" value="dam/cfm/models/editor/components/fragmentreference/multifield"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="metaType" ordered="false"
+        unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" defaultValueLiteral="date"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="valueType" ordered="false"
+        unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" defaultValueLiteral="calendar/datetime"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="valueFormat" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="YYYY-MM-DD[T]HH:mm:ss.000Z"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="displayedFormat" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="YYYY-MM-DD HH:mm"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="emptyText" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="YYYY-MM-DD HH:mm"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="required" ordered="false"
+        unique="false" lowerBound="1" eType="#//OptionFlag" defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FragmentReference" eSuperTypes="file:/home/mvonkeil/Projects/CFDesigner/de.enithing.cfdesigner.core/model/cfCoreStructuralTypes.ecore#//CfProperty">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="slingResourceType" ordered="false"
+        unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" defaultValueLiteral="dam/cfm/models/editor/components/fragmentreference">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="sling:resourceType"/>
+        <details key="multifield_value" value="dam/cfm/models/editor/components/fragmentreference/multifield"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="metaType" ordered="false"
+        unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" defaultValueLiteral="fragment-reference"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="valueType" ordered="false"
+        unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" defaultValueLiteral="string/content-fragment">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="multifield_value" value="string/content-fragment[]"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="filter" ordered="false"
+        unique="false" lowerBound="1" eType="#//ReferenceFilterMode" defaultValueLiteral="hierarchy"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fragmentmodelreference"
+        upperBound="-1" eType="ecore:EClass file:/home/mvonkeil/Projects/CFDesigner/de.enithing.cfdesigner.core/model/cfCoreStructuralTypes.ecore#//CfModel"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nameSuffix" ordered="false"
+        unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" defaultValueLiteral="contentReference" unsettable="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rootPath" ordered="false"
+        unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="emptyText" ordered="false"
+        unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="allowNew" ordered="false"
+        unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="required" ordered="false"
+        unique="false" lowerBound="1" eType="#//OptionFlag" defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="multifield" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"
+        defaultValueLiteral="false">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="generate" value="false"/>
+        <details key="multifield_on" value="true"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TabPlaceholder" eSuperTypes="file:/home/mvonkeil/Projects/CFDesigner/de.enithing.cfdesigner.core/model/cfCoreStructuralTypes.ecore#//CfProperty">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="slingResourceType" ordered="false"
+        unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" defaultValueLiteral="dam/cfm/models/editor/components/tabplaceholder">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="sling:resourceType"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="metaType" ordered="false"
+        unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" defaultValueLiteral="tab-placeholder"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="valueType" ordered="false"
+        unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" defaultValueLiteral="string/tab"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Tags" eSuperTypes="file:/home/mvonkeil/Projects/CFDesigner/de.enithing.cfdesigner.core/model/cfCoreStructuralTypes.ecore#//CfProperty">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="slingResourceType" ordered="false"
+        unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" defaultValueLiteral="cq/gui/components/coral/common/form/tagfield">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="sling:resourceType"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="metaType" ordered="false"
+        unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" defaultValueLiteral="tags"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="valueType" ordered="false"
+        unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" defaultValueLiteral="string[]"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rootPath" ordered="false"
+        unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="/content/cq:tags"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="multiple" ordered="false"
+        unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="required" ordered="false"
+        unique="false" lowerBound="1" eType="#//OptionFlag" defaultValueLiteral="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ContentReference" eSuperTypes="file:/home/mvonkeil/Projects/CFDesigner/de.enithing.cfdesigner.core/model/cfCoreStructuralTypes.ecore#//CfProperty">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="slingResourceType" ordered="false"
+        unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" defaultValueLiteral="dam/cfm/models/editor/components/contentreference">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="sling:resourceType"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="metaType" ordered="false"
+        unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" defaultValueLiteral="reference"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="valueType" ordered="false"
+        unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" defaultValueLiteral="string/reference"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nameSuffix" ordered="false"
+        unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" defaultValueLiteral="contentReference" unsettable="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="emptyText" ordered="false"
+        unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="filter" ordered="false"
+        unique="false" lowerBound="1" eType="#//ReferenceFilterMode" defaultValueLiteral="hierarchy"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="required" ordered="false"
+        unique="false" lowerBound="1" eType="#//OptionFlag" defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rootPath" ordered="false"
+        unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="showThumbnail" ordered="false"
+        unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="validation" upperBound="-1"
+        eType="#//ReferenceFilterMode"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="filesizeValidation" lowerBound="1"
+        eType="#//FileSizeValidation" defaultValueLiteral="">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="filesize-validation"/>
+        <details key="element" value="granite:data"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="filesizeMin" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"
+        unsettable="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="filesize-max"/>
+        <details key="element" value="granite:data"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="filesizeMinUnit" lowerBound="1"
+        eType="#//FileSizeUnit" defaultValueLiteral="MB">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="filesize-minunit"/>
+        <details key="element" value="granite:data"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="filesizeMax" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"
+        unsettable="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="filesize-max"/>
+        <details key="element" value="granite:data"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="filesizeMaxUnit" lowerBound="1"
+        eType="#//FileSizeUnit" defaultValueLiteral="MB">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="filesize-maxunit"/>
+        <details key="element" value="granite:data"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="imageWidthValidation" lowerBound="1"
+        eType="#//ImageWidthValidation" defaultValueLiteral="">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="imagewidth-validation"/>
+        <details key="element" value="granite:data"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="imageWidthMin" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"
+        unsettable="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="imagewidth-min"/>
+        <details key="element" value="granite:data"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="imageWidthMax" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"
+        unsettable="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="imagewidth-max"/>
+        <details key="element" value="granite:data"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="imageHeightValidation"
+        lowerBound="1" eType="#//ImageHeightValidation" defaultValueLiteral="">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="imageheight-validation"/>
+        <details key="element" value="granite:data"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="imageHeightMin" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"
+        unsettable="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="imageheight-min"/>
+        <details key="element" value="granite:data"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="imageHeightMax" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"
+        unsettable="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="imageheight-max"/>
+        <details key="element" value="granite:data"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="thumbnailValidation" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
+        defaultValueLiteral="cfm.validation.thumbnail.show">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="thumbnail-validation"/>
+        <details key="element" value="granite:data"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ReferenceFilterMode">
+    <eLiterals name="hierarchy" literal="hierarchy"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="NumberTypeHint">
+    <eLiterals name="Integer" literal="long"/>
+    <eLiterals name="Fraction" value="1" literal="double"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="NumberRenderMode">
+    <eLiterals name="numberfield"/>
+    <eLiterals name="multifield" value="1" literal="multifield"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="OptionFlag" instanceClassName="java.lang.Boolean"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="TextRenderMode">
+    <eLiterals name="textfield"/>
+    <eLiterals name="multiline" value="1" literal="multiline"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="TextMimeType">
+    <eLiterals name="Richtext" literal="text/html"/>
+    <eLiterals name="Markdown" value="1" literal="text/x-markdown"/>
+    <eLiterals name="Plaintext" value="2" literal="text/plain"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="TextValidationType">
+    <eLiterals name="None" literal="None"/>
+    <eLiterals name="Email" value="1" literal="cfm.validation.email"/>
+    <eLiterals name="URL" value="2" literal="cfm.validation.url"/>
+    <eLiterals name="Custom" value="3" literal="cfm.validation.custom"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ContentReferenceValidationType">
+    <eLiterals name="Richtext" literal="cfm.validation.contenttype.richtext"/>
+    <eLiterals name="Plaintext" value="1" literal="cfm.validation.contenttype.plaintext"/>
+    <eLiterals name="Image" value="2" literal="cfm.validation.contenttype.image"/>
+    <eLiterals name="Audio" value="3" literal="cfm.validation.contenttype.audio"/>
+    <eLiterals name="Video" value="4" literal="cfm.validation.contenttype.video"/>
+    <eLiterals name="ContentFragment" value="5" literal="cfm.validation.contenttype.contentfragment"/>
+    <eLiterals name="PDF" value="6" literal="cfm.validation.contenttype.pdf"/>
+    <eLiterals name="SpreadSheet" value="7" literal="cfm.validation.contenttype.spreadsheet"/>
+    <eLiterals name="Presentation" value="8" literal="cfm.validation.contenttype.presentation"/>
+    <eLiterals name="Archive" value="9" literal="cfm.validation.contenttype.archive"/>
+    <eLiterals name="Markup" value="10" literal="cfm.validation.contenttype.markup"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="FileSizeUnit">
+    <eLiterals name="B"/>
+    <eLiterals name="KB" value="1"/>
+    <eLiterals name="MB" value="2"/>
+    <eLiterals name="GB" value="3"/>
+    <eLiterals name="TB" value="4"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="FileSizeValidation">
+    <eLiterals name="None"/>
+    <eLiterals name="GreaterOrEqualThan" value="1"/>
+    <eLiterals name="LessThanOrEqualTo" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ImageWidthValidation">
+    <eLiterals name="None"/>
+    <eLiterals name="MinimumWidth" value="1" literal="cfm.validation.imagewidth.min"/>
+    <eLiterals name="MaximumWidth" value="2" literal="cfm.validation.imagewidth.max"/>
+    <eLiterals name="MinimumAndMaximumWidth" value="3" literal="cfm.validation.imagewidth.interval"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ImageHeightValidation">
+    <eLiterals name="None"/>
+    <eLiterals name="MinimumHeight" value="1" literal="cfm.validation.imageheight.min"/>
+    <eLiterals name="MaximumHeight" value="2" literal="cfm.validation.imageheight.max"/>
+    <eLiterals name="MinimumAndMaximumHeight" value="3" literal="cfm.validation.imageheight.interval"/>
+  </eClassifiers>
+</ecore:EPackage>

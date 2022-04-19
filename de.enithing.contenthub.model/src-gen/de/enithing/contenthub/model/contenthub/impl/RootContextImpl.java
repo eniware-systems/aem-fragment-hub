@@ -22,12 +22,33 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link de.enithing.contenthub.model.contenthub.impl.RootContextImpl#getName <em>Name</em>}</li>
  *   <li>{@link de.enithing.contenthub.model.contenthub.impl.RootContextImpl#getJcrRootPath <em>Jcr Root Path</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class RootContextImpl extends ContextImpl implements RootContext {
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = "my context";
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
+
 	/**
 	 * The default value of the '{@link #getJcrRootPath() <em>Jcr Root Path</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -73,6 +94,29 @@ public class RootContextImpl extends ContextImpl implements RootContext {
 	 * @generated
 	 */
 	@Override
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ContentHubPackage.ROOT_CONTEXT__NAME, oldName, name));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Path getJcrRootPath() {
 		return jcrRootPath;
 	}
@@ -98,6 +142,8 @@ public class RootContextImpl extends ContextImpl implements RootContext {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case ContentHubPackage.ROOT_CONTEXT__NAME:
+				return getName();
 			case ContentHubPackage.ROOT_CONTEXT__JCR_ROOT_PATH:
 				return getJcrRootPath();
 		}
@@ -112,6 +158,9 @@ public class RootContextImpl extends ContextImpl implements RootContext {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case ContentHubPackage.ROOT_CONTEXT__NAME:
+				setName((String)newValue);
+				return;
 			case ContentHubPackage.ROOT_CONTEXT__JCR_ROOT_PATH:
 				setJcrRootPath((Path)newValue);
 				return;
@@ -127,6 +176,9 @@ public class RootContextImpl extends ContextImpl implements RootContext {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case ContentHubPackage.ROOT_CONTEXT__NAME:
+				setName(NAME_EDEFAULT);
+				return;
 			case ContentHubPackage.ROOT_CONTEXT__JCR_ROOT_PATH:
 				setJcrRootPath(JCR_ROOT_PATH_EDEFAULT);
 				return;
@@ -142,6 +194,8 @@ public class RootContextImpl extends ContextImpl implements RootContext {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case ContentHubPackage.ROOT_CONTEXT__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case ContentHubPackage.ROOT_CONTEXT__JCR_ROOT_PATH:
 				return JCR_ROOT_PATH_EDEFAULT == null ? jcrRootPath != null : !JCR_ROOT_PATH_EDEFAULT.equals(jcrRootPath);
 		}
@@ -158,7 +212,9 @@ public class RootContextImpl extends ContextImpl implements RootContext {
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (jcrRootPath: ");
+		result.append(" (name: ");
+		result.append(name);
+		result.append(", jcrRootPath: ");
 		result.append(jcrRootPath);
 		result.append(')');
 		return result.toString();

@@ -4,10 +4,9 @@ package de.enithing.contenthub.model.contentfragment.corefields.provider;
 
 
 import de.enithing.contenthub.edit.ContentHubEditPlugin;
-
 import de.enithing.contenthub.model.contentfragment.corefields.CorefieldsPackage;
 import de.enithing.contenthub.model.contentfragment.corefields.NumberValue;
-
+import java.math.BigDecimal;
 import java.util.Collection;
 import java.util.List;
 
@@ -15,7 +14,6 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -34,13 +32,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class NumberValueItemProvider 
-	extends ItemProviderAdapter
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -84,7 +76,7 @@ public class NumberValueItemProvider
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -108,8 +100,11 @@ public class NumberValueItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		NumberValue numberValue = (NumberValue)object;
-		return getString("_UI_NumberValue_type") + " " + numberValue.getValue();
+		BigDecimal labelValue = ((NumberValue)object).getValue();
+		String label = labelValue == null ? null : labelValue.toString();
+		return label == null || label.length() == 0 ?
+			getString("_UI_NumberValue_type") :
+			getString("_UI_NumberValue_type") + " " + label;
 	}
 
 

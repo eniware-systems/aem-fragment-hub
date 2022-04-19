@@ -278,13 +278,22 @@ public interface ContentHubPackage extends EPackage {
 	int ROOT_CONTEXT__POLICIES = CONTEXT__POLICIES;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOT_CONTEXT__NAME = CONTEXT_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Jcr Root Path</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROOT_CONTEXT__JCR_ROOT_PATH = CONTEXT_FEATURE_COUNT + 0;
+	int ROOT_CONTEXT__JCR_ROOT_PATH = CONTEXT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Root Context</em>' class.
@@ -293,7 +302,7 @@ public interface ContentHubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROOT_CONTEXT_FEATURE_COUNT = CONTEXT_FEATURE_COUNT + 1;
+	int ROOT_CONTEXT_FEATURE_COUNT = CONTEXT_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Get Root Context</em>' operation.
@@ -469,6 +478,52 @@ public interface ContentHubPackage extends EPackage {
 	int CONTEXT_POLICY_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link de.enithing.contenthub.model.contenthub.impl.PairImpl <em>Pair</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.enithing.contenthub.model.contenthub.impl.PairImpl
+	 * @see de.enithing.contenthub.model.contenthub.impl.ContentHubPackageImpl#getPair()
+	 * @generated
+	 */
+	int PAIR = 5;
+
+	/**
+	 * The feature id for the '<em><b>Key</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAIR__KEY = 0;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAIR__VALUE = 1;
+
+	/**
+	 * The number of structural features of the '<em>Pair</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAIR_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Pair</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAIR_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '<em>Path</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -476,7 +531,7 @@ public interface ContentHubPackage extends EPackage {
 	 * @see de.enithing.contenthub.model.contenthub.impl.ContentHubPackageImpl#getPath()
 	 * @generated
 	 */
-	int PATH = 5;
+	int PATH = 6;
 
 
 	/**
@@ -650,6 +705,17 @@ public interface ContentHubPackage extends EPackage {
 	EClass getRootContext();
 
 	/**
+	 * Returns the meta object for the attribute '{@link de.enithing.contenthub.model.contenthub.RootContext#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see de.enithing.contenthub.model.contenthub.RootContext#getName()
+	 * @see #getRootContext()
+	 * @generated
+	 */
+	EAttribute getRootContext_Name();
+
+	/**
 	 * Returns the meta object for the attribute '{@link de.enithing.contenthub.model.contenthub.RootContext#getJcrRootPath <em>Jcr Root Path</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -701,6 +767,38 @@ public interface ContentHubPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getContextPolicy();
+
+	/**
+	 * Returns the meta object for class '{@link de.enithing.contenthub.model.contenthub.Pair <em>Pair</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Pair</em>'.
+	 * @see de.enithing.contenthub.model.contenthub.Pair
+	 * @generated
+	 */
+	EClass getPair();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.enithing.contenthub.model.contenthub.Pair#getKey <em>Key</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Key</em>'.
+	 * @see de.enithing.contenthub.model.contenthub.Pair#getKey()
+	 * @see #getPair()
+	 * @generated
+	 */
+	EAttribute getPair_Key();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.enithing.contenthub.model.contenthub.Pair#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see de.enithing.contenthub.model.contenthub.Pair#getValue()
+	 * @see #getPair()
+	 * @generated
+	 */
+	EAttribute getPair_Value();
 
 	/**
 	 * Returns the meta object for data type '{@link java.nio.file.Path <em>Path</em>}'.
@@ -871,6 +969,14 @@ public interface ContentHubPackage extends EPackage {
 		EClass ROOT_CONTEXT = eINSTANCE.getRootContext();
 
 		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ROOT_CONTEXT__NAME = eINSTANCE.getRootContext_Name();
+
+		/**
 		 * The meta object literal for the '<em><b>Jcr Root Path</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -913,6 +1019,32 @@ public interface ContentHubPackage extends EPackage {
 		 * @generated
 		 */
 		EClass CONTEXT_POLICY = eINSTANCE.getContextPolicy();
+
+		/**
+		 * The meta object literal for the '{@link de.enithing.contenthub.model.contenthub.impl.PairImpl <em>Pair</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.enithing.contenthub.model.contenthub.impl.PairImpl
+		 * @see de.enithing.contenthub.model.contenthub.impl.ContentHubPackageImpl#getPair()
+		 * @generated
+		 */
+		EClass PAIR = eINSTANCE.getPair();
+
+		/**
+		 * The meta object literal for the '<em><b>Key</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PAIR__KEY = eINSTANCE.getPair_Key();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PAIR__VALUE = eINSTANCE.getPair_Value();
 
 		/**
 		 * The meta object literal for the '<em>Path</em>' data type.

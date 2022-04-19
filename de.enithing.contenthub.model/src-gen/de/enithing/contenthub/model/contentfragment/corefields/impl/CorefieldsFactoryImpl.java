@@ -2,17 +2,30 @@
  */
 package de.enithing.contenthub.model.contentfragment.corefields.impl;
 
-import de.enithing.contenthub.model.contentfragment.corefields.ContentFragmentReference;
-import de.enithing.contenthub.model.contentfragment.corefields.ContentFragmentReferenceValue;
+import de.enithing.contenthub.model.contentfragment.corefields.BooleanValue;
+import de.enithing.contenthub.model.contentfragment.corefields.ContentReference;
+import de.enithing.contenthub.model.contentfragment.corefields.ContentReferenceType;
+import de.enithing.contenthub.model.contentfragment.corefields.ContentReferenceValue;
 import de.enithing.contenthub.model.contentfragment.corefields.CorefieldsFactory;
 import de.enithing.contenthub.model.contentfragment.corefields.CorefieldsPackage;
+import de.enithing.contenthub.model.contentfragment.corefields.DateTime;
+import de.enithing.contenthub.model.contentfragment.corefields.DateTimeType;
+import de.enithing.contenthub.model.contentfragment.corefields.DateTimeValue;
+import de.enithing.contenthub.model.contentfragment.corefields.Enumeration;
+import de.enithing.contenthub.model.contentfragment.corefields.FragmentReference;
+import de.enithing.contenthub.model.contentfragment.corefields.FragmentReferenceValue;
+import de.enithing.contenthub.model.contentfragment.corefields.Json;
 import de.enithing.contenthub.model.contentfragment.corefields.MultiLineText;
-import de.enithing.contenthub.model.contentfragment.corefields.MultiLineTextType;
+import de.enithing.contenthub.model.contentfragment.corefields.NumberTypeHint;
+import de.enithing.contenthub.model.contentfragment.corefields.NumberValidationType;
 import de.enithing.contenthub.model.contentfragment.corefields.NumberValue;
 import de.enithing.contenthub.model.contentfragment.corefields.SingleLineText;
+import de.enithing.contenthub.model.contentfragment.corefields.StringValue;
 import de.enithing.contenthub.model.contentfragment.corefields.Tab;
-import de.enithing.contenthub.model.contentfragment.corefields.TextValue;
-
+import de.enithing.contenthub.model.contentfragment.corefields.Tags;
+import de.enithing.contenthub.model.contentfragment.corefields.TextMimeType;
+import de.enithing.contenthub.model.contentfragment.corefields.TextValidationType;
+import java.util.Date;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
@@ -66,14 +79,23 @@ public class CorefieldsFactoryImpl extends EFactoryImpl implements CorefieldsFac
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case CorefieldsPackage.NUMBER: return createNumber();
-			case CorefieldsPackage.NUMBER_VALUE: return createNumberValue();
+			case CorefieldsPackage.STRING_VALUE: return createStringValue();
 			case CorefieldsPackage.SINGLE_LINE_TEXT: return createSingleLineText();
 			case CorefieldsPackage.MULTI_LINE_TEXT: return createMultiLineText();
-			case CorefieldsPackage.TEXT_VALUE: return createTextValue();
+			case CorefieldsPackage.NUMBER: return createNumber();
+			case CorefieldsPackage.NUMBER_VALUE: return createNumberValue();
+			case CorefieldsPackage.BOOLEAN: return createBoolean();
+			case CorefieldsPackage.BOOLEAN_VALUE: return createBooleanValue();
+			case CorefieldsPackage.DATE_TIME: return createDateTime();
+			case CorefieldsPackage.DATE_TIME_VALUE: return createDateTimeValue();
+			case CorefieldsPackage.ENUMERATION: return createEnumeration();
+			case CorefieldsPackage.TAGS: return createTags();
+			case CorefieldsPackage.CONTENT_REFERENCE: return createContentReference();
+			case CorefieldsPackage.CONTENT_REFERENCE_VALUE: return createContentReferenceValue();
+			case CorefieldsPackage.FRAGMENT_REFERENCE: return createFragmentReference();
+			case CorefieldsPackage.FRAGMENT_REFERENCE_VALUE: return createFragmentReferenceValue();
+			case CorefieldsPackage.JSON: return createJson();
 			case CorefieldsPackage.TAB: return createTab();
-			case CorefieldsPackage.CONTENT_FRAGMENT_REFERENCE: return createContentFragmentReference();
-			case CorefieldsPackage.CONTENT_FRAGMENT_REFERENCE_VALUE: return createContentFragmentReferenceValue();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -87,8 +109,20 @@ public class CorefieldsFactoryImpl extends EFactoryImpl implements CorefieldsFac
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
-			case CorefieldsPackage.MULTI_LINE_TEXT_TYPE:
-				return createMultiLineTextTypeFromString(eDataType, initialValue);
+			case CorefieldsPackage.TEXT_MIME_TYPE:
+				return createTextMimeTypeFromString(eDataType, initialValue);
+			case CorefieldsPackage.TEXT_VALIDATION_TYPE:
+				return createTextValidationTypeFromString(eDataType, initialValue);
+			case CorefieldsPackage.NUMBER_TYPE_HINT:
+				return createNumberTypeHintFromString(eDataType, initialValue);
+			case CorefieldsPackage.NUMBER_VALIDATION_TYPE:
+				return createNumberValidationTypeFromString(eDataType, initialValue);
+			case CorefieldsPackage.DATE_TIME_TYPE:
+				return createDateTimeTypeFromString(eDataType, initialValue);
+			case CorefieldsPackage.CONTENT_REFERENCE_TYPE:
+				return createContentReferenceTypeFromString(eDataType, initialValue);
+			case CorefieldsPackage.DATE:
+				return createDateFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -102,11 +136,34 @@ public class CorefieldsFactoryImpl extends EFactoryImpl implements CorefieldsFac
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
-			case CorefieldsPackage.MULTI_LINE_TEXT_TYPE:
-				return convertMultiLineTextTypeToString(eDataType, instanceValue);
+			case CorefieldsPackage.TEXT_MIME_TYPE:
+				return convertTextMimeTypeToString(eDataType, instanceValue);
+			case CorefieldsPackage.TEXT_VALIDATION_TYPE:
+				return convertTextValidationTypeToString(eDataType, instanceValue);
+			case CorefieldsPackage.NUMBER_TYPE_HINT:
+				return convertNumberTypeHintToString(eDataType, instanceValue);
+			case CorefieldsPackage.NUMBER_VALIDATION_TYPE:
+				return convertNumberValidationTypeToString(eDataType, instanceValue);
+			case CorefieldsPackage.DATE_TIME_TYPE:
+				return convertDateTimeTypeToString(eDataType, instanceValue);
+			case CorefieldsPackage.CONTENT_REFERENCE_TYPE:
+				return convertContentReferenceTypeToString(eDataType, instanceValue);
+			case CorefieldsPackage.DATE:
+				return convertDateToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public StringValue createStringValue() {
+		StringValueImpl stringValue = new StringValueImpl();
+		return stringValue;
 	}
 
 	/**
@@ -137,6 +194,127 @@ public class CorefieldsFactoryImpl extends EFactoryImpl implements CorefieldsFac
 	 * @generated
 	 */
 	@Override
+	public de.enithing.contenthub.model.contentfragment.corefields.Boolean createBoolean() {
+		BooleanImpl boolean_ = new BooleanImpl();
+		return boolean_;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public BooleanValue createBooleanValue() {
+		BooleanValueImpl booleanValue = new BooleanValueImpl();
+		return booleanValue;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public DateTime createDateTime() {
+		DateTimeImpl dateTime = new DateTimeImpl();
+		return dateTime;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public DateTimeValue createDateTimeValue() {
+		DateTimeValueImpl dateTimeValue = new DateTimeValueImpl();
+		return dateTimeValue;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Enumeration createEnumeration() {
+		EnumerationImpl enumeration = new EnumerationImpl();
+		return enumeration;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Tags createTags() {
+		TagsImpl tags = new TagsImpl();
+		return tags;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ContentReference createContentReference() {
+		ContentReferenceImpl contentReference = new ContentReferenceImpl();
+		return contentReference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ContentReferenceValue createContentReferenceValue() {
+		ContentReferenceValueImpl contentReferenceValue = new ContentReferenceValueImpl();
+		return contentReferenceValue;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public FragmentReference createFragmentReference() {
+		FragmentReferenceImpl fragmentReference = new FragmentReferenceImpl();
+		return fragmentReference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public FragmentReferenceValue createFragmentReferenceValue() {
+		FragmentReferenceValueImpl fragmentReferenceValue = new FragmentReferenceValueImpl();
+		return fragmentReferenceValue;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Json createJson() {
+		JsonImpl json = new JsonImpl();
+		return json;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public SingleLineText createSingleLineText() {
 		SingleLineTextImpl singleLineText = new SingleLineTextImpl();
 		return singleLineText;
@@ -159,17 +337,6 @@ public class CorefieldsFactoryImpl extends EFactoryImpl implements CorefieldsFac
 	 * @generated
 	 */
 	@Override
-	public TextValue createTextValue() {
-		TextValueImpl textValue = new TextValueImpl();
-		return textValue;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public Tab createTab() {
 		TabImpl tab = new TabImpl();
 		return tab;
@@ -180,30 +347,8 @@ public class CorefieldsFactoryImpl extends EFactoryImpl implements CorefieldsFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public ContentFragmentReference createContentFragmentReference() {
-		ContentFragmentReferenceImpl contentFragmentReference = new ContentFragmentReferenceImpl();
-		return contentFragmentReference;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ContentFragmentReferenceValue createContentFragmentReferenceValue() {
-		ContentFragmentReferenceValueImpl contentFragmentReferenceValue = new ContentFragmentReferenceValueImpl();
-		return contentFragmentReferenceValue;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public MultiLineTextType createMultiLineTextTypeFromString(EDataType eDataType, String initialValue) {
-		MultiLineTextType result = MultiLineTextType.get(initialValue);
+	public TextMimeType createTextMimeTypeFromString(EDataType eDataType, String initialValue) {
+		TextMimeType result = TextMimeType.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
@@ -213,8 +358,126 @@ public class CorefieldsFactoryImpl extends EFactoryImpl implements CorefieldsFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertMultiLineTextTypeToString(EDataType eDataType, Object instanceValue) {
+	public String convertTextMimeTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TextValidationType createTextValidationTypeFromString(EDataType eDataType, String initialValue) {
+		TextValidationType result = TextValidationType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertTextValidationTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NumberTypeHint createNumberTypeHintFromString(EDataType eDataType, String initialValue) {
+		NumberTypeHint result = NumberTypeHint.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertNumberTypeHintToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NumberValidationType createNumberValidationTypeFromString(EDataType eDataType, String initialValue) {
+		NumberValidationType result = NumberValidationType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertNumberValidationTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DateTimeType createDateTimeTypeFromString(EDataType eDataType, String initialValue) {
+		DateTimeType result = DateTimeType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertDateTimeTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ContentReferenceType createContentReferenceTypeFromString(EDataType eDataType, String initialValue) {
+		ContentReferenceType result = ContentReferenceType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertContentReferenceTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Date createDateFromString(EDataType eDataType, String initialValue) {
+		return (Date)super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertDateToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
 	}
 
 	/**

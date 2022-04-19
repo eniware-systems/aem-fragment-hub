@@ -8,6 +8,8 @@ import de.enithing.contenthub.model.contentfragment.corefields.CorefieldsPackage
 
 import de.enithing.contenthub.model.contentfragment.corefields.impl.CorefieldsPackageImpl;
 
+import de.enithing.contenthub.model.contentfragment.corefields.validation.ValidationPackage;
+import de.enithing.contenthub.model.contentfragment.corefields.validation.impl.ValidationPackageImpl;
 import de.enithing.contenthub.model.contentfragment.impl.ContentFragmentPackageImpl;
 
 import de.enithing.contenthub.model.contenthub.ChildContext;
@@ -15,6 +17,7 @@ import de.enithing.contenthub.model.contenthub.ContentHubFactory;
 import de.enithing.contenthub.model.contenthub.ContentHubPackage;
 import de.enithing.contenthub.model.contenthub.Context;
 import de.enithing.contenthub.model.contenthub.ContextPolicy;
+import de.enithing.contenthub.model.contenthub.Pair;
 import de.enithing.contenthub.model.contenthub.RootContext;
 
 import java.nio.file.Path;
@@ -22,9 +25,11 @@ import java.nio.file.Path;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
+import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.ETypeParameter;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
@@ -68,6 +73,13 @@ public class ContentHubPackageImpl extends EPackageImpl implements ContentHubPac
 	 * @generated
 	 */
 	private EClass contextPolicyEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass pairEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -128,16 +140,20 @@ public class ContentHubPackageImpl extends EPackageImpl implements ContentHubPac
 		ContentFragmentPackageImpl theContentFragmentPackage = (ContentFragmentPackageImpl)(registeredPackage instanceof ContentFragmentPackageImpl ? registeredPackage : ContentFragmentPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(CorefieldsPackage.eNS_URI);
 		CorefieldsPackageImpl theCorefieldsPackage = (CorefieldsPackageImpl)(registeredPackage instanceof CorefieldsPackageImpl ? registeredPackage : CorefieldsPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ValidationPackage.eNS_URI);
+		ValidationPackageImpl theValidationPackage = (ValidationPackageImpl)(registeredPackage instanceof ValidationPackageImpl ? registeredPackage : ValidationPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theContentHubPackage.createPackageContents();
 		theContentFragmentPackage.createPackageContents();
 		theCorefieldsPackage.createPackageContents();
+		theValidationPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theContentHubPackage.initializePackageContents();
 		theContentFragmentPackage.initializePackageContents();
 		theCorefieldsPackage.initializePackageContents();
+		theValidationPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theContentHubPackage.freeze();
@@ -313,8 +329,18 @@ public class ContentHubPackageImpl extends EPackageImpl implements ContentHubPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getRootContext_JcrRootPath() {
+	public EAttribute getRootContext_Name() {
 		return (EAttribute)rootContextEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getRootContext_JcrRootPath() {
+		return (EAttribute)rootContextEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -355,6 +381,36 @@ public class ContentHubPackageImpl extends EPackageImpl implements ContentHubPac
 	@Override
 	public EClass getContextPolicy() {
 		return contextPolicyEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getPair() {
+		return pairEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getPair_Key() {
+		return (EAttribute)pairEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getPair_Value() {
+		return (EAttribute)pairEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -414,6 +470,7 @@ public class ContentHubPackageImpl extends EPackageImpl implements ContentHubPac
 		createEOperation(contextEClass, CONTEXT___GET_RELATED_POLICIES);
 
 		rootContextEClass = createEClass(ROOT_CONTEXT);
+		createEAttribute(rootContextEClass, ROOT_CONTEXT__NAME);
 		createEAttribute(rootContextEClass, ROOT_CONTEXT__JCR_ROOT_PATH);
 
 		childContextEClass = createEClass(CHILD_CONTEXT);
@@ -421,6 +478,10 @@ public class ContentHubPackageImpl extends EPackageImpl implements ContentHubPac
 		createEAttribute(childContextEClass, CHILD_CONTEXT__RELATIVE_PATH);
 
 		contextPolicyEClass = createEClass(CONTEXT_POLICY);
+
+		pairEClass = createEClass(PAIR);
+		createEAttribute(pairEClass, PAIR__KEY);
+		createEAttribute(pairEClass, PAIR__VALUE);
 
 		// Create data types
 		pathEDataType = createEDataType(PATH);
@@ -456,6 +517,8 @@ public class ContentHubPackageImpl extends EPackageImpl implements ContentHubPac
 		getESubpackages().add(theContentFragmentPackage);
 
 		// Create type parameters
+		ETypeParameter pairEClass_TKey = addETypeParameter(pairEClass, "TKey");
+		ETypeParameter pairEClass_TValue = addETypeParameter(pairEClass, "TValue");
 
 		// Set bounds for type parameters
 
@@ -485,6 +548,7 @@ public class ContentHubPackageImpl extends EPackageImpl implements ContentHubPac
 		initEOperation(getContext__GetRelatedPolicies(), this.getContextPolicy(), "getRelatedPolicies", 0, -1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(rootContextEClass, RootContext.class, "RootContext", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getRootContext_Name(), ecorePackage.getEString(), "name", "my context", 1, 1, RootContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRootContext_JcrRootPath(), this.getPath(), "jcrRootPath", "/jcr_root", 1, 1, RootContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(childContextEClass, ChildContext.class, "ChildContext", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -492,6 +556,12 @@ public class ContentHubPackageImpl extends EPackageImpl implements ContentHubPac
 		initEAttribute(getChildContext_RelativePath(), this.getPath(), "relativePath", "/child", 1, 1, ChildContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(contextPolicyEClass, ContextPolicy.class, "ContextPolicy", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(pairEClass, Pair.class, "Pair", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		EGenericType g1 = createEGenericType(pairEClass_TKey);
+		initEAttribute(getPair_Key(), g1, "key", null, 1, 1, Pair.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		g1 = createEGenericType(pairEClass_TValue);
+		initEAttribute(getPair_Value(), g1, "value", null, 1, 1, Pair.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize data types
 		initEDataType(pathEDataType, Path.class, "Path", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

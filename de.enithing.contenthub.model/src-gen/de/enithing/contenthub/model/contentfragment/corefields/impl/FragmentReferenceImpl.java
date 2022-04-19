@@ -1,0 +1,398 @@
+/**
+ */
+package de.enithing.contenthub.model.contentfragment.corefields.impl;
+
+import de.enithing.contenthub.model.contentfragment.corefields.CorefieldsPackage;
+import de.enithing.contenthub.model.contentfragment.corefields.FragmentReference;
+import de.enithing.contenthub.model.contentfragment.corefields.FragmentReferenceValue;
+
+import de.enithing.contenthub.model.contentfragment.impl.ContentFragmentFieldTypeImpl;
+
+import de.enithing.contenthub.model.contenthub.ContentHubFactory;
+import de.enithing.contenthub.model.contenthub.ContentHubPackage;
+
+import java.lang.Boolean;
+
+import java.nio.file.Path;
+
+import org.eclipse.emf.common.notify.Notification;
+
+import org.eclipse.emf.ecore.EClass;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+/**
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>Fragment Reference</b></em>'.
+ * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link de.enithing.contenthub.model.contentfragment.corefields.impl.FragmentReferenceImpl#isAllowMultiple <em>Allow Multiple</em>}</li>
+ *   <li>{@link de.enithing.contenthub.model.contentfragment.corefields.impl.FragmentReferenceImpl#getPlaceholder <em>Placeholder</em>}</li>
+ *   <li>{@link de.enithing.contenthub.model.contentfragment.corefields.impl.FragmentReferenceImpl#getRootPath <em>Root Path</em>}</li>
+ *   <li>{@link de.enithing.contenthub.model.contentfragment.corefields.impl.FragmentReferenceImpl#isAllowFragmentCreation <em>Allow Fragment Creation</em>}</li>
+ *   <li>{@link de.enithing.contenthub.model.contentfragment.corefields.impl.FragmentReferenceImpl#isRequired <em>Required</em>}</li>
+ * </ul>
+ *
+ * @generated
+ */
+public class FragmentReferenceImpl extends ContentFragmentFieldTypeImpl<FragmentReferenceValue> implements FragmentReference {
+	/**
+	 * The default value of the '{@link #isAllowMultiple() <em>Allow Multiple</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isAllowMultiple()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean ALLOW_MULTIPLE_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isAllowMultiple() <em>Allow Multiple</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isAllowMultiple()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean allowMultiple = ALLOW_MULTIPLE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getPlaceholder() <em>Placeholder</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPlaceholder()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String PLACEHOLDER_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getPlaceholder() <em>Placeholder</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPlaceholder()
+	 * @generated
+	 * @ordered
+	 */
+	protected String placeholder = PLACEHOLDER_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getRootPath() <em>Root Path</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRootPath()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Path ROOT_PATH_EDEFAULT = (Path)ContentHubFactory.eINSTANCE.createFromString(ContentHubPackage.eINSTANCE.getPath(), "");
+
+	/**
+	 * The cached value of the '{@link #getRootPath() <em>Root Path</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRootPath()
+	 * @generated
+	 * @ordered
+	 */
+	protected Path rootPath = ROOT_PATH_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isAllowFragmentCreation() <em>Allow Fragment Creation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isAllowFragmentCreation()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean ALLOW_FRAGMENT_CREATION_EDEFAULT = true;
+
+	/**
+	 * The cached value of the '{@link #isAllowFragmentCreation() <em>Allow Fragment Creation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isAllowFragmentCreation()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean allowFragmentCreation = ALLOW_FRAGMENT_CREATION_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isRequired() <em>Required</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isRequired()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean REQUIRED_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isRequired() <em>Required</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isRequired()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean required = REQUIRED_EDEFAULT;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected FragmentReferenceImpl() {
+		super();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return CorefieldsPackage.Literals.FRAGMENT_REFERENCE;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean isAllowMultiple() {
+		return allowMultiple;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setAllowMultiple(boolean newAllowMultiple) {
+		boolean oldAllowMultiple = allowMultiple;
+		allowMultiple = newAllowMultiple;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CorefieldsPackage.FRAGMENT_REFERENCE__ALLOW_MULTIPLE, oldAllowMultiple, allowMultiple));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getPlaceholder() {
+		return placeholder;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setPlaceholder(String newPlaceholder) {
+		String oldPlaceholder = placeholder;
+		placeholder = newPlaceholder;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CorefieldsPackage.FRAGMENT_REFERENCE__PLACEHOLDER, oldPlaceholder, placeholder));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Path getRootPath() {
+		return rootPath;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setRootPath(Path newRootPath) {
+		Path oldRootPath = rootPath;
+		rootPath = newRootPath;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CorefieldsPackage.FRAGMENT_REFERENCE__ROOT_PATH, oldRootPath, rootPath));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean isAllowFragmentCreation() {
+		return allowFragmentCreation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setAllowFragmentCreation(boolean newAllowFragmentCreation) {
+		boolean oldAllowFragmentCreation = allowFragmentCreation;
+		allowFragmentCreation = newAllowFragmentCreation;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CorefieldsPackage.FRAGMENT_REFERENCE__ALLOW_FRAGMENT_CREATION, oldAllowFragmentCreation, allowFragmentCreation));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean isRequired() {
+		return required;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setRequired(boolean newRequired) {
+		boolean oldRequired = required;
+		required = newRequired;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CorefieldsPackage.FRAGMENT_REFERENCE__REQUIRED, oldRequired, required));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+			case CorefieldsPackage.FRAGMENT_REFERENCE__ALLOW_MULTIPLE:
+				return isAllowMultiple();
+			case CorefieldsPackage.FRAGMENT_REFERENCE__PLACEHOLDER:
+				return getPlaceholder();
+			case CorefieldsPackage.FRAGMENT_REFERENCE__ROOT_PATH:
+				return getRootPath();
+			case CorefieldsPackage.FRAGMENT_REFERENCE__ALLOW_FRAGMENT_CREATION:
+				return isAllowFragmentCreation();
+			case CorefieldsPackage.FRAGMENT_REFERENCE__REQUIRED:
+				return isRequired();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+			case CorefieldsPackage.FRAGMENT_REFERENCE__ALLOW_MULTIPLE:
+				setAllowMultiple((Boolean)newValue);
+				return;
+			case CorefieldsPackage.FRAGMENT_REFERENCE__PLACEHOLDER:
+				setPlaceholder((String)newValue);
+				return;
+			case CorefieldsPackage.FRAGMENT_REFERENCE__ROOT_PATH:
+				setRootPath((Path)newValue);
+				return;
+			case CorefieldsPackage.FRAGMENT_REFERENCE__ALLOW_FRAGMENT_CREATION:
+				setAllowFragmentCreation((Boolean)newValue);
+				return;
+			case CorefieldsPackage.FRAGMENT_REFERENCE__REQUIRED:
+				setRequired((Boolean)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch (featureID) {
+			case CorefieldsPackage.FRAGMENT_REFERENCE__ALLOW_MULTIPLE:
+				setAllowMultiple(ALLOW_MULTIPLE_EDEFAULT);
+				return;
+			case CorefieldsPackage.FRAGMENT_REFERENCE__PLACEHOLDER:
+				setPlaceholder(PLACEHOLDER_EDEFAULT);
+				return;
+			case CorefieldsPackage.FRAGMENT_REFERENCE__ROOT_PATH:
+				setRootPath(ROOT_PATH_EDEFAULT);
+				return;
+			case CorefieldsPackage.FRAGMENT_REFERENCE__ALLOW_FRAGMENT_CREATION:
+				setAllowFragmentCreation(ALLOW_FRAGMENT_CREATION_EDEFAULT);
+				return;
+			case CorefieldsPackage.FRAGMENT_REFERENCE__REQUIRED:
+				setRequired(REQUIRED_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
+			case CorefieldsPackage.FRAGMENT_REFERENCE__ALLOW_MULTIPLE:
+				return allowMultiple != ALLOW_MULTIPLE_EDEFAULT;
+			case CorefieldsPackage.FRAGMENT_REFERENCE__PLACEHOLDER:
+				return PLACEHOLDER_EDEFAULT == null ? placeholder != null : !PLACEHOLDER_EDEFAULT.equals(placeholder);
+			case CorefieldsPackage.FRAGMENT_REFERENCE__ROOT_PATH:
+				return ROOT_PATH_EDEFAULT == null ? rootPath != null : !ROOT_PATH_EDEFAULT.equals(rootPath);
+			case CorefieldsPackage.FRAGMENT_REFERENCE__ALLOW_FRAGMENT_CREATION:
+				return allowFragmentCreation != ALLOW_FRAGMENT_CREATION_EDEFAULT;
+			case CorefieldsPackage.FRAGMENT_REFERENCE__REQUIRED:
+				return required != REQUIRED_EDEFAULT;
+		}
+		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (allowMultiple: ");
+		result.append(allowMultiple);
+		result.append(", placeholder: ");
+		result.append(placeholder);
+		result.append(", rootPath: ");
+		result.append(rootPath);
+		result.append(", allowFragmentCreation: ");
+		result.append(allowFragmentCreation);
+		result.append(", required: ");
+		result.append(required);
+		result.append(')');
+		return result.toString();
+	}
+
+} //FragmentReferenceImpl

@@ -6,6 +6,7 @@ import de.enithing.contenthub.model.contenthub.ChildContext;
 import de.enithing.contenthub.model.contenthub.ContentHubPackage;
 import de.enithing.contenthub.model.contenthub.Context;
 import de.enithing.contenthub.model.contenthub.ContextPolicy;
+import de.enithing.contenthub.model.contenthub.Pair;
 import de.enithing.contenthub.model.contenthub.RootContext;
 
 import org.eclipse.emf.ecore.EObject;
@@ -102,6 +103,12 @@ public class ContentHubSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ContentHubPackage.PAIR: {
+				Pair<?, ?> pair = (Pair<?, ?>)theEObject;
+				T result = casePair(pair);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -178,6 +185,21 @@ public class ContentHubSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseContextPolicy(ContextPolicy object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Pair</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Pair</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public <TKey, TValue> T casePair(Pair<TKey, TValue> object) {
 		return null;
 	}
 

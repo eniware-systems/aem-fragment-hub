@@ -233,11 +233,6 @@ public class ContentFragmentModelItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(ContentFragmentPackage.Literals.CONTENT_FRAGMENT_MODEL__FIELDS,
-				 CorefieldsFactory.eINSTANCE.createNumber()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ContentFragmentPackage.Literals.CONTENT_FRAGMENT_MODEL__FIELDS,
 				 CorefieldsFactory.eINSTANCE.createSingleLineText()));
 
 		newChildDescriptors.add
@@ -248,12 +243,47 @@ public class ContentFragmentModelItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(ContentFragmentPackage.Literals.CONTENT_FRAGMENT_MODEL__FIELDS,
-				 CorefieldsFactory.eINSTANCE.createTab()));
+				 CorefieldsFactory.eINSTANCE.createNumber()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(ContentFragmentPackage.Literals.CONTENT_FRAGMENT_MODEL__FIELDS,
-				 CorefieldsFactory.eINSTANCE.createContentFragmentReference()));
+				 CorefieldsFactory.eINSTANCE.createBoolean()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ContentFragmentPackage.Literals.CONTENT_FRAGMENT_MODEL__FIELDS,
+				 CorefieldsFactory.eINSTANCE.createDateTime()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ContentFragmentPackage.Literals.CONTENT_FRAGMENT_MODEL__FIELDS,
+				 CorefieldsFactory.eINSTANCE.createEnumeration()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ContentFragmentPackage.Literals.CONTENT_FRAGMENT_MODEL__FIELDS,
+				 CorefieldsFactory.eINSTANCE.createTags()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ContentFragmentPackage.Literals.CONTENT_FRAGMENT_MODEL__FIELDS,
+				 CorefieldsFactory.eINSTANCE.createContentReference()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ContentFragmentPackage.Literals.CONTENT_FRAGMENT_MODEL__FIELDS,
+				 CorefieldsFactory.eINSTANCE.createFragmentReference()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ContentFragmentPackage.Literals.CONTENT_FRAGMENT_MODEL__FIELDS,
+				 CorefieldsFactory.eINSTANCE.createJson()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ContentFragmentPackage.Literals.CONTENT_FRAGMENT_MODEL__FIELDS,
+				 CorefieldsFactory.eINSTANCE.createTab()));
 	}
 
 	/**

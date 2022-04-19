@@ -9,6 +9,7 @@ Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-17
 Export-Package: de.enithing.contenthub.model.contentfragment.corefields.tests,
+ de.enithing.contenthub.model.contentfragment.corefields.validation.tests,
  de.enithing.contenthub.model.contentfragment.tests,
  de.enithing.contenthub.model.contenthub.tests
 Require-Bundle: org.eclipse.core.runtime,

@@ -159,6 +159,7 @@ import de.enithing.contenthub.model.contentfragment.corefields.provider.Corefiel
 
 import de.enithing.contenthub.editor.ContentHubEditorPlugin;
 
+import de.enithing.contenthub.model.contentfragment.corefields.validation.provider.ValidationItemProviderAdapterFactory;
 import de.enithing.contenthub.model.contentfragment.provider.ContentFragmentItemProviderAdapterFactory;
 
 import de.enithing.contenthub.model.contenthub.provider.ContentHubItemProviderAdapterFactory;
@@ -719,6 +720,7 @@ public class CorefieldsEditor
 		adapterFactory.addAdapterFactory(new ContentHubItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ContentFragmentItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new CorefieldsItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new ValidationItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
 		// Create the command stack that will notify this editor as commands are executed.

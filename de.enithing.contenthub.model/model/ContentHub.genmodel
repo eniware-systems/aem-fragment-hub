@@ -29,6 +29,7 @@
       <genOperations ecoreOperation="ContentHub.ecore#//Context/getRelatedPolicies"/>
     </genClasses>
     <genClasses ecoreClass="ContentHub.ecore#//RootContext">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//RootContext/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//RootContext/jcrRootPath"/>
     </genClasses>
     <genClasses ecoreClass="ContentHub.ecore#//ChildContext">
@@ -36,6 +37,12 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//ChildContext/relativePath"/>
     </genClasses>
     <genClasses image="false" ecoreClass="ContentHub.ecore#//ContextPolicy"/>
+    <genClasses ecoreClass="ContentHub.ecore#//Pair">
+      <genTypeParameters ecoreTypeParameter="ContentHub.ecore#//Pair/TKey"/>
+      <genTypeParameters ecoreTypeParameter="ContentHub.ecore#//Pair/TValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//Pair/key"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//Pair/value"/>
+    </genClasses>
     <nestedGenPackages prefix="ContentFragment" basePackage="de.enithing.contenthub.model"
         disposableProviderFactory="true" ecorePackage="ContentHub.ecore#//contentfragment">
       <genClasses ecoreClass="ContentHub.ecore#//contentfragment/ContentFragmentModel">
@@ -88,24 +95,59 @@
       </genClasses>
       <nestedGenPackages prefix="Corefields" basePackage="de.enithing.contenthub.model.contentfragment"
           disposableProviderFactory="true" ecorePackage="ContentHub.ecore#//contentfragment/corefields">
-        <genEnums typeSafeEnumCompatible="false" ecoreEnum="ContentHub.ecore#//contentfragment/corefields/MultiLineTextType">
-          <genEnumLiterals ecoreEnumLiteral="ContentHub.ecore#//contentfragment/corefields/MultiLineTextType/RichText"/>
-          <genEnumLiterals ecoreEnumLiteral="ContentHub.ecore#//contentfragment/corefields/MultiLineTextType/Markdown"/>
-          <genEnumLiterals ecoreEnumLiteral="ContentHub.ecore#//contentfragment/corefields/MultiLineTextType/PlainText"/>
+        <genEnums typeSafeEnumCompatible="false" ecoreEnum="ContentHub.ecore#//contentfragment/corefields/TextMimeType">
+          <genEnumLiterals ecoreEnumLiteral="ContentHub.ecore#//contentfragment/corefields/TextMimeType/Richtext"/>
+          <genEnumLiterals ecoreEnumLiteral="ContentHub.ecore#//contentfragment/corefields/TextMimeType/Markdown"/>
+          <genEnumLiterals ecoreEnumLiteral="ContentHub.ecore#//contentfragment/corefields/TextMimeType/Plaintext"/>
         </genEnums>
-        <genClasses ecoreClass="ContentHub.ecore#//contentfragment/corefields/Number">
-          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/Number/placeholderText"/>
-        </genClasses>
-        <genClasses ecoreClass="ContentHub.ecore#//contentfragment/corefields/NumberValue">
-          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/NumberValue/value"/>
+        <genEnums typeSafeEnumCompatible="false" ecoreEnum="ContentHub.ecore#//contentfragment/corefields/TextValidationType">
+          <genEnumLiterals ecoreEnumLiteral="ContentHub.ecore#//contentfragment/corefields/TextValidationType/None"/>
+          <genEnumLiterals ecoreEnumLiteral="ContentHub.ecore#//contentfragment/corefields/TextValidationType/Email"/>
+          <genEnumLiterals ecoreEnumLiteral="ContentHub.ecore#//contentfragment/corefields/TextValidationType/URL"/>
+          <genEnumLiterals ecoreEnumLiteral="ContentHub.ecore#//contentfragment/corefields/TextValidationType/Custom"/>
+        </genEnums>
+        <genEnums typeSafeEnumCompatible="false" ecoreEnum="ContentHub.ecore#//contentfragment/corefields/NumberTypeHint">
+          <genEnumLiterals ecoreEnumLiteral="ContentHub.ecore#//contentfragment/corefields/NumberTypeHint/Integer"/>
+          <genEnumLiterals ecoreEnumLiteral="ContentHub.ecore#//contentfragment/corefields/NumberTypeHint/Fraction"/>
+        </genEnums>
+        <genEnums typeSafeEnumCompatible="false" ecoreEnum="ContentHub.ecore#//contentfragment/corefields/NumberValidationType">
+          <genEnumLiterals ecoreEnumLiteral="ContentHub.ecore#//contentfragment/corefields/NumberValidationType/None"/>
+          <genEnumLiterals ecoreEnumLiteral="ContentHub.ecore#//contentfragment/corefields/NumberValidationType/GreaterThanOrEqualTo"/>
+          <genEnumLiterals ecoreEnumLiteral="ContentHub.ecore#//contentfragment/corefields/NumberValidationType/LessThanOrEqualTo"/>
+          <genEnumLiterals ecoreEnumLiteral="ContentHub.ecore#//contentfragment/corefields/NumberValidationType/Between"/>
+        </genEnums>
+        <genEnums typeSafeEnumCompatible="false" ecoreEnum="ContentHub.ecore#//contentfragment/corefields/DateTimeType">
+          <genEnumLiterals ecoreEnumLiteral="ContentHub.ecore#//contentfragment/corefields/DateTimeType/DateAndTime"/>
+          <genEnumLiterals ecoreEnumLiteral="ContentHub.ecore#//contentfragment/corefields/DateTimeType/DateOnly"/>
+          <genEnumLiterals ecoreEnumLiteral="ContentHub.ecore#//contentfragment/corefields/DateTimeType/TimeOnly"/>
+        </genEnums>
+        <genEnums typeSafeEnumCompatible="false" ecoreEnum="ContentHub.ecore#//contentfragment/corefields/ContentReferenceType">
+          <genEnumLiterals ecoreEnumLiteral="ContentHub.ecore#//contentfragment/corefields/ContentReferenceType/Richtext"/>
+          <genEnumLiterals ecoreEnumLiteral="ContentHub.ecore#//contentfragment/corefields/ContentReferenceType/Plaintext"/>
+          <genEnumLiterals ecoreEnumLiteral="ContentHub.ecore#//contentfragment/corefields/ContentReferenceType/Image"/>
+          <genEnumLiterals ecoreEnumLiteral="ContentHub.ecore#//contentfragment/corefields/ContentReferenceType/Audio"/>
+          <genEnumLiterals ecoreEnumLiteral="ContentHub.ecore#//contentfragment/corefields/ContentReferenceType/Video"/>
+          <genEnumLiterals ecoreEnumLiteral="ContentHub.ecore#//contentfragment/corefields/ContentReferenceType/ContentFragment"/>
+          <genEnumLiterals ecoreEnumLiteral="ContentHub.ecore#//contentfragment/corefields/ContentReferenceType/PDF"/>
+          <genEnumLiterals ecoreEnumLiteral="ContentHub.ecore#//contentfragment/corefields/ContentReferenceType/SpreadSheet"/>
+          <genEnumLiterals ecoreEnumLiteral="ContentHub.ecore#//contentfragment/corefields/ContentReferenceType/Presentation"/>
+          <genEnumLiterals ecoreEnumLiteral="ContentHub.ecore#//contentfragment/corefields/ContentReferenceType/Archive"/>
+          <genEnumLiterals ecoreEnumLiteral="ContentHub.ecore#//contentfragment/corefields/ContentReferenceType/Markup"/>
+        </genEnums>
+        <genDataTypes ecoreDataType="ContentHub.ecore#//contentfragment/corefields/Date"/>
+        <genClasses ecoreClass="ContentHub.ecore#//contentfragment/corefields/StringValue">
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/StringValue/value"/>
         </genClasses>
         <genClasses ecoreClass="ContentHub.ecore#//contentfragment/corefields/SingleLineText">
-          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/SingleLineText/placeholderText"/>
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/SingleLineText/placeholder"/>
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/SingleLineText/defaultValue"/>
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/SingleLineText/maxLength"/>
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/SingleLineText/required"/>
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/SingleLineText/unique"/>
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/SingleLineText/translatable"/>
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/SingleLineText/validationType"/>
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/SingleLineText/validationRegex"/>
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/SingleLineText/customErrorMessage"/>
         </genClasses>
         <genClasses ecoreClass="ContentHub.ecore#//contentfragment/corefields/MultiLineText">
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/MultiLineText/defaultType"/>
@@ -113,15 +155,101 @@
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/MultiLineText/required"/>
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/MultiLineText/translatable"/>
         </genClasses>
-        <genClasses ecoreClass="ContentHub.ecore#//contentfragment/corefields/TextValue">
-          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/TextValue/text"/>
+        <genClasses ecoreClass="ContentHub.ecore#//contentfragment/corefields/Number">
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/Number/placeholder"/>
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/Number/type"/>
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/Number/defaultValue"/>
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/Number/required"/>
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ContentHub.ecore#//contentfragment/corefields/Number/validationConstraint"/>
+        </genClasses>
+        <genClasses ecoreClass="ContentHub.ecore#//contentfragment/corefields/NumberValue">
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/NumberValue/value"/>
+        </genClasses>
+        <genClasses ecoreClass="ContentHub.ecore#//contentfragment/corefields/Boolean">
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/Boolean/defaultValue"/>
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/Boolean/required"/>
+        </genClasses>
+        <genClasses ecoreClass="ContentHub.ecore#//contentfragment/corefields/BooleanValue">
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/BooleanValue/value"/>
+        </genClasses>
+        <genClasses ecoreClass="ContentHub.ecore#//contentfragment/corefields/DateTime">
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/DateTime/placeholder"/>
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/DateTime/type"/>
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/DateTime/defaultValue"/>
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/DateTime/required"/>
+        </genClasses>
+        <genClasses ecoreClass="ContentHub.ecore#//contentfragment/corefields/DateTimeValue">
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/DateTimeValue/value"/>
+        </genClasses>
+        <genClasses ecoreClass="ContentHub.ecore#//contentfragment/corefields/Enumeration">
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference ContentHub.ecore#//contentfragment/corefields/Enumeration/options"/>
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/Enumeration/placeholder"/>
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/Enumeration/required"/>
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/Enumeration/unique"/>
+        </genClasses>
+        <genClasses ecoreClass="ContentHub.ecore#//contentfragment/corefields/Tags">
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/Tags/placeholder"/>
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/Tags/required"/>
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/Tags/rootPath"/>
+        </genClasses>
+        <genClasses ecoreClass="ContentHub.ecore#//contentfragment/corefields/ContentReference">
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/ContentReference/placeholder"/>
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/ContentReference/defaultValue"/>
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/ContentReference/rootPath"/>
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/ContentReference/required"/>
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/ContentReference/allowedContentTypes"/>
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/ContentReference/showThumbnail"/>
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ContentHub.ecore#//contentfragment/corefields/ContentReference/fileSizeValidationConstraint"/>
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ContentHub.ecore#//contentfragment/corefields/ContentReference/imageWidthConstraint"/>
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ContentHub.ecore#//contentfragment/corefields/ContentReference/imageHeightConstraint"/>
+        </genClasses>
+        <genClasses ecoreClass="ContentHub.ecore#//contentfragment/corefields/ContentReferenceValue">
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/ContentReferenceValue/value"/>
+        </genClasses>
+        <genClasses ecoreClass="ContentHub.ecore#//contentfragment/corefields/FragmentReference">
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/FragmentReference/placeholder"/>
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/FragmentReference/rootPath"/>
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/FragmentReference/allowFragmentCreation"/>
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/FragmentReference/required"/>
+        </genClasses>
+        <genClasses ecoreClass="ContentHub.ecore#//contentfragment/corefields/FragmentReferenceValue">
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference ContentHub.ecore#//contentfragment/corefields/FragmentReferenceValue/fragments"/>
+        </genClasses>
+        <genClasses ecoreClass="ContentHub.ecore#//contentfragment/corefields/Json">
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/Json/placeholder"/>
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/Json/required"/>
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/Json/translatable"/>
         </genClasses>
         <genClasses ecoreClass="ContentHub.ecore#//contentfragment/corefields/Tab"/>
-        <genClasses ecoreClass="ContentHub.ecore#//contentfragment/corefields/ContentFragmentReference"/>
-        <genClasses ecoreClass="ContentHub.ecore#//contentfragment/corefields/ContentFragmentReferenceValue">
-          <genFeatures notify="false" createChild="false" propertySortChoices="true"
-              ecoreFeature="ecore:EReference ContentHub.ecore#//contentfragment/corefields/ContentFragmentReferenceValue/fragments"/>
-        </genClasses>
+        <nestedGenPackages prefix="Validation" disposableProviderFactory="true" ecorePackage="ContentHub.ecore#//contentfragment/corefields/validation">
+          <genEnums typeSafeEnumCompatible="false" ecoreEnum="ContentHub.ecore#//contentfragment/corefields/validation/FileSizeUnit">
+            <genEnumLiterals ecoreEnumLiteral="ContentHub.ecore#//contentfragment/corefields/validation/FileSizeUnit/B"/>
+            <genEnumLiterals ecoreEnumLiteral="ContentHub.ecore#//contentfragment/corefields/validation/FileSizeUnit/KB"/>
+            <genEnumLiterals ecoreEnumLiteral="ContentHub.ecore#//contentfragment/corefields/validation/FileSizeUnit/MB"/>
+            <genEnumLiterals ecoreEnumLiteral="ContentHub.ecore#//contentfragment/corefields/validation/FileSizeUnit/GB"/>
+            <genEnumLiterals ecoreEnumLiteral="ContentHub.ecore#//contentfragment/corefields/validation/FileSizeUnit/TB"/>
+          </genEnums>
+          <genClasses image="false" ecoreClass="ContentHub.ecore#//contentfragment/corefields/validation/ValidationConstraint">
+            <genTypeParameters ecoreTypeParameter="ContentHub.ecore#//contentfragment/corefields/validation/ValidationConstraint/TValue"/>
+          </genClasses>
+          <genClasses ecoreClass="ContentHub.ecore#//contentfragment/corefields/validation/LowerBoundConstraint">
+            <genTypeParameters ecoreTypeParameter="ContentHub.ecore#//contentfragment/corefields/validation/LowerBoundConstraint/TValue"/>
+            <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/validation/LowerBoundConstraint/min"/>
+          </genClasses>
+          <genClasses ecoreClass="ContentHub.ecore#//contentfragment/corefields/validation/UpperBoundConstraint">
+            <genTypeParameters ecoreTypeParameter="ContentHub.ecore#//contentfragment/corefields/validation/UpperBoundConstraint/TValue"/>
+            <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/validation/UpperBoundConstraint/max"/>
+          </genClasses>
+          <genClasses ecoreClass="ContentHub.ecore#//contentfragment/corefields/validation/LowerUpperBoundConstraint">
+            <genTypeParameters ecoreTypeParameter="ContentHub.ecore#//contentfragment/corefields/validation/LowerUpperBoundConstraint/TValue"/>
+          </genClasses>
+          <genClasses ecoreClass="ContentHub.ecore#//contentfragment/corefields/validation/FileSizeValue">
+            <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/validation/FileSizeValue/value"/>
+            <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/validation/FileSizeValue/unit"/>
+          </genClasses>
+        </nestedGenPackages>
       </nestedGenPackages>
     </nestedGenPackages>
   </genPackages>

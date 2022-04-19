@@ -5,9 +5,6 @@ package de.enithing.contenthub.model.contenthub.provider;
 
 import de.enithing.contenthub.model.contenthub.ContentHubPackage;
 import de.enithing.contenthub.model.contenthub.RootContext;
-
-import java.nio.file.Path;
-
 import java.util.Collection;
 import java.util.List;
 
@@ -47,9 +44,32 @@ public class RootContextItemProvider extends ContextItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addNamePropertyDescriptor(object);
 			addJcrRootPathPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_RootContext_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RootContext_name_feature", "_UI_RootContext_type"),
+				 ContentHubPackage.Literals.ROOT_CONTEXT__NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -93,8 +113,7 @@ public class RootContextItemProvider extends ContextItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		Path labelValue = ((RootContext)object).getJcrRootPath();
-		String label = labelValue == null ? null : labelValue.toString();
+		String label = ((RootContext)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_RootContext_type") :
 			getString("_UI_RootContext_type") + " " + label;
@@ -113,6 +132,7 @@ public class RootContextItemProvider extends ContextItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(RootContext.class)) {
+			case ContentHubPackage.ROOT_CONTEXT__NAME:
 			case ContentHubPackage.ROOT_CONTEXT__JCR_ROOT_PATH:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
