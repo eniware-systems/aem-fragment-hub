@@ -289,6 +289,26 @@ public class ContentHubPackageImpl extends EPackageImpl implements ContentHubPac
 	 * @generated
 	 */
 	@Override
+	public EAttribute getContext_RelativePath() {
+		return (EAttribute)contextEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getContext_Title() {
+		return (EAttribute)contextEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getContext__GetRootContext() {
 		return contextEClass.getEOperations().get(0);
 	}
@@ -319,28 +339,18 @@ public class ContentHubPackageImpl extends EPackageImpl implements ContentHubPac
 	 * @generated
 	 */
 	@Override
+	public EOperation getContext__GetUnifiedTitle() {
+		return contextEClass.getEOperations().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getRootContext() {
 		return rootContextEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getRootContext_Name() {
-		return (EAttribute)rootContextEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getRootContext_JcrRootPath() {
-		return (EAttribute)rootContextEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -361,16 +371,6 @@ public class ContentHubPackageImpl extends EPackageImpl implements ContentHubPac
 	@Override
 	public EReference getChildContext_ParentContext() {
 		return (EReference)childContextEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getChildContext_RelativePath() {
-		return (EAttribute)childContextEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -465,17 +465,17 @@ public class ContentHubPackageImpl extends EPackageImpl implements ContentHubPac
 		createEReference(contextEClass, CONTEXT__CONTENT_FRAGMENT_MODELS);
 		createEReference(contextEClass, CONTEXT__CONTENT_FRAGMENTS);
 		createEReference(contextEClass, CONTEXT__POLICIES);
+		createEAttribute(contextEClass, CONTEXT__RELATIVE_PATH);
+		createEAttribute(contextEClass, CONTEXT__TITLE);
 		createEOperation(contextEClass, CONTEXT___GET_ROOT_CONTEXT);
 		createEOperation(contextEClass, CONTEXT___GET_RELATED_CONTEXTS);
 		createEOperation(contextEClass, CONTEXT___GET_RELATED_POLICIES);
+		createEOperation(contextEClass, CONTEXT___GET_UNIFIED_TITLE);
 
 		rootContextEClass = createEClass(ROOT_CONTEXT);
-		createEAttribute(rootContextEClass, ROOT_CONTEXT__NAME);
-		createEAttribute(rootContextEClass, ROOT_CONTEXT__JCR_ROOT_PATH);
 
 		childContextEClass = createEClass(CHILD_CONTEXT);
 		createEReference(childContextEClass, CHILD_CONTEXT__PARENT_CONTEXT);
-		createEAttribute(childContextEClass, CHILD_CONTEXT__RELATIVE_PATH);
 
 		contextPolicyEClass = createEClass(CONTEXT_POLICY);
 
@@ -540,6 +540,8 @@ public class ContentHubPackageImpl extends EPackageImpl implements ContentHubPac
 		initEReference(getContext_ContentFragmentModels(), theContentFragmentPackage.getContentFragmentModel(), theContentFragmentPackage.getContentFragmentModel_Context(), "contentFragmentModels", null, 0, -1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getContext_ContentFragments(), theContentFragmentPackage.getContentFragmentInstance(), theContentFragmentPackage.getContentFragmentInstance_Context(), "contentFragments", null, 0, -1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getContext_Policies(), this.getContextPolicy(), null, "policies", null, 0, -1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getContext_RelativePath(), this.getPath(), "relativePath", "/child", 1, 1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getContext_Title(), ecorePackage.getEString(), "title", null, 0, 1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getContext__GetRootContext(), this.getRootContext(), "getRootContext", 1, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -547,13 +549,12 @@ public class ContentHubPackageImpl extends EPackageImpl implements ContentHubPac
 
 		initEOperation(getContext__GetRelatedPolicies(), this.getContextPolicy(), "getRelatedPolicies", 0, -1, IS_UNIQUE, IS_ORDERED);
 
+		initEOperation(getContext__GetUnifiedTitle(), ecorePackage.getEString(), "getUnifiedTitle", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(rootContextEClass, RootContext.class, "RootContext", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getRootContext_Name(), ecorePackage.getEString(), "name", "my context", 1, 1, RootContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getRootContext_JcrRootPath(), this.getPath(), "jcrRootPath", "/jcr_root", 1, 1, RootContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(childContextEClass, ChildContext.class, "ChildContext", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getChildContext_ParentContext(), this.getContext(), this.getContext_ChildContexts(), "parentContext", null, 1, 1, ChildContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getChildContext_RelativePath(), this.getPath(), "relativePath", "/child", 1, 1, ChildContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(contextPolicyEClass, ContextPolicy.class, "ContextPolicy", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

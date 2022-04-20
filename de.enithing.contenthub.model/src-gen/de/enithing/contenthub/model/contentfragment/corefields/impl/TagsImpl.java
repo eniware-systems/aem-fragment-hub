@@ -30,6 +30,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * </p>
  * <ul>
  *   <li>{@link de.enithing.contenthub.model.contentfragment.corefields.impl.TagsImpl#isAllowMultiple <em>Allow Multiple</em>}</li>
+ *   <li>{@link de.enithing.contenthub.model.contentfragment.corefields.impl.TagsImpl#getMaxItems <em>Max Items</em>}</li>
  *   <li>{@link de.enithing.contenthub.model.contentfragment.corefields.impl.TagsImpl#getPlaceholder <em>Placeholder</em>}</li>
  *   <li>{@link de.enithing.contenthub.model.contentfragment.corefields.impl.TagsImpl#isRequired <em>Required</em>}</li>
  *   <li>{@link de.enithing.contenthub.model.contentfragment.corefields.impl.TagsImpl#getRootPath <em>Root Path</em>}</li>
@@ -57,6 +58,26 @@ public class TagsImpl extends ContentFragmentFieldTypeImpl<StringValue> implemen
 	 * @ordered
 	 */
 	protected boolean allowMultiple = ALLOW_MULTIPLE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getMaxItems() <em>Max Items</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMaxItems()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int MAX_ITEMS_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getMaxItems() <em>Max Items</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMaxItems()
+	 * @generated
+	 * @ordered
+	 */
+	protected int maxItems = MAX_ITEMS_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getPlaceholder() <em>Placeholder</em>}' attribute.
@@ -166,6 +187,29 @@ public class TagsImpl extends ContentFragmentFieldTypeImpl<StringValue> implemen
 	 * @generated
 	 */
 	@Override
+	public int getMaxItems() {
+		return maxItems;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setMaxItems(int newMaxItems) {
+		int oldMaxItems = maxItems;
+		maxItems = newMaxItems;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CorefieldsPackage.TAGS__MAX_ITEMS, oldMaxItems, maxItems));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public String getPlaceholder() {
 		return placeholder;
 	}
@@ -239,6 +283,8 @@ public class TagsImpl extends ContentFragmentFieldTypeImpl<StringValue> implemen
 		switch (featureID) {
 			case CorefieldsPackage.TAGS__ALLOW_MULTIPLE:
 				return isAllowMultiple();
+			case CorefieldsPackage.TAGS__MAX_ITEMS:
+				return getMaxItems();
 			case CorefieldsPackage.TAGS__PLACEHOLDER:
 				return getPlaceholder();
 			case CorefieldsPackage.TAGS__REQUIRED:
@@ -259,6 +305,9 @@ public class TagsImpl extends ContentFragmentFieldTypeImpl<StringValue> implemen
 		switch (featureID) {
 			case CorefieldsPackage.TAGS__ALLOW_MULTIPLE:
 				setAllowMultiple((Boolean)newValue);
+				return;
+			case CorefieldsPackage.TAGS__MAX_ITEMS:
+				setMaxItems((Integer)newValue);
 				return;
 			case CorefieldsPackage.TAGS__PLACEHOLDER:
 				setPlaceholder((String)newValue);
@@ -284,6 +333,9 @@ public class TagsImpl extends ContentFragmentFieldTypeImpl<StringValue> implemen
 			case CorefieldsPackage.TAGS__ALLOW_MULTIPLE:
 				setAllowMultiple(ALLOW_MULTIPLE_EDEFAULT);
 				return;
+			case CorefieldsPackage.TAGS__MAX_ITEMS:
+				setMaxItems(MAX_ITEMS_EDEFAULT);
+				return;
 			case CorefieldsPackage.TAGS__PLACEHOLDER:
 				setPlaceholder(PLACEHOLDER_EDEFAULT);
 				return;
@@ -307,6 +359,8 @@ public class TagsImpl extends ContentFragmentFieldTypeImpl<StringValue> implemen
 		switch (featureID) {
 			case CorefieldsPackage.TAGS__ALLOW_MULTIPLE:
 				return allowMultiple != ALLOW_MULTIPLE_EDEFAULT;
+			case CorefieldsPackage.TAGS__MAX_ITEMS:
+				return maxItems != MAX_ITEMS_EDEFAULT;
 			case CorefieldsPackage.TAGS__PLACEHOLDER:
 				return PLACEHOLDER_EDEFAULT == null ? placeholder != null : !PLACEHOLDER_EDEFAULT.equals(placeholder);
 			case CorefieldsPackage.TAGS__REQUIRED:
@@ -329,6 +383,8 @@ public class TagsImpl extends ContentFragmentFieldTypeImpl<StringValue> implemen
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (allowMultiple: ");
 		result.append(allowMultiple);
+		result.append(", maxItems: ");
+		result.append(maxItems);
 		result.append(", placeholder: ");
 		result.append(placeholder);
 		result.append(", required: ");

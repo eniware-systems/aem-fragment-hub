@@ -12,7 +12,7 @@ import de.enithing.contenthub.model.contenthub.Context;
 /**
  * Extensions for the implementation of the model factory
  */
-public class ContentHubFactoryExtendedImpl extends ContentHubFactoryImpl {	
+public class ContentHubFactoryExtendedImpl extends ContentHubFactoryImpl {
 	/**
 	 * Creates a path from a string. Used for operating with Paths on ECore model
 	 */
@@ -20,5 +20,5 @@ public class ContentHubFactoryExtendedImpl extends ContentHubFactoryImpl {
 	public Path createPathFromString(EDataType eDataType, String initialValue) {
 		return Path.of(initialValue);
 	}
-	
-} //ContentHubFactoryImpl
+
+} // ContentHubFactoryImpl

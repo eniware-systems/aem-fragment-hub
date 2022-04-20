@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Stream;
 
+import org.apache.commons.lang.StringUtils;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
@@ -33,7 +34,7 @@ public class ContextUtils {
 	 */
 	public static Path getJcrPath(Context ctx, boolean includeRootPath) {
 		if (ctx instanceof RootContext) {
-			return includeRootPath ? ((RootContext) ctx).getJcrRootPath() : Path.of("/");
+			return includeRootPath ? ctx.getRelativePath() : Path.of("/");
 		}
 
 		ChildContext childCtx = (ChildContext) ctx;
@@ -70,7 +71,20 @@ public class ContextUtils {
 	}
 
 	/**
-	 * Gets all policies of related contexts 
+	 * Checks all related contexts for a valid title and returns the first one
+	 * found.
+	 * 
+	 * @param ctx The context
+	 * @return The unified title or an empty string if no title was set in any
+	 *         related context.
+	 */
+	public static String getUnifiedTitle(Context ctx) {
+		return getRelatedContexts(ctx).stream().filter(c -> StringUtils.isNotEmpty(c.getTitle())).map(c -> c.getTitle())
+				.findFirst().orElse(StringUtils.EMPTY);
+	}
+
+	/**
+	 * Gets all policies of related contexts
 	 * 
 	 * @param ctx The context
 	 * @return A list of all policies related with this context
@@ -82,11 +96,11 @@ public class ContextUtils {
 	}
 
 	/**
-	 * Gets all policies of related contexts restricted by a given type 
+	 * Gets all policies of related contexts restricted by a given type
 	 * 
 	 * @param <TPolicy> The policy type
-	 * @param ctx The context
-	 * @param clazz The class of policy type to get 
+	 * @param ctx       The context
+	 * @param clazz     The class of policy type to get
 	 * @return A list of all policies related with this context
 	 */
 	public static <TPolicy extends ContextPolicy> EList<TPolicy> getRelatedPoliciesByType(Context ctx,

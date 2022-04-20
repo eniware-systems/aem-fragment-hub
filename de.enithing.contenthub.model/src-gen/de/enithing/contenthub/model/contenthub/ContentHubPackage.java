@@ -187,13 +187,31 @@ public interface ContentHubPackage extends EPackage {
 	int CONTEXT__POLICIES = 3;
 
 	/**
+	 * The feature id for the '<em><b>Relative Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTEXT__RELATIVE_PATH = 4;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTEXT__TITLE = 5;
+
+	/**
 	 * The number of structural features of the '<em>Context</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTEXT_FEATURE_COUNT = 4;
+	int CONTEXT_FEATURE_COUNT = 6;
 
 	/**
 	 * The operation id for the '<em>Get Root Context</em>' operation.
@@ -223,13 +241,22 @@ public interface ContentHubPackage extends EPackage {
 	int CONTEXT___GET_RELATED_POLICIES = 2;
 
 	/**
+	 * The operation id for the '<em>Get Unified Title</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTEXT___GET_UNIFIED_TITLE = 3;
+
+	/**
 	 * The number of operations of the '<em>Context</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTEXT_OPERATION_COUNT = 3;
+	int CONTEXT_OPERATION_COUNT = 4;
 
 	/**
 	 * The meta object id for the '{@link de.enithing.contenthub.model.contenthub.impl.RootContextImpl <em>Root Context</em>}' class.
@@ -278,22 +305,22 @@ public interface ContentHubPackage extends EPackage {
 	int ROOT_CONTEXT__POLICIES = CONTEXT__POLICIES;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * The feature id for the '<em><b>Relative Path</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROOT_CONTEXT__NAME = CONTEXT_FEATURE_COUNT + 0;
+	int ROOT_CONTEXT__RELATIVE_PATH = CONTEXT__RELATIVE_PATH;
 
 	/**
-	 * The feature id for the '<em><b>Jcr Root Path</b></em>' attribute.
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROOT_CONTEXT__JCR_ROOT_PATH = CONTEXT_FEATURE_COUNT + 1;
+	int ROOT_CONTEXT__TITLE = CONTEXT__TITLE;
 
 	/**
 	 * The number of structural features of the '<em>Root Context</em>' class.
@@ -302,7 +329,7 @@ public interface ContentHubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROOT_CONTEXT_FEATURE_COUNT = CONTEXT_FEATURE_COUNT + 2;
+	int ROOT_CONTEXT_FEATURE_COUNT = CONTEXT_FEATURE_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Get Root Context</em>' operation.
@@ -330,6 +357,15 @@ public interface ContentHubPackage extends EPackage {
 	 * @ordered
 	 */
 	int ROOT_CONTEXT___GET_RELATED_POLICIES = CONTEXT___GET_RELATED_POLICIES;
+
+	/**
+	 * The operation id for the '<em>Get Unified Title</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOT_CONTEXT___GET_UNIFIED_TITLE = CONTEXT___GET_UNIFIED_TITLE;
 
 	/**
 	 * The number of operations of the '<em>Root Context</em>' class.
@@ -387,6 +423,24 @@ public interface ContentHubPackage extends EPackage {
 	int CHILD_CONTEXT__POLICIES = CONTEXT__POLICIES;
 
 	/**
+	 * The feature id for the '<em><b>Relative Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHILD_CONTEXT__RELATIVE_PATH = CONTEXT__RELATIVE_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHILD_CONTEXT__TITLE = CONTEXT__TITLE;
+
+	/**
 	 * The feature id for the '<em><b>Parent Context</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -396,22 +450,13 @@ public interface ContentHubPackage extends EPackage {
 	int CHILD_CONTEXT__PARENT_CONTEXT = CONTEXT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Relative Path</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CHILD_CONTEXT__RELATIVE_PATH = CONTEXT_FEATURE_COUNT + 1;
-
-	/**
 	 * The number of structural features of the '<em>Child Context</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CHILD_CONTEXT_FEATURE_COUNT = CONTEXT_FEATURE_COUNT + 2;
+	int CHILD_CONTEXT_FEATURE_COUNT = CONTEXT_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Get Root Context</em>' operation.
@@ -439,6 +484,15 @@ public interface ContentHubPackage extends EPackage {
 	 * @ordered
 	 */
 	int CHILD_CONTEXT___GET_RELATED_POLICIES = CONTEXT___GET_RELATED_POLICIES;
+
+	/**
+	 * The operation id for the '<em>Get Unified Title</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHILD_CONTEXT___GET_UNIFIED_TITLE = CONTEXT___GET_UNIFIED_TITLE;
 
 	/**
 	 * The number of operations of the '<em>Child Context</em>' class.
@@ -665,6 +719,28 @@ public interface ContentHubPackage extends EPackage {
 	EReference getContext_Policies();
 
 	/**
+	 * Returns the meta object for the attribute '{@link de.enithing.contenthub.model.contenthub.Context#getRelativePath <em>Relative Path</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Relative Path</em>'.
+	 * @see de.enithing.contenthub.model.contenthub.Context#getRelativePath()
+	 * @see #getContext()
+	 * @generated
+	 */
+	EAttribute getContext_RelativePath();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.enithing.contenthub.model.contenthub.Context#getTitle <em>Title</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Title</em>'.
+	 * @see de.enithing.contenthub.model.contenthub.Context#getTitle()
+	 * @see #getContext()
+	 * @generated
+	 */
+	EAttribute getContext_Title();
+
+	/**
 	 * Returns the meta object for the '{@link de.enithing.contenthub.model.contenthub.Context#getRootContext() <em>Get Root Context</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -695,6 +771,16 @@ public interface ContentHubPackage extends EPackage {
 	EOperation getContext__GetRelatedPolicies();
 
 	/**
+	 * Returns the meta object for the '{@link de.enithing.contenthub.model.contenthub.Context#getUnifiedTitle() <em>Get Unified Title</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Unified Title</em>' operation.
+	 * @see de.enithing.contenthub.model.contenthub.Context#getUnifiedTitle()
+	 * @generated
+	 */
+	EOperation getContext__GetUnifiedTitle();
+
+	/**
 	 * Returns the meta object for class '{@link de.enithing.contenthub.model.contenthub.RootContext <em>Root Context</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -703,28 +789,6 @@ public interface ContentHubPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getRootContext();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.enithing.contenthub.model.contenthub.RootContext#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see de.enithing.contenthub.model.contenthub.RootContext#getName()
-	 * @see #getRootContext()
-	 * @generated
-	 */
-	EAttribute getRootContext_Name();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.enithing.contenthub.model.contenthub.RootContext#getJcrRootPath <em>Jcr Root Path</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Jcr Root Path</em>'.
-	 * @see de.enithing.contenthub.model.contenthub.RootContext#getJcrRootPath()
-	 * @see #getRootContext()
-	 * @generated
-	 */
-	EAttribute getRootContext_JcrRootPath();
 
 	/**
 	 * Returns the meta object for class '{@link de.enithing.contenthub.model.contenthub.ChildContext <em>Child Context</em>}'.
@@ -746,17 +810,6 @@ public interface ContentHubPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getChildContext_ParentContext();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.enithing.contenthub.model.contenthub.ChildContext#getRelativePath <em>Relative Path</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Relative Path</em>'.
-	 * @see de.enithing.contenthub.model.contenthub.ChildContext#getRelativePath()
-	 * @see #getChildContext()
-	 * @generated
-	 */
-	EAttribute getChildContext_RelativePath();
 
 	/**
 	 * Returns the meta object for class '{@link de.enithing.contenthub.model.contenthub.ContextPolicy <em>Context Policy</em>}'.
@@ -935,6 +988,22 @@ public interface ContentHubPackage extends EPackage {
 		EReference CONTEXT__POLICIES = eINSTANCE.getContext_Policies();
 
 		/**
+		 * The meta object literal for the '<em><b>Relative Path</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONTEXT__RELATIVE_PATH = eINSTANCE.getContext_RelativePath();
+
+		/**
+		 * The meta object literal for the '<em><b>Title</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONTEXT__TITLE = eINSTANCE.getContext_Title();
+
+		/**
 		 * The meta object literal for the '<em><b>Get Root Context</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -959,6 +1028,14 @@ public interface ContentHubPackage extends EPackage {
 		EOperation CONTEXT___GET_RELATED_POLICIES = eINSTANCE.getContext__GetRelatedPolicies();
 
 		/**
+		 * The meta object literal for the '<em><b>Get Unified Title</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation CONTEXT___GET_UNIFIED_TITLE = eINSTANCE.getContext__GetUnifiedTitle();
+
+		/**
 		 * The meta object literal for the '{@link de.enithing.contenthub.model.contenthub.impl.RootContextImpl <em>Root Context</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -967,22 +1044,6 @@ public interface ContentHubPackage extends EPackage {
 		 * @generated
 		 */
 		EClass ROOT_CONTEXT = eINSTANCE.getRootContext();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ROOT_CONTEXT__NAME = eINSTANCE.getRootContext_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Jcr Root Path</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ROOT_CONTEXT__JCR_ROOT_PATH = eINSTANCE.getRootContext_JcrRootPath();
 
 		/**
 		 * The meta object literal for the '{@link de.enithing.contenthub.model.contenthub.impl.ChildContextImpl <em>Child Context</em>}' class.
@@ -1001,14 +1062,6 @@ public interface ContentHubPackage extends EPackage {
 		 * @generated
 		 */
 		EReference CHILD_CONTEXT__PARENT_CONTEXT = eINSTANCE.getChildContext_ParentContext();
-
-		/**
-		 * The meta object literal for the '<em><b>Relative Path</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CHILD_CONTEXT__RELATIVE_PATH = eINSTANCE.getChildContext_RelativePath();
 
 		/**
 		 * The meta object literal for the '{@link de.enithing.contenthub.model.contenthub.ContextPolicy <em>Context Policy</em>}' class.

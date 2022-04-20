@@ -58,6 +58,7 @@ public class ContentReferenceItemProvider extends ContentFragmentFieldTypeItemPr
 			super.getPropertyDescriptors(object);
 
 			addAllowMultiplePropertyDescriptor(object);
+			addMaxItemsPropertyDescriptor(object);
 			addPlaceholderPropertyDescriptor(object);
 			addDefaultValuePropertyDescriptor(object);
 			addRootPathPropertyDescriptor(object);
@@ -86,6 +87,28 @@ public class ContentReferenceItemProvider extends ContentFragmentFieldTypeItemPr
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Max Items feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addMaxItemsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_MultiFieldType_maxItems_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_MultiFieldType_maxItems_feature", "_UI_MultiFieldType_type"),
+				 ContentFragmentPackage.Literals.MULTI_FIELD_TYPE__MAX_ITEMS,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -293,6 +316,7 @@ public class ContentReferenceItemProvider extends ContentFragmentFieldTypeItemPr
 
 		switch (notification.getFeatureID(ContentReference.class)) {
 			case CorefieldsPackage.CONTENT_REFERENCE__ALLOW_MULTIPLE:
+			case CorefieldsPackage.CONTENT_REFERENCE__MAX_ITEMS:
 			case CorefieldsPackage.CONTENT_REFERENCE__PLACEHOLDER:
 			case CorefieldsPackage.CONTENT_REFERENCE__DEFAULT_VALUE:
 			case CorefieldsPackage.CONTENT_REFERENCE__ROOT_PATH:

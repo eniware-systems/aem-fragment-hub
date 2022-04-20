@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:vlt="http://www.day.com/jcr/vault/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:created="{Date}$packageDate"
+    jcr:createdBy="$packageCreator"
+    jcr:description=""
+    jcr:lastModified="{Date}$packageDate"
+    jcr:lastModifiedBy="admin"
+    jcr:primaryType="vlt:PackageDefinition"
+    buildCount="3"
+    builtWith="ContentHub ALPHA"
+    group="$packageGroup"
+    lastUnwrapped="{Date}$packageDate"
+    lastUnwrappedBy="$packageCreator"
+    lastWrapped="{Date}$packageDate"
+    lastWrappedBy="$packageCreator"
+    name="$packageName"
+    version="">
+    <filter jcr:primaryType="nt:unstructured">
+#foreach($filter in $packageFilters)
+		<f$velocityCount
+			jcr:primaryType="nt:unstructured"
+            mode="replace"
+            root="$filter"
+        	rules="[]"/>
+#end
+    </filter>
+</jcr:root>

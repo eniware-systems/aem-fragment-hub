@@ -19,6 +19,7 @@ import junit.textui.TestRunner;
  *   <li>{@link de.enithing.contenthub.model.contenthub.Context#getRootContext() <em>Get Root Context</em>}</li>
  *   <li>{@link de.enithing.contenthub.model.contenthub.Context#getRelatedContexts() <em>Get Related Contexts</em>}</li>
  *   <li>{@link de.enithing.contenthub.model.contenthub.Context#getRelatedPolicies() <em>Get Related Policies</em>}</li>
+ *   <li>{@link de.enithing.contenthub.model.contenthub.Context#getUnifiedTitle() <em>Get Unified Title</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -128,6 +129,19 @@ public class ContextTest extends TestCase {
 	 * @generated
 	 */
 	public void testGetRelatedPolicies() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link de.enithing.contenthub.model.contenthub.Context#getUnifiedTitle() <em>Get Unified Title</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.enithing.contenthub.model.contenthub.Context#getUnifiedTitle()
+	 * @generated
+	 */
+	public void testGetUnifiedTitle() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

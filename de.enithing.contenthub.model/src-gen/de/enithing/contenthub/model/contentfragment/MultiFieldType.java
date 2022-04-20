@@ -13,6 +13,7 @@ package de.enithing.contenthub.model.contentfragment;
  * </p>
  * <ul>
  *   <li>{@link de.enithing.contenthub.model.contentfragment.MultiFieldType#isAllowMultiple <em>Allow Multiple</em>}</li>
+ *   <li>{@link de.enithing.contenthub.model.contentfragment.MultiFieldType#getMaxItems <em>Max Items</em>}</li>
  * </ul>
  *
  * @see de.enithing.contenthub.model.contentfragment.ContentFragmentPackage#getMultiFieldType()
@@ -42,5 +43,27 @@ public interface MultiFieldType<TValue extends ContentFragmentFieldValue> extend
 	 * @generated
 	 */
 	void setAllowMultiple(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Max Items</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Max Items</em>' attribute.
+	 * @see #setMaxItems(int)
+	 * @see de.enithing.contenthub.model.contentfragment.ContentFragmentPackage#getMultiFieldType_MaxItems()
+	 * @model
+	 * @generated
+	 */
+	int getMaxItems();
+
+	/**
+	 * Sets the value of the '{@link de.enithing.contenthub.model.contentfragment.MultiFieldType#getMaxItems <em>Max Items</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Max Items</em>' attribute.
+	 * @see #getMaxItems()
+	 * @generated
+	 */
+	void setMaxItems(int value);
 
 } // MultiFieldType

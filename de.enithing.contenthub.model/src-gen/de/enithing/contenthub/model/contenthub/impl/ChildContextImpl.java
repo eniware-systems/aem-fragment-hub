@@ -3,12 +3,8 @@
 package de.enithing.contenthub.model.contenthub.impl;
 
 import de.enithing.contenthub.model.contenthub.ChildContext;
-import de.enithing.contenthub.model.contenthub.ContentHubFactory;
 import de.enithing.contenthub.model.contenthub.ContentHubPackage;
 import de.enithing.contenthub.model.contenthub.Context;
-
-import java.nio.file.Path;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -28,32 +24,11 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * </p>
  * <ul>
  *   <li>{@link de.enithing.contenthub.model.contenthub.impl.ChildContextImpl#getParentContext <em>Parent Context</em>}</li>
- *   <li>{@link de.enithing.contenthub.model.contenthub.impl.ChildContextImpl#getRelativePath <em>Relative Path</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class ChildContextImpl extends ContextImpl implements ChildContext {
-	/**
-	 * The default value of the '{@link #getRelativePath() <em>Relative Path</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRelativePath()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final Path RELATIVE_PATH_EDEFAULT = (Path)ContentHubFactory.eINSTANCE.createFromString(ContentHubPackage.eINSTANCE.getPath(), "/child");
-
-	/**
-	 * The cached value of the '{@link #getRelativePath() <em>Relative Path</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRelativePath()
-	 * @generated
-	 * @ordered
-	 */
-	protected Path relativePath = RELATIVE_PATH_EDEFAULT;
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -122,29 +97,6 @@ public class ChildContextImpl extends ContextImpl implements ChildContext {
 	 * @generated
 	 */
 	@Override
-	public Path getRelativePath() {
-		return relativePath;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setRelativePath(Path newRelativePath) {
-		Path oldRelativePath = relativePath;
-		relativePath = newRelativePath;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ContentHubPackage.CHILD_CONTEXT__RELATIVE_PATH, oldRelativePath, relativePath));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case ContentHubPackage.CHILD_CONTEXT__PARENT_CONTEXT:
@@ -193,8 +145,6 @@ public class ChildContextImpl extends ContextImpl implements ChildContext {
 		switch (featureID) {
 			case ContentHubPackage.CHILD_CONTEXT__PARENT_CONTEXT:
 				return getParentContext();
-			case ContentHubPackage.CHILD_CONTEXT__RELATIVE_PATH:
-				return getRelativePath();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -209,9 +159,6 @@ public class ChildContextImpl extends ContextImpl implements ChildContext {
 		switch (featureID) {
 			case ContentHubPackage.CHILD_CONTEXT__PARENT_CONTEXT:
 				setParentContext((Context)newValue);
-				return;
-			case ContentHubPackage.CHILD_CONTEXT__RELATIVE_PATH:
-				setRelativePath((Path)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -228,9 +175,6 @@ public class ChildContextImpl extends ContextImpl implements ChildContext {
 			case ContentHubPackage.CHILD_CONTEXT__PARENT_CONTEXT:
 				setParentContext((Context)null);
 				return;
-			case ContentHubPackage.CHILD_CONTEXT__RELATIVE_PATH:
-				setRelativePath(RELATIVE_PATH_EDEFAULT);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -245,26 +189,8 @@ public class ChildContextImpl extends ContextImpl implements ChildContext {
 		switch (featureID) {
 			case ContentHubPackage.CHILD_CONTEXT__PARENT_CONTEXT:
 				return getParentContext() != null;
-			case ContentHubPackage.CHILD_CONTEXT__RELATIVE_PATH:
-				return RELATIVE_PATH_EDEFAULT == null ? relativePath != null : !RELATIVE_PATH_EDEFAULT.equals(relativePath);
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (relativePath: ");
-		result.append(relativePath);
-		result.append(')');
-		return result.toString();
 	}
 
 } //ChildContextImpl

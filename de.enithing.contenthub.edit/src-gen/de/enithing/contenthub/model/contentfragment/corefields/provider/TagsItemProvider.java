@@ -54,6 +54,7 @@ public class TagsItemProvider extends ContentFragmentFieldTypeItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addAllowMultiplePropertyDescriptor(object);
+			addMaxItemsPropertyDescriptor(object);
 			addPlaceholderPropertyDescriptor(object);
 			addRequiredPropertyDescriptor(object);
 			addRootPathPropertyDescriptor(object);
@@ -79,6 +80,28 @@ public class TagsItemProvider extends ContentFragmentFieldTypeItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Max Items feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addMaxItemsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_MultiFieldType_maxItems_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_MultiFieldType_maxItems_feature", "_UI_MultiFieldType_type"),
+				 ContentFragmentPackage.Literals.MULTI_FIELD_TYPE__MAX_ITEMS,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -188,6 +211,7 @@ public class TagsItemProvider extends ContentFragmentFieldTypeItemProvider {
 
 		switch (notification.getFeatureID(Tags.class)) {
 			case CorefieldsPackage.TAGS__ALLOW_MULTIPLE:
+			case CorefieldsPackage.TAGS__MAX_ITEMS:
 			case CorefieldsPackage.TAGS__PLACEHOLDER:
 			case CorefieldsPackage.TAGS__REQUIRED:
 			case CorefieldsPackage.TAGS__ROOT_PATH:

@@ -2,8 +2,6 @@
  */
 package de.enithing.contenthub.model.contenthub;
 
-import java.nio.file.Path;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Child Context</b></em>'.
@@ -14,7 +12,6 @@ import java.nio.file.Path;
  * </p>
  * <ul>
  *   <li>{@link de.enithing.contenthub.model.contenthub.ChildContext#getParentContext <em>Parent Context</em>}</li>
- *   <li>{@link de.enithing.contenthub.model.contenthub.ChildContext#getRelativePath <em>Relative Path</em>}</li>
  * </ul>
  *
  * @see de.enithing.contenthub.model.contenthub.ContentHubPackage#getChildContext()
@@ -45,28 +42,5 @@ public interface ChildContext extends Context {
 	 * @generated
 	 */
 	void setParentContext(Context value);
-
-	/**
-	 * Returns the value of the '<em><b>Relative Path</b></em>' attribute.
-	 * The default value is <code>"/child"</code>.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Relative Path</em>' attribute.
-	 * @see #setRelativePath(Path)
-	 * @see de.enithing.contenthub.model.contenthub.ContentHubPackage#getChildContext_RelativePath()
-	 * @model default="/child" dataType="de.enithing.contenthub.model.contenthub.Path" required="true"
-	 * @generated
-	 */
-	Path getRelativePath();
-
-	/**
-	 * Sets the value of the '{@link de.enithing.contenthub.model.contenthub.ChildContext#getRelativePath <em>Relative Path</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Relative Path</em>' attribute.
-	 * @see #getRelativePath()
-	 * @generated
-	 */
-	void setRelativePath(Path value);
 
 } // ChildContext

@@ -2,6 +2,7 @@
  */
 package de.enithing.contenthub.model.contentfragment.corefields.impl;
 
+import de.enithing.contenthub.model.contentfragment.ContentFragmentModel;
 import de.enithing.contenthub.model.contentfragment.corefields.CorefieldsPackage;
 import de.enithing.contenthub.model.contentfragment.corefields.FragmentReference;
 import de.enithing.contenthub.model.contentfragment.corefields.FragmentReferenceValue;
@@ -15,11 +16,14 @@ import java.lang.Boolean;
 
 import java.nio.file.Path;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,7 +34,9 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * </p>
  * <ul>
  *   <li>{@link de.enithing.contenthub.model.contentfragment.corefields.impl.FragmentReferenceImpl#isAllowMultiple <em>Allow Multiple</em>}</li>
+ *   <li>{@link de.enithing.contenthub.model.contentfragment.corefields.impl.FragmentReferenceImpl#getMaxItems <em>Max Items</em>}</li>
  *   <li>{@link de.enithing.contenthub.model.contentfragment.corefields.impl.FragmentReferenceImpl#getPlaceholder <em>Placeholder</em>}</li>
+ *   <li>{@link de.enithing.contenthub.model.contentfragment.corefields.impl.FragmentReferenceImpl#getAllowedModels <em>Allowed Models</em>}</li>
  *   <li>{@link de.enithing.contenthub.model.contentfragment.corefields.impl.FragmentReferenceImpl#getRootPath <em>Root Path</em>}</li>
  *   <li>{@link de.enithing.contenthub.model.contentfragment.corefields.impl.FragmentReferenceImpl#isAllowFragmentCreation <em>Allow Fragment Creation</em>}</li>
  *   <li>{@link de.enithing.contenthub.model.contentfragment.corefields.impl.FragmentReferenceImpl#isRequired <em>Required</em>}</li>
@@ -60,6 +66,26 @@ public class FragmentReferenceImpl extends ContentFragmentFieldTypeImpl<Fragment
 	protected boolean allowMultiple = ALLOW_MULTIPLE_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #getMaxItems() <em>Max Items</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMaxItems()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int MAX_ITEMS_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getMaxItems() <em>Max Items</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMaxItems()
+	 * @generated
+	 * @ordered
+	 */
+	protected int maxItems = MAX_ITEMS_EDEFAULT;
+
+	/**
 	 * The default value of the '{@link #getPlaceholder() <em>Placeholder</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -78,6 +104,16 @@ public class FragmentReferenceImpl extends ContentFragmentFieldTypeImpl<Fragment
 	 * @ordered
 	 */
 	protected String placeholder = PLACEHOLDER_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getAllowedModels() <em>Allowed Models</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAllowedModels()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ContentFragmentModel> allowedModels;
 
 	/**
 	 * The default value of the '{@link #getRootPath() <em>Root Path</em>}' attribute.
@@ -187,6 +223,29 @@ public class FragmentReferenceImpl extends ContentFragmentFieldTypeImpl<Fragment
 	 * @generated
 	 */
 	@Override
+	public int getMaxItems() {
+		return maxItems;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setMaxItems(int newMaxItems) {
+		int oldMaxItems = maxItems;
+		maxItems = newMaxItems;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CorefieldsPackage.FRAGMENT_REFERENCE__MAX_ITEMS, oldMaxItems, maxItems));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public String getPlaceholder() {
 		return placeholder;
 	}
@@ -202,6 +261,19 @@ public class FragmentReferenceImpl extends ContentFragmentFieldTypeImpl<Fragment
 		placeholder = newPlaceholder;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, CorefieldsPackage.FRAGMENT_REFERENCE__PLACEHOLDER, oldPlaceholder, placeholder));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<ContentFragmentModel> getAllowedModels() {
+		if (allowedModels == null) {
+			allowedModels = new EObjectResolvingEList<ContentFragmentModel>(ContentFragmentModel.class, this, CorefieldsPackage.FRAGMENT_REFERENCE__ALLOWED_MODELS);
+		}
+		return allowedModels;
 	}
 
 	/**
@@ -283,8 +355,12 @@ public class FragmentReferenceImpl extends ContentFragmentFieldTypeImpl<Fragment
 		switch (featureID) {
 			case CorefieldsPackage.FRAGMENT_REFERENCE__ALLOW_MULTIPLE:
 				return isAllowMultiple();
+			case CorefieldsPackage.FRAGMENT_REFERENCE__MAX_ITEMS:
+				return getMaxItems();
 			case CorefieldsPackage.FRAGMENT_REFERENCE__PLACEHOLDER:
 				return getPlaceholder();
+			case CorefieldsPackage.FRAGMENT_REFERENCE__ALLOWED_MODELS:
+				return getAllowedModels();
 			case CorefieldsPackage.FRAGMENT_REFERENCE__ROOT_PATH:
 				return getRootPath();
 			case CorefieldsPackage.FRAGMENT_REFERENCE__ALLOW_FRAGMENT_CREATION:
@@ -300,14 +376,22 @@ public class FragmentReferenceImpl extends ContentFragmentFieldTypeImpl<Fragment
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case CorefieldsPackage.FRAGMENT_REFERENCE__ALLOW_MULTIPLE:
 				setAllowMultiple((Boolean)newValue);
 				return;
+			case CorefieldsPackage.FRAGMENT_REFERENCE__MAX_ITEMS:
+				setMaxItems((Integer)newValue);
+				return;
 			case CorefieldsPackage.FRAGMENT_REFERENCE__PLACEHOLDER:
 				setPlaceholder((String)newValue);
+				return;
+			case CorefieldsPackage.FRAGMENT_REFERENCE__ALLOWED_MODELS:
+				getAllowedModels().clear();
+				getAllowedModels().addAll((Collection<? extends ContentFragmentModel>)newValue);
 				return;
 			case CorefieldsPackage.FRAGMENT_REFERENCE__ROOT_PATH:
 				setRootPath((Path)newValue);
@@ -333,8 +417,14 @@ public class FragmentReferenceImpl extends ContentFragmentFieldTypeImpl<Fragment
 			case CorefieldsPackage.FRAGMENT_REFERENCE__ALLOW_MULTIPLE:
 				setAllowMultiple(ALLOW_MULTIPLE_EDEFAULT);
 				return;
+			case CorefieldsPackage.FRAGMENT_REFERENCE__MAX_ITEMS:
+				setMaxItems(MAX_ITEMS_EDEFAULT);
+				return;
 			case CorefieldsPackage.FRAGMENT_REFERENCE__PLACEHOLDER:
 				setPlaceholder(PLACEHOLDER_EDEFAULT);
+				return;
+			case CorefieldsPackage.FRAGMENT_REFERENCE__ALLOWED_MODELS:
+				getAllowedModels().clear();
 				return;
 			case CorefieldsPackage.FRAGMENT_REFERENCE__ROOT_PATH:
 				setRootPath(ROOT_PATH_EDEFAULT);
@@ -359,8 +449,12 @@ public class FragmentReferenceImpl extends ContentFragmentFieldTypeImpl<Fragment
 		switch (featureID) {
 			case CorefieldsPackage.FRAGMENT_REFERENCE__ALLOW_MULTIPLE:
 				return allowMultiple != ALLOW_MULTIPLE_EDEFAULT;
+			case CorefieldsPackage.FRAGMENT_REFERENCE__MAX_ITEMS:
+				return maxItems != MAX_ITEMS_EDEFAULT;
 			case CorefieldsPackage.FRAGMENT_REFERENCE__PLACEHOLDER:
 				return PLACEHOLDER_EDEFAULT == null ? placeholder != null : !PLACEHOLDER_EDEFAULT.equals(placeholder);
+			case CorefieldsPackage.FRAGMENT_REFERENCE__ALLOWED_MODELS:
+				return allowedModels != null && !allowedModels.isEmpty();
 			case CorefieldsPackage.FRAGMENT_REFERENCE__ROOT_PATH:
 				return ROOT_PATH_EDEFAULT == null ? rootPath != null : !ROOT_PATH_EDEFAULT.equals(rootPath);
 			case CorefieldsPackage.FRAGMENT_REFERENCE__ALLOW_FRAGMENT_CREATION:
@@ -383,6 +477,8 @@ public class FragmentReferenceImpl extends ContentFragmentFieldTypeImpl<Fragment
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (allowMultiple: ");
 		result.append(allowMultiple);
+		result.append(", maxItems: ");
+		result.append(maxItems);
 		result.append(", placeholder: ");
 		result.append(placeholder);
 		result.append(", rootPath: ");

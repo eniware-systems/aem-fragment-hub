@@ -21,6 +21,7 @@
     <eOperations name="getRootContext" lowerBound="1" eType="#//RootContext"/>
     <eOperations name="getRelatedContexts" upperBound="-1" eType="#//Context"/>
     <eOperations name="getRelatedPolicies" upperBound="-1" eType="#//ContextPolicy"/>
+    <eOperations name="getUnifiedTitle" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="childContexts" upperBound="-1"
         eType="#//ChildContext" containment="true" eOpposite="#//ChildContext/parentContext"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="contentFragmentModels"
@@ -30,18 +31,14 @@
         eType="#//contentfragment/ContentFragmentInstance" containment="true" eOpposite="#//contentfragment/ContentFragmentInstance/context"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="policies" upperBound="-1"
         eType="#//ContextPolicy" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="relativePath" lowerBound="1"
+        eType="#//Path" defaultValueLiteral="/child"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RootContext" eSuperTypes="#//Context">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        defaultValueLiteral="new context" iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="jcrRootPath" lowerBound="1"
-        eType="#//Path" defaultValueLiteral="/jcr_root"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootContext" eSuperTypes="#//Context"/>
   <eClassifiers xsi:type="ecore:EClass" name="ChildContext" eSuperTypes="#//Context">
     <eStructuralFeatures xsi:type="ecore:EReference" name="parentContext" lowerBound="1"
         eType="#//Context" eOpposite="#//Context/childContexts"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="relativePath" lowerBound="1"
-        eType="#//Path" defaultValueLiteral="/child"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ContextPolicy" abstract="true" interface="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="Pair">
@@ -140,6 +137,7 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="allowMultiple" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
           defaultValueLiteral="false"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxItems" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
       <eGenericSuperTypes eClassifier="#//contentfragment/SimpleFieldType">
         <eTypeArguments eTypeParameter="#//contentfragment/MultiFieldType/TValue"/>
       </eGenericSuperTypes>
@@ -363,6 +361,8 @@
       <eClassifiers xsi:type="ecore:EClass" name="FragmentReference">
         <eStructuralFeatures xsi:type="ecore:EAttribute" name="placeholder" lowerBound="1"
             eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="allowedModels" upperBound="-1"
+            eType="#//contentfragment/ContentFragmentModel"/>
         <eStructuralFeatures xsi:type="ecore:EAttribute" name="rootPath" lowerBound="1"
             eType="#//Path" defaultValueLiteral=""/>
         <eStructuralFeatures xsi:type="ecore:EAttribute" name="allowFragmentCreation"

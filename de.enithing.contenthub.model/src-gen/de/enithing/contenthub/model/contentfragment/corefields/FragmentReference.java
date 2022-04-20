@@ -2,9 +2,11 @@
  */
 package de.enithing.contenthub.model.contentfragment.corefields;
 
+import de.enithing.contenthub.model.contentfragment.ContentFragmentModel;
 import de.enithing.contenthub.model.contentfragment.MultiFieldType;
 
 import java.nio.file.Path;
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -16,6 +18,7 @@ import java.nio.file.Path;
  * </p>
  * <ul>
  *   <li>{@link de.enithing.contenthub.model.contentfragment.corefields.FragmentReference#getPlaceholder <em>Placeholder</em>}</li>
+ *   <li>{@link de.enithing.contenthub.model.contentfragment.corefields.FragmentReference#getAllowedModels <em>Allowed Models</em>}</li>
  *   <li>{@link de.enithing.contenthub.model.contentfragment.corefields.FragmentReference#getRootPath <em>Root Path</em>}</li>
  *   <li>{@link de.enithing.contenthub.model.contentfragment.corefields.FragmentReference#isAllowFragmentCreation <em>Allow Fragment Creation</em>}</li>
  *   <li>{@link de.enithing.contenthub.model.contentfragment.corefields.FragmentReference#isRequired <em>Required</em>}</li>
@@ -47,6 +50,18 @@ public interface FragmentReference extends MultiFieldType<FragmentReferenceValue
 	 * @generated
 	 */
 	void setPlaceholder(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Allowed Models</b></em>' reference list.
+	 * The list contents are of type {@link de.enithing.contenthub.model.contentfragment.ContentFragmentModel}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Allowed Models</em>' reference list.
+	 * @see de.enithing.contenthub.model.contentfragment.corefields.CorefieldsPackage#getFragmentReference_AllowedModels()
+	 * @model
+	 * @generated
+	 */
+	EList<ContentFragmentModel> getAllowedModels();
 
 	/**
 	 * Returns the value of the '<em><b>Root Path</b></em>' attribute.

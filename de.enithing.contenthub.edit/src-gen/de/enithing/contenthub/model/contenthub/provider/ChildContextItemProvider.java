@@ -4,8 +4,6 @@ package de.enithing.contenthub.model.contenthub.provider;
 
 
 import de.enithing.contenthub.model.contenthub.ChildContext;
-import de.enithing.contenthub.model.contenthub.ContentHubPackage;
-
 import java.nio.file.Path;
 
 import java.util.Collection;
@@ -13,11 +11,7 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
  * This is the item provider adapter for a {@link de.enithing.contenthub.model.contenthub.ChildContext} object.
@@ -47,31 +41,8 @@ public class ChildContextItemProvider extends ContextItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addRelativePathPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Relative Path feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addRelativePathPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ChildContext_relativePath_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ChildContext_relativePath_feature", "_UI_ChildContext_type"),
-				 ContentHubPackage.Literals.CHILD_CONTEXT__RELATIVE_PATH,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -111,12 +82,6 @@ public class ChildContextItemProvider extends ContextItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-
-		switch (notification.getFeatureID(ChildContext.class)) {
-			case ContentHubPackage.CHILD_CONTEXT__RELATIVE_PATH:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-		}
 		super.notifyChanged(notification);
 	}
 

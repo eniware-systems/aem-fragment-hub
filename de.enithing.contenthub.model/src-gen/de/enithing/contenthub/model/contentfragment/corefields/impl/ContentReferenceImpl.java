@@ -43,6 +43,7 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
  * </p>
  * <ul>
  *   <li>{@link de.enithing.contenthub.model.contentfragment.corefields.impl.ContentReferenceImpl#isAllowMultiple <em>Allow Multiple</em>}</li>
+ *   <li>{@link de.enithing.contenthub.model.contentfragment.corefields.impl.ContentReferenceImpl#getMaxItems <em>Max Items</em>}</li>
  *   <li>{@link de.enithing.contenthub.model.contentfragment.corefields.impl.ContentReferenceImpl#getPlaceholder <em>Placeholder</em>}</li>
  *   <li>{@link de.enithing.contenthub.model.contentfragment.corefields.impl.ContentReferenceImpl#getDefaultValue <em>Default Value</em>}</li>
  *   <li>{@link de.enithing.contenthub.model.contentfragment.corefields.impl.ContentReferenceImpl#getRootPath <em>Root Path</em>}</li>
@@ -76,6 +77,26 @@ public class ContentReferenceImpl extends ContentFragmentFieldTypeImpl<ContentRe
 	 * @ordered
 	 */
 	protected boolean allowMultiple = ALLOW_MULTIPLE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getMaxItems() <em>Max Items</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMaxItems()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int MAX_ITEMS_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getMaxItems() <em>Max Items</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMaxItems()
+	 * @generated
+	 * @ordered
+	 */
+	protected int maxItems = MAX_ITEMS_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getPlaceholder() <em>Placeholder</em>}' attribute.
@@ -257,6 +278,29 @@ public class ContentReferenceImpl extends ContentFragmentFieldTypeImpl<ContentRe
 		allowMultiple = newAllowMultiple;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, CorefieldsPackage.CONTENT_REFERENCE__ALLOW_MULTIPLE, oldAllowMultiple, allowMultiple));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int getMaxItems() {
+		return maxItems;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setMaxItems(int newMaxItems) {
+		int oldMaxItems = maxItems;
+		maxItems = newMaxItems;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CorefieldsPackage.CONTENT_REFERENCE__MAX_ITEMS, oldMaxItems, maxItems));
 	}
 
 	/**
@@ -550,6 +594,8 @@ public class ContentReferenceImpl extends ContentFragmentFieldTypeImpl<ContentRe
 		switch (featureID) {
 			case CorefieldsPackage.CONTENT_REFERENCE__ALLOW_MULTIPLE:
 				return isAllowMultiple();
+			case CorefieldsPackage.CONTENT_REFERENCE__MAX_ITEMS:
+				return getMaxItems();
 			case CorefieldsPackage.CONTENT_REFERENCE__PLACEHOLDER:
 				return getPlaceholder();
 			case CorefieldsPackage.CONTENT_REFERENCE__DEFAULT_VALUE:
@@ -583,6 +629,9 @@ public class ContentReferenceImpl extends ContentFragmentFieldTypeImpl<ContentRe
 		switch (featureID) {
 			case CorefieldsPackage.CONTENT_REFERENCE__ALLOW_MULTIPLE:
 				setAllowMultiple((Boolean)newValue);
+				return;
+			case CorefieldsPackage.CONTENT_REFERENCE__MAX_ITEMS:
+				setMaxItems((Integer)newValue);
 				return;
 			case CorefieldsPackage.CONTENT_REFERENCE__PLACEHOLDER:
 				setPlaceholder((String)newValue);
@@ -627,6 +676,9 @@ public class ContentReferenceImpl extends ContentFragmentFieldTypeImpl<ContentRe
 			case CorefieldsPackage.CONTENT_REFERENCE__ALLOW_MULTIPLE:
 				setAllowMultiple(ALLOW_MULTIPLE_EDEFAULT);
 				return;
+			case CorefieldsPackage.CONTENT_REFERENCE__MAX_ITEMS:
+				setMaxItems(MAX_ITEMS_EDEFAULT);
+				return;
 			case CorefieldsPackage.CONTENT_REFERENCE__PLACEHOLDER:
 				setPlaceholder(PLACEHOLDER_EDEFAULT);
 				return;
@@ -668,6 +720,8 @@ public class ContentReferenceImpl extends ContentFragmentFieldTypeImpl<ContentRe
 		switch (featureID) {
 			case CorefieldsPackage.CONTENT_REFERENCE__ALLOW_MULTIPLE:
 				return allowMultiple != ALLOW_MULTIPLE_EDEFAULT;
+			case CorefieldsPackage.CONTENT_REFERENCE__MAX_ITEMS:
+				return maxItems != MAX_ITEMS_EDEFAULT;
 			case CorefieldsPackage.CONTENT_REFERENCE__PLACEHOLDER:
 				return PLACEHOLDER_EDEFAULT == null ? placeholder != null : !PLACEHOLDER_EDEFAULT.equals(placeholder);
 			case CorefieldsPackage.CONTENT_REFERENCE__DEFAULT_VALUE:
@@ -702,6 +756,8 @@ public class ContentReferenceImpl extends ContentFragmentFieldTypeImpl<ContentRe
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (allowMultiple: ");
 		result.append(allowMultiple);
+		result.append(", maxItems: ");
+		result.append(maxItems);
 		result.append(", placeholder: ");
 		result.append(placeholder);
 		result.append(", defaultValue: ");

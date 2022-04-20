@@ -5,6 +5,7 @@ package de.enithing.contenthub.model.contenthub;
 import de.enithing.contenthub.model.contentfragment.ContentFragmentInstance;
 import de.enithing.contenthub.model.contentfragment.ContentFragmentModel;
 
+import java.nio.file.Path;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
@@ -22,6 +23,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link de.enithing.contenthub.model.contenthub.Context#getContentFragmentModels <em>Content Fragment Models</em>}</li>
  *   <li>{@link de.enithing.contenthub.model.contenthub.Context#getContentFragments <em>Content Fragments</em>}</li>
  *   <li>{@link de.enithing.contenthub.model.contenthub.Context#getPolicies <em>Policies</em>}</li>
+ *   <li>{@link de.enithing.contenthub.model.contenthub.Context#getRelativePath <em>Relative Path</em>}</li>
+ *   <li>{@link de.enithing.contenthub.model.contenthub.Context#getTitle <em>Title</em>}</li>
  * </ul>
  *
  * @see de.enithing.contenthub.model.contenthub.ContentHubPackage#getContext()
@@ -84,6 +87,51 @@ public interface Context extends EObject {
 	EList<ContextPolicy> getPolicies();
 
 	/**
+	 * Returns the value of the '<em><b>Relative Path</b></em>' attribute.
+	 * The default value is <code>"/child"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Relative Path</em>' attribute.
+	 * @see #setRelativePath(Path)
+	 * @see de.enithing.contenthub.model.contenthub.ContentHubPackage#getContext_RelativePath()
+	 * @model default="/child" dataType="de.enithing.contenthub.model.contenthub.Path" required="true"
+	 * @generated
+	 */
+	Path getRelativePath();
+
+	/**
+	 * Sets the value of the '{@link de.enithing.contenthub.model.contenthub.Context#getRelativePath <em>Relative Path</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Relative Path</em>' attribute.
+	 * @see #getRelativePath()
+	 * @generated
+	 */
+	void setRelativePath(Path value);
+
+	/**
+	 * Returns the value of the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Title</em>' attribute.
+	 * @see #setTitle(String)
+	 * @see de.enithing.contenthub.model.contenthub.ContentHubPackage#getContext_Title()
+	 * @model
+	 * @generated
+	 */
+	String getTitle();
+
+	/**
+	 * Sets the value of the '{@link de.enithing.contenthub.model.contenthub.Context#getTitle <em>Title</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Title</em>' attribute.
+	 * @see #getTitle()
+	 * @generated
+	 */
+	void setTitle(String value);
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model kind="operation" required="true"
@@ -106,5 +154,13 @@ public interface Context extends EObject {
 	 * @generated
 	 */
 	EList<ContextPolicy> getRelatedPolicies();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	String getUnifiedTitle();
 
 } // Context

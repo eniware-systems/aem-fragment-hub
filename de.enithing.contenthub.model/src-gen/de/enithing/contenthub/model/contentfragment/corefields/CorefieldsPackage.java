@@ -234,6 +234,15 @@ public interface CorefieldsPackage extends EPackage {
 	int SINGLE_LINE_TEXT__ALLOW_MULTIPLE = ContentFragmentPackage.MULTI_FIELD_TYPE__ALLOW_MULTIPLE;
 
 	/**
+	 * The feature id for the '<em><b>Max Items</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_LINE_TEXT__MAX_ITEMS = ContentFragmentPackage.MULTI_FIELD_TYPE__MAX_ITEMS;
+
+	/**
 	 * The feature id for the '<em><b>Placeholder</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -386,6 +395,15 @@ public interface CorefieldsPackage extends EPackage {
 	 * @ordered
 	 */
 	int MULTI_LINE_TEXT__ALLOW_MULTIPLE = ContentFragmentPackage.MULTI_FIELD_TYPE__ALLOW_MULTIPLE;
+
+	/**
+	 * The feature id for the '<em><b>Max Items</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTI_LINE_TEXT__MAX_ITEMS = ContentFragmentPackage.MULTI_FIELD_TYPE__MAX_ITEMS;
 
 	/**
 	 * The feature id for the '<em><b>Default Type</b></em>' attribute.
@@ -949,6 +967,15 @@ public interface CorefieldsPackage extends EPackage {
 	int TAGS__ALLOW_MULTIPLE = ContentFragmentPackage.MULTI_FIELD_TYPE__ALLOW_MULTIPLE;
 
 	/**
+	 * The feature id for the '<em><b>Max Items</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TAGS__MAX_ITEMS = ContentFragmentPackage.MULTI_FIELD_TYPE__MAX_ITEMS;
+
+	/**
 	 * The feature id for the '<em><b>Placeholder</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1037,6 +1064,15 @@ public interface CorefieldsPackage extends EPackage {
 	 * @ordered
 	 */
 	int CONTENT_REFERENCE__ALLOW_MULTIPLE = ContentFragmentPackage.MULTI_FIELD_TYPE__ALLOW_MULTIPLE;
+
+	/**
+	 * The feature id for the '<em><b>Max Items</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_REFERENCE__MAX_ITEMS = ContentFragmentPackage.MULTI_FIELD_TYPE__MAX_ITEMS;
 
 	/**
 	 * The feature id for the '<em><b>Placeholder</b></em>' attribute.
@@ -1220,6 +1256,15 @@ public interface CorefieldsPackage extends EPackage {
 	int FRAGMENT_REFERENCE__ALLOW_MULTIPLE = ContentFragmentPackage.MULTI_FIELD_TYPE__ALLOW_MULTIPLE;
 
 	/**
+	 * The feature id for the '<em><b>Max Items</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FRAGMENT_REFERENCE__MAX_ITEMS = ContentFragmentPackage.MULTI_FIELD_TYPE__MAX_ITEMS;
+
+	/**
 	 * The feature id for the '<em><b>Placeholder</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1229,13 +1274,22 @@ public interface CorefieldsPackage extends EPackage {
 	int FRAGMENT_REFERENCE__PLACEHOLDER = ContentFragmentPackage.MULTI_FIELD_TYPE_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Allowed Models</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FRAGMENT_REFERENCE__ALLOWED_MODELS = ContentFragmentPackage.MULTI_FIELD_TYPE_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Root Path</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FRAGMENT_REFERENCE__ROOT_PATH = ContentFragmentPackage.MULTI_FIELD_TYPE_FEATURE_COUNT + 1;
+	int FRAGMENT_REFERENCE__ROOT_PATH = ContentFragmentPackage.MULTI_FIELD_TYPE_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Allow Fragment Creation</b></em>' attribute.
@@ -1244,7 +1298,7 @@ public interface CorefieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FRAGMENT_REFERENCE__ALLOW_FRAGMENT_CREATION = ContentFragmentPackage.MULTI_FIELD_TYPE_FEATURE_COUNT + 2;
+	int FRAGMENT_REFERENCE__ALLOW_FRAGMENT_CREATION = ContentFragmentPackage.MULTI_FIELD_TYPE_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Required</b></em>' attribute.
@@ -1253,7 +1307,7 @@ public interface CorefieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FRAGMENT_REFERENCE__REQUIRED = ContentFragmentPackage.MULTI_FIELD_TYPE_FEATURE_COUNT + 3;
+	int FRAGMENT_REFERENCE__REQUIRED = ContentFragmentPackage.MULTI_FIELD_TYPE_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Fragment Reference</em>' class.
@@ -1262,7 +1316,7 @@ public interface CorefieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FRAGMENT_REFERENCE_FEATURE_COUNT = ContentFragmentPackage.MULTI_FIELD_TYPE_FEATURE_COUNT + 4;
+	int FRAGMENT_REFERENCE_FEATURE_COUNT = ContentFragmentPackage.MULTI_FIELD_TYPE_FEATURE_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Create Empty Value</em>' operation.
@@ -2018,6 +2072,17 @@ public interface CorefieldsPackage extends EPackage {
 	EAttribute getFragmentReference_Placeholder();
 
 	/**
+	 * Returns the meta object for the reference list '{@link de.enithing.contenthub.model.contentfragment.corefields.FragmentReference#getAllowedModels <em>Allowed Models</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Allowed Models</em>'.
+	 * @see de.enithing.contenthub.model.contentfragment.corefields.FragmentReference#getAllowedModels()
+	 * @see #getFragmentReference()
+	 * @generated
+	 */
+	EReference getFragmentReference_AllowedModels();
+
+	/**
 	 * Returns the meta object for the attribute '{@link de.enithing.contenthub.model.contentfragment.corefields.FragmentReference#getRootPath <em>Root Path</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2764,6 +2829,14 @@ public interface CorefieldsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute FRAGMENT_REFERENCE__PLACEHOLDER = eINSTANCE.getFragmentReference_Placeholder();
+
+		/**
+		 * The meta object literal for the '<em><b>Allowed Models</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FRAGMENT_REFERENCE__ALLOWED_MODELS = eINSTANCE.getFragmentReference_AllowedModels();
 
 		/**
 		 * The meta object literal for the '<em><b>Root Path</b></em>' attribute feature.

@@ -7,6 +7,7 @@ import de.enithing.contenthub.model.contentfragment.ContentFragmentModel;
 import de.enithing.contenthub.model.contentfragment.ContentFragmentPackage;
 
 import de.enithing.contenthub.model.contenthub.ChildContext;
+import de.enithing.contenthub.model.contenthub.ContentHubFactory;
 import de.enithing.contenthub.model.contenthub.ContentHubPackage;
 import de.enithing.contenthub.model.contenthub.Context;
 import de.enithing.contenthub.model.contenthub.ContextPolicy;
@@ -15,8 +16,10 @@ import de.enithing.contenthub.model.contenthub.util.ContextUtils;
 
 import java.lang.reflect.InvocationTargetException;
 
+import java.nio.file.Path;
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -24,6 +27,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
@@ -42,6 +46,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link de.enithing.contenthub.model.contenthub.impl.ContextImpl#getContentFragmentModels <em>Content Fragment Models</em>}</li>
  *   <li>{@link de.enithing.contenthub.model.contenthub.impl.ContextImpl#getContentFragments <em>Content Fragments</em>}</li>
  *   <li>{@link de.enithing.contenthub.model.contenthub.impl.ContextImpl#getPolicies <em>Policies</em>}</li>
+ *   <li>{@link de.enithing.contenthub.model.contenthub.impl.ContextImpl#getRelativePath <em>Relative Path</em>}</li>
+ *   <li>{@link de.enithing.contenthub.model.contenthub.impl.ContextImpl#getTitle <em>Title</em>}</li>
  * </ul>
  *
  * @generated
@@ -86,6 +92,46 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 	 * @ordered
 	 */
 	protected EList<ContextPolicy> policies;
+
+	/**
+	 * The default value of the '{@link #getRelativePath() <em>Relative Path</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRelativePath()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Path RELATIVE_PATH_EDEFAULT = (Path)ContentHubFactory.eINSTANCE.createFromString(ContentHubPackage.eINSTANCE.getPath(), "/child");
+
+	/**
+	 * The cached value of the '{@link #getRelativePath() <em>Relative Path</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRelativePath()
+	 * @generated
+	 * @ordered
+	 */
+	protected Path relativePath = RELATIVE_PATH_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getTitle() <em>Title</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTitle()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String TITLE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getTitle() <em>Title</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTitle()
+	 * @generated
+	 * @ordered
+	 */
+	protected String title = TITLE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -161,6 +207,52 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Path getRelativePath() {
+		return relativePath;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setRelativePath(Path newRelativePath) {
+		Path oldRelativePath = relativePath;
+		relativePath = newRelativePath;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ContentHubPackage.CONTEXT__RELATIVE_PATH, oldRelativePath, relativePath));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getTitle() {
+		return title;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setTitle(String newTitle) {
+		String oldTitle = title;
+		title = newTitle;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ContentHubPackage.CONTEXT__TITLE, oldTitle, title));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 */
 	@Override
 	public RootContext getRootContext() {
@@ -185,6 +277,15 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 		return ContextUtils.getRelatedPolicies(this);
 	}
 	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	@Override
+	public String getUnifiedTitle() {
+		return ContextUtils.getUnifiedTitle(this);
+	}
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -240,6 +341,10 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 				return getContentFragments();
 			case ContentHubPackage.CONTEXT__POLICIES:
 				return getPolicies();
+			case ContentHubPackage.CONTEXT__RELATIVE_PATH:
+				return getRelativePath();
+			case ContentHubPackage.CONTEXT__TITLE:
+				return getTitle();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -269,6 +374,12 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 				getPolicies().clear();
 				getPolicies().addAll((Collection<? extends ContextPolicy>)newValue);
 				return;
+			case ContentHubPackage.CONTEXT__RELATIVE_PATH:
+				setRelativePath((Path)newValue);
+				return;
+			case ContentHubPackage.CONTEXT__TITLE:
+				setTitle((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -293,6 +404,12 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 			case ContentHubPackage.CONTEXT__POLICIES:
 				getPolicies().clear();
 				return;
+			case ContentHubPackage.CONTEXT__RELATIVE_PATH:
+				setRelativePath(RELATIVE_PATH_EDEFAULT);
+				return;
+			case ContentHubPackage.CONTEXT__TITLE:
+				setTitle(TITLE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -313,6 +430,10 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 				return contentFragments != null && !contentFragments.isEmpty();
 			case ContentHubPackage.CONTEXT__POLICIES:
 				return policies != null && !policies.isEmpty();
+			case ContentHubPackage.CONTEXT__RELATIVE_PATH:
+				return RELATIVE_PATH_EDEFAULT == null ? relativePath != null : !RELATIVE_PATH_EDEFAULT.equals(relativePath);
+			case ContentHubPackage.CONTEXT__TITLE:
+				return TITLE_EDEFAULT == null ? title != null : !TITLE_EDEFAULT.equals(title);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -331,8 +452,28 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 				return getRelatedContexts();
 			case ContentHubPackage.CONTEXT___GET_RELATED_POLICIES:
 				return getRelatedPolicies();
+			case ContentHubPackage.CONTEXT___GET_UNIFIED_TITLE:
+				return getUnifiedTitle();
 		}
 		return super.eInvoke(operationID, arguments);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (relativePath: ");
+		result.append(relativePath);
+		result.append(", title: ");
+		result.append(title);
+		result.append(')');
+		return result.toString();
 	}
 
 } //ContextImpl

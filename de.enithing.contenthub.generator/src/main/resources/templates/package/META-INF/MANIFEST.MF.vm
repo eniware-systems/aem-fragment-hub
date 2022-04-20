@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Content-Package-Id: $packageGroup:$packageName
+Content-Package-Roots: $util.join(",", $packageRoots)
+Content-Package-Type: content

@@ -54,7 +54,9 @@ public class FragmentReferenceItemProvider extends ContentFragmentFieldTypeItemP
 			super.getPropertyDescriptors(object);
 
 			addAllowMultiplePropertyDescriptor(object);
+			addMaxItemsPropertyDescriptor(object);
 			addPlaceholderPropertyDescriptor(object);
+			addAllowedModelsPropertyDescriptor(object);
 			addRootPathPropertyDescriptor(object);
 			addAllowFragmentCreationPropertyDescriptor(object);
 			addRequiredPropertyDescriptor(object);
@@ -85,6 +87,28 @@ public class FragmentReferenceItemProvider extends ContentFragmentFieldTypeItemP
 	}
 
 	/**
+	 * This adds a property descriptor for the Max Items feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addMaxItemsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_MultiFieldType_maxItems_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_MultiFieldType_maxItems_feature", "_UI_MultiFieldType_type"),
+				 ContentFragmentPackage.Literals.MULTI_FIELD_TYPE__MAX_ITEMS,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This adds a property descriptor for the Placeholder feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -102,6 +126,28 @@ public class FragmentReferenceItemProvider extends ContentFragmentFieldTypeItemP
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Allowed Models feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addAllowedModelsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_FragmentReference_allowedModels_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_FragmentReference_allowedModels_feature", "_UI_FragmentReference_type"),
+				 CorefieldsPackage.Literals.FRAGMENT_REFERENCE__ALLOWED_MODELS,
+				 true,
+				 false,
+				 true,
+				 null,
 				 null,
 				 null));
 	}
@@ -211,6 +257,7 @@ public class FragmentReferenceItemProvider extends ContentFragmentFieldTypeItemP
 
 		switch (notification.getFeatureID(FragmentReference.class)) {
 			case CorefieldsPackage.FRAGMENT_REFERENCE__ALLOW_MULTIPLE:
+			case CorefieldsPackage.FRAGMENT_REFERENCE__MAX_ITEMS:
 			case CorefieldsPackage.FRAGMENT_REFERENCE__PLACEHOLDER:
 			case CorefieldsPackage.FRAGMENT_REFERENCE__ROOT_PATH:
 			case CorefieldsPackage.FRAGMENT_REFERENCE__ALLOW_FRAGMENT_CREATION:

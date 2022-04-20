@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * </p>
  * <ul>
  *   <li>{@link de.enithing.contenthub.model.contentfragment.corefields.impl.MultiLineTextImpl#isAllowMultiple <em>Allow Multiple</em>}</li>
+ *   <li>{@link de.enithing.contenthub.model.contentfragment.corefields.impl.MultiLineTextImpl#getMaxItems <em>Max Items</em>}</li>
  *   <li>{@link de.enithing.contenthub.model.contentfragment.corefields.impl.MultiLineTextImpl#getDefaultType <em>Default Type</em>}</li>
  *   <li>{@link de.enithing.contenthub.model.contentfragment.corefields.impl.MultiLineTextImpl#isAllowFragmentReference <em>Allow Fragment Reference</em>}</li>
  *   <li>{@link de.enithing.contenthub.model.contentfragment.corefields.impl.MultiLineTextImpl#isRequired <em>Required</em>}</li>
@@ -52,6 +53,26 @@ public class MultiLineTextImpl extends ContentFragmentFieldTypeImpl<StringValue>
 	 * @ordered
 	 */
 	protected boolean allowMultiple = ALLOW_MULTIPLE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getMaxItems() <em>Max Items</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMaxItems()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int MAX_ITEMS_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getMaxItems() <em>Max Items</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMaxItems()
+	 * @generated
+	 * @ordered
+	 */
+	protected int maxItems = MAX_ITEMS_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getDefaultType() <em>Default Type</em>}' attribute.
@@ -181,6 +202,29 @@ public class MultiLineTextImpl extends ContentFragmentFieldTypeImpl<StringValue>
 	 * @generated
 	 */
 	@Override
+	public int getMaxItems() {
+		return maxItems;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setMaxItems(int newMaxItems) {
+		int oldMaxItems = maxItems;
+		maxItems = newMaxItems;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CorefieldsPackage.MULTI_LINE_TEXT__MAX_ITEMS, oldMaxItems, maxItems));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public TextMimeType getDefaultType() {
 		return defaultType;
 	}
@@ -277,6 +321,8 @@ public class MultiLineTextImpl extends ContentFragmentFieldTypeImpl<StringValue>
 		switch (featureID) {
 			case CorefieldsPackage.MULTI_LINE_TEXT__ALLOW_MULTIPLE:
 				return isAllowMultiple();
+			case CorefieldsPackage.MULTI_LINE_TEXT__MAX_ITEMS:
+				return getMaxItems();
 			case CorefieldsPackage.MULTI_LINE_TEXT__DEFAULT_TYPE:
 				return getDefaultType();
 			case CorefieldsPackage.MULTI_LINE_TEXT__ALLOW_FRAGMENT_REFERENCE:
@@ -299,6 +345,9 @@ public class MultiLineTextImpl extends ContentFragmentFieldTypeImpl<StringValue>
 		switch (featureID) {
 			case CorefieldsPackage.MULTI_LINE_TEXT__ALLOW_MULTIPLE:
 				setAllowMultiple((Boolean)newValue);
+				return;
+			case CorefieldsPackage.MULTI_LINE_TEXT__MAX_ITEMS:
+				setMaxItems((Integer)newValue);
 				return;
 			case CorefieldsPackage.MULTI_LINE_TEXT__DEFAULT_TYPE:
 				setDefaultType((TextMimeType)newValue);
@@ -327,6 +376,9 @@ public class MultiLineTextImpl extends ContentFragmentFieldTypeImpl<StringValue>
 			case CorefieldsPackage.MULTI_LINE_TEXT__ALLOW_MULTIPLE:
 				setAllowMultiple(ALLOW_MULTIPLE_EDEFAULT);
 				return;
+			case CorefieldsPackage.MULTI_LINE_TEXT__MAX_ITEMS:
+				setMaxItems(MAX_ITEMS_EDEFAULT);
+				return;
 			case CorefieldsPackage.MULTI_LINE_TEXT__DEFAULT_TYPE:
 				setDefaultType(DEFAULT_TYPE_EDEFAULT);
 				return;
@@ -353,6 +405,8 @@ public class MultiLineTextImpl extends ContentFragmentFieldTypeImpl<StringValue>
 		switch (featureID) {
 			case CorefieldsPackage.MULTI_LINE_TEXT__ALLOW_MULTIPLE:
 				return allowMultiple != ALLOW_MULTIPLE_EDEFAULT;
+			case CorefieldsPackage.MULTI_LINE_TEXT__MAX_ITEMS:
+				return maxItems != MAX_ITEMS_EDEFAULT;
 			case CorefieldsPackage.MULTI_LINE_TEXT__DEFAULT_TYPE:
 				return defaultType != DEFAULT_TYPE_EDEFAULT;
 			case CorefieldsPackage.MULTI_LINE_TEXT__ALLOW_FRAGMENT_REFERENCE:
@@ -377,6 +431,8 @@ public class MultiLineTextImpl extends ContentFragmentFieldTypeImpl<StringValue>
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (allowMultiple: ");
 		result.append(allowMultiple);
+		result.append(", maxItems: ");
+		result.append(maxItems);
 		result.append(", defaultType: ");
 		result.append(defaultType);
 		result.append(", allowFragmentReference: ");

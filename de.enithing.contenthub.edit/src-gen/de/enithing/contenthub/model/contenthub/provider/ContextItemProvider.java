@@ -11,6 +11,7 @@ import de.enithing.contenthub.model.contenthub.ContentHubFactory;
 import de.enithing.contenthub.model.contenthub.ContentHubPackage;
 import de.enithing.contenthub.model.contenthub.Context;
 
+import java.nio.file.Path;
 import java.util.Collection;
 import java.util.List;
 
@@ -28,6 +29,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
@@ -67,6 +69,8 @@ public class ContextItemProvider
 			super.getPropertyDescriptors(object);
 
 			addChildContextsPropertyDescriptor(object);
+			addRelativePathPropertyDescriptor(object);
+			addTitlePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -89,6 +93,50 @@ public class ContextItemProvider
 				 false,
 				 true,
 				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Relative Path feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRelativePathPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Context_relativePath_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Context_relativePath_feature", "_UI_Context_type"),
+				 ContentHubPackage.Literals.CONTEXT__RELATIVE_PATH,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Title feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTitlePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Context_title_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Context_title_feature", "_UI_Context_type"),
+				 ContentHubPackage.Literals.CONTEXT__TITLE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -145,7 +193,11 @@ public class ContextItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Context_type");
+		Path labelValue = ((Context)object).getRelativePath();
+		String label = labelValue == null ? null : labelValue.toString();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Context_type") :
+			getString("_UI_Context_type") + " " + label;
 	}
 
 
@@ -161,6 +213,10 @@ public class ContextItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Context.class)) {
+			case ContentHubPackage.CONTEXT__RELATIVE_PATH:
+			case ContentHubPackage.CONTEXT__TITLE:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 			case ContentHubPackage.CONTEXT__CHILD_CONTEXTS:
 			case ContentHubPackage.CONTEXT__CONTENT_FRAGMENT_MODELS:
 			case ContentHubPackage.CONTEXT__CONTENT_FRAGMENTS:

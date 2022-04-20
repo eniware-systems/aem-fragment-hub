@@ -611,13 +611,22 @@ public interface ContentFragmentPackage extends EPackage {
 	int MULTI_FIELD_TYPE__ALLOW_MULTIPLE = SIMPLE_FIELD_TYPE_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Max Items</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTI_FIELD_TYPE__MAX_ITEMS = SIMPLE_FIELD_TYPE_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Multi Field Type</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MULTI_FIELD_TYPE_FEATURE_COUNT = SIMPLE_FIELD_TYPE_FEATURE_COUNT + 1;
+	int MULTI_FIELD_TYPE_FEATURE_COUNT = SIMPLE_FIELD_TYPE_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Create Empty Value</em>' operation.
@@ -967,6 +976,17 @@ public interface ContentFragmentPackage extends EPackage {
 	EAttribute getMultiFieldType_AllowMultiple();
 
 	/**
+	 * Returns the meta object for the attribute '{@link de.enithing.contenthub.model.contentfragment.MultiFieldType#getMaxItems <em>Max Items</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Max Items</em>'.
+	 * @see de.enithing.contenthub.model.contentfragment.MultiFieldType#getMaxItems()
+	 * @see #getMultiFieldType()
+	 * @generated
+	 */
+	EAttribute getMultiFieldType_MaxItems();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1256,6 +1276,14 @@ public interface ContentFragmentPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute MULTI_FIELD_TYPE__ALLOW_MULTIPLE = eINSTANCE.getMultiFieldType_AllowMultiple();
+
+		/**
+		 * The meta object literal for the '<em><b>Max Items</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MULTI_FIELD_TYPE__MAX_ITEMS = eINSTANCE.getMultiFieldType_MaxItems();
 
 	}
 

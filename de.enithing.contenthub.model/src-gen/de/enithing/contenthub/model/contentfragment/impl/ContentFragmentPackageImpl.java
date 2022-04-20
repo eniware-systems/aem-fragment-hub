@@ -502,6 +502,16 @@ public class ContentFragmentPackageImpl extends EPackageImpl implements ContentF
 	 * @generated
 	 */
 	@Override
+	public EAttribute getMultiFieldType_MaxItems() {
+		return (EAttribute)multiFieldTypeEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public ContentFragmentFactory getContentFragmentFactory() {
 		return (ContentFragmentFactory)getEFactoryInstance();
 	}
@@ -565,6 +575,7 @@ public class ContentFragmentPackageImpl extends EPackageImpl implements ContentF
 
 		multiFieldTypeEClass = createEClass(MULTI_FIELD_TYPE);
 		createEAttribute(multiFieldTypeEClass, MULTI_FIELD_TYPE__ALLOW_MULTIPLE);
+		createEAttribute(multiFieldTypeEClass, MULTI_FIELD_TYPE__MAX_ITEMS);
 	}
 
 	/**
@@ -679,6 +690,7 @@ public class ContentFragmentPackageImpl extends EPackageImpl implements ContentF
 
 		initEClass(multiFieldTypeEClass, MultiFieldType.class, "MultiFieldType", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMultiFieldType_AllowMultiple(), ecorePackage.getEBoolean(), "allowMultiple", "false", 1, 1, MultiFieldType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMultiFieldType_MaxItems(), ecorePackage.getEInt(), "maxItems", null, 0, 1, MultiFieldType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 	}
 
 } //ContentFragmentPackageImpl
