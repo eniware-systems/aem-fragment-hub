@@ -4,9 +4,11 @@ package de.enithing.contenthub.model.contentfragment.corefields.provider;
 
 
 import de.enithing.contenthub.edit.ContentHubEditPlugin;
+
 import de.enithing.contenthub.model.contentfragment.corefields.CorefieldsPackage;
 
 import de.enithing.contenthub.model.contentfragment.corefields.validation.ValidationFactory;
+
 import de.enithing.contenthub.model.contentfragment.provider.ContentFragmentFieldTypeItemProvider;
 
 import java.util.Collection;
@@ -18,6 +20,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;

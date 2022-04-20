@@ -994,7 +994,7 @@ public interface CorefieldsPackage extends EPackage {
 	int TAGS__REQUIRED = ContentFragmentPackage.MULTI_FIELD_TYPE_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Root Path</b></em>' attribute.
+	 * The feature id for the '<em><b>Root Path</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1093,7 +1093,7 @@ public interface CorefieldsPackage extends EPackage {
 	int CONTENT_REFERENCE__DEFAULT_VALUE = ContentFragmentPackage.MULTI_FIELD_TYPE_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Root Path</b></em>' attribute.
+	 * The feature id for the '<em><b>Root Path</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1283,7 +1283,7 @@ public interface CorefieldsPackage extends EPackage {
 	int FRAGMENT_REFERENCE__ALLOWED_MODELS = ContentFragmentPackage.MULTI_FIELD_TYPE_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Root Path</b></em>' attribute.
+	 * The feature id for the '<em><b>Root Path</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1910,15 +1910,15 @@ public interface CorefieldsPackage extends EPackage {
 	EAttribute getTags_Required();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.enithing.contenthub.model.contentfragment.corefields.Tags#getRootPath <em>Root Path</em>}'.
+	 * Returns the meta object for the containment reference '{@link de.enithing.contenthub.model.contentfragment.corefields.Tags#getRootPath <em>Root Path</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Root Path</em>'.
+	 * @return the meta object for the containment reference '<em>Root Path</em>'.
 	 * @see de.enithing.contenthub.model.contentfragment.corefields.Tags#getRootPath()
 	 * @see #getTags()
 	 * @generated
 	 */
-	EAttribute getTags_RootPath();
+	EReference getTags_RootPath();
 
 	/**
 	 * Returns the meta object for class '{@link de.enithing.contenthub.model.contentfragment.corefields.ContentReference <em>Content Reference</em>}'.
@@ -1953,15 +1953,15 @@ public interface CorefieldsPackage extends EPackage {
 	EAttribute getContentReference_DefaultValue();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.enithing.contenthub.model.contentfragment.corefields.ContentReference#getRootPath <em>Root Path</em>}'.
+	 * Returns the meta object for the containment reference '{@link de.enithing.contenthub.model.contentfragment.corefields.ContentReference#getRootPath <em>Root Path</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Root Path</em>'.
+	 * @return the meta object for the containment reference '<em>Root Path</em>'.
 	 * @see de.enithing.contenthub.model.contentfragment.corefields.ContentReference#getRootPath()
 	 * @see #getContentReference()
 	 * @generated
 	 */
-	EAttribute getContentReference_RootPath();
+	EReference getContentReference_RootPath();
 
 	/**
 	 * Returns the meta object for the attribute '{@link de.enithing.contenthub.model.contentfragment.corefields.ContentReference#isRequired <em>Required</em>}'.
@@ -2083,15 +2083,15 @@ public interface CorefieldsPackage extends EPackage {
 	EReference getFragmentReference_AllowedModels();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.enithing.contenthub.model.contentfragment.corefields.FragmentReference#getRootPath <em>Root Path</em>}'.
+	 * Returns the meta object for the containment reference '{@link de.enithing.contenthub.model.contentfragment.corefields.FragmentReference#getRootPath <em>Root Path</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Root Path</em>'.
+	 * @return the meta object for the containment reference '<em>Root Path</em>'.
 	 * @see de.enithing.contenthub.model.contentfragment.corefields.FragmentReference#getRootPath()
 	 * @see #getFragmentReference()
 	 * @generated
 	 */
-	EAttribute getFragmentReference_RootPath();
+	EReference getFragmentReference_RootPath();
 
 	/**
 	 * Returns the meta object for the attribute '{@link de.enithing.contenthub.model.contentfragment.corefields.FragmentReference#isAllowFragmentCreation <em>Allow Fragment Creation</em>}'.
@@ -2705,12 +2705,12 @@ public interface CorefieldsPackage extends EPackage {
 		EAttribute TAGS__REQUIRED = eINSTANCE.getTags_Required();
 
 		/**
-		 * The meta object literal for the '<em><b>Root Path</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Root Path</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute TAGS__ROOT_PATH = eINSTANCE.getTags_RootPath();
+		EReference TAGS__ROOT_PATH = eINSTANCE.getTags_RootPath();
 
 		/**
 		 * The meta object literal for the '{@link de.enithing.contenthub.model.contentfragment.corefields.impl.ContentReferenceImpl <em>Content Reference</em>}' class.
@@ -2739,12 +2739,12 @@ public interface CorefieldsPackage extends EPackage {
 		EAttribute CONTENT_REFERENCE__DEFAULT_VALUE = eINSTANCE.getContentReference_DefaultValue();
 
 		/**
-		 * The meta object literal for the '<em><b>Root Path</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Root Path</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute CONTENT_REFERENCE__ROOT_PATH = eINSTANCE.getContentReference_RootPath();
+		EReference CONTENT_REFERENCE__ROOT_PATH = eINSTANCE.getContentReference_RootPath();
 
 		/**
 		 * The meta object literal for the '<em><b>Required</b></em>' attribute feature.
@@ -2839,12 +2839,12 @@ public interface CorefieldsPackage extends EPackage {
 		EReference FRAGMENT_REFERENCE__ALLOWED_MODELS = eINSTANCE.getFragmentReference_AllowedModels();
 
 		/**
-		 * The meta object literal for the '<em><b>Root Path</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Root Path</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute FRAGMENT_REFERENCE__ROOT_PATH = eINSTANCE.getFragmentReference_RootPath();
+		EReference FRAGMENT_REFERENCE__ROOT_PATH = eINSTANCE.getFragmentReference_RootPath();
 
 		/**
 		 * The meta object literal for the '<em><b>Allow Fragment Creation</b></em>' attribute feature.

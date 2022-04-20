@@ -2,6 +2,17 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="contenthub" nsURI="https://aemcontenthub.eniware-systems.de/ns/contenthub"
     nsPrefix="chub">
+  <eClassifiers xsi:type="ecore:EClass" name="PathProvider" abstract="true" interface="true">
+    <eOperations name="getPath" lowerBound="1" eType="#//Path"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SimplePath" eSuperTypes="#//PathProvider">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="path" lowerBound="1" eType="#//Path"
+        defaultValueLiteral=""/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ContextPath" eSuperTypes="#//PathProvider">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="context" lowerBound="1"
+        eType="#//Context"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="Path" instanceClassName="java.nio.file.Path"/>
   <eClassifiers xsi:type="ecore:EClass" name="Package">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
@@ -299,8 +310,8 @@
         <eStructuralFeatures xsi:type="ecore:EAttribute" name="required" lowerBound="1"
             eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
             defaultValueLiteral="false"/>
-        <eStructuralFeatures xsi:type="ecore:EAttribute" name="rootPath" lowerBound="1"
-            eType="#//Path" defaultValueLiteral="/content/cq:tags"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="rootPath" lowerBound="1"
+            eType="#//PathProvider" containment="true"/>
         <eGenericSuperTypes eClassifier="#//contentfragment/MultiFieldType">
           <eTypeArguments eClassifier="#//contentfragment/corefields/StringValue"/>
         </eGenericSuperTypes>
@@ -322,8 +333,8 @@
         <eStructuralFeatures xsi:type="ecore:EAttribute" name="placeholder" lowerBound="1"
             eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
         <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultValue" eType="#//Path"/>
-        <eStructuralFeatures xsi:type="ecore:EAttribute" name="rootPath" lowerBound="1"
-            eType="#//Path" defaultValueLiteral="/content/cq:tags"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="rootPath" lowerBound="1"
+            eType="#//PathProvider" containment="true"/>
         <eStructuralFeatures xsi:type="ecore:EAttribute" name="required" lowerBound="1"
             eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
             defaultValueLiteral="false"/>
@@ -363,8 +374,8 @@
             eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="allowedModels" upperBound="-1"
             eType="#//contentfragment/ContentFragmentModel"/>
-        <eStructuralFeatures xsi:type="ecore:EAttribute" name="rootPath" lowerBound="1"
-            eType="#//Path" defaultValueLiteral=""/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="rootPath" lowerBound="1"
+            eType="#//PathProvider" containment="true"/>
         <eStructuralFeatures xsi:type="ecore:EAttribute" name="allowFragmentCreation"
             lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
             defaultValueLiteral="true"/>

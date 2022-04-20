@@ -12,6 +12,7 @@ import de.enithing.contenthub.model.contentfragment.corefields.FragmentReference
 
 import de.enithing.contenthub.model.contentfragment.provider.ContentFragmentFieldTypeItemProvider;
 
+import de.enithing.contenthub.model.contenthub.ContentHubFactory;
 import java.util.Collection;
 import java.util.List;
 
@@ -20,6 +21,7 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
@@ -57,7 +59,6 @@ public class FragmentReferenceItemProvider extends ContentFragmentFieldTypeItemP
 			addMaxItemsPropertyDescriptor(object);
 			addPlaceholderPropertyDescriptor(object);
 			addAllowedModelsPropertyDescriptor(object);
-			addRootPathPropertyDescriptor(object);
 			addAllowFragmentCreationPropertyDescriptor(object);
 			addRequiredPropertyDescriptor(object);
 		}
@@ -153,28 +154,6 @@ public class FragmentReferenceItemProvider extends ContentFragmentFieldTypeItemP
 	}
 
 	/**
-	 * This adds a property descriptor for the Root Path feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addRootPathPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_FragmentReference_rootPath_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_FragmentReference_rootPath_feature", "_UI_FragmentReference_type"),
-				 CorefieldsPackage.Literals.FRAGMENT_REFERENCE__ROOT_PATH,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This adds a property descriptor for the Allow Fragment Creation feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -219,6 +198,36 @@ public class FragmentReferenceItemProvider extends ContentFragmentFieldTypeItemP
 	}
 
 	/**
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if (childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(CorefieldsPackage.Literals.FRAGMENT_REFERENCE__ROOT_PATH);
+		}
+		return childrenFeatures;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
+
+		return super.getChildFeature(object, child);
+	}
+
+	/**
 	 * This returns FragmentReference.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -259,10 +268,12 @@ public class FragmentReferenceItemProvider extends ContentFragmentFieldTypeItemP
 			case CorefieldsPackage.FRAGMENT_REFERENCE__ALLOW_MULTIPLE:
 			case CorefieldsPackage.FRAGMENT_REFERENCE__MAX_ITEMS:
 			case CorefieldsPackage.FRAGMENT_REFERENCE__PLACEHOLDER:
-			case CorefieldsPackage.FRAGMENT_REFERENCE__ROOT_PATH:
 			case CorefieldsPackage.FRAGMENT_REFERENCE__ALLOW_FRAGMENT_CREATION:
 			case CorefieldsPackage.FRAGMENT_REFERENCE__REQUIRED:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+			case CorefieldsPackage.FRAGMENT_REFERENCE__ROOT_PATH:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
 		super.notifyChanged(notification);
@@ -278,6 +289,16 @@ public class FragmentReferenceItemProvider extends ContentFragmentFieldTypeItemP
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorefieldsPackage.Literals.FRAGMENT_REFERENCE__ROOT_PATH,
+				 ContentHubFactory.eINSTANCE.createSimplePath()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorefieldsPackage.Literals.FRAGMENT_REFERENCE__ROOT_PATH,
+				 ContentHubFactory.eINSTANCE.createContextPath()));
 	}
 
 	/**

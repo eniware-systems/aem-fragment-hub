@@ -7,7 +7,6 @@ import de.enithing.contenthub.model.contentfragment.ContentFragmentModel;
 
 import java.nio.file.Path;
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**

@@ -31,6 +31,8 @@ public class ContentHubTests extends TestSuite {
 	 */
 	public static Test suite() {
 		TestSuite suite = new ContentHubTests("contenthub Tests");
+		suite.addTestSuite(SimplePathTest.class);
+		suite.addTestSuite(ContextPathTest.class);
 		suite.addTestSuite(ContextTest.class);
 		suite.addTestSuite(RootContextTest.class);
 		suite.addTestSuite(ChildContextTest.class);

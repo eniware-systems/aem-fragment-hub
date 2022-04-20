@@ -16,10 +16,13 @@ import de.enithing.contenthub.model.contenthub.ChildContext;
 import de.enithing.contenthub.model.contenthub.ContentHubFactory;
 import de.enithing.contenthub.model.contenthub.ContentHubPackage;
 import de.enithing.contenthub.model.contenthub.Context;
+import de.enithing.contenthub.model.contenthub.ContextPath;
 import de.enithing.contenthub.model.contenthub.ContextPolicy;
 import de.enithing.contenthub.model.contenthub.Pair;
+import de.enithing.contenthub.model.contenthub.PathProvider;
 import de.enithing.contenthub.model.contenthub.RootContext;
 
+import de.enithing.contenthub.model.contenthub.SimplePath;
 import java.nio.file.Path;
 
 import org.eclipse.emf.ecore.EAttribute;
@@ -39,6 +42,27 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
  * @generated
  */
 public class ContentHubPackageImpl extends EPackageImpl implements ContentHubPackage {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass pathProviderEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass simplePathEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass contextPathEClass = null;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -161,6 +185,66 @@ public class ContentHubPackageImpl extends EPackageImpl implements ContentHubPac
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(ContentHubPackage.eNS_URI, theContentHubPackage);
 		return theContentHubPackage;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getPathProvider() {
+		return pathProviderEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getPathProvider__GetPath() {
+		return pathProviderEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getSimplePath() {
+		return simplePathEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getSimplePath_Path() {
+		return (EAttribute)simplePathEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getContextPath() {
+		return contextPathEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getContextPath_Context() {
+		return (EReference)contextPathEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -452,6 +536,15 @@ public class ContentHubPackageImpl extends EPackageImpl implements ContentHubPac
 		isCreated = true;
 
 		// Create classes and their features
+		pathProviderEClass = createEClass(PATH_PROVIDER);
+		createEOperation(pathProviderEClass, PATH_PROVIDER___GET_PATH);
+
+		simplePathEClass = createEClass(SIMPLE_PATH);
+		createEAttribute(simplePathEClass, SIMPLE_PATH__PATH);
+
+		contextPathEClass = createEClass(CONTEXT_PATH);
+		createEReference(contextPathEClass, CONTEXT_PATH__CONTEXT);
+
 		packageEClass = createEClass(PACKAGE);
 		createEAttribute(packageEClass, PACKAGE__NAME);
 		createEAttribute(packageEClass, PACKAGE__GROUP);
@@ -523,10 +616,22 @@ public class ContentHubPackageImpl extends EPackageImpl implements ContentHubPac
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		simplePathEClass.getESuperTypes().add(this.getPathProvider());
+		contextPathEClass.getESuperTypes().add(this.getPathProvider());
 		rootContextEClass.getESuperTypes().add(this.getContext());
 		childContextEClass.getESuperTypes().add(this.getContext());
 
 		// Initialize classes, features, and operations; add parameters
+		initEClass(pathProviderEClass, PathProvider.class, "PathProvider", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEOperation(getPathProvider__GetPath(), this.getPath(), "getPath", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(simplePathEClass, SimplePath.class, "SimplePath", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getSimplePath_Path(), this.getPath(), "path", "", 1, 1, SimplePath.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(contextPathEClass, ContextPath.class, "ContextPath", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getContextPath_Context(), this.getContext(), null, "context", null, 1, 1, ContextPath.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(packageEClass, de.enithing.contenthub.model.contenthub.Package.class, "Package", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPackage_Name(), ecorePackage.getEString(), "name", "my.content", 1, 1, de.enithing.contenthub.model.contenthub.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPackage_Group(), ecorePackage.getEString(), "group", "de.enithing", 1, 1, de.enithing.contenthub.model.contenthub.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

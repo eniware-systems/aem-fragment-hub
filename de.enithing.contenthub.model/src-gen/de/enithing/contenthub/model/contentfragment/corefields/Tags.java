@@ -3,7 +3,7 @@
 package de.enithing.contenthub.model.contentfragment.corefields;
 
 import de.enithing.contenthub.model.contentfragment.MultiFieldType;
-import java.nio.file.Path;
+import de.enithing.contenthub.model.contenthub.PathProvider;
 
 /**
  * <!-- begin-user-doc -->
@@ -70,26 +70,25 @@ public interface Tags extends MultiFieldType<StringValue> {
 	void setRequired(boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Root Path</b></em>' attribute.
-	 * The default value is <code>"/content/cq:tags"</code>.
+	 * Returns the value of the '<em><b>Root Path</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Root Path</em>' attribute.
-	 * @see #setRootPath(Path)
+	 * @return the value of the '<em>Root Path</em>' containment reference.
+	 * @see #setRootPath(PathProvider)
 	 * @see de.enithing.contenthub.model.contentfragment.corefields.CorefieldsPackage#getTags_RootPath()
-	 * @model default="/content/cq:tags" dataType="de.enithing.contenthub.model.contenthub.Path" required="true"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	Path getRootPath();
+	PathProvider getRootPath();
 
 	/**
-	 * Sets the value of the '{@link de.enithing.contenthub.model.contentfragment.corefields.Tags#getRootPath <em>Root Path</em>}' attribute.
+	 * Sets the value of the '{@link de.enithing.contenthub.model.contentfragment.corefields.Tags#getRootPath <em>Root Path</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Root Path</em>' attribute.
+	 * @param value the new value of the '<em>Root Path</em>' containment reference.
 	 * @see #getRootPath()
 	 * @generated
 	 */
-	void setRootPath(Path value);
+	void setRootPath(PathProvider value);
 
 } // Tags

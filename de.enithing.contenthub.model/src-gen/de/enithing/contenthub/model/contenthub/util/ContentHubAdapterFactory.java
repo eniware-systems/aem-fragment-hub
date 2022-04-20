@@ -5,10 +5,13 @@ package de.enithing.contenthub.model.contenthub.util;
 import de.enithing.contenthub.model.contenthub.ChildContext;
 import de.enithing.contenthub.model.contenthub.ContentHubPackage;
 import de.enithing.contenthub.model.contenthub.Context;
+import de.enithing.contenthub.model.contenthub.ContextPath;
 import de.enithing.contenthub.model.contenthub.ContextPolicy;
 import de.enithing.contenthub.model.contenthub.Pair;
+import de.enithing.contenthub.model.contenthub.PathProvider;
 import de.enithing.contenthub.model.contenthub.RootContext;
 
+import de.enithing.contenthub.model.contenthub.SimplePath;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 
@@ -73,6 +76,18 @@ public class ContentHubAdapterFactory extends AdapterFactoryImpl {
 	protected ContentHubSwitch<Adapter> modelSwitch =
 		new ContentHubSwitch<Adapter>() {
 			@Override
+			public Adapter casePathProvider(PathProvider object) {
+				return createPathProviderAdapter();
+			}
+			@Override
+			public Adapter caseSimplePath(SimplePath object) {
+				return createSimplePathAdapter();
+			}
+			@Override
+			public Adapter caseContextPath(ContextPath object) {
+				return createContextPathAdapter();
+			}
+			@Override
 			public Adapter casePackage(de.enithing.contenthub.model.contenthub.Package object) {
 				return createPackageAdapter();
 			}
@@ -115,6 +130,48 @@ public class ContentHubAdapterFactory extends AdapterFactoryImpl {
 		return modelSwitch.doSwitch((EObject)target);
 	}
 
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.enithing.contenthub.model.contenthub.PathProvider <em>Path Provider</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.enithing.contenthub.model.contenthub.PathProvider
+	 * @generated
+	 */
+	public Adapter createPathProviderAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.enithing.contenthub.model.contenthub.SimplePath <em>Simple Path</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.enithing.contenthub.model.contenthub.SimplePath
+	 * @generated
+	 */
+	public Adapter createSimplePathAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.enithing.contenthub.model.contenthub.ContextPath <em>Context Path</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.enithing.contenthub.model.contenthub.ContextPath
+	 * @generated
+	 */
+	public Adapter createContextPathAdapter() {
+		return null;
+	}
 
 	/**
 	 * Creates a new adapter for an object of class '{@link de.enithing.contenthub.model.contenthub.Package <em>Package</em>}'.

@@ -11,6 +11,15 @@
   <genPackages prefix="ContentHub" basePackage="de.enithing.contenthub.model" fileExtensions="chub"
       ecorePackage="ContentHub.ecore#/" loadInitializationFileExtension="chub">
     <genDataTypes ecoreDataType="ContentHub.ecore#//Path"/>
+    <genClasses image="false" ecoreClass="ContentHub.ecore#//PathProvider">
+      <genOperations ecoreOperation="ContentHub.ecore#//PathProvider/getPath"/>
+    </genClasses>
+    <genClasses ecoreClass="ContentHub.ecore#//SimplePath">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//SimplePath/path"/>
+    </genClasses>
+    <genClasses ecoreClass="ContentHub.ecore#//ContextPath">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ContentHub.ecore#//ContextPath/context"/>
+    </genClasses>
     <genClasses ecoreClass="ContentHub.ecore#//Package">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//Package/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//Package/group"/>
@@ -191,12 +200,12 @@
         <genClasses ecoreClass="ContentHub.ecore#//contentfragment/corefields/Tags">
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/Tags/placeholder"/>
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/Tags/required"/>
-          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/Tags/rootPath"/>
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ContentHub.ecore#//contentfragment/corefields/Tags/rootPath"/>
         </genClasses>
         <genClasses ecoreClass="ContentHub.ecore#//contentfragment/corefields/ContentReference">
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/ContentReference/placeholder"/>
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/ContentReference/defaultValue"/>
-          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/ContentReference/rootPath"/>
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ContentHub.ecore#//contentfragment/corefields/ContentReference/rootPath"/>
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/ContentReference/required"/>
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/ContentReference/allowedContentTypes"/>
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/ContentReference/showThumbnail"/>
@@ -211,7 +220,7 @@
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/FragmentReference/placeholder"/>
           <genFeatures notify="false" createChild="false" propertySortChoices="true"
               ecoreFeature="ecore:EReference ContentHub.ecore#//contentfragment/corefields/FragmentReference/allowedModels"/>
-          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/FragmentReference/rootPath"/>
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ContentHub.ecore#//contentfragment/corefields/FragmentReference/rootPath"/>
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/FragmentReference/allowFragmentCreation"/>
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/FragmentReference/required"/>
         </genClasses>

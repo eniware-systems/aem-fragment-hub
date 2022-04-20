@@ -5,6 +5,7 @@ package de.enithing.contenthub.model.contenthub.tests;
 import de.enithing.contenthub.model.contenthub.ContentHubFactory;
 import de.enithing.contenthub.model.contenthub.ContentHubPackage;
 
+import de.enithing.contenthub.model.contenthub.SimplePath;
 import java.io.File;
 import java.io.IOException;
 
@@ -59,7 +60,7 @@ public class ContentHubExample {
 			System.out.println("Enter a list of file paths or URIs that have content like this:");
 			try {
 				Resource resource = resourceSet.createResource(URI.createURI("http:///My.chub"));
-				de.enithing.contenthub.model.contenthub.Package root = ContentHubFactory.eINSTANCE.createPackage();
+				SimplePath root = ContentHubFactory.eINSTANCE.createSimplePath();
 				resource.getContents().add(root);
 				resource.save(System.out, null);
 			}

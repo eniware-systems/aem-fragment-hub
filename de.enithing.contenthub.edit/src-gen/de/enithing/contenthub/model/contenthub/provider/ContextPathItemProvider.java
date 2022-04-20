@@ -1,14 +1,11 @@
 /**
  */
-package de.enithing.contenthub.model.contentfragment.corefields.provider;
+package de.enithing.contenthub.model.contenthub.provider;
 
 
 import de.enithing.contenthub.edit.ContentHubEditPlugin;
 
-import de.enithing.contenthub.model.contentfragment.corefields.ContentReferenceValue;
-import de.enithing.contenthub.model.contentfragment.corefields.CorefieldsPackage;
-
-import java.nio.file.Path;
+import de.enithing.contenthub.model.contenthub.ContentHubPackage;
 
 import java.util.Collection;
 import java.util.List;
@@ -25,17 +22,15 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
-import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link de.enithing.contenthub.model.contentfragment.corefields.ContentReferenceValue} object.
+ * This is the item provider adapter for a {@link de.enithing.contenthub.model.contenthub.ContextPath} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ContentReferenceValueItemProvider 
+public class ContextPathItemProvider 
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -49,7 +44,7 @@ public class ContentReferenceValueItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ContentReferenceValueItemProvider(AdapterFactory adapterFactory) {
+	public ContextPathItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -64,42 +59,42 @@ public class ContentReferenceValueItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addValuePropertyDescriptor(object);
+			addContextPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Value feature.
+	 * This adds a property descriptor for the Context feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addValuePropertyDescriptor(Object object) {
+	protected void addContextPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ContentReferenceValue_value_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ContentReferenceValue_value_feature", "_UI_ContentReferenceValue_type"),
-				 CorefieldsPackage.Literals.CONTENT_REFERENCE_VALUE__VALUE,
+				 getString("_UI_ContextPath_context_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ContextPath_context_feature", "_UI_ContextPath_type"),
+				 ContentHubPackage.Literals.CONTEXT_PATH__CONTEXT,
 				 true,
 				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 true,
+				 null,
 				 null,
 				 null));
 	}
 
 	/**
-	 * This returns ContentReferenceValue.gif.
+	 * This returns ContextPath.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ContentReferenceValue"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ContextPath"));
 	}
 
 	/**
@@ -110,11 +105,7 @@ public class ContentReferenceValueItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		Path labelValue = ((ContentReferenceValue)object).getValue();
-		String label = labelValue == null ? null : labelValue.toString();
-		return label == null || label.length() == 0 ?
-			getString("_UI_ContentReferenceValue_type") :
-			getString("_UI_ContentReferenceValue_type") + " " + label;
+		return getString("_UI_ContextPath_type");
 	}
 
 
@@ -128,12 +119,6 @@ public class ContentReferenceValueItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-
-		switch (notification.getFeatureID(ContentReferenceValue.class)) {
-			case CorefieldsPackage.CONTENT_REFERENCE_VALUE__VALUE:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-		}
 		super.notifyChanged(notification);
 	}
 

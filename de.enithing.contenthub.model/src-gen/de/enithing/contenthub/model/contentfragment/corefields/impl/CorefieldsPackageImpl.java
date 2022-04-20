@@ -601,8 +601,8 @@ public class CorefieldsPackageImpl extends EPackageImpl implements CorefieldsPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getTags_RootPath() {
-		return (EAttribute)tagsEClass.getEStructuralFeatures().get(2);
+	public EReference getTags_RootPath() {
+		return (EReference)tagsEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -641,8 +641,8 @@ public class CorefieldsPackageImpl extends EPackageImpl implements CorefieldsPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getContentReference_RootPath() {
-		return (EAttribute)contentReferenceEClass.getEStructuralFeatures().get(2);
+	public EReference getContentReference_RootPath() {
+		return (EReference)contentReferenceEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -761,8 +761,8 @@ public class CorefieldsPackageImpl extends EPackageImpl implements CorefieldsPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getFragmentReference_RootPath() {
-		return (EAttribute)fragmentReferenceEClass.getEStructuralFeatures().get(2);
+	public EReference getFragmentReference_RootPath() {
+		return (EReference)fragmentReferenceEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1159,12 +1159,12 @@ public class CorefieldsPackageImpl extends EPackageImpl implements CorefieldsPac
 		tagsEClass = createEClass(TAGS);
 		createEAttribute(tagsEClass, TAGS__PLACEHOLDER);
 		createEAttribute(tagsEClass, TAGS__REQUIRED);
-		createEAttribute(tagsEClass, TAGS__ROOT_PATH);
+		createEReference(tagsEClass, TAGS__ROOT_PATH);
 
 		contentReferenceEClass = createEClass(CONTENT_REFERENCE);
 		createEAttribute(contentReferenceEClass, CONTENT_REFERENCE__PLACEHOLDER);
 		createEAttribute(contentReferenceEClass, CONTENT_REFERENCE__DEFAULT_VALUE);
-		createEAttribute(contentReferenceEClass, CONTENT_REFERENCE__ROOT_PATH);
+		createEReference(contentReferenceEClass, CONTENT_REFERENCE__ROOT_PATH);
 		createEAttribute(contentReferenceEClass, CONTENT_REFERENCE__REQUIRED);
 		createEAttribute(contentReferenceEClass, CONTENT_REFERENCE__ALLOWED_CONTENT_TYPES);
 		createEAttribute(contentReferenceEClass, CONTENT_REFERENCE__SHOW_THUMBNAIL);
@@ -1178,7 +1178,7 @@ public class CorefieldsPackageImpl extends EPackageImpl implements CorefieldsPac
 		fragmentReferenceEClass = createEClass(FRAGMENT_REFERENCE);
 		createEAttribute(fragmentReferenceEClass, FRAGMENT_REFERENCE__PLACEHOLDER);
 		createEReference(fragmentReferenceEClass, FRAGMENT_REFERENCE__ALLOWED_MODELS);
-		createEAttribute(fragmentReferenceEClass, FRAGMENT_REFERENCE__ROOT_PATH);
+		createEReference(fragmentReferenceEClass, FRAGMENT_REFERENCE__ROOT_PATH);
 		createEAttribute(fragmentReferenceEClass, FRAGMENT_REFERENCE__ALLOW_FRAGMENT_CREATION);
 		createEAttribute(fragmentReferenceEClass, FRAGMENT_REFERENCE__REQUIRED);
 
@@ -1355,12 +1355,12 @@ public class CorefieldsPackageImpl extends EPackageImpl implements CorefieldsPac
 		initEClass(tagsEClass, Tags.class, "Tags", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTags_Placeholder(), ecorePackage.getEString(), "placeholder", null, 1, 1, Tags.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTags_Required(), ecorePackage.getEBoolean(), "required", "false", 1, 1, Tags.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTags_RootPath(), theContentHubPackage.getPath(), "rootPath", "/content/cq:tags", 1, 1, Tags.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTags_RootPath(), theContentHubPackage.getPathProvider(), null, "rootPath", null, 1, 1, Tags.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(contentReferenceEClass, ContentReference.class, "ContentReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getContentReference_Placeholder(), ecorePackage.getEString(), "placeholder", null, 1, 1, ContentReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getContentReference_DefaultValue(), theContentHubPackage.getPath(), "defaultValue", null, 0, 1, ContentReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getContentReference_RootPath(), theContentHubPackage.getPath(), "rootPath", "/content/cq:tags", 1, 1, ContentReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getContentReference_RootPath(), theContentHubPackage.getPathProvider(), null, "rootPath", null, 1, 1, ContentReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getContentReference_Required(), ecorePackage.getEBoolean(), "required", "false", 1, 1, ContentReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getContentReference_AllowedContentTypes(), this.getContentReferenceType(), "allowedContentTypes", null, 0, -1, ContentReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getContentReference_ShowThumbnail(), ecorePackage.getEBoolean(), "showThumbnail", "false", 1, 1, ContentReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1383,7 +1383,7 @@ public class CorefieldsPackageImpl extends EPackageImpl implements CorefieldsPac
 		initEClass(fragmentReferenceEClass, FragmentReference.class, "FragmentReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getFragmentReference_Placeholder(), ecorePackage.getEString(), "placeholder", null, 1, 1, FragmentReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getFragmentReference_AllowedModels(), theContentFragmentPackage.getContentFragmentModel(), null, "allowedModels", null, 0, -1, FragmentReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getFragmentReference_RootPath(), theContentHubPackage.getPath(), "rootPath", "", 1, 1, FragmentReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFragmentReference_RootPath(), theContentHubPackage.getPathProvider(), null, "rootPath", null, 1, 1, FragmentReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFragmentReference_AllowFragmentCreation(), ecorePackage.getEBoolean(), "allowFragmentCreation", "true", 1, 1, FragmentReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFragmentReference_Required(), ecorePackage.getEBoolean(), "required", "false", 1, 1, FragmentReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

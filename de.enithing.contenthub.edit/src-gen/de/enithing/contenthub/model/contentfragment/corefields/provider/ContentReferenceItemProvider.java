@@ -14,6 +14,7 @@ import de.enithing.contenthub.model.contentfragment.corefields.validation.Valida
 
 import de.enithing.contenthub.model.contentfragment.provider.ContentFragmentFieldTypeItemProvider;
 
+import de.enithing.contenthub.model.contenthub.ContentHubFactory;
 import java.util.Collection;
 import java.util.List;
 
@@ -61,7 +62,6 @@ public class ContentReferenceItemProvider extends ContentFragmentFieldTypeItemPr
 			addMaxItemsPropertyDescriptor(object);
 			addPlaceholderPropertyDescriptor(object);
 			addDefaultValuePropertyDescriptor(object);
-			addRootPathPropertyDescriptor(object);
 			addRequiredPropertyDescriptor(object);
 			addAllowedContentTypesPropertyDescriptor(object);
 			addShowThumbnailPropertyDescriptor(object);
@@ -158,28 +158,6 @@ public class ContentReferenceItemProvider extends ContentFragmentFieldTypeItemPr
 	}
 
 	/**
-	 * This adds a property descriptor for the Root Path feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addRootPathPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ContentReference_rootPath_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ContentReference_rootPath_feature", "_UI_ContentReference_type"),
-				 CorefieldsPackage.Literals.CONTENT_REFERENCE__ROOT_PATH,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This adds a property descriptor for the Required feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -257,6 +235,7 @@ public class ContentReferenceItemProvider extends ContentFragmentFieldTypeItemPr
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
+			childrenFeatures.add(CorefieldsPackage.Literals.CONTENT_REFERENCE__ROOT_PATH);
 			childrenFeatures.add(CorefieldsPackage.Literals.CONTENT_REFERENCE__FILE_SIZE_VALIDATION_CONSTRAINT);
 			childrenFeatures.add(CorefieldsPackage.Literals.CONTENT_REFERENCE__IMAGE_WIDTH_CONSTRAINT);
 			childrenFeatures.add(CorefieldsPackage.Literals.CONTENT_REFERENCE__IMAGE_HEIGHT_CONSTRAINT);
@@ -319,12 +298,12 @@ public class ContentReferenceItemProvider extends ContentFragmentFieldTypeItemPr
 			case CorefieldsPackage.CONTENT_REFERENCE__MAX_ITEMS:
 			case CorefieldsPackage.CONTENT_REFERENCE__PLACEHOLDER:
 			case CorefieldsPackage.CONTENT_REFERENCE__DEFAULT_VALUE:
-			case CorefieldsPackage.CONTENT_REFERENCE__ROOT_PATH:
 			case CorefieldsPackage.CONTENT_REFERENCE__REQUIRED:
 			case CorefieldsPackage.CONTENT_REFERENCE__ALLOWED_CONTENT_TYPES:
 			case CorefieldsPackage.CONTENT_REFERENCE__SHOW_THUMBNAIL:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
+			case CorefieldsPackage.CONTENT_REFERENCE__ROOT_PATH:
 			case CorefieldsPackage.CONTENT_REFERENCE__FILE_SIZE_VALIDATION_CONSTRAINT:
 			case CorefieldsPackage.CONTENT_REFERENCE__IMAGE_WIDTH_CONSTRAINT:
 			case CorefieldsPackage.CONTENT_REFERENCE__IMAGE_HEIGHT_CONSTRAINT:
@@ -344,6 +323,16 @@ public class ContentReferenceItemProvider extends ContentFragmentFieldTypeItemPr
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorefieldsPackage.Literals.CONTENT_REFERENCE__ROOT_PATH,
+				 ContentHubFactory.eINSTANCE.createSimplePath()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorefieldsPackage.Literals.CONTENT_REFERENCE__ROOT_PATH,
+				 ContentHubFactory.eINSTANCE.createContextPath()));
 
 		newChildDescriptors.add
 			(createChildParameter

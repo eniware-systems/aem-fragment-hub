@@ -59,6 +59,135 @@ public interface ContentHubPackage extends EPackage {
 	ContentHubPackage eINSTANCE = de.enithing.contenthub.model.contenthub.impl.ContentHubPackageImpl.init();
 
 	/**
+	 * The meta object id for the '{@link de.enithing.contenthub.model.contenthub.PathProvider <em>Path Provider</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.enithing.contenthub.model.contenthub.PathProvider
+	 * @see de.enithing.contenthub.model.contenthub.impl.ContentHubPackageImpl#getPathProvider()
+	 * @generated
+	 */
+	int PATH_PROVIDER = 0;
+
+	/**
+	 * The number of structural features of the '<em>Path Provider</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATH_PROVIDER_FEATURE_COUNT = 0;
+
+	/**
+	 * The operation id for the '<em>Get Path</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATH_PROVIDER___GET_PATH = 0;
+
+	/**
+	 * The number of operations of the '<em>Path Provider</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATH_PROVIDER_OPERATION_COUNT = 1;
+
+	/**
+	 * The meta object id for the '{@link de.enithing.contenthub.model.contenthub.impl.SimplePathImpl <em>Simple Path</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.enithing.contenthub.model.contenthub.impl.SimplePathImpl
+	 * @see de.enithing.contenthub.model.contenthub.impl.ContentHubPackageImpl#getSimplePath()
+	 * @generated
+	 */
+	int SIMPLE_PATH = 1;
+
+	/**
+	 * The feature id for the '<em><b>Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIMPLE_PATH__PATH = PATH_PROVIDER_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Simple Path</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIMPLE_PATH_FEATURE_COUNT = PATH_PROVIDER_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Get Path</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIMPLE_PATH___GET_PATH = PATH_PROVIDER___GET_PATH;
+
+	/**
+	 * The number of operations of the '<em>Simple Path</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIMPLE_PATH_OPERATION_COUNT = PATH_PROVIDER_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link de.enithing.contenthub.model.contenthub.impl.ContextPathImpl <em>Context Path</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.enithing.contenthub.model.contenthub.impl.ContextPathImpl
+	 * @see de.enithing.contenthub.model.contenthub.impl.ContentHubPackageImpl#getContextPath()
+	 * @generated
+	 */
+	int CONTEXT_PATH = 2;
+
+	/**
+	 * The feature id for the '<em><b>Context</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTEXT_PATH__CONTEXT = PATH_PROVIDER_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Context Path</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTEXT_PATH_FEATURE_COUNT = PATH_PROVIDER_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Get Path</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTEXT_PATH___GET_PATH = PATH_PROVIDER___GET_PATH;
+
+	/**
+	 * The number of operations of the '<em>Context Path</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTEXT_PATH_OPERATION_COUNT = PATH_PROVIDER_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link de.enithing.contenthub.model.contenthub.impl.PackageImpl <em>Package</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -66,7 +195,7 @@ public interface ContentHubPackage extends EPackage {
 	 * @see de.enithing.contenthub.model.contenthub.impl.ContentHubPackageImpl#getPackage()
 	 * @generated
 	 */
-	int PACKAGE = 0;
+	int PACKAGE = 3;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -148,7 +277,7 @@ public interface ContentHubPackage extends EPackage {
 	 * @see de.enithing.contenthub.model.contenthub.impl.ContentHubPackageImpl#getContext()
 	 * @generated
 	 */
-	int CONTEXT = 1;
+	int CONTEXT = 4;
 
 	/**
 	 * The feature id for the '<em><b>Child Contexts</b></em>' containment reference list.
@@ -266,7 +395,7 @@ public interface ContentHubPackage extends EPackage {
 	 * @see de.enithing.contenthub.model.contenthub.impl.ContentHubPackageImpl#getRootContext()
 	 * @generated
 	 */
-	int ROOT_CONTEXT = 2;
+	int ROOT_CONTEXT = 5;
 
 	/**
 	 * The feature id for the '<em><b>Child Contexts</b></em>' containment reference list.
@@ -384,7 +513,7 @@ public interface ContentHubPackage extends EPackage {
 	 * @see de.enithing.contenthub.model.contenthub.impl.ContentHubPackageImpl#getChildContext()
 	 * @generated
 	 */
-	int CHILD_CONTEXT = 3;
+	int CHILD_CONTEXT = 6;
 
 	/**
 	 * The feature id for the '<em><b>Child Contexts</b></em>' containment reference list.
@@ -511,7 +640,7 @@ public interface ContentHubPackage extends EPackage {
 	 * @see de.enithing.contenthub.model.contenthub.impl.ContentHubPackageImpl#getContextPolicy()
 	 * @generated
 	 */
-	int CONTEXT_POLICY = 4;
+	int CONTEXT_POLICY = 7;
 
 	/**
 	 * The number of structural features of the '<em>Context Policy</em>' class.
@@ -539,7 +668,7 @@ public interface ContentHubPackage extends EPackage {
 	 * @see de.enithing.contenthub.model.contenthub.impl.ContentHubPackageImpl#getPair()
 	 * @generated
 	 */
-	int PAIR = 5;
+	int PAIR = 8;
 
 	/**
 	 * The feature id for the '<em><b>Key</b></em>' attribute.
@@ -585,8 +714,70 @@ public interface ContentHubPackage extends EPackage {
 	 * @see de.enithing.contenthub.model.contenthub.impl.ContentHubPackageImpl#getPath()
 	 * @generated
 	 */
-	int PATH = 6;
+	int PATH = 9;
 
+
+	/**
+	 * Returns the meta object for class '{@link de.enithing.contenthub.model.contenthub.PathProvider <em>Path Provider</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Path Provider</em>'.
+	 * @see de.enithing.contenthub.model.contenthub.PathProvider
+	 * @generated
+	 */
+	EClass getPathProvider();
+
+	/**
+	 * Returns the meta object for the '{@link de.enithing.contenthub.model.contenthub.PathProvider#getPath() <em>Get Path</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Path</em>' operation.
+	 * @see de.enithing.contenthub.model.contenthub.PathProvider#getPath()
+	 * @generated
+	 */
+	EOperation getPathProvider__GetPath();
+
+	/**
+	 * Returns the meta object for class '{@link de.enithing.contenthub.model.contenthub.SimplePath <em>Simple Path</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Simple Path</em>'.
+	 * @see de.enithing.contenthub.model.contenthub.SimplePath
+	 * @generated
+	 */
+	EClass getSimplePath();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.enithing.contenthub.model.contenthub.SimplePath#getPath <em>Path</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Path</em>'.
+	 * @see de.enithing.contenthub.model.contenthub.SimplePath#getPath()
+	 * @see #getSimplePath()
+	 * @generated
+	 */
+	EAttribute getSimplePath_Path();
+
+	/**
+	 * Returns the meta object for class '{@link de.enithing.contenthub.model.contenthub.ContextPath <em>Context Path</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Context Path</em>'.
+	 * @see de.enithing.contenthub.model.contenthub.ContextPath
+	 * @generated
+	 */
+	EClass getContextPath();
+
+	/**
+	 * Returns the meta object for the reference '{@link de.enithing.contenthub.model.contenthub.ContextPath#getContext <em>Context</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Context</em>'.
+	 * @see de.enithing.contenthub.model.contenthub.ContextPath#getContext()
+	 * @see #getContextPath()
+	 * @generated
+	 */
+	EReference getContextPath_Context();
 
 	/**
 	 * Returns the meta object for class '{@link de.enithing.contenthub.model.contenthub.Package <em>Package</em>}'.
@@ -887,6 +1078,60 @@ public interface ContentHubPackage extends EPackage {
 	 * @generated
 	 */
 	interface Literals {
+		/**
+		 * The meta object literal for the '{@link de.enithing.contenthub.model.contenthub.PathProvider <em>Path Provider</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.enithing.contenthub.model.contenthub.PathProvider
+		 * @see de.enithing.contenthub.model.contenthub.impl.ContentHubPackageImpl#getPathProvider()
+		 * @generated
+		 */
+		EClass PATH_PROVIDER = eINSTANCE.getPathProvider();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Path</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PATH_PROVIDER___GET_PATH = eINSTANCE.getPathProvider__GetPath();
+
+		/**
+		 * The meta object literal for the '{@link de.enithing.contenthub.model.contenthub.impl.SimplePathImpl <em>Simple Path</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.enithing.contenthub.model.contenthub.impl.SimplePathImpl
+		 * @see de.enithing.contenthub.model.contenthub.impl.ContentHubPackageImpl#getSimplePath()
+		 * @generated
+		 */
+		EClass SIMPLE_PATH = eINSTANCE.getSimplePath();
+
+		/**
+		 * The meta object literal for the '<em><b>Path</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SIMPLE_PATH__PATH = eINSTANCE.getSimplePath_Path();
+
+		/**
+		 * The meta object literal for the '{@link de.enithing.contenthub.model.contenthub.impl.ContextPathImpl <em>Context Path</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.enithing.contenthub.model.contenthub.impl.ContextPathImpl
+		 * @see de.enithing.contenthub.model.contenthub.impl.ContentHubPackageImpl#getContextPath()
+		 * @generated
+		 */
+		EClass CONTEXT_PATH = eINSTANCE.getContextPath();
+
+		/**
+		 * The meta object literal for the '<em><b>Context</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONTEXT_PATH__CONTEXT = eINSTANCE.getContextPath_Context();
+
 		/**
 		 * The meta object literal for the '{@link de.enithing.contenthub.model.contenthub.impl.PackageImpl <em>Package</em>}' class.
 		 * <!-- begin-user-doc -->

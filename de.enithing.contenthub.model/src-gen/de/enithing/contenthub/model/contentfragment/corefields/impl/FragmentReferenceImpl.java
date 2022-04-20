@@ -8,20 +8,16 @@ import de.enithing.contenthub.model.contentfragment.corefields.FragmentReference
 import de.enithing.contenthub.model.contentfragment.corefields.FragmentReferenceValue;
 
 import de.enithing.contenthub.model.contentfragment.impl.ContentFragmentFieldTypeImpl;
-
-import de.enithing.contenthub.model.contenthub.ContentHubFactory;
-import de.enithing.contenthub.model.contenthub.ContentHubPackage;
-
+import de.enithing.contenthub.model.contenthub.PathProvider;
 import java.lang.Boolean;
-
-import java.nio.file.Path;
-
 import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
@@ -116,24 +112,14 @@ public class FragmentReferenceImpl extends ContentFragmentFieldTypeImpl<Fragment
 	protected EList<ContentFragmentModel> allowedModels;
 
 	/**
-	 * The default value of the '{@link #getRootPath() <em>Root Path</em>}' attribute.
+	 * The cached value of the '{@link #getRootPath() <em>Root Path</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getRootPath()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Path ROOT_PATH_EDEFAULT = (Path)ContentHubFactory.eINSTANCE.createFromString(ContentHubPackage.eINSTANCE.getPath(), "");
-
-	/**
-	 * The cached value of the '{@link #getRootPath() <em>Root Path</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRootPath()
-	 * @generated
-	 * @ordered
-	 */
-	protected Path rootPath = ROOT_PATH_EDEFAULT;
+	protected PathProvider rootPath;
 
 	/**
 	 * The default value of the '{@link #isAllowFragmentCreation() <em>Allow Fragment Creation</em>}' attribute.
@@ -282,7 +268,7 @@ public class FragmentReferenceImpl extends ContentFragmentFieldTypeImpl<Fragment
 	 * @generated
 	 */
 	@Override
-	public Path getRootPath() {
+	public PathProvider getRootPath() {
 		return rootPath;
 	}
 
@@ -291,12 +277,34 @@ public class FragmentReferenceImpl extends ContentFragmentFieldTypeImpl<Fragment
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public void setRootPath(Path newRootPath) {
-		Path oldRootPath = rootPath;
+	public NotificationChain basicSetRootPath(PathProvider newRootPath, NotificationChain msgs) {
+		PathProvider oldRootPath = rootPath;
 		rootPath = newRootPath;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorefieldsPackage.FRAGMENT_REFERENCE__ROOT_PATH, oldRootPath, rootPath));
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CorefieldsPackage.FRAGMENT_REFERENCE__ROOT_PATH, oldRootPath, newRootPath);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setRootPath(PathProvider newRootPath) {
+		if (newRootPath != rootPath) {
+			NotificationChain msgs = null;
+			if (rootPath != null)
+				msgs = ((InternalEObject)rootPath).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CorefieldsPackage.FRAGMENT_REFERENCE__ROOT_PATH, null, msgs);
+			if (newRootPath != null)
+				msgs = ((InternalEObject)newRootPath).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CorefieldsPackage.FRAGMENT_REFERENCE__ROOT_PATH, null, msgs);
+			msgs = basicSetRootPath(newRootPath, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CorefieldsPackage.FRAGMENT_REFERENCE__ROOT_PATH, newRootPath, newRootPath));
 	}
 
 	/**
@@ -351,6 +359,20 @@ public class FragmentReferenceImpl extends ContentFragmentFieldTypeImpl<Fragment
 	 * @generated
 	 */
 	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case CorefieldsPackage.FRAGMENT_REFERENCE__ROOT_PATH:
+				return basicSetRootPath(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case CorefieldsPackage.FRAGMENT_REFERENCE__ALLOW_MULTIPLE:
@@ -394,7 +416,7 @@ public class FragmentReferenceImpl extends ContentFragmentFieldTypeImpl<Fragment
 				getAllowedModels().addAll((Collection<? extends ContentFragmentModel>)newValue);
 				return;
 			case CorefieldsPackage.FRAGMENT_REFERENCE__ROOT_PATH:
-				setRootPath((Path)newValue);
+				setRootPath((PathProvider)newValue);
 				return;
 			case CorefieldsPackage.FRAGMENT_REFERENCE__ALLOW_FRAGMENT_CREATION:
 				setAllowFragmentCreation((Boolean)newValue);
@@ -427,7 +449,7 @@ public class FragmentReferenceImpl extends ContentFragmentFieldTypeImpl<Fragment
 				getAllowedModels().clear();
 				return;
 			case CorefieldsPackage.FRAGMENT_REFERENCE__ROOT_PATH:
-				setRootPath(ROOT_PATH_EDEFAULT);
+				setRootPath((PathProvider)null);
 				return;
 			case CorefieldsPackage.FRAGMENT_REFERENCE__ALLOW_FRAGMENT_CREATION:
 				setAllowFragmentCreation(ALLOW_FRAGMENT_CREATION_EDEFAULT);
@@ -456,7 +478,7 @@ public class FragmentReferenceImpl extends ContentFragmentFieldTypeImpl<Fragment
 			case CorefieldsPackage.FRAGMENT_REFERENCE__ALLOWED_MODELS:
 				return allowedModels != null && !allowedModels.isEmpty();
 			case CorefieldsPackage.FRAGMENT_REFERENCE__ROOT_PATH:
-				return ROOT_PATH_EDEFAULT == null ? rootPath != null : !ROOT_PATH_EDEFAULT.equals(rootPath);
+				return rootPath != null;
 			case CorefieldsPackage.FRAGMENT_REFERENCE__ALLOW_FRAGMENT_CREATION:
 				return allowFragmentCreation != ALLOW_FRAGMENT_CREATION_EDEFAULT;
 			case CorefieldsPackage.FRAGMENT_REFERENCE__REQUIRED:
@@ -481,8 +503,6 @@ public class FragmentReferenceImpl extends ContentFragmentFieldTypeImpl<Fragment
 		result.append(maxItems);
 		result.append(", placeholder: ");
 		result.append(placeholder);
-		result.append(", rootPath: ");
-		result.append(rootPath);
 		result.append(", allowFragmentCreation: ");
 		result.append(allowFragmentCreation);
 		result.append(", required: ");

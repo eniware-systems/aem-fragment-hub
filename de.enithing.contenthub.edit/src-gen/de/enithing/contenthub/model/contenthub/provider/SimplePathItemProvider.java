@@ -1,15 +1,13 @@
 /**
  */
-package de.enithing.contenthub.model.contentfragment.corefields.provider;
+package de.enithing.contenthub.model.contenthub.provider;
 
 
 import de.enithing.contenthub.edit.ContentHubEditPlugin;
 
-import de.enithing.contenthub.model.contentfragment.corefields.ContentReferenceValue;
-import de.enithing.contenthub.model.contentfragment.corefields.CorefieldsPackage;
-
+import de.enithing.contenthub.model.contenthub.ContentHubPackage;
+import de.enithing.contenthub.model.contenthub.SimplePath;
 import java.nio.file.Path;
-
 import java.util.Collection;
 import java.util.List;
 
@@ -30,12 +28,12 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link de.enithing.contenthub.model.contentfragment.corefields.ContentReferenceValue} object.
+ * This is the item provider adapter for a {@link de.enithing.contenthub.model.contenthub.SimplePath} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ContentReferenceValueItemProvider 
+public class SimplePathItemProvider 
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -49,7 +47,7 @@ public class ContentReferenceValueItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ContentReferenceValueItemProvider(AdapterFactory adapterFactory) {
+	public SimplePathItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -64,25 +62,25 @@ public class ContentReferenceValueItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addValuePropertyDescriptor(object);
+			addPathPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Value feature.
+	 * This adds a property descriptor for the Path feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addValuePropertyDescriptor(Object object) {
+	protected void addPathPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ContentReferenceValue_value_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ContentReferenceValue_value_feature", "_UI_ContentReferenceValue_type"),
-				 CorefieldsPackage.Literals.CONTENT_REFERENCE_VALUE__VALUE,
+				 getString("_UI_SimplePath_path_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SimplePath_path_feature", "_UI_SimplePath_type"),
+				 ContentHubPackage.Literals.SIMPLE_PATH__PATH,
 				 true,
 				 false,
 				 false,
@@ -92,14 +90,14 @@ public class ContentReferenceValueItemProvider
 	}
 
 	/**
-	 * This returns ContentReferenceValue.gif.
+	 * This returns SimplePath.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ContentReferenceValue"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/SimplePath"));
 	}
 
 	/**
@@ -110,11 +108,11 @@ public class ContentReferenceValueItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		Path labelValue = ((ContentReferenceValue)object).getValue();
+		Path labelValue = ((SimplePath)object).getPath();
 		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
-			getString("_UI_ContentReferenceValue_type") :
-			getString("_UI_ContentReferenceValue_type") + " " + label;
+			getString("_UI_SimplePath_type") :
+			getString("_UI_SimplePath_type") + " " + label;
 	}
 
 
@@ -129,8 +127,8 @@ public class ContentReferenceValueItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(ContentReferenceValue.class)) {
-			case CorefieldsPackage.CONTENT_REFERENCE_VALUE__VALUE:
+		switch (notification.getFeatureID(SimplePath.class)) {
+			case ContentHubPackage.SIMPLE_PATH__PATH:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

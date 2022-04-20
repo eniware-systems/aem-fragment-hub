@@ -7,18 +7,14 @@ import de.enithing.contenthub.model.contentfragment.corefields.StringValue;
 import de.enithing.contenthub.model.contentfragment.corefields.Tags;
 
 import de.enithing.contenthub.model.contentfragment.impl.ContentFragmentFieldTypeImpl;
-
-import de.enithing.contenthub.model.contenthub.ContentHubFactory;
-import de.enithing.contenthub.model.contenthub.ContentHubPackage;
-
+import de.enithing.contenthub.model.contenthub.PathProvider;
 import java.lang.Boolean;
-
-import java.nio.file.Path;
-
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -120,24 +116,14 @@ public class TagsImpl extends ContentFragmentFieldTypeImpl<StringValue> implemen
 	protected boolean required = REQUIRED_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getRootPath() <em>Root Path</em>}' attribute.
+	 * The cached value of the '{@link #getRootPath() <em>Root Path</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getRootPath()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Path ROOT_PATH_EDEFAULT = (Path)ContentHubFactory.eINSTANCE.createFromString(ContentHubPackage.eINSTANCE.getPath(), "/content/cq:tags");
-
-	/**
-	 * The cached value of the '{@link #getRootPath() <em>Root Path</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRootPath()
-	 * @generated
-	 * @ordered
-	 */
-	protected Path rootPath = ROOT_PATH_EDEFAULT;
+	protected PathProvider rootPath;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -256,7 +242,7 @@ public class TagsImpl extends ContentFragmentFieldTypeImpl<StringValue> implemen
 	 * @generated
 	 */
 	@Override
-	public Path getRootPath() {
+	public PathProvider getRootPath() {
 		return rootPath;
 	}
 
@@ -265,12 +251,48 @@ public class TagsImpl extends ContentFragmentFieldTypeImpl<StringValue> implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public void setRootPath(Path newRootPath) {
-		Path oldRootPath = rootPath;
+	public NotificationChain basicSetRootPath(PathProvider newRootPath, NotificationChain msgs) {
+		PathProvider oldRootPath = rootPath;
 		rootPath = newRootPath;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorefieldsPackage.TAGS__ROOT_PATH, oldRootPath, rootPath));
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CorefieldsPackage.TAGS__ROOT_PATH, oldRootPath, newRootPath);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setRootPath(PathProvider newRootPath) {
+		if (newRootPath != rootPath) {
+			NotificationChain msgs = null;
+			if (rootPath != null)
+				msgs = ((InternalEObject)rootPath).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CorefieldsPackage.TAGS__ROOT_PATH, null, msgs);
+			if (newRootPath != null)
+				msgs = ((InternalEObject)newRootPath).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CorefieldsPackage.TAGS__ROOT_PATH, null, msgs);
+			msgs = basicSetRootPath(newRootPath, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CorefieldsPackage.TAGS__ROOT_PATH, newRootPath, newRootPath));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case CorefieldsPackage.TAGS__ROOT_PATH:
+				return basicSetRootPath(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -316,7 +338,7 @@ public class TagsImpl extends ContentFragmentFieldTypeImpl<StringValue> implemen
 				setRequired((Boolean)newValue);
 				return;
 			case CorefieldsPackage.TAGS__ROOT_PATH:
-				setRootPath((Path)newValue);
+				setRootPath((PathProvider)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -343,7 +365,7 @@ public class TagsImpl extends ContentFragmentFieldTypeImpl<StringValue> implemen
 				setRequired(REQUIRED_EDEFAULT);
 				return;
 			case CorefieldsPackage.TAGS__ROOT_PATH:
-				setRootPath(ROOT_PATH_EDEFAULT);
+				setRootPath((PathProvider)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -366,7 +388,7 @@ public class TagsImpl extends ContentFragmentFieldTypeImpl<StringValue> implemen
 			case CorefieldsPackage.TAGS__REQUIRED:
 				return required != REQUIRED_EDEFAULT;
 			case CorefieldsPackage.TAGS__ROOT_PATH:
-				return ROOT_PATH_EDEFAULT == null ? rootPath != null : !ROOT_PATH_EDEFAULT.equals(rootPath);
+				return rootPath != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -389,8 +411,6 @@ public class TagsImpl extends ContentFragmentFieldTypeImpl<StringValue> implemen
 		result.append(placeholder);
 		result.append(", required: ");
 		result.append(required);
-		result.append(", rootPath: ");
-		result.append(rootPath);
 		result.append(')');
 		return result.toString();
 	}

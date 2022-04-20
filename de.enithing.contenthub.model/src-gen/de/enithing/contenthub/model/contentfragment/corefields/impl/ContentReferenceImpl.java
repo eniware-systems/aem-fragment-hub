@@ -10,10 +10,7 @@ import de.enithing.contenthub.model.contentfragment.corefields.CorefieldsPackage
 import de.enithing.contenthub.model.contentfragment.corefields.validation.ValidationConstraint;
 
 import de.enithing.contenthub.model.contentfragment.impl.ContentFragmentFieldTypeImpl;
-
-import de.enithing.contenthub.model.contenthub.ContentHubFactory;
-import de.enithing.contenthub.model.contenthub.ContentHubPackage;
-
+import de.enithing.contenthub.model.contenthub.PathProvider;
 import java.lang.Boolean;
 
 import java.math.BigInteger;
@@ -139,24 +136,14 @@ public class ContentReferenceImpl extends ContentFragmentFieldTypeImpl<ContentRe
 	protected Path defaultValue = DEFAULT_VALUE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getRootPath() <em>Root Path</em>}' attribute.
+	 * The cached value of the '{@link #getRootPath() <em>Root Path</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getRootPath()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Path ROOT_PATH_EDEFAULT = (Path)ContentHubFactory.eINSTANCE.createFromString(ContentHubPackage.eINSTANCE.getPath(), "/content/cq:tags");
-
-	/**
-	 * The cached value of the '{@link #getRootPath() <em>Root Path</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRootPath()
-	 * @generated
-	 * @ordered
-	 */
-	protected Path rootPath = ROOT_PATH_EDEFAULT;
+	protected PathProvider rootPath;
 
 	/**
 	 * The default value of the '{@link #isRequired() <em>Required</em>}' attribute.
@@ -355,7 +342,7 @@ public class ContentReferenceImpl extends ContentFragmentFieldTypeImpl<ContentRe
 	 * @generated
 	 */
 	@Override
-	public Path getRootPath() {
+	public PathProvider getRootPath() {
 		return rootPath;
 	}
 
@@ -364,12 +351,34 @@ public class ContentReferenceImpl extends ContentFragmentFieldTypeImpl<ContentRe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public void setRootPath(Path newRootPath) {
-		Path oldRootPath = rootPath;
+	public NotificationChain basicSetRootPath(PathProvider newRootPath, NotificationChain msgs) {
+		PathProvider oldRootPath = rootPath;
 		rootPath = newRootPath;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorefieldsPackage.CONTENT_REFERENCE__ROOT_PATH, oldRootPath, rootPath));
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CorefieldsPackage.CONTENT_REFERENCE__ROOT_PATH, oldRootPath, newRootPath);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setRootPath(PathProvider newRootPath) {
+		if (newRootPath != rootPath) {
+			NotificationChain msgs = null;
+			if (rootPath != null)
+				msgs = ((InternalEObject)rootPath).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CorefieldsPackage.CONTENT_REFERENCE__ROOT_PATH, null, msgs);
+			if (newRootPath != null)
+				msgs = ((InternalEObject)newRootPath).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CorefieldsPackage.CONTENT_REFERENCE__ROOT_PATH, null, msgs);
+			msgs = basicSetRootPath(newRootPath, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CorefieldsPackage.CONTENT_REFERENCE__ROOT_PATH, newRootPath, newRootPath));
 	}
 
 	/**
@@ -574,6 +583,8 @@ public class ContentReferenceImpl extends ContentFragmentFieldTypeImpl<ContentRe
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case CorefieldsPackage.CONTENT_REFERENCE__ROOT_PATH:
+				return basicSetRootPath(null, msgs);
 			case CorefieldsPackage.CONTENT_REFERENCE__FILE_SIZE_VALIDATION_CONSTRAINT:
 				return basicSetFileSizeValidationConstraint(null, msgs);
 			case CorefieldsPackage.CONTENT_REFERENCE__IMAGE_WIDTH_CONSTRAINT:
@@ -640,7 +651,7 @@ public class ContentReferenceImpl extends ContentFragmentFieldTypeImpl<ContentRe
 				setDefaultValue((Path)newValue);
 				return;
 			case CorefieldsPackage.CONTENT_REFERENCE__ROOT_PATH:
-				setRootPath((Path)newValue);
+				setRootPath((PathProvider)newValue);
 				return;
 			case CorefieldsPackage.CONTENT_REFERENCE__REQUIRED:
 				setRequired((Boolean)newValue);
@@ -686,7 +697,7 @@ public class ContentReferenceImpl extends ContentFragmentFieldTypeImpl<ContentRe
 				setDefaultValue(DEFAULT_VALUE_EDEFAULT);
 				return;
 			case CorefieldsPackage.CONTENT_REFERENCE__ROOT_PATH:
-				setRootPath(ROOT_PATH_EDEFAULT);
+				setRootPath((PathProvider)null);
 				return;
 			case CorefieldsPackage.CONTENT_REFERENCE__REQUIRED:
 				setRequired(REQUIRED_EDEFAULT);
@@ -727,7 +738,7 @@ public class ContentReferenceImpl extends ContentFragmentFieldTypeImpl<ContentRe
 			case CorefieldsPackage.CONTENT_REFERENCE__DEFAULT_VALUE:
 				return DEFAULT_VALUE_EDEFAULT == null ? defaultValue != null : !DEFAULT_VALUE_EDEFAULT.equals(defaultValue);
 			case CorefieldsPackage.CONTENT_REFERENCE__ROOT_PATH:
-				return ROOT_PATH_EDEFAULT == null ? rootPath != null : !ROOT_PATH_EDEFAULT.equals(rootPath);
+				return rootPath != null;
 			case CorefieldsPackage.CONTENT_REFERENCE__REQUIRED:
 				return required != REQUIRED_EDEFAULT;
 			case CorefieldsPackage.CONTENT_REFERENCE__ALLOWED_CONTENT_TYPES:
@@ -762,8 +773,6 @@ public class ContentReferenceImpl extends ContentFragmentFieldTypeImpl<ContentRe
 		result.append(placeholder);
 		result.append(", defaultValue: ");
 		result.append(defaultValue);
-		result.append(", rootPath: ");
-		result.append(rootPath);
 		result.append(", required: ");
 		result.append(required);
 		result.append(", allowedContentTypes: ");

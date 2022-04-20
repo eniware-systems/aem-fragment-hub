@@ -71,6 +71,52 @@ public class ContentHubItemProviderAdapterFactory extends ContentHubAdapterFacto
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.enithing.contenthub.model.contenthub.SimplePath} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SimplePathItemProvider simplePathItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.enithing.contenthub.model.contenthub.SimplePath}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSimplePathAdapter() {
+		if (simplePathItemProvider == null) {
+			simplePathItemProvider = new SimplePathItemProvider(this);
+		}
+
+		return simplePathItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.enithing.contenthub.model.contenthub.ContextPath} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ContextPathItemProvider contextPathItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.enithing.contenthub.model.contenthub.ContextPath}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createContextPathAdapter() {
+		if (contextPathItemProvider == null) {
+			contextPathItemProvider = new ContextPathItemProvider(this);
+		}
+
+		return contextPathItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link de.enithing.contenthub.model.contenthub.Package} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

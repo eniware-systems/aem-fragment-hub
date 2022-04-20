@@ -6,9 +6,11 @@ import de.enithing.contenthub.model.contenthub.ChildContext;
 import de.enithing.contenthub.model.contenthub.ContentHubFactory;
 import de.enithing.contenthub.model.contenthub.ContentHubPackage;
 import de.enithing.contenthub.model.contenthub.Context;
+import de.enithing.contenthub.model.contenthub.ContextPath;
 import de.enithing.contenthub.model.contenthub.Pair;
 import de.enithing.contenthub.model.contenthub.RootContext;
 
+import de.enithing.contenthub.model.contenthub.SimplePath;
 import java.nio.file.Path;
 
 import org.eclipse.emf.ecore.EClass;
@@ -64,6 +66,8 @@ public class ContentHubFactoryImpl extends EFactoryImpl implements ContentHubFac
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
+			case ContentHubPackage.SIMPLE_PATH: return createSimplePath();
+			case ContentHubPackage.CONTEXT_PATH: return createContextPath();
 			case ContentHubPackage.PACKAGE: return createPackage();
 			case ContentHubPackage.CONTEXT: return createContext();
 			case ContentHubPackage.ROOT_CONTEXT: return createRootContext();
@@ -102,6 +106,28 @@ public class ContentHubFactoryImpl extends EFactoryImpl implements ContentHubFac
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public SimplePath createSimplePath() {
+		SimplePathImpl simplePath = new SimplePathImpl();
+		return simplePath;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ContextPath createContextPath() {
+		ContextPathImpl contextPath = new ContextPathImpl();
+		return contextPath;
 	}
 
 	/**

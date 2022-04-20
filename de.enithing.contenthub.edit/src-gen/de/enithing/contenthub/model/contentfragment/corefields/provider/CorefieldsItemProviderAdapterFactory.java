@@ -95,6 +95,52 @@ public class CorefieldsItemProviderAdapterFactory extends CorefieldsAdapterFacto
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.enithing.contenthub.model.contentfragment.corefields.SingleLineText} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SingleLineTextItemProvider singleLineTextItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.enithing.contenthub.model.contentfragment.corefields.SingleLineText}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSingleLineTextAdapter() {
+		if (singleLineTextItemProvider == null) {
+			singleLineTextItemProvider = new SingleLineTextItemProvider(this);
+		}
+
+		return singleLineTextItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.enithing.contenthub.model.contentfragment.corefields.MultiLineText} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MultiLineTextItemProvider multiLineTextItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.enithing.contenthub.model.contentfragment.corefields.MultiLineText}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMultiLineTextAdapter() {
+		if (multiLineTextItemProvider == null) {
+			multiLineTextItemProvider = new MultiLineTextItemProvider(this);
+		}
+
+		return multiLineTextItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link de.enithing.contenthub.model.contentfragment.corefields.Number} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -391,52 +437,6 @@ public class CorefieldsItemProviderAdapterFactory extends CorefieldsAdapterFacto
 		}
 
 		return jsonItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link de.enithing.contenthub.model.contentfragment.corefields.SingleLineText} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected SingleLineTextItemProvider singleLineTextItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.enithing.contenthub.model.contentfragment.corefields.SingleLineText}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createSingleLineTextAdapter() {
-		if (singleLineTextItemProvider == null) {
-			singleLineTextItemProvider = new SingleLineTextItemProvider(this);
-		}
-
-		return singleLineTextItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link de.enithing.contenthub.model.contentfragment.corefields.MultiLineText} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected MultiLineTextItemProvider multiLineTextItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.enithing.contenthub.model.contentfragment.corefields.MultiLineText}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createMultiLineTextAdapter() {
-		if (multiLineTextItemProvider == null) {
-			multiLineTextItemProvider = new MultiLineTextItemProvider(this);
-		}
-
-		return multiLineTextItemProvider;
 	}
 
 	/**
