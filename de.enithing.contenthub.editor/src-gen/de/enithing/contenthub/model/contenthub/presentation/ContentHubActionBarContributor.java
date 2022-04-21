@@ -3,8 +3,6 @@
 package de.enithing.contenthub.model.contenthub.presentation;
 
 import de.enithing.contenthub.editor.ContentHubEditorPlugin;
-import de.enithing.contenthub.editor.GenerateAction;
-
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -188,7 +186,6 @@ public class ContentHubActionBarContributor
 		submenuManager.add(new Separator("actions"));
 		submenuManager.add(new Separator("additions"));
 		submenuManager.add(new Separator("additions-end"));
-		submenuManager.add(new GenerateAction());
 
 		// Prepare for CreateChild item addition or removal.
 		//

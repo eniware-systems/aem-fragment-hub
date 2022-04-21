@@ -7,7 +7,6 @@ import org.eclipse.emf.edit.domain.IEditingDomainProvider;
 import org.eclipse.jface.action.Action;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.PlatformUI;
-//import de.enithing.contenthub.generator.PackageGenerator;
 
 import de.enithing.contenthub.model.contenthub.Package;
 
