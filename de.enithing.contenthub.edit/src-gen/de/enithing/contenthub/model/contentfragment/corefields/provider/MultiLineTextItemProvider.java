@@ -56,7 +56,7 @@ public class MultiLineTextItemProvider extends ContentFragmentFieldTypeItemProvi
 			addAllowMultiplePropertyDescriptor(object);
 			addMaxItemsPropertyDescriptor(object);
 			addDefaultTypePropertyDescriptor(object);
-			addAllowFragmentReferencePropertyDescriptor(object);
+			addAllowedFragmentModelsPropertyDescriptor(object);
 			addRequiredPropertyDescriptor(object);
 			addTranslatablePropertyDescriptor(object);
 		}
@@ -130,23 +130,23 @@ public class MultiLineTextItemProvider extends ContentFragmentFieldTypeItemProvi
 	}
 
 	/**
-	 * This adds a property descriptor for the Allow Fragment Reference feature.
+	 * This adds a property descriptor for the Allowed Fragment Models feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addAllowFragmentReferencePropertyDescriptor(Object object) {
+	protected void addAllowedFragmentModelsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_MultiLineText_allowFragmentReference_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_MultiLineText_allowFragmentReference_feature", "_UI_MultiLineText_type"),
-				 CorefieldsPackage.Literals.MULTI_LINE_TEXT__ALLOW_FRAGMENT_REFERENCE,
+				 getString("_UI_MultiLineText_allowedFragmentModels_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_MultiLineText_allowedFragmentModels_feature", "_UI_MultiLineText_type"),
+				 CorefieldsPackage.Literals.MULTI_LINE_TEXT__ALLOWED_FRAGMENT_MODELS,
 				 true,
 				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 true,
+				 null,
 				 null,
 				 null));
 	}
@@ -236,7 +236,6 @@ public class MultiLineTextItemProvider extends ContentFragmentFieldTypeItemProvi
 			case CorefieldsPackage.MULTI_LINE_TEXT__ALLOW_MULTIPLE:
 			case CorefieldsPackage.MULTI_LINE_TEXT__MAX_ITEMS:
 			case CorefieldsPackage.MULTI_LINE_TEXT__DEFAULT_TYPE:
-			case CorefieldsPackage.MULTI_LINE_TEXT__ALLOW_FRAGMENT_REFERENCE:
 			case CorefieldsPackage.MULTI_LINE_TEXT__REQUIRED:
 			case CorefieldsPackage.MULTI_LINE_TEXT__TRANSLATABLE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));

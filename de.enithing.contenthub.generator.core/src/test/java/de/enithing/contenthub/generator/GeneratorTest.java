@@ -1,5 +1,8 @@
 package de.enithing.contenthub.generator;
 
+import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+
 import java.io.IOException;
 import java.nio.file.Path;
 import java.time.Instant;
@@ -13,7 +16,9 @@ import org.apache.commons.vfs2.provider.local.DefaultLocalFileProvider;
 import org.apache.commons.vfs2.provider.ram.RamFileProvider;
 import org.apache.velocity.runtime.parser.ParseException;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.*;
 
+import de.enithing.contenthub.generator.GeneratorConfiguration.UnknownFieldHandlingMode;
 import de.enithing.contenthub.model.contentfragment.AllowedContentFragmentModelPolicy;
 import de.enithing.contenthub.model.contentfragment.ContentFragmentFactory;
 import de.enithing.contenthub.model.contentfragment.ContentFragmentFieldInstance;
@@ -24,8 +29,10 @@ import de.enithing.contenthub.model.contentfragment.corefields.DateTime;
 import de.enithing.contenthub.model.contentfragment.corefields.DateTimeValue;
 import de.enithing.contenthub.model.contentfragment.corefields.FragmentReference;
 import de.enithing.contenthub.model.contentfragment.corefields.FragmentReferenceValue;
+import de.enithing.contenthub.model.contentfragment.corefields.MultiLineText;
 import de.enithing.contenthub.model.contentfragment.corefields.SingleLineText;
 import de.enithing.contenthub.model.contentfragment.corefields.StringValue;
+import de.enithing.contenthub.model.contentfragment.corefields.Tab;
 import de.enithing.contenthub.model.contenthub.ChildContext;
 import de.enithing.contenthub.model.contenthub.ContentHubFactory;
 import de.enithing.contenthub.model.contenthub.Package;
@@ -65,7 +72,7 @@ class GeneratorTest {
 		bookModel.setTitle("book");
 		bookModel.setDescription("A book as part of the library");
 		bookModel.setContext(modelContext);
-
+				
 		{
 			DateTime field = fieldsFactory.createDateTime();
 			field.setPropertyName("added_date");
@@ -98,6 +105,34 @@ class GeneratorTest {
 			field.setRequired(true);
 
 			bookModel.getFields().add(field);
+		}
+		
+		{
+			Tab tab = fieldsFactory.createTab();
+			tab.setPropertyName("tab_info");
+			tab.setFieldLabel("info");
+			tab.setDescription("additional information");;
+
+			bookModel.getFields().add(tab);
+			
+			{
+				MultiLineText field = fieldsFactory.createMultiLineText();
+				field.setPropertyName("abstract");
+				field.setFieldLabel("abstract");
+				field.setDescription("the abstract of the book");
+
+				bookModel.getFields().add(field);
+			}
+			
+			{
+				MultiLineText field = fieldsFactory.createMultiLineText();
+				field.setPropertyName("examples");
+				field.setFieldLabel("examples");
+				field.setDescription("reading examples of the book");
+				field.setAllowMultiple(true);
+
+				bookModel.getFields().add(field);
+			}
 		}
 
 		ContentFragmentModel libraryModel = cfFactory.createContentFragmentModel();
@@ -194,26 +229,19 @@ class GeneratorTest {
 		library.setContext(contentContext);
 
 		GeneratorConfiguration cfg = new GeneratorConfiguration();
-		// FileSystemManager vfs = createVFSManager();
-		// cfg.targetRoot = vfs.resolveFile(VFSRootPath);
+		cfg.unknownFieldHandling = UnknownFieldHandlingMode.Error;
+		
+		FileSystemManager vfs = createVFSManager();
+		cfg.targetRoot = vfs.resolveFile(VFSRootPath);
 
-		DefaultFileSystemManager vfs = new DefaultFileSystemManager();
-		vfs.addProvider("file", new DefaultLocalFileProvider());
-		vfs.init();
-
-		cfg.targetRoot = vfs.resolveFile("file:///tmp/contenthub-test");
 		if (cfg.targetRoot.exists()) {
 			cfg.targetRoot.deleteAll();
 		}
 		cfg.targetRoot.createFolder();
 
 		PackageGenerator gen = new PackageGenerator(cfg);
-		try {
-			gen.generate(myPackage);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
+		assertDoesNotThrow(() -> gen.generate(myPackage));		
 	}
 
 }

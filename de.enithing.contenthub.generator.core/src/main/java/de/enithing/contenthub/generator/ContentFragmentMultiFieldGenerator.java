@@ -45,8 +45,8 @@ public abstract class ContentFragmentMultiFieldGenerator<TField extends MultiFie
 	
 	@Override
 	final protected void populateDefaultGraniteAttribs(TField element, VelocityContext ctx, Map<String, Object> attribs) {
-		// TODO Auto-generated method stub
 		super.populateDefaultGraniteAttribs(element, ctx, attribs);
+		
 		if(element.isAllowMultiple() && element.getMaxItems() > 0) {
 			attribs.put("mvmaxitems", element.getMaxItems());
 		}
@@ -61,9 +61,23 @@ public abstract class ContentFragmentMultiFieldGenerator<TField extends MultiFie
 		if(element.getMaxItems() > 0) {
 			attribs.put("mvmaxitems", element.getMaxItems());
 		}
+		
+		@SuppressWarnings("unchecked")
+		Map<String, String> baseAttribs = (Map<String, String>) ctx.get("graniteAttribs");
+		
+		for(String key : getAllSharedFieldGraniteAttribs()) {
+			if(baseAttribs.containsKey(key)) {
+				String attrib = baseAttribs.get(key);
+				attribs.put(key, attrib);
+			}
+		}
 	}
 	
 	public abstract void getSharedFieldAttribs(Set<String> attribs);
+	
+	public void getSharedFieldGraniteAttribs(Set<String> attribs) {
+		
+	}
 	
 	private Set<String> getAllSharedFieldAttribs() {
 		HashSet<String> results = new HashSet<>();
@@ -71,6 +85,14 @@ public abstract class ContentFragmentMultiFieldGenerator<TField extends MultiFie
 		results.add("renderReadOnly");
 		
 		getSharedFieldAttribs(results);
+		
+		return results;
+	}
+	
+	private Set<String> getAllSharedFieldGraniteAttribs() {
+		HashSet<String> results = new HashSet<>();
+		
+		getSharedFieldGraniteAttribs(results);
 		
 		return results;
 	}

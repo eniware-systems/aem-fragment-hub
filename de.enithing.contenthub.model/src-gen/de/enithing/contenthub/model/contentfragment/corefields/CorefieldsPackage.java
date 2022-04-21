@@ -415,13 +415,13 @@ public interface CorefieldsPackage extends EPackage {
 	int MULTI_LINE_TEXT__DEFAULT_TYPE = ContentFragmentPackage.MULTI_FIELD_TYPE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Allow Fragment Reference</b></em>' attribute.
+	 * The feature id for the '<em><b>Allowed Fragment Models</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MULTI_LINE_TEXT__ALLOW_FRAGMENT_REFERENCE = ContentFragmentPackage.MULTI_FIELD_TYPE_FEATURE_COUNT + 1;
+	int MULTI_LINE_TEXT__ALLOWED_FRAGMENT_MODELS = ContentFragmentPackage.MULTI_FIELD_TYPE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Required</b></em>' attribute.
@@ -2310,15 +2310,15 @@ public interface CorefieldsPackage extends EPackage {
 	EAttribute getMultiLineText_DefaultType();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.enithing.contenthub.model.contentfragment.corefields.MultiLineText#isAllowFragmentReference <em>Allow Fragment Reference</em>}'.
+	 * Returns the meta object for the reference list '{@link de.enithing.contenthub.model.contentfragment.corefields.MultiLineText#getAllowedFragmentModels <em>Allowed Fragment Models</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Allow Fragment Reference</em>'.
-	 * @see de.enithing.contenthub.model.contentfragment.corefields.MultiLineText#isAllowFragmentReference()
+	 * @return the meta object for the reference list '<em>Allowed Fragment Models</em>'.
+	 * @see de.enithing.contenthub.model.contentfragment.corefields.MultiLineText#getAllowedFragmentModels()
 	 * @see #getMultiLineText()
 	 * @generated
 	 */
-	EAttribute getMultiLineText_AllowFragmentReference();
+	EReference getMultiLineText_AllowedFragmentModels();
 
 	/**
 	 * Returns the meta object for the attribute '{@link de.enithing.contenthub.model.contentfragment.corefields.MultiLineText#isRequired <em>Required</em>}'.
@@ -3015,12 +3015,12 @@ public interface CorefieldsPackage extends EPackage {
 		EAttribute MULTI_LINE_TEXT__DEFAULT_TYPE = eINSTANCE.getMultiLineText_DefaultType();
 
 		/**
-		 * The meta object literal for the '<em><b>Allow Fragment Reference</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Allowed Fragment Models</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute MULTI_LINE_TEXT__ALLOW_FRAGMENT_REFERENCE = eINSTANCE.getMultiLineText_AllowFragmentReference();
+		EReference MULTI_LINE_TEXT__ALLOWED_FRAGMENT_MODELS = eINSTANCE.getMultiLineText_AllowedFragmentModels();
 
 		/**
 		 * The meta object literal for the '<em><b>Required</b></em>' attribute feature.

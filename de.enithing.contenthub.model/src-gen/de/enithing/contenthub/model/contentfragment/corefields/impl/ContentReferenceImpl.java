@@ -6,7 +6,7 @@ import de.enithing.contenthub.model.contentfragment.corefields.ContentReference;
 import de.enithing.contenthub.model.contentfragment.corefields.ContentReferenceType;
 import de.enithing.contenthub.model.contentfragment.corefields.ContentReferenceValue;
 import de.enithing.contenthub.model.contentfragment.corefields.CorefieldsPackage;
-
+import de.enithing.contenthub.model.contentfragment.corefields.validation.FileSizeValue;
 import de.enithing.contenthub.model.contentfragment.corefields.validation.ValidationConstraint;
 
 import de.enithing.contenthub.model.contentfragment.impl.ContentFragmentFieldTypeImpl;
@@ -203,7 +203,7 @@ public class ContentReferenceImpl extends ContentFragmentFieldTypeImpl<ContentRe
 	 * @generated
 	 * @ordered
 	 */
-	protected ValidationConstraint<BigInteger> fileSizeValidationConstraint;
+	protected ValidationConstraint<FileSizeValue> fileSizeValidationConstraint;
 
 	/**
 	 * The cached value of the '{@link #getImageWidthConstraint() <em>Image Width Constraint</em>}' containment reference.
@@ -446,7 +446,7 @@ public class ContentReferenceImpl extends ContentFragmentFieldTypeImpl<ContentRe
 	 * @generated
 	 */
 	@Override
-	public ValidationConstraint<BigInteger> getFileSizeValidationConstraint() {
+	public ValidationConstraint<FileSizeValue> getFileSizeValidationConstraint() {
 		return fileSizeValidationConstraint;
 	}
 
@@ -455,8 +455,8 @@ public class ContentReferenceImpl extends ContentFragmentFieldTypeImpl<ContentRe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetFileSizeValidationConstraint(ValidationConstraint<BigInteger> newFileSizeValidationConstraint, NotificationChain msgs) {
-		ValidationConstraint<BigInteger> oldFileSizeValidationConstraint = fileSizeValidationConstraint;
+	public NotificationChain basicSetFileSizeValidationConstraint(ValidationConstraint<FileSizeValue> newFileSizeValidationConstraint, NotificationChain msgs) {
+		ValidationConstraint<FileSizeValue> oldFileSizeValidationConstraint = fileSizeValidationConstraint;
 		fileSizeValidationConstraint = newFileSizeValidationConstraint;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CorefieldsPackage.CONTENT_REFERENCE__FILE_SIZE_VALIDATION_CONSTRAINT, oldFileSizeValidationConstraint, newFileSizeValidationConstraint);
@@ -471,7 +471,7 @@ public class ContentReferenceImpl extends ContentFragmentFieldTypeImpl<ContentRe
 	 * @generated
 	 */
 	@Override
-	public void setFileSizeValidationConstraint(ValidationConstraint<BigInteger> newFileSizeValidationConstraint) {
+	public void setFileSizeValidationConstraint(ValidationConstraint<FileSizeValue> newFileSizeValidationConstraint) {
 		if (newFileSizeValidationConstraint != fileSizeValidationConstraint) {
 			NotificationChain msgs = null;
 			if (fileSizeValidationConstraint != null)
@@ -664,7 +664,7 @@ public class ContentReferenceImpl extends ContentFragmentFieldTypeImpl<ContentRe
 				setShowThumbnail((Boolean)newValue);
 				return;
 			case CorefieldsPackage.CONTENT_REFERENCE__FILE_SIZE_VALIDATION_CONSTRAINT:
-				setFileSizeValidationConstraint((ValidationConstraint<BigInteger>)newValue);
+				setFileSizeValidationConstraint((ValidationConstraint<FileSizeValue>)newValue);
 				return;
 			case CorefieldsPackage.CONTENT_REFERENCE__IMAGE_WIDTH_CONSTRAINT:
 				setImageWidthConstraint((ValidationConstraint<BigInteger>)newValue);
@@ -709,7 +709,7 @@ public class ContentReferenceImpl extends ContentFragmentFieldTypeImpl<ContentRe
 				setShowThumbnail(SHOW_THUMBNAIL_EDEFAULT);
 				return;
 			case CorefieldsPackage.CONTENT_REFERENCE__FILE_SIZE_VALIDATION_CONSTRAINT:
-				setFileSizeValidationConstraint((ValidationConstraint<BigInteger>)null);
+				setFileSizeValidationConstraint((ValidationConstraint<FileSizeValue>)null);
 				return;
 			case CorefieldsPackage.CONTENT_REFERENCE__IMAGE_WIDTH_CONSTRAINT:
 				setImageWidthConstraint((ValidationConstraint<BigInteger>)null);

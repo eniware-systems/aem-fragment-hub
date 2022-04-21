@@ -3,6 +3,7 @@
 package de.enithing.contenthub.model.contentfragment.corefields;
 
 import de.enithing.contenthub.model.contentfragment.MultiFieldType;
+import de.enithing.contenthub.model.contentfragment.corefields.validation.FileSizeValue;
 import de.enithing.contenthub.model.contentfragment.corefields.validation.ValidationConstraint;
 
 import de.enithing.contenthub.model.contenthub.PathProvider;
@@ -170,10 +171,10 @@ public interface ContentReference extends MultiFieldType<ContentReferenceValue> 
 	 * @return the value of the '<em>File Size Validation Constraint</em>' containment reference.
 	 * @see #setFileSizeValidationConstraint(ValidationConstraint)
 	 * @see de.enithing.contenthub.model.contentfragment.corefields.CorefieldsPackage#getContentReference_FileSizeValidationConstraint()
-	 * @model type="de.enithing.contenthub.model.contentfragment.corefields.validation.ValidationConstraint&lt;org.eclipse.emf.ecore.EBigInteger&gt;" containment="true"
+	 * @model containment="true"
 	 * @generated
 	 */
-	ValidationConstraint<BigInteger> getFileSizeValidationConstraint();
+	ValidationConstraint<FileSizeValue> getFileSizeValidationConstraint();
 
 	/**
 	 * Sets the value of the '{@link de.enithing.contenthub.model.contentfragment.corefields.ContentReference#getFileSizeValidationConstraint <em>File Size Validation Constraint</em>}' containment reference.
@@ -183,7 +184,7 @@ public interface ContentReference extends MultiFieldType<ContentReferenceValue> 
 	 * @see #getFileSizeValidationConstraint()
 	 * @generated
 	 */
-	void setFileSizeValidationConstraint(ValidationConstraint<BigInteger> value);
+	void setFileSizeValidationConstraint(ValidationConstraint<FileSizeValue> value);
 
 	/**
 	 * Returns the value of the '<em><b>Image Width Constraint</b></em>' containment reference.

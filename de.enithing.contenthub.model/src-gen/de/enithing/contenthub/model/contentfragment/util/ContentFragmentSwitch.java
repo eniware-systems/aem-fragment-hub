@@ -111,12 +111,6 @@ public class ContentFragmentSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ContentFragmentPackage.ID_CONTENT_FRAGMENT_FIELD_TYPE: {
-				IdContentFragmentFieldType idContentFragmentFieldType = (IdContentFragmentFieldType)theEObject;
-				T result = caseIdContentFragmentFieldType(idContentFragmentFieldType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case ContentFragmentPackage.ALLOWED_CONTENT_FRAGMENT_MODEL_POLICY: {
 				AllowedContentFragmentModelPolicy allowedContentFragmentModelPolicy = (AllowedContentFragmentModelPolicy)theEObject;
 				T result = caseAllowedContentFragmentModelPolicy(allowedContentFragmentModelPolicy);
@@ -238,21 +232,6 @@ public class ContentFragmentSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseContentFragmentFieldValue(ContentFragmentFieldValue object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Id Content Fragment Field Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Id Content Fragment Field Type</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseIdContentFragmentFieldType(IdContentFragmentFieldType object) {
 		return null;
 	}
 

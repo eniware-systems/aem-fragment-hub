@@ -84,6 +84,9 @@ public abstract class ContentFragmentFieldGenerator<TField extends ContentFragme
 			Map<String, Map<String, String>> resultChildren) {
 
 		for (Entry<String, Object> e : attribs.entrySet()) {
+			if(e.getValue() == null) {
+				continue;
+			}
 			resultAttribs.put(e.getKey(), JcrUtils.toStringValue(e.getValue()));
 		}
 	}

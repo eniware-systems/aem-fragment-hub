@@ -97,10 +97,6 @@ public class ContentFragmentAdapterFactory extends AdapterFactoryImpl {
 				return createContentFragmentFieldValueAdapter();
 			}
 			@Override
-			public Adapter caseIdContentFragmentFieldType(IdContentFragmentFieldType object) {
-				return createIdContentFragmentFieldTypeAdapter();
-			}
-			@Override
 			public Adapter caseAllowedContentFragmentModelPolicy(AllowedContentFragmentModelPolicy object) {
 				return createAllowedContentFragmentModelPolicyAdapter();
 			}
@@ -227,20 +223,6 @@ public class ContentFragmentAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createContentFragmentFieldValueAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.enithing.contenthub.model.contentfragment.IdContentFragmentFieldType <em>Id Content Fragment Field Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.enithing.contenthub.model.contentfragment.IdContentFragmentFieldType
-	 * @generated
-	 */
-	public Adapter createIdContentFragmentFieldTypeAdapter() {
 		return null;
 	}
 

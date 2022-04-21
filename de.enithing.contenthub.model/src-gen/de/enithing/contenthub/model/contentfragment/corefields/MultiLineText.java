@@ -2,7 +2,9 @@
  */
 package de.enithing.contenthub.model.contentfragment.corefields;
 
+import de.enithing.contenthub.model.contentfragment.ContentFragmentModel;
 import de.enithing.contenthub.model.contentfragment.MultiFieldType;
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,7 +16,7 @@ import de.enithing.contenthub.model.contentfragment.MultiFieldType;
  * </p>
  * <ul>
  *   <li>{@link de.enithing.contenthub.model.contentfragment.corefields.MultiLineText#getDefaultType <em>Default Type</em>}</li>
- *   <li>{@link de.enithing.contenthub.model.contentfragment.corefields.MultiLineText#isAllowFragmentReference <em>Allow Fragment Reference</em>}</li>
+ *   <li>{@link de.enithing.contenthub.model.contentfragment.corefields.MultiLineText#getAllowedFragmentModels <em>Allowed Fragment Models</em>}</li>
  *   <li>{@link de.enithing.contenthub.model.contentfragment.corefields.MultiLineText#isRequired <em>Required</em>}</li>
  *   <li>{@link de.enithing.contenthub.model.contentfragment.corefields.MultiLineText#isTranslatable <em>Translatable</em>}</li>
  * </ul>
@@ -51,27 +53,39 @@ public interface MultiLineText extends MultiFieldType<StringValue> {
 	void setDefaultType(TextMimeType value);
 
 	/**
-	 * Returns the value of the '<em><b>Allow Fragment Reference</b></em>' attribute.
-	 * The default value is <code>"false"</code>.
+	 * Returns the value of the '<em><b>Allowed Fragment Models</b></em>' reference list.
+	 * The list contents are of type {@link de.enithing.contenthub.model.contentfragment.ContentFragmentModel}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Allow Fragment Reference</em>' attribute.
-	 * @see #setAllowFragmentReference(boolean)
-	 * @see de.enithing.contenthub.model.contentfragment.corefields.CorefieldsPackage#getMultiLineText_AllowFragmentReference()
-	 * @model default="false" required="true"
+	 * @return the value of the '<em>Allowed Fragment Models</em>' reference list.
+	 * @see #isSetAllowedFragmentModels()
+	 * @see #unsetAllowedFragmentModels()
+	 * @see de.enithing.contenthub.model.contentfragment.corefields.CorefieldsPackage#getMultiLineText_AllowedFragmentModels()
+	 * @model unsettable="true"
 	 * @generated
 	 */
-	boolean isAllowFragmentReference();
+	EList<ContentFragmentModel> getAllowedFragmentModels();
 
 	/**
-	 * Sets the value of the '{@link de.enithing.contenthub.model.contentfragment.corefields.MultiLineText#isAllowFragmentReference <em>Allow Fragment Reference</em>}' attribute.
+	 * Unsets the value of the '{@link de.enithing.contenthub.model.contentfragment.corefields.MultiLineText#getAllowedFragmentModels <em>Allowed Fragment Models</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Allow Fragment Reference</em>' attribute.
-	 * @see #isAllowFragmentReference()
+	 * @see #isSetAllowedFragmentModels()
+	 * @see #getAllowedFragmentModels()
 	 * @generated
 	 */
-	void setAllowFragmentReference(boolean value);
+	void unsetAllowedFragmentModels();
+
+	/**
+	 * Returns whether the value of the '{@link de.enithing.contenthub.model.contentfragment.corefields.MultiLineText#getAllowedFragmentModels <em>Allowed Fragment Models</em>}' reference list is set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return whether the value of the '<em>Allowed Fragment Models</em>' reference list is set.
+	 * @see #unsetAllowedFragmentModels()
+	 * @see #getAllowedFragmentModels()
+	 * @generated
+	 */
+	boolean isSetAllowedFragmentModels();
 
 	/**
 	 * Returns the value of the '<em><b>Required</b></em>' attribute.

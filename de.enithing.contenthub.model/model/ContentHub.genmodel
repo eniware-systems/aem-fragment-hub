@@ -92,7 +92,6 @@
             ecoreFeature="ecore:EReference ContentHub.ecore#//contentfragment/GroupFieldType/fields"/>
       </genClasses>
       <genClasses image="false" ecoreClass="ContentHub.ecore#//contentfragment/ContentFragmentFieldValue"/>
-      <genClasses image="false" ecoreClass="ContentHub.ecore#//contentfragment/IdContentFragmentFieldType"/>
       <genClasses ecoreClass="ContentHub.ecore#//contentfragment/AllowedContentFragmentModelPolicy">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference ContentHub.ecore#//contentfragment/AllowedContentFragmentModelPolicy/models"/>
@@ -160,7 +159,8 @@
         </genClasses>
         <genClasses ecoreClass="ContentHub.ecore#//contentfragment/corefields/MultiLineText">
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/MultiLineText/defaultType"/>
-          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/MultiLineText/allowFragmentReference"/>
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference ContentHub.ecore#//contentfragment/corefields/MultiLineText/allowedFragmentModels"/>
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/MultiLineText/required"/>
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/corefields/MultiLineText/translatable"/>
         </genClasses>

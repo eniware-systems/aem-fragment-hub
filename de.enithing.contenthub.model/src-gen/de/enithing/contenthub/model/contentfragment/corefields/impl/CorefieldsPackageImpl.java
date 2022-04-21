@@ -971,8 +971,8 @@ public class CorefieldsPackageImpl extends EPackageImpl implements CorefieldsPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getMultiLineText_AllowFragmentReference() {
-		return (EAttribute)multiLineTextEClass.getEStructuralFeatures().get(1);
+	public EReference getMultiLineText_AllowedFragmentModels() {
+		return (EReference)multiLineTextEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1120,7 +1120,7 @@ public class CorefieldsPackageImpl extends EPackageImpl implements CorefieldsPac
 
 		multiLineTextEClass = createEClass(MULTI_LINE_TEXT);
 		createEAttribute(multiLineTextEClass, MULTI_LINE_TEXT__DEFAULT_TYPE);
-		createEAttribute(multiLineTextEClass, MULTI_LINE_TEXT__ALLOW_FRAGMENT_REFERENCE);
+		createEReference(multiLineTextEClass, MULTI_LINE_TEXT__ALLOWED_FRAGMENT_MODELS);
 		createEAttribute(multiLineTextEClass, MULTI_LINE_TEXT__REQUIRED);
 		createEAttribute(multiLineTextEClass, MULTI_LINE_TEXT__TRANSLATABLE);
 
@@ -1308,7 +1308,7 @@ public class CorefieldsPackageImpl extends EPackageImpl implements CorefieldsPac
 
 		initEClass(multiLineTextEClass, MultiLineText.class, "MultiLineText", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMultiLineText_DefaultType(), this.getTextMimeType(), "defaultType", "text/html", 1, 1, MultiLineText.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getMultiLineText_AllowFragmentReference(), ecorePackage.getEBoolean(), "allowFragmentReference", "false", 1, 1, MultiLineText.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMultiLineText_AllowedFragmentModels(), theContentFragmentPackage.getContentFragmentModel(), null, "allowedFragmentModels", null, 0, -1, MultiLineText.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMultiLineText_Required(), ecorePackage.getEBoolean(), "required", "false", 1, 1, MultiLineText.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMultiLineText_Translatable(), ecorePackage.getEBoolean(), "translatable", "false", 1, 1, MultiLineText.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -1365,7 +1365,7 @@ public class CorefieldsPackageImpl extends EPackageImpl implements CorefieldsPac
 		initEAttribute(getContentReference_AllowedContentTypes(), this.getContentReferenceType(), "allowedContentTypes", null, 0, -1, ContentReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getContentReference_ShowThumbnail(), ecorePackage.getEBoolean(), "showThumbnail", "false", 1, 1, ContentReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		g1 = createEGenericType(theValidationPackage.getValidationConstraint());
-		g2 = createEGenericType(ecorePackage.getEBigInteger());
+		g2 = createEGenericType(theValidationPackage.getFileSizeValue());
 		g1.getETypeArguments().add(g2);
 		initEReference(getContentReference_FileSizeValidationConstraint(), g1, null, "fileSizeValidationConstraint", null, 0, 1, ContentReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		g1 = createEGenericType(theValidationPackage.getValidationConstraint());

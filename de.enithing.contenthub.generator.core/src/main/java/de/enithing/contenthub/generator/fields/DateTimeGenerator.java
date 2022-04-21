@@ -28,6 +28,11 @@ public class DateTimeGenerator extends ContentFragmentFieldGenerator<DateTime> {
 	}
 
 	@Override
+	public void populateGraniteAttribs(DateTime element, VelocityContext ctx, Map<String, Object> attribs) {
+		attribs.put("typeHint", "Date");
+	}
+
+	@Override
 	public String getResourceType() {
 		return "dam/cfm/models/editor/components/datatypes/datepicker";
 	}

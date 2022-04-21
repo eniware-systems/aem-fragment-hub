@@ -11,7 +11,6 @@ import de.enithing.contenthub.model.contentfragment.ContentFragmentInstance;
 import de.enithing.contenthub.model.contentfragment.ContentFragmentModel;
 import de.enithing.contenthub.model.contentfragment.ContentFragmentPackage;
 import de.enithing.contenthub.model.contentfragment.GroupFieldType;
-import de.enithing.contenthub.model.contentfragment.IdContentFragmentFieldType;
 import de.enithing.contenthub.model.contentfragment.MultiFieldType;
 import de.enithing.contenthub.model.contentfragment.SimpleFieldType;
 import de.enithing.contenthub.model.contentfragment.corefields.CorefieldsPackage;
@@ -89,13 +88,6 @@ public class ContentFragmentPackageImpl extends EPackageImpl implements ContentF
 	 * @generated
 	 */
 	private EClass contentFragmentFieldValueEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass idContentFragmentFieldTypeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -452,16 +444,6 @@ public class ContentFragmentPackageImpl extends EPackageImpl implements ContentF
 	 * @generated
 	 */
 	@Override
-	public EClass getIdContentFragmentFieldType() {
-		return idContentFragmentFieldTypeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EClass getAllowedContentFragmentModelPolicy() {
 		return allowedContentFragmentModelPolicyEClass;
 	}
@@ -567,8 +549,6 @@ public class ContentFragmentPackageImpl extends EPackageImpl implements ContentF
 		createEReference(groupFieldTypeEClass, GROUP_FIELD_TYPE__FIELDS);
 
 		contentFragmentFieldValueEClass = createEClass(CONTENT_FRAGMENT_FIELD_VALUE);
-
-		idContentFragmentFieldTypeEClass = createEClass(ID_CONTENT_FRAGMENT_FIELD_TYPE);
 
 		allowedContentFragmentModelPolicyEClass = createEClass(ALLOWED_CONTENT_FRAGMENT_MODEL_POLICY);
 		createEReference(allowedContentFragmentModelPolicyEClass, ALLOWED_CONTENT_FRAGMENT_MODEL_POLICY__MODELS);
@@ -682,8 +662,6 @@ public class ContentFragmentPackageImpl extends EPackageImpl implements ContentF
 		getGroupFieldType_Fields().getEKeys().add(this.getContentFragmentFieldType_PropertyName());
 
 		initEClass(contentFragmentFieldValueEClass, ContentFragmentFieldValue.class, "ContentFragmentFieldValue", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(idContentFragmentFieldTypeEClass, IdContentFragmentFieldType.class, "IdContentFragmentFieldType", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(allowedContentFragmentModelPolicyEClass, AllowedContentFragmentModelPolicy.class, "AllowedContentFragmentModelPolicy", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAllowedContentFragmentModelPolicy_Models(), this.getContentFragmentModel(), null, "models", null, 0, -1, AllowedContentFragmentModelPolicy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

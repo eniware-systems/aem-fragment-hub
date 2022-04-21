@@ -499,35 +499,6 @@ public interface ContentFragmentPackage extends EPackage {
 
 
 	/**
-	 * The meta object id for the '{@link de.enithing.contenthub.model.contentfragment.IdContentFragmentFieldType <em>Id Content Fragment Field Type</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.enithing.contenthub.model.contentfragment.IdContentFragmentFieldType
-	 * @see de.enithing.contenthub.model.contentfragment.impl.ContentFragmentPackageImpl#getIdContentFragmentFieldType()
-	 * @generated
-	 */
-	int ID_CONTENT_FRAGMENT_FIELD_TYPE = 7;
-
-	/**
-	 * The number of structural features of the '<em>Id Content Fragment Field Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ID_CONTENT_FRAGMENT_FIELD_TYPE_FEATURE_COUNT = 0;
-
-	/**
-	 * The number of operations of the '<em>Id Content Fragment Field Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ID_CONTENT_FRAGMENT_FIELD_TYPE_OPERATION_COUNT = 0;
-
-
-	/**
 	 * The meta object id for the '{@link de.enithing.contenthub.model.contentfragment.impl.AllowedContentFragmentModelPolicyImpl <em>Allowed Content Fragment Model Policy</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -535,7 +506,7 @@ public interface ContentFragmentPackage extends EPackage {
 	 * @see de.enithing.contenthub.model.contentfragment.impl.ContentFragmentPackageImpl#getAllowedContentFragmentModelPolicy()
 	 * @generated
 	 */
-	int ALLOWED_CONTENT_FRAGMENT_MODEL_POLICY = 8;
+	int ALLOWED_CONTENT_FRAGMENT_MODEL_POLICY = 7;
 
 	/**
 	 * The feature id for the '<em><b>Models</b></em>' reference list.
@@ -572,7 +543,7 @@ public interface ContentFragmentPackage extends EPackage {
 	 * @see de.enithing.contenthub.model.contentfragment.impl.ContentFragmentPackageImpl#getMultiFieldType()
 	 * @generated
 	 */
-	int MULTI_FIELD_TYPE = 9;
+	int MULTI_FIELD_TYPE = 8;
 
 	/**
 	 * The feature id for the '<em><b>Property Name</b></em>' attribute.
@@ -924,16 +895,6 @@ public interface ContentFragmentPackage extends EPackage {
 	EClass getContentFragmentFieldValue();
 
 	/**
-	 * Returns the meta object for class '{@link de.enithing.contenthub.model.contentfragment.IdContentFragmentFieldType <em>Id Content Fragment Field Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Id Content Fragment Field Type</em>'.
-	 * @see de.enithing.contenthub.model.contentfragment.IdContentFragmentFieldType
-	 * @generated
-	 */
-	EClass getIdContentFragmentFieldType();
-
-	/**
 	 * Returns the meta object for class '{@link de.enithing.contenthub.model.contentfragment.AllowedContentFragmentModelPolicy <em>Allowed Content Fragment Model Policy</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1230,16 +1191,6 @@ public interface ContentFragmentPackage extends EPackage {
 		 * @generated
 		 */
 		EClass CONTENT_FRAGMENT_FIELD_VALUE = eINSTANCE.getContentFragmentFieldValue();
-
-		/**
-		 * The meta object literal for the '{@link de.enithing.contenthub.model.contentfragment.IdContentFragmentFieldType <em>Id Content Fragment Field Type</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.enithing.contenthub.model.contentfragment.IdContentFragmentFieldType
-		 * @see de.enithing.contenthub.model.contentfragment.impl.ContentFragmentPackageImpl#getIdContentFragmentFieldType()
-		 * @generated
-		 */
-		EClass ID_CONTENT_FRAGMENT_FIELD_TYPE = eINSTANCE.getIdContentFragmentFieldType();
 
 		/**
 		 * The meta object literal for the '{@link de.enithing.contenthub.model.contentfragment.impl.AllowedContentFragmentModelPolicyImpl <em>Allowed Content Fragment Model Policy</em>}' class.

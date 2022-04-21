@@ -134,8 +134,6 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ContentFragmentFieldValue" abstract="true"
         interface="true"/>
-    <eClassifiers xsi:type="ecore:EClass" name="IdContentFragmentFieldType" abstract="true"
-        interface="true"/>
     <eClassifiers xsi:type="ecore:EClass" name="AllowedContentFragmentModelPolicy"
         eSuperTypes="#//ContextPolicy">
       <eStructuralFeatures xsi:type="ecore:EReference" name="models" upperBound="-1"
@@ -198,9 +196,8 @@
       <eClassifiers xsi:type="ecore:EClass" name="MultiLineText">
         <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultType" lowerBound="1"
             eType="#//contentfragment/corefields/TextMimeType" defaultValueLiteral="text/html"/>
-        <eStructuralFeatures xsi:type="ecore:EAttribute" name="allowFragmentReference"
-            lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
-            defaultValueLiteral="false"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="allowedFragmentModels"
+            upperBound="-1" eType="#//contentfragment/ContentFragmentModel" unsettable="true"/>
         <eStructuralFeatures xsi:type="ecore:EAttribute" name="required" lowerBound="1"
             eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
             defaultValueLiteral="false"/>
@@ -346,7 +343,7 @@
         <eStructuralFeatures xsi:type="ecore:EReference" name="fileSizeValidationConstraint"
             containment="true">
           <eGenericType eClassifier="#//contentfragment/corefields/validation/ValidationConstraint">
-            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigInteger"/>
+            <eTypeArguments eClassifier="#//contentfragment/corefields/validation/FileSizeValue"/>
           </eGenericType>
         </eStructuralFeatures>
         <eStructuralFeatures xsi:type="ecore:EReference" name="imageWidthConstraint"

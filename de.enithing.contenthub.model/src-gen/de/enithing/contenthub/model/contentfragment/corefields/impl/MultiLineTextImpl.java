@@ -2,6 +2,7 @@
  */
 package de.enithing.contenthub.model.contentfragment.corefields.impl;
 
+import de.enithing.contenthub.model.contentfragment.ContentFragmentModel;
 import de.enithing.contenthub.model.contentfragment.corefields.CorefieldsPackage;
 import de.enithing.contenthub.model.contentfragment.corefields.MultiLineText;
 import de.enithing.contenthub.model.contentfragment.corefields.StringValue;
@@ -9,11 +10,15 @@ import de.enithing.contenthub.model.contentfragment.corefields.TextMimeType;
 import de.enithing.contenthub.model.contentfragment.impl.ContentFragmentFieldTypeImpl;
 
 import java.lang.Boolean;
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,7 +31,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link de.enithing.contenthub.model.contentfragment.corefields.impl.MultiLineTextImpl#isAllowMultiple <em>Allow Multiple</em>}</li>
  *   <li>{@link de.enithing.contenthub.model.contentfragment.corefields.impl.MultiLineTextImpl#getMaxItems <em>Max Items</em>}</li>
  *   <li>{@link de.enithing.contenthub.model.contentfragment.corefields.impl.MultiLineTextImpl#getDefaultType <em>Default Type</em>}</li>
- *   <li>{@link de.enithing.contenthub.model.contentfragment.corefields.impl.MultiLineTextImpl#isAllowFragmentReference <em>Allow Fragment Reference</em>}</li>
+ *   <li>{@link de.enithing.contenthub.model.contentfragment.corefields.impl.MultiLineTextImpl#getAllowedFragmentModels <em>Allowed Fragment Models</em>}</li>
  *   <li>{@link de.enithing.contenthub.model.contentfragment.corefields.impl.MultiLineTextImpl#isRequired <em>Required</em>}</li>
  *   <li>{@link de.enithing.contenthub.model.contentfragment.corefields.impl.MultiLineTextImpl#isTranslatable <em>Translatable</em>}</li>
  * </ul>
@@ -95,24 +100,14 @@ public class MultiLineTextImpl extends ContentFragmentFieldTypeImpl<StringValue>
 	protected TextMimeType defaultType = DEFAULT_TYPE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #isAllowFragmentReference() <em>Allow Fragment Reference</em>}' attribute.
+	 * The cached value of the '{@link #getAllowedFragmentModels() <em>Allowed Fragment Models</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isAllowFragmentReference()
+	 * @see #getAllowedFragmentModels()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean ALLOW_FRAGMENT_REFERENCE_EDEFAULT = false;
-
-	/**
-	 * The cached value of the '{@link #isAllowFragmentReference() <em>Allow Fragment Reference</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isAllowFragmentReference()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean allowFragmentReference = ALLOW_FRAGMENT_REFERENCE_EDEFAULT;
+	protected EList<ContentFragmentModel> allowedFragmentModels;
 
 	/**
 	 * The default value of the '{@link #isRequired() <em>Required</em>}' attribute.
@@ -248,8 +243,11 @@ public class MultiLineTextImpl extends ContentFragmentFieldTypeImpl<StringValue>
 	 * @generated
 	 */
 	@Override
-	public boolean isAllowFragmentReference() {
-		return allowFragmentReference;
+	public EList<ContentFragmentModel> getAllowedFragmentModels() {
+		if (allowedFragmentModels == null) {
+			allowedFragmentModels = new EObjectResolvingEList.Unsettable<ContentFragmentModel>(ContentFragmentModel.class, this, CorefieldsPackage.MULTI_LINE_TEXT__ALLOWED_FRAGMENT_MODELS);
+		}
+		return allowedFragmentModels;
 	}
 
 	/**
@@ -258,11 +256,18 @@ public class MultiLineTextImpl extends ContentFragmentFieldTypeImpl<StringValue>
 	 * @generated
 	 */
 	@Override
-	public void setAllowFragmentReference(boolean newAllowFragmentReference) {
-		boolean oldAllowFragmentReference = allowFragmentReference;
-		allowFragmentReference = newAllowFragmentReference;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorefieldsPackage.MULTI_LINE_TEXT__ALLOW_FRAGMENT_REFERENCE, oldAllowFragmentReference, allowFragmentReference));
+	public void unsetAllowedFragmentModels() {
+		if (allowedFragmentModels != null) ((InternalEList.Unsettable<?>)allowedFragmentModels).unset();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean isSetAllowedFragmentModels() {
+		return allowedFragmentModels != null && ((InternalEList.Unsettable<?>)allowedFragmentModels).isSet();
 	}
 
 	/**
@@ -325,8 +330,8 @@ public class MultiLineTextImpl extends ContentFragmentFieldTypeImpl<StringValue>
 				return getMaxItems();
 			case CorefieldsPackage.MULTI_LINE_TEXT__DEFAULT_TYPE:
 				return getDefaultType();
-			case CorefieldsPackage.MULTI_LINE_TEXT__ALLOW_FRAGMENT_REFERENCE:
-				return isAllowFragmentReference();
+			case CorefieldsPackage.MULTI_LINE_TEXT__ALLOWED_FRAGMENT_MODELS:
+				return getAllowedFragmentModels();
 			case CorefieldsPackage.MULTI_LINE_TEXT__REQUIRED:
 				return isRequired();
 			case CorefieldsPackage.MULTI_LINE_TEXT__TRANSLATABLE:
@@ -340,6 +345,7 @@ public class MultiLineTextImpl extends ContentFragmentFieldTypeImpl<StringValue>
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -352,8 +358,9 @@ public class MultiLineTextImpl extends ContentFragmentFieldTypeImpl<StringValue>
 			case CorefieldsPackage.MULTI_LINE_TEXT__DEFAULT_TYPE:
 				setDefaultType((TextMimeType)newValue);
 				return;
-			case CorefieldsPackage.MULTI_LINE_TEXT__ALLOW_FRAGMENT_REFERENCE:
-				setAllowFragmentReference((Boolean)newValue);
+			case CorefieldsPackage.MULTI_LINE_TEXT__ALLOWED_FRAGMENT_MODELS:
+				getAllowedFragmentModels().clear();
+				getAllowedFragmentModels().addAll((Collection<? extends ContentFragmentModel>)newValue);
 				return;
 			case CorefieldsPackage.MULTI_LINE_TEXT__REQUIRED:
 				setRequired((Boolean)newValue);
@@ -382,8 +389,8 @@ public class MultiLineTextImpl extends ContentFragmentFieldTypeImpl<StringValue>
 			case CorefieldsPackage.MULTI_LINE_TEXT__DEFAULT_TYPE:
 				setDefaultType(DEFAULT_TYPE_EDEFAULT);
 				return;
-			case CorefieldsPackage.MULTI_LINE_TEXT__ALLOW_FRAGMENT_REFERENCE:
-				setAllowFragmentReference(ALLOW_FRAGMENT_REFERENCE_EDEFAULT);
+			case CorefieldsPackage.MULTI_LINE_TEXT__ALLOWED_FRAGMENT_MODELS:
+				unsetAllowedFragmentModels();
 				return;
 			case CorefieldsPackage.MULTI_LINE_TEXT__REQUIRED:
 				setRequired(REQUIRED_EDEFAULT);
@@ -409,8 +416,8 @@ public class MultiLineTextImpl extends ContentFragmentFieldTypeImpl<StringValue>
 				return maxItems != MAX_ITEMS_EDEFAULT;
 			case CorefieldsPackage.MULTI_LINE_TEXT__DEFAULT_TYPE:
 				return defaultType != DEFAULT_TYPE_EDEFAULT;
-			case CorefieldsPackage.MULTI_LINE_TEXT__ALLOW_FRAGMENT_REFERENCE:
-				return allowFragmentReference != ALLOW_FRAGMENT_REFERENCE_EDEFAULT;
+			case CorefieldsPackage.MULTI_LINE_TEXT__ALLOWED_FRAGMENT_MODELS:
+				return isSetAllowedFragmentModels();
 			case CorefieldsPackage.MULTI_LINE_TEXT__REQUIRED:
 				return required != REQUIRED_EDEFAULT;
 			case CorefieldsPackage.MULTI_LINE_TEXT__TRANSLATABLE:
@@ -435,8 +442,6 @@ public class MultiLineTextImpl extends ContentFragmentFieldTypeImpl<StringValue>
 		result.append(maxItems);
 		result.append(", defaultType: ");
 		result.append(defaultType);
-		result.append(", allowFragmentReference: ");
-		result.append(allowFragmentReference);
 		result.append(", required: ");
 		result.append(required);
 		result.append(", translatable: ");

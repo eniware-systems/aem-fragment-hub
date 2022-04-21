@@ -1,6 +1,7 @@
 package de.enithing.contenthub.generator;
 
 import java.text.SimpleDateFormat;
+import java.util.Collection;
 import java.util.Date;
 import java.util.Objects;
 
@@ -23,6 +24,10 @@ public class JcrUtils {
 		if (value instanceof Date) {
 			SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
 			return String.format("{Date}%s", format.format(value));
+		}
+
+		if (value instanceof Collection<?>) {
+			return toStringValueArray((Iterable<?>) value);
 		}
 
 		return Objects.toString(value);
