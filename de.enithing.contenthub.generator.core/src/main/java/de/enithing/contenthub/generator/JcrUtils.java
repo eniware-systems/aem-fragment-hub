@@ -13,7 +13,7 @@ public class JcrUtils {
 
 	public static String toStringValue(Object value) {
 		if (value instanceof String) {
-			return StringEscapeUtils.escapeHtml((String) value);
+			return StringEscapeUtils.escapeXml((String) value);
 		}
 
 		if (value instanceof Boolean) {

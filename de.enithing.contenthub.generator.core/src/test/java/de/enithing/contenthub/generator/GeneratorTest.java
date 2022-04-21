@@ -1,9 +1,7 @@
 package de.enithing.contenthub.generator;
 
-import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
-import java.io.IOException;
 import java.nio.file.Path;
 import java.time.Instant;
 import java.util.Date;
@@ -11,13 +9,8 @@ import java.util.Date;
 import org.apache.commons.vfs2.FileSystemException;
 import org.apache.commons.vfs2.FileSystemManager;
 import org.apache.commons.vfs2.impl.DefaultFileSystemManager;
-import org.apache.commons.vfs2.provider.FileProvider;
-import org.apache.commons.vfs2.provider.local.DefaultLocalFileProvider;
 import org.apache.commons.vfs2.provider.ram.RamFileProvider;
-import org.apache.velocity.runtime.parser.ParseException;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.*;
-
 import de.enithing.contenthub.generator.GeneratorConfiguration.UnknownFieldHandlingMode;
 import de.enithing.contenthub.model.contentfragment.AllowedContentFragmentModelPolicy;
 import de.enithing.contenthub.model.contentfragment.ContentFragmentFactory;

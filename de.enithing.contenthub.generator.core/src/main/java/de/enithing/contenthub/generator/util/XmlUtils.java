@@ -20,12 +20,12 @@ public class XmlUtils {
 		SAXBuilder builder = new SAXBuilder();
 		try {
 			Document document = builder.build(new ByteArrayInputStream(raw.getBytes("UTF-8")));
-			Format fmt = Format.getPrettyFormat();			
-			
+			Format fmt = Format.getPrettyFormat();
+
 			XMLOutputter xout = new XMLOutputter();
 			xout.setFormat(fmt);
 			String result = xout.outputString(document);
-			
+
 			return result;
 		} catch (JDOMException | IOException e) {
 			e.printStackTrace();
@@ -42,18 +42,24 @@ public class XmlUtils {
 			this.sink = sink;
 		}
 
+		private void flushBuffer() throws IOException {
+			if (!buffer.isEmpty()) {
+				buffer = prettyPrint(buffer);
+				sink.write(buffer);
+			}
+			buffer = "";
+			sink.flush();
+		}
+
 		@Override
 		public void close() throws IOException {
+			flushBuffer();
 			sink.close();
 		}
 
 		@Override
 		public void flush() throws IOException {
-			if (!buffer.isEmpty()) {
-				buffer = prettyPrint(buffer);
-			}
-			sink.write(buffer);
-			sink.flush();
+			flushBuffer();
 		}
 
 		@Override
@@ -66,7 +72,7 @@ public class XmlUtils {
 	public static Writer getPrettyPrintWriter(Writer sink) {
 		return new PrettyPrintWriter(sink);
 	}
-	
+
 	public static Writer getPrettyPrintWriter(OutputStream sink) {
 		return new PrettyPrintWriter(new PrintWriter(sink));
 	}

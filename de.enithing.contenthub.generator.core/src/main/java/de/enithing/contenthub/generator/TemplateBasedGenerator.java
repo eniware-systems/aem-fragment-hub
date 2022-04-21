@@ -1,6 +1,7 @@
 package de.enithing.contenthub.generator;
 
 import java.io.IOException;
+import java.net.URL;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -78,6 +79,13 @@ public interface TemplateBasedGenerator<T> extends Generator<T> {
 
 		for (int i = templatesToTest.size() - 1; i >= 0; --i) {
 			String tpl = templatesToTest.get(i);
+
+			// Todo: Remove this once we get this from any other place than the classpath,
+			// this just suppresses errors in stdout
+			if (this.getClass().getResource("/" + tpl) == null) {
+				continue;
+			}
+
 			try {
 				return Velocity.getTemplate(tpl);
 			} catch (ResourceNotFoundException e) {

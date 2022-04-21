@@ -59,6 +59,10 @@ public class ContentReferenceGenerator extends ContentFragmentMultiFieldGenerato
 	}
 
 	private static String getValidationAttrib(String prefix, ValidationConstraint<?> constraint) {
+		if (constraint == null) {
+			return "None";
+		}
+
 		if (constraint instanceof LowerUpperBoundConstraint<?>) {
 			return prefix + "interval";
 		}
