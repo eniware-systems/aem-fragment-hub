@@ -18,6 +18,7 @@ import de.enithing.contenthub.model.contenthub.ContentHubPackage;
 import de.enithing.contenthub.model.contenthub.Context;
 import de.enithing.contenthub.model.contenthub.ContextPath;
 import de.enithing.contenthub.model.contenthub.ContextPolicy;
+import de.enithing.contenthub.model.contenthub.ContextType;
 import de.enithing.contenthub.model.contenthub.Pair;
 import de.enithing.contenthub.model.contenthub.PathProvider;
 import de.enithing.contenthub.model.contenthub.RootContext;
@@ -28,6 +29,7 @@ import java.nio.file.Path;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
@@ -104,6 +106,13 @@ public class ContentHubPackageImpl extends EPackageImpl implements ContentHubPac
 	 * @generated
 	 */
 	private EClass pairEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum contextTypeEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -323,6 +332,16 @@ public class ContentHubPackageImpl extends EPackageImpl implements ContentHubPac
 	 * @generated
 	 */
 	@Override
+	public EOperation getPackage__CreateDefaultPackageStructure() {
+		return packageEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getContext() {
 		return contextEClass;
 	}
@@ -393,6 +412,16 @@ public class ContentHubPackageImpl extends EPackageImpl implements ContentHubPac
 	 * @generated
 	 */
 	@Override
+	public EAttribute getContext_PrimaryType() {
+		return (EAttribute)contextEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getContext__GetRootContext() {
 		return contextEClass.getEOperations().get(0);
 	}
@@ -425,6 +454,16 @@ public class ContentHubPackageImpl extends EPackageImpl implements ContentHubPac
 	@Override
 	public EOperation getContext__GetUnifiedTitle() {
 		return contextEClass.getEOperations().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getContext__GetUnifiedPrimaryType() {
+		return contextEClass.getEOperations().get(4);
 	}
 
 	/**
@@ -503,6 +542,16 @@ public class ContentHubPackageImpl extends EPackageImpl implements ContentHubPac
 	 * @generated
 	 */
 	@Override
+	public EEnum getContextType() {
+		return contextTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EDataType getPath() {
 		return pathEDataType;
 	}
@@ -552,6 +601,7 @@ public class ContentHubPackageImpl extends EPackageImpl implements ContentHubPac
 		createEAttribute(packageEClass, PACKAGE__AUTHOR);
 		createEAttribute(packageEClass, PACKAGE__VERSION);
 		createEReference(packageEClass, PACKAGE__CONTEXTS);
+		createEOperation(packageEClass, PACKAGE___CREATE_DEFAULT_PACKAGE_STRUCTURE);
 
 		contextEClass = createEClass(CONTEXT);
 		createEReference(contextEClass, CONTEXT__CHILD_CONTEXTS);
@@ -560,10 +610,12 @@ public class ContentHubPackageImpl extends EPackageImpl implements ContentHubPac
 		createEReference(contextEClass, CONTEXT__POLICIES);
 		createEAttribute(contextEClass, CONTEXT__RELATIVE_PATH);
 		createEAttribute(contextEClass, CONTEXT__TITLE);
+		createEAttribute(contextEClass, CONTEXT__PRIMARY_TYPE);
 		createEOperation(contextEClass, CONTEXT___GET_ROOT_CONTEXT);
 		createEOperation(contextEClass, CONTEXT___GET_RELATED_CONTEXTS);
 		createEOperation(contextEClass, CONTEXT___GET_RELATED_POLICIES);
 		createEOperation(contextEClass, CONTEXT___GET_UNIFIED_TITLE);
+		createEOperation(contextEClass, CONTEXT___GET_UNIFIED_PRIMARY_TYPE);
 
 		rootContextEClass = createEClass(ROOT_CONTEXT);
 
@@ -575,6 +627,9 @@ public class ContentHubPackageImpl extends EPackageImpl implements ContentHubPac
 		pairEClass = createEClass(PAIR);
 		createEAttribute(pairEClass, PAIR__KEY);
 		createEAttribute(pairEClass, PAIR__VALUE);
+
+		// Create enums
+		contextTypeEEnum = createEEnum(CONTEXT_TYPE);
 
 		// Create data types
 		pathEDataType = createEDataType(PATH);
@@ -640,6 +695,8 @@ public class ContentHubPackageImpl extends EPackageImpl implements ContentHubPac
 		initEAttribute(getPackage_Version(), ecorePackage.getEString(), "version", "1.0.0", 1, 1, de.enithing.contenthub.model.contenthub.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPackage_Contexts(), this.getRootContext(), null, "contexts", null, 0, -1, de.enithing.contenthub.model.contenthub.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEOperation(getPackage__CreateDefaultPackageStructure(), null, "createDefaultPackageStructure", 0, 0, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(contextEClass, Context.class, "Context", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getContext_ChildContexts(), this.getChildContext(), this.getChildContext_ParentContext(), "childContexts", null, 0, -1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getContext_ContentFragmentModels(), theContentFragmentPackage.getContentFragmentModel(), theContentFragmentPackage.getContentFragmentModel_Context(), "contentFragmentModels", null, 0, -1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -647,6 +704,7 @@ public class ContentHubPackageImpl extends EPackageImpl implements ContentHubPac
 		initEReference(getContext_Policies(), this.getContextPolicy(), null, "policies", null, 0, -1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getContext_RelativePath(), this.getPath(), "relativePath", "/child", 1, 1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getContext_Title(), ecorePackage.getEString(), "title", null, 0, 1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getContext_PrimaryType(), this.getContextType(), "primaryType", "undefined", 1, 1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getContext__GetRootContext(), this.getRootContext(), "getRootContext", 1, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -655,6 +713,8 @@ public class ContentHubPackageImpl extends EPackageImpl implements ContentHubPac
 		initEOperation(getContext__GetRelatedPolicies(), this.getContextPolicy(), "getRelatedPolicies", 0, -1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getContext__GetUnifiedTitle(), ecorePackage.getEString(), "getUnifiedTitle", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getContext__GetUnifiedPrimaryType(), this.getContextType(), "getUnifiedPrimaryType", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(rootContextEClass, RootContext.class, "RootContext", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -668,6 +728,12 @@ public class ContentHubPackageImpl extends EPackageImpl implements ContentHubPac
 		initEAttribute(getPair_Key(), g1, "key", null, 1, 1, Pair.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		g1 = createEGenericType(pairEClass_TValue);
 		initEAttribute(getPair_Value(), g1, "value", null, 1, 1, Pair.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		// Initialize enums and add enum literals
+		initEEnum(contextTypeEEnum, ContextType.class, "ContextType");
+		addEEnumLiteral(contextTypeEEnum, ContextType.UNDEFINED);
+		addEEnumLiteral(contextTypeEEnum, ContextType.FOLDER);
+		addEEnumLiteral(contextTypeEEnum, ContextType.PAGE);
 
 		// Initialize data types
 		initEDataType(pathEDataType, Path.class, "Path", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

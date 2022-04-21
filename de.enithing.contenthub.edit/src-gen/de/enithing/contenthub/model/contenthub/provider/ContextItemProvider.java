@@ -71,6 +71,7 @@ public class ContextItemProvider
 			addChildContextsPropertyDescriptor(object);
 			addRelativePathPropertyDescriptor(object);
 			addTitlePropertyDescriptor(object);
+			addPrimaryTypePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -133,6 +134,28 @@ public class ContextItemProvider
 				 getString("_UI_Context_title_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Context_title_feature", "_UI_Context_type"),
 				 ContentHubPackage.Literals.CONTEXT__TITLE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Primary Type feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPrimaryTypePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Context_primaryType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Context_primaryType_feature", "_UI_Context_type"),
+				 ContentHubPackage.Literals.CONTEXT__PRIMARY_TYPE,
 				 true,
 				 false,
 				 false,
@@ -215,6 +238,7 @@ public class ContextItemProvider
 		switch (notification.getFeatureID(Context.class)) {
 			case ContentHubPackage.CONTEXT__RELATIVE_PATH:
 			case ContentHubPackage.CONTEXT__TITLE:
+			case ContentHubPackage.CONTEXT__PRIMARY_TYPE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case ContentHubPackage.CONTEXT__CHILD_CONTEXTS:

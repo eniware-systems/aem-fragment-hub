@@ -18,6 +18,7 @@ import de.enithing.contenthub.generator.util.XmlUtils;
 import de.enithing.contenthub.model.contentfragment.ContentFragmentModel;
 import de.enithing.contenthub.model.contenthub.ChildContext;
 import de.enithing.contenthub.model.contenthub.Context;
+import de.enithing.contenthub.model.contenthub.ContextType;
 
 public class ContextGenerator implements TemplateBasedGenerator<Context> {
 	private GeneratorConfiguration config;
@@ -43,8 +44,7 @@ public class ContextGenerator implements TemplateBasedGenerator<Context> {
 		VelocityContext templateContext = getTemplateContext(ctx);
 
 		// Replace the variables used in the path
-		final Path relativePath = PathUtils
-				.makeRelative(VelocityUtils.replace(ctx.getRelativePath(), templateContext));
+		final Path relativePath = PathUtils.makeRelative(VelocityUtils.replace(ctx.getRelativePath(), templateContext));
 
 		final FileObject targetRoot = getConfig().targetRoot;
 		FileObject current = targetRoot;
@@ -62,10 +62,15 @@ public class ContextGenerator implements TemplateBasedGenerator<Context> {
 			FileObject contentXml = current.resolveFile(".content.xml");
 
 			if (current.equals(finalTargetRoot)) {
-				// This is the final folder
+				// This is the final folder				
 				if (StringUtils.isNotEmpty(title)) {
 					templateCtx.put("contextTitle", title);
 				}
+
+				templateCtx.put("contextPrimaryType", ctx.getUnifiedPrimaryType());
+				
+			} else {
+				templateCtx.put("contextPrimaryType", ContextType.FOLDER.getLiteral());
 			}
 
 			if (!contentXml.exists()) {

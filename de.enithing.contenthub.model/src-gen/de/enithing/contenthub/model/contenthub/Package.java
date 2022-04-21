@@ -155,4 +155,12 @@ public interface Package extends EObject {
 	 */
 	EList<RootContext> getContexts();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void createDefaultPackageStructure();
+
 } // Package

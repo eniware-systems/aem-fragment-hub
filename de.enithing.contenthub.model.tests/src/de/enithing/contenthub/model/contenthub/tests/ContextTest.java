@@ -20,6 +20,7 @@ import junit.textui.TestRunner;
  *   <li>{@link de.enithing.contenthub.model.contenthub.Context#getRelatedContexts() <em>Get Related Contexts</em>}</li>
  *   <li>{@link de.enithing.contenthub.model.contenthub.Context#getRelatedPolicies() <em>Get Related Policies</em>}</li>
  *   <li>{@link de.enithing.contenthub.model.contenthub.Context#getUnifiedTitle() <em>Get Unified Title</em>}</li>
+ *   <li>{@link de.enithing.contenthub.model.contenthub.Context#getUnifiedPrimaryType() <em>Get Unified Primary Type</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -142,6 +143,19 @@ public class ContextTest extends TestCase {
 	 * @generated
 	 */
 	public void testGetUnifiedTitle() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link de.enithing.contenthub.model.contenthub.Context#getUnifiedPrimaryType() <em>Get Unified Primary Type</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.enithing.contenthub.model.contenthub.Context#getUnifiedPrimaryType()
+	 * @generated
+	 */
+	public void testGetUnifiedPrimaryType() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

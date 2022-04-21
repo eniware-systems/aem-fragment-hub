@@ -9,6 +9,7 @@ import java.util.Date;
 import org.apache.commons.vfs2.FileSystemException;
 import org.apache.commons.vfs2.FileSystemManager;
 import org.apache.commons.vfs2.impl.DefaultFileSystemManager;
+import org.apache.commons.vfs2.provider.local.DefaultLocalFileProvider;
 import org.apache.commons.vfs2.provider.ram.RamFileProvider;
 import org.junit.jupiter.api.Test;
 import de.enithing.contenthub.generator.GeneratorConfiguration.UnknownFieldHandlingMode;
@@ -32,11 +33,23 @@ import de.enithing.contenthub.model.contenthub.Package;
 import de.enithing.contenthub.model.contenthub.RootContext;
 
 class GeneratorTest {
-	public final static String VFSRootPath = "ram://virtual";
+	public static String VFSRootPath;
 
-	public static FileSystemManager createVFSManager() throws FileSystemException {
+	public static FileSystemManager createInMemoryVFSManager() throws FileSystemException {
+		VFSRootPath = "ram://virtual";
+		
 		DefaultFileSystemManager manager = new DefaultFileSystemManager();
 		manager.addProvider("ram", new RamFileProvider());
+		manager.init();
+		manager.createVirtualFileSystem(VFSRootPath);
+		return manager;
+	}
+	
+	public static FileSystemManager createFileVFSManager(Path root) throws FileSystemException {
+		VFSRootPath = "file://" + root.toString();
+		
+		DefaultFileSystemManager manager = new DefaultFileSystemManager();
+		manager.addProvider("file", new DefaultLocalFileProvider());
 		manager.init();
 		manager.createVirtualFileSystem(VFSRootPath);
 		return manager;
@@ -49,12 +62,15 @@ class GeneratorTest {
 		CorefieldsFactory fieldsFactory = CorefieldsFactory.eINSTANCE;
 
 		Package myPackage = hubFactory.createPackage();
+		
+		myPackage.createDefaultPackageStructure();
+		
 		myPackage.setGroup("de.enithing.contenthub");
 		myPackage.setName("bookstore");
 		myPackage.setVersion("1.0.0");
 		myPackage.setAuthor("J.R. Baboon");
 		myPackage.setDescription("A book store package");
-
+		
 		RootContext modelContext = hubFactory.createRootContext();
 		modelContext.setTitle("Model context");
 		modelContext.setRelativePath(Path.of("/conf/$packageName/settings/dam/cfm/models"));
@@ -223,8 +239,10 @@ class GeneratorTest {
 
 		GeneratorConfiguration cfg = new GeneratorConfiguration();
 		cfg.unknownFieldHandling = UnknownFieldHandlingMode.Error;
+				
+		//FileSystemManager vfs = createInMemoryVFSManager();
+		FileSystemManager vfs = createFileVFSManager(Path.of("/tmp/foonbar"));
 		
-		FileSystemManager vfs = createVFSManager();
 		cfg.targetRoot = vfs.resolveFile(VFSRootPath);
 
 		if (cfg.targetRoot.exists()) {

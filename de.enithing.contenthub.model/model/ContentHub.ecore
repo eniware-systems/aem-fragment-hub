@@ -15,6 +15,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="Path" instanceClassName="java.nio.file.Path"/>
   <eClassifiers xsi:type="ecore:EClass" name="Package">
+    <eOperations name="createDefaultPackageStructure" upperBound="0"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="my.content" iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="group" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
@@ -28,11 +29,17 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="contexts" upperBound="-1"
         eType="#//RootContext" containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ContextType">
+    <eLiterals name="undefined"/>
+    <eLiterals name="folder" value="1" literal="sling:Folder"/>
+    <eLiterals name="page" value="2" literal="cq:Page"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Context">
     <eOperations name="getRootContext" lowerBound="1" eType="#//RootContext"/>
     <eOperations name="getRelatedContexts" upperBound="-1" eType="#//Context"/>
     <eOperations name="getRelatedPolicies" upperBound="-1" eType="#//ContextPolicy"/>
     <eOperations name="getUnifiedTitle" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eOperations name="getUnifiedPrimaryType" eType="#//ContextType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="childContexts" upperBound="-1"
         eType="#//ChildContext" containment="true" eOpposite="#//ChildContext/parentContext"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="contentFragmentModels"
@@ -45,6 +52,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="relativePath" lowerBound="1"
         eType="#//Path" defaultValueLiteral="/child"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="primaryType" lowerBound="1"
+        eType="#//ContextType" defaultValueLiteral="undefined"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RootContext" eSuperTypes="#//Context"/>
   <eClassifiers xsi:type="ecore:EClass" name="ChildContext" eSuperTypes="#//Context">

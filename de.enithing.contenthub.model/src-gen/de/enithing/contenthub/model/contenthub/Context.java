@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link de.enithing.contenthub.model.contenthub.Context#getPolicies <em>Policies</em>}</li>
  *   <li>{@link de.enithing.contenthub.model.contenthub.Context#getRelativePath <em>Relative Path</em>}</li>
  *   <li>{@link de.enithing.contenthub.model.contenthub.Context#getTitle <em>Title</em>}</li>
+ *   <li>{@link de.enithing.contenthub.model.contenthub.Context#getPrimaryType <em>Primary Type</em>}</li>
  * </ul>
  *
  * @see de.enithing.contenthub.model.contenthub.ContentHubPackage#getContext()
@@ -131,6 +132,32 @@ public interface Context extends EObject {
 	void setTitle(String value);
 
 	/**
+	 * Returns the value of the '<em><b>Primary Type</b></em>' attribute.
+	 * The default value is <code>"undefined"</code>.
+	 * The literals are from the enumeration {@link de.enithing.contenthub.model.contenthub.ContextType}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Primary Type</em>' attribute.
+	 * @see de.enithing.contenthub.model.contenthub.ContextType
+	 * @see #setPrimaryType(ContextType)
+	 * @see de.enithing.contenthub.model.contenthub.ContentHubPackage#getContext_PrimaryType()
+	 * @model default="undefined" required="true"
+	 * @generated
+	 */
+	ContextType getPrimaryType();
+
+	/**
+	 * Sets the value of the '{@link de.enithing.contenthub.model.contenthub.Context#getPrimaryType <em>Primary Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Primary Type</em>' attribute.
+	 * @see de.enithing.contenthub.model.contenthub.ContextType
+	 * @see #getPrimaryType()
+	 * @generated
+	 */
+	void setPrimaryType(ContextType value);
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model kind="operation" required="true"
@@ -161,5 +188,13 @@ public interface Context extends EObject {
 	 * @generated
 	 */
 	String getUnifiedTitle();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	ContextType getUnifiedPrimaryType();
 
 } // Context

@@ -14,6 +14,7 @@ import org.eclipse.emf.common.util.EList;
 import de.enithing.contenthub.model.contenthub.ChildContext;
 import de.enithing.contenthub.model.contenthub.Context;
 import de.enithing.contenthub.model.contenthub.ContextPolicy;
+import de.enithing.contenthub.model.contenthub.ContextType;
 import de.enithing.contenthub.model.contenthub.RootContext;
 
 /**
@@ -81,6 +82,18 @@ public class ContextUtils {
 	public static String getUnifiedTitle(Context ctx) {
 		return getRelatedContexts(ctx).stream().filter(c -> StringUtils.isNotEmpty(c.getTitle())).map(c -> c.getTitle())
 				.findFirst().orElse(StringUtils.EMPTY);
+	}
+
+	/**
+	 * Checks all related contexts for a defined primary type and returns the first
+	 * one found.
+	 * 
+	 * @param ctx The context
+	 * @return The unified primary type or the default one if no type was set.
+	 */
+	public static ContextType getUnifiedPrimaryType(Context ctx) {
+		return getRelatedContexts(ctx).stream().filter(c -> c.getPrimaryType() != ContextType.UNDEFINED)
+				.map(c -> c.getPrimaryType()).findFirst().orElse(ContextType.FOLDER);
 	}
 
 	/**

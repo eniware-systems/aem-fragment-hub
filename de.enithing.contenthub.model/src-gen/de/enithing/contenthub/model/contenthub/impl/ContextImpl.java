@@ -11,6 +11,7 @@ import de.enithing.contenthub.model.contenthub.ContentHubFactory;
 import de.enithing.contenthub.model.contenthub.ContentHubPackage;
 import de.enithing.contenthub.model.contenthub.Context;
 import de.enithing.contenthub.model.contenthub.ContextPolicy;
+import de.enithing.contenthub.model.contenthub.ContextType;
 import de.enithing.contenthub.model.contenthub.RootContext;
 import de.enithing.contenthub.model.contenthub.util.ContextUtils;
 
@@ -48,6 +49,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link de.enithing.contenthub.model.contenthub.impl.ContextImpl#getPolicies <em>Policies</em>}</li>
  *   <li>{@link de.enithing.contenthub.model.contenthub.impl.ContextImpl#getRelativePath <em>Relative Path</em>}</li>
  *   <li>{@link de.enithing.contenthub.model.contenthub.impl.ContextImpl#getTitle <em>Title</em>}</li>
+ *   <li>{@link de.enithing.contenthub.model.contenthub.impl.ContextImpl#getPrimaryType <em>Primary Type</em>}</li>
  * </ul>
  *
  * @generated
@@ -132,6 +134,26 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 	 * @ordered
 	 */
 	protected String title = TITLE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getPrimaryType() <em>Primary Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPrimaryType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final ContextType PRIMARY_TYPE_EDEFAULT = ContextType.UNDEFINED;
+
+	/**
+	 * The cached value of the '{@link #getPrimaryType() <em>Primary Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPrimaryType()
+	 * @generated
+	 * @ordered
+	 */
+	protected ContextType primaryType = PRIMARY_TYPE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -253,6 +275,29 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ContextType getPrimaryType() {
+		return primaryType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setPrimaryType(ContextType newPrimaryType) {
+		ContextType oldPrimaryType = primaryType;
+		primaryType = newPrimaryType == null ? PRIMARY_TYPE_EDEFAULT : newPrimaryType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ContentHubPackage.CONTEXT__PRIMARY_TYPE, oldPrimaryType, primaryType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 */
 	@Override
 	public RootContext getRootContext() {
@@ -284,6 +329,15 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 	@Override
 	public String getUnifiedTitle() {
 		return ContextUtils.getUnifiedTitle(this);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	@Override
+	public ContextType getUnifiedPrimaryType() {
+		return ContextUtils.getUnifiedPrimaryType(this);
 	}
 
 	/**
@@ -345,6 +399,8 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 				return getRelativePath();
 			case ContentHubPackage.CONTEXT__TITLE:
 				return getTitle();
+			case ContentHubPackage.CONTEXT__PRIMARY_TYPE:
+				return getPrimaryType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -380,6 +436,9 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 			case ContentHubPackage.CONTEXT__TITLE:
 				setTitle((String)newValue);
 				return;
+			case ContentHubPackage.CONTEXT__PRIMARY_TYPE:
+				setPrimaryType((ContextType)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -410,6 +469,9 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 			case ContentHubPackage.CONTEXT__TITLE:
 				setTitle(TITLE_EDEFAULT);
 				return;
+			case ContentHubPackage.CONTEXT__PRIMARY_TYPE:
+				setPrimaryType(PRIMARY_TYPE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -434,6 +496,8 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 				return RELATIVE_PATH_EDEFAULT == null ? relativePath != null : !RELATIVE_PATH_EDEFAULT.equals(relativePath);
 			case ContentHubPackage.CONTEXT__TITLE:
 				return TITLE_EDEFAULT == null ? title != null : !TITLE_EDEFAULT.equals(title);
+			case ContentHubPackage.CONTEXT__PRIMARY_TYPE:
+				return primaryType != PRIMARY_TYPE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -454,6 +518,8 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 				return getRelatedPolicies();
 			case ContentHubPackage.CONTEXT___GET_UNIFIED_TITLE:
 				return getUnifiedTitle();
+			case ContentHubPackage.CONTEXT___GET_UNIFIED_PRIMARY_TYPE:
+				return getUnifiedPrimaryType();
 		}
 		return super.eInvoke(operationID, arguments);
 	}
@@ -472,6 +538,8 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 		result.append(relativePath);
 		result.append(", title: ");
 		result.append(title);
+		result.append(", primaryType: ");
+		result.append(primaryType);
 		result.append(')');
 		return result.toString();
 	}

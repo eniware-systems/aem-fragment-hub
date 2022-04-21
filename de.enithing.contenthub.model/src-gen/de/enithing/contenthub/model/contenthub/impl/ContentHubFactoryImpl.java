@@ -7,6 +7,7 @@ import de.enithing.contenthub.model.contenthub.ContentHubFactory;
 import de.enithing.contenthub.model.contenthub.ContentHubPackage;
 import de.enithing.contenthub.model.contenthub.Context;
 import de.enithing.contenthub.model.contenthub.ContextPath;
+import de.enithing.contenthub.model.contenthub.ContextType;
 import de.enithing.contenthub.model.contenthub.Pair;
 import de.enithing.contenthub.model.contenthub.RootContext;
 
@@ -86,6 +87,8 @@ public class ContentHubFactoryImpl extends EFactoryImpl implements ContentHubFac
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
+			case ContentHubPackage.CONTEXT_TYPE:
+				return createContextTypeFromString(eDataType, initialValue);
 			case ContentHubPackage.PATH:
 				return createPathFromString(eDataType, initialValue);
 			default:
@@ -101,6 +104,8 @@ public class ContentHubFactoryImpl extends EFactoryImpl implements ContentHubFac
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
+			case ContentHubPackage.CONTEXT_TYPE:
+				return convertContextTypeToString(eDataType, instanceValue);
 			case ContentHubPackage.PATH:
 				return convertPathToString(eDataType, instanceValue);
 			default:
@@ -183,6 +188,26 @@ public class ContentHubFactoryImpl extends EFactoryImpl implements ContentHubFac
 	public <TKey, TValue> Pair<TKey, TValue> createPair() {
 		PairImpl<TKey, TValue> pair = new PairImpl<TKey, TValue>();
 		return pair;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ContextType createContextTypeFromString(EDataType eDataType, String initialValue) {
+		ContextType result = ContextType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertContextTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**

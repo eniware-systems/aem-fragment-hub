@@ -4,6 +4,9 @@ package de.enithing.contenthub.model.contenthub.impl;
 
 import de.enithing.contenthub.model.contenthub.ContentHubPackage;
 import de.enithing.contenthub.model.contenthub.RootContext;
+import de.enithing.contenthub.model.contenthub.util.PackageUtils;
+
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -299,6 +302,15 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.enit
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 */
+	@Override
+	public void createDefaultPackageStructure() {
+		PackageUtils.createDefaultPackageStructure(this);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -418,6 +430,21 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.enit
 				return contexts != null && !contexts.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case ContentHubPackage.PACKAGE___CREATE_DEFAULT_PACKAGE_STRUCTURE:
+				createDefaultPackageStructure();
+				return null;
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

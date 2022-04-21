@@ -10,6 +10,11 @@
   <foreignModel>ContentHub.ecore</foreignModel>
   <genPackages prefix="ContentHub" basePackage="de.enithing.contenthub.model" fileExtensions="chub"
       ecorePackage="ContentHub.ecore#/" loadInitializationFileExtension="chub">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="ContentHub.ecore#//ContextType">
+      <genEnumLiterals ecoreEnumLiteral="ContentHub.ecore#//ContextType/undefined"/>
+      <genEnumLiterals ecoreEnumLiteral="ContentHub.ecore#//ContextType/folder"/>
+      <genEnumLiterals ecoreEnumLiteral="ContentHub.ecore#//ContextType/page"/>
+    </genEnums>
     <genDataTypes ecoreDataType="ContentHub.ecore#//Path"/>
     <genClasses image="false" ecoreClass="ContentHub.ecore#//PathProvider">
       <genOperations ecoreOperation="ContentHub.ecore#//PathProvider/getPath"/>
@@ -27,6 +32,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//Package/author"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//Package/version"/>
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference ContentHub.ecore#//Package/contexts"/>
+      <genOperations ecoreOperation="ContentHub.ecore#//Package/createDefaultPackageStructure"/>
     </genClasses>
     <genClasses ecoreClass="ContentHub.ecore#//Context">
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference ContentHub.ecore#//Context/childContexts"/>
@@ -35,10 +41,12 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ContentHub.ecore#//Context/policies"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//Context/relativePath"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//Context/title"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//Context/primaryType"/>
       <genOperations ecoreOperation="ContentHub.ecore#//Context/getRootContext"/>
       <genOperations ecoreOperation="ContentHub.ecore#//Context/getRelatedContexts"/>
       <genOperations ecoreOperation="ContentHub.ecore#//Context/getRelatedPolicies"/>
       <genOperations ecoreOperation="ContentHub.ecore#//Context/getUnifiedTitle"/>
+      <genOperations ecoreOperation="ContentHub.ecore#//Context/getUnifiedPrimaryType"/>
     </genClasses>
     <genClasses ecoreClass="ContentHub.ecore#//RootContext"/>
     <genClasses ecoreClass="ContentHub.ecore#//ChildContext">

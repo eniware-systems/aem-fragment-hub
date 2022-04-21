@@ -5,6 +5,7 @@ package de.enithing.contenthub.model.contenthub;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -261,13 +262,22 @@ public interface ContentHubPackage extends EPackage {
 	int PACKAGE_FEATURE_COUNT = 6;
 
 	/**
+	 * The operation id for the '<em>Create Default Package Structure</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE___CREATE_DEFAULT_PACKAGE_STRUCTURE = 0;
+
+	/**
 	 * The number of operations of the '<em>Package</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE_OPERATION_COUNT = 0;
+	int PACKAGE_OPERATION_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link de.enithing.contenthub.model.contenthub.impl.ContextImpl <em>Context</em>}' class.
@@ -334,13 +344,22 @@ public interface ContentHubPackage extends EPackage {
 	int CONTEXT__TITLE = 5;
 
 	/**
+	 * The feature id for the '<em><b>Primary Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTEXT__PRIMARY_TYPE = 6;
+
+	/**
 	 * The number of structural features of the '<em>Context</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTEXT_FEATURE_COUNT = 6;
+	int CONTEXT_FEATURE_COUNT = 7;
 
 	/**
 	 * The operation id for the '<em>Get Root Context</em>' operation.
@@ -379,13 +398,22 @@ public interface ContentHubPackage extends EPackage {
 	int CONTEXT___GET_UNIFIED_TITLE = 3;
 
 	/**
+	 * The operation id for the '<em>Get Unified Primary Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTEXT___GET_UNIFIED_PRIMARY_TYPE = 4;
+
+	/**
 	 * The number of operations of the '<em>Context</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTEXT_OPERATION_COUNT = 4;
+	int CONTEXT_OPERATION_COUNT = 5;
 
 	/**
 	 * The meta object id for the '{@link de.enithing.contenthub.model.contenthub.impl.RootContextImpl <em>Root Context</em>}' class.
@@ -452,6 +480,15 @@ public interface ContentHubPackage extends EPackage {
 	int ROOT_CONTEXT__TITLE = CONTEXT__TITLE;
 
 	/**
+	 * The feature id for the '<em><b>Primary Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOT_CONTEXT__PRIMARY_TYPE = CONTEXT__PRIMARY_TYPE;
+
+	/**
 	 * The number of structural features of the '<em>Root Context</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -495,6 +532,15 @@ public interface ContentHubPackage extends EPackage {
 	 * @ordered
 	 */
 	int ROOT_CONTEXT___GET_UNIFIED_TITLE = CONTEXT___GET_UNIFIED_TITLE;
+
+	/**
+	 * The operation id for the '<em>Get Unified Primary Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOT_CONTEXT___GET_UNIFIED_PRIMARY_TYPE = CONTEXT___GET_UNIFIED_PRIMARY_TYPE;
 
 	/**
 	 * The number of operations of the '<em>Root Context</em>' class.
@@ -570,6 +616,15 @@ public interface ContentHubPackage extends EPackage {
 	int CHILD_CONTEXT__TITLE = CONTEXT__TITLE;
 
 	/**
+	 * The feature id for the '<em><b>Primary Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHILD_CONTEXT__PRIMARY_TYPE = CONTEXT__PRIMARY_TYPE;
+
+	/**
 	 * The feature id for the '<em><b>Parent Context</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -622,6 +677,15 @@ public interface ContentHubPackage extends EPackage {
 	 * @ordered
 	 */
 	int CHILD_CONTEXT___GET_UNIFIED_TITLE = CONTEXT___GET_UNIFIED_TITLE;
+
+	/**
+	 * The operation id for the '<em>Get Unified Primary Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHILD_CONTEXT___GET_UNIFIED_PRIMARY_TYPE = CONTEXT___GET_UNIFIED_PRIMARY_TYPE;
 
 	/**
 	 * The number of operations of the '<em>Child Context</em>' class.
@@ -707,6 +771,16 @@ public interface ContentHubPackage extends EPackage {
 	int PAIR_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link de.enithing.contenthub.model.contenthub.ContextType <em>Context Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.enithing.contenthub.model.contenthub.ContextType
+	 * @see de.enithing.contenthub.model.contenthub.impl.ContentHubPackageImpl#getContextType()
+	 * @generated
+	 */
+	int CONTEXT_TYPE = 9;
+
+	/**
 	 * The meta object id for the '<em>Path</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -714,7 +788,7 @@ public interface ContentHubPackage extends EPackage {
 	 * @see de.enithing.contenthub.model.contenthub.impl.ContentHubPackageImpl#getPath()
 	 * @generated
 	 */
-	int PATH = 9;
+	int PATH = 10;
 
 
 	/**
@@ -856,6 +930,16 @@ public interface ContentHubPackage extends EPackage {
 	EReference getPackage_Contexts();
 
 	/**
+	 * Returns the meta object for the '{@link de.enithing.contenthub.model.contenthub.Package#createDefaultPackageStructure() <em>Create Default Package Structure</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Create Default Package Structure</em>' operation.
+	 * @see de.enithing.contenthub.model.contenthub.Package#createDefaultPackageStructure()
+	 * @generated
+	 */
+	EOperation getPackage__CreateDefaultPackageStructure();
+
+	/**
 	 * Returns the meta object for class '{@link de.enithing.contenthub.model.contenthub.Context <em>Context</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -932,6 +1016,17 @@ public interface ContentHubPackage extends EPackage {
 	EAttribute getContext_Title();
 
 	/**
+	 * Returns the meta object for the attribute '{@link de.enithing.contenthub.model.contenthub.Context#getPrimaryType <em>Primary Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Primary Type</em>'.
+	 * @see de.enithing.contenthub.model.contenthub.Context#getPrimaryType()
+	 * @see #getContext()
+	 * @generated
+	 */
+	EAttribute getContext_PrimaryType();
+
+	/**
 	 * Returns the meta object for the '{@link de.enithing.contenthub.model.contenthub.Context#getRootContext() <em>Get Root Context</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -970,6 +1065,16 @@ public interface ContentHubPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getContext__GetUnifiedTitle();
+
+	/**
+	 * Returns the meta object for the '{@link de.enithing.contenthub.model.contenthub.Context#getUnifiedPrimaryType() <em>Get Unified Primary Type</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Unified Primary Type</em>' operation.
+	 * @see de.enithing.contenthub.model.contenthub.Context#getUnifiedPrimaryType()
+	 * @generated
+	 */
+	EOperation getContext__GetUnifiedPrimaryType();
 
 	/**
 	 * Returns the meta object for class '{@link de.enithing.contenthub.model.contenthub.RootContext <em>Root Context</em>}'.
@@ -1043,6 +1148,16 @@ public interface ContentHubPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getPair_Value();
+
+	/**
+	 * Returns the meta object for enum '{@link de.enithing.contenthub.model.contenthub.ContextType <em>Context Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Context Type</em>'.
+	 * @see de.enithing.contenthub.model.contenthub.ContextType
+	 * @generated
+	 */
+	EEnum getContextType();
 
 	/**
 	 * Returns the meta object for data type '{@link java.nio.file.Path <em>Path</em>}'.
@@ -1191,6 +1306,14 @@ public interface ContentHubPackage extends EPackage {
 		EReference PACKAGE__CONTEXTS = eINSTANCE.getPackage_Contexts();
 
 		/**
+		 * The meta object literal for the '<em><b>Create Default Package Structure</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PACKAGE___CREATE_DEFAULT_PACKAGE_STRUCTURE = eINSTANCE.getPackage__CreateDefaultPackageStructure();
+
+		/**
 		 * The meta object literal for the '{@link de.enithing.contenthub.model.contenthub.impl.ContextImpl <em>Context</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1249,6 +1372,14 @@ public interface ContentHubPackage extends EPackage {
 		EAttribute CONTEXT__TITLE = eINSTANCE.getContext_Title();
 
 		/**
+		 * The meta object literal for the '<em><b>Primary Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONTEXT__PRIMARY_TYPE = eINSTANCE.getContext_PrimaryType();
+
+		/**
 		 * The meta object literal for the '<em><b>Get Root Context</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1279,6 +1410,14 @@ public interface ContentHubPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation CONTEXT___GET_UNIFIED_TITLE = eINSTANCE.getContext__GetUnifiedTitle();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Unified Primary Type</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation CONTEXT___GET_UNIFIED_PRIMARY_TYPE = eINSTANCE.getContext__GetUnifiedPrimaryType();
 
 		/**
 		 * The meta object literal for the '{@link de.enithing.contenthub.model.contenthub.impl.RootContextImpl <em>Root Context</em>}' class.
@@ -1343,6 +1482,16 @@ public interface ContentHubPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute PAIR__VALUE = eINSTANCE.getPair_Value();
+
+		/**
+		 * The meta object literal for the '{@link de.enithing.contenthub.model.contenthub.ContextType <em>Context Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.enithing.contenthub.model.contenthub.ContextType
+		 * @see de.enithing.contenthub.model.contenthub.impl.ContentHubPackageImpl#getContextType()
+		 * @generated
+		 */
+		EEnum CONTEXT_TYPE = eINSTANCE.getContextType();
 
 		/**
 		 * The meta object literal for the '<em>Path</em>' data type.
