@@ -3,13 +3,15 @@ package de.enithing.contenthub.generator;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintWriter;
+import java.io.StringWriter;
+import java.io.Writer;
 import java.nio.file.Path;
 
 import org.apache.commons.vfs2.FileObject;
 import org.apache.velocity.Template;
 import org.apache.velocity.VelocityContext;
-import org.apache.velocity.runtime.parser.ParseException;
 
+import de.enithing.contenthub.generator.util.XmlUtils;
 import de.enithing.contenthub.model.contentfragment.ContentFragmentFieldType;
 import de.enithing.contenthub.model.contentfragment.ContentFragmentModel;
 import de.enithing.contenthub.model.contenthub.util.ContextUtils;
@@ -49,6 +51,11 @@ public class ContentFragmentModelGenerator implements TemplateBasedGenerator<Con
 			@SuppressWarnings("unchecked")
 			ContentFragmentFieldGenerator<ContentFragmentFieldType<?>> generator = (ContentFragmentFieldGenerator<ContentFragmentFieldType<?>>) fieldGeneratorRegistry.createGeneratorInstance(field, childConfig);
 			
+			if(generator == null) {
+				// Skip ignored field
+				continue;
+			}
+			
 			generator.generate(field);
 			
 			String xml = generator.getRenderedField();
@@ -63,9 +70,11 @@ public class ContentFragmentModelGenerator implements TemplateBasedGenerator<Con
 		FileObject file = targetRoot.resolveFile(".content.xml");
 		file.createFile();
 		OutputStream os = file.getContent().getOutputStream();
-		PrintWriter writer = new PrintWriter(os);
+		Writer writer = XmlUtils.getPrettyPrintWriter(os);
+		
 		tpl.merge(ctx, writer);
 		writer.flush();
+		writer.close();
 	}
 
 	@Override

@@ -4,6 +4,7 @@ import java.awt.datatransfer.StringSelection;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintWriter;
+import java.io.Writer;
 import java.nio.file.Path;
 import java.util.ArrayList;
 
@@ -13,6 +14,7 @@ import org.apache.velocity.Template;
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.runtime.parser.ParseException;
 
+import de.enithing.contenthub.generator.util.XmlUtils;
 import de.enithing.contenthub.model.contentfragment.ContentFragmentModel;
 import de.enithing.contenthub.model.contenthub.ChildContext;
 import de.enithing.contenthub.model.contenthub.Context;
@@ -70,7 +72,7 @@ public class ContextGenerator implements TemplateBasedGenerator<Context> {
 				// Create the .content.xml only if it does not exist
 				contentXml.createFile();
 				OutputStream os = contentXml.getContent().getOutputStream();
-				PrintWriter writer = new PrintWriter(os);
+				Writer writer = XmlUtils.getPrettyPrintWriter(os);
 				tpl.merge(templateCtx, writer);
 				os.flush();
 				writer.close();

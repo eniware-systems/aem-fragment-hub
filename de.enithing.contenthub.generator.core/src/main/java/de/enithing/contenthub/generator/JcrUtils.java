@@ -4,13 +4,15 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Objects;
 
+import org.apache.commons.lang.StringEscapeUtils;
+
 public class JcrUtils {
 	private JcrUtils() {
 	}
 
 	public static String toStringValue(Object value) {
 		if (value instanceof String) {
-			return (String) value;
+			return StringEscapeUtils.escapeHtml((String) value);
 		}
 
 		if (value instanceof Boolean) {

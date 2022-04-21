@@ -23,6 +23,12 @@
 				<scope>compile</scope>
 			</dependency>
 			<dependency>
+				<groupId>org.eclipse.emf</groupId>
+				<artifactId>org.eclipse.emf.ecore.xmi</artifactId>
+				<version>2.16.0</version>
+				<scope>compile</scope>
+			</dependency>
+			<dependency>
 				<groupId>org.apache.velocity</groupId>
 				<artifactId>velocity</artifactId>
 				<version>1.7</version>
@@ -33,6 +39,16 @@
 				<artifactId>commons-vfs2</artifactId>
 				<version>2.9.0</version>
 				<scope>compile</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-text</artifactId>
+				<version>1.9</version>
+			</dependency>
+			<dependency>
+				<groupId>org.jdom</groupId>
+				<artifactId>jdom</artifactId>
+				<version>2.0.2</version>
 			</dependency>
 			<dependency>
 				<groupId>org.junit.jupiter</groupId>
@@ -154,5 +170,6 @@
 	<modules>
 		<module>../de.enithing.contenthub.model</module>
 		<module>../de.enithing.contenthub.generator.core</module>
+		<module>../de.enithing.contenthub.generator.cli</module>
 	</modules>
 </project>

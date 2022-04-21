@@ -3,9 +3,16 @@ package de.enithing.contenthub.generator;
 import org.apache.commons.vfs2.FileObject;
 
 public class GeneratorConfiguration {
+	public enum UnknownFieldHandlingMode {
+		Error,
+		Ignore,
+	}
+	
 	public FileObject targetRoot;
 	public Generator<?> parentGenerator;
 	public Object parentElement;
+	public UnknownFieldHandlingMode unknownFieldHandling = UnknownFieldHandlingMode.Error;
+	
 	final private ContentFragmentFieldGeneratorRegistry fieldGeneratorRegistry;
 	
 	public GeneratorConfiguration(ContentFragmentFieldGeneratorRegistry fieldGeneratorRegistry) {
@@ -26,6 +33,7 @@ public class GeneratorConfiguration {
 		cfg.targetRoot = targetRoot;
 		cfg.parentGenerator = parentGenerator;
 		cfg.parentElement = parentElement;
+		cfg.unknownFieldHandling = unknownFieldHandling;
 		return cfg;
 	}
 }

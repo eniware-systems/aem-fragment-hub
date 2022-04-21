@@ -1,10 +1,12 @@
 package de.enithing.contenthub.generator;
 
+import de.enithing.contenthub.generator.util.XmlUtils;
 import de.enithing.contenthub.model.contenthub.Package;
 import de.enithing.contenthub.model.contenthub.RootContext;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintWriter;
+import java.io.Writer;
 import java.nio.file.Path;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
@@ -64,7 +66,7 @@ public class PackageGenerator implements TemplateBasedGenerator<Package> {
 			// Create the .content.xml only if it does not exist
 			contentXml.createFile();
 			OutputStream os = contentXml.getContent().getOutputStream();
-			PrintWriter writer = new PrintWriter(os);
+			Writer writer = XmlUtils.getPrettyPrintWriter(os);
 			Template tpl = resolveTemplate(pkg, "jcr_root/.content.xml");
 			tpl.merge(context, writer);
 			os.flush();
