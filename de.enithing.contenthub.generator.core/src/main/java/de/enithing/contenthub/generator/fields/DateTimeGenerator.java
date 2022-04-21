@@ -20,7 +20,7 @@ public class DateTimeGenerator extends ContentFragmentFieldGenerator<DateTime> {
 	@Override
 	public void populateAttribs(DateTime element, VelocityContext ctx, Map<String, Object> attribs) {
 		attribs.put("displayedFormat", "YYYY-MM-DD HH:mm");
-		attribs.put("emptyText", String.format("[[YYYY-MM-DD HH:mm,%s]", element.getPlaceholder()));
+		attribs.put("emptyText", String.format("[YYYY-MM-DD HH:mm,%s]", element.getPlaceholder()));
 		attribs.put("required", JcrUtils.toFlag(element.isRequired()));
 		attribs.put("type", element.getType());
 		attribs.put("value", element.getDefaultValue());
