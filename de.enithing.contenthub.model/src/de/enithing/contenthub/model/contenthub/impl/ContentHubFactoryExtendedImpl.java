@@ -6,8 +6,7 @@ import java.nio.file.Path;
 
 import org.eclipse.emf.ecore.EDataType;
 
-import de.enithing.contenthub.model.contenthub.ChildContext;
-import de.enithing.contenthub.model.contenthub.Context;
+import de.enithing.contenthub.model.contenthub.Package;
 
 /**
  * Extensions for the implementation of the model factory
@@ -20,5 +19,10 @@ public class ContentHubFactoryExtendedImpl extends ContentHubFactoryImpl {
 	public Path createPathFromString(EDataType eDataType, String initialValue) {
 		return Path.of(initialValue);
 	}
-
+	
+	@Override
+	public Package createPackage() {
+		return new ExtendedPackageImpl();
+	}
+	
 } // ContentHubFactoryImpl

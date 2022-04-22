@@ -67,6 +67,12 @@ public class ContentFragmentSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
+			case ContentFragmentPackage.CONTENT_FRAGMENT_MODEL_SET: {
+				ContentFragmentModelSet contentFragmentModelSet = (ContentFragmentModelSet)theEObject;
+				T result = caseContentFragmentModelSet(contentFragmentModelSet);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case ContentFragmentPackage.CONTENT_FRAGMENT_MODEL: {
 				ContentFragmentModel contentFragmentModel = (ContentFragmentModel)theEObject;
 				T result = caseContentFragmentModel(contentFragmentModel);
@@ -128,6 +134,21 @@ public class ContentFragmentSwitch<T> extends Switch<T> {
 			}
 			default: return defaultCase(theEObject);
 		}
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Model Set</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Model Set</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseContentFragmentModelSet(ContentFragmentModelSet object) {
+		return null;
 	}
 
 	/**

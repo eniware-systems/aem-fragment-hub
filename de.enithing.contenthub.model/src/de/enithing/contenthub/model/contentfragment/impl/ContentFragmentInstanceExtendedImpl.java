@@ -8,13 +8,12 @@ import de.enithing.contenthub.model.contentfragment.ContentFragmentModel;
 import de.enithing.contenthub.model.contentfragment.util.ContentFragmentUtils;
 import de.enithing.contenthub.model.contentfragment.util.NameGenerationUtils;
 
-public class ContentFragmentInstanceExtendedImpl extends ContentFragmentInstanceImpl {
-
+public class ContentFragmentInstanceExtendedImpl extends ContentFragmentInstanceImpl {	
 	@Override
 	public void setId(String newId) {
 		if (getContext() != null) {
-			Collection<ContentFragmentModel> allModels = ContentFragmentUtils
-					.getAllModelsForContext(getContext(), false).stream().filter(mdl -> mdl != this).toList();
+					
+			Collection<ContentFragmentModel> allModels = ContentFragmentUtils.getAvailableModelsForContext(getContext());
 
 			newId = NameGenerationUtils.generateName(newId, allModels, mdl -> mdl.getId(), "{0}_{1}");
 		}

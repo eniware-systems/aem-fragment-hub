@@ -18,6 +18,7 @@ import de.enithing.contenthub.model.contentfragment.ContentFragmentFactory;
 import de.enithing.contenthub.model.contentfragment.ContentFragmentFieldInstance;
 import de.enithing.contenthub.model.contentfragment.ContentFragmentInstance;
 import de.enithing.contenthub.model.contentfragment.ContentFragmentModel;
+import de.enithing.contenthub.model.contentfragment.ContentFragmentModelSet;
 import de.enithing.contenthub.model.contentfragment.corefields.CorefieldsFactory;
 import de.enithing.contenthub.model.contentfragment.corefields.DateTime;
 import de.enithing.contenthub.model.contentfragment.corefields.DateTimeValue;
@@ -27,10 +28,9 @@ import de.enithing.contenthub.model.contentfragment.corefields.MultiLineText;
 import de.enithing.contenthub.model.contentfragment.corefields.SingleLineText;
 import de.enithing.contenthub.model.contentfragment.corefields.StringValue;
 import de.enithing.contenthub.model.contentfragment.corefields.Tab;
-import de.enithing.contenthub.model.contenthub.ChildContext;
 import de.enithing.contenthub.model.contenthub.ContentHubFactory;
+import de.enithing.contenthub.model.contenthub.Context;
 import de.enithing.contenthub.model.contenthub.Package;
-import de.enithing.contenthub.model.contenthub.RootContext;
 
 class GeneratorTest {
 	public static String VFSRootPath;
@@ -62,26 +62,23 @@ class GeneratorTest {
 		CorefieldsFactory fieldsFactory = CorefieldsFactory.eINSTANCE;
 
 		Package myPackage = hubFactory.createPackage();
-		
-		myPackage.createDefaultPackageStructure();
-		
+				
 		myPackage.setGroup("de.enithing.contenthub");
 		myPackage.setName("bookstore");
+		myPackage.setTitle("Bookstore package");
 		myPackage.setVersion("1.0.0");
 		myPackage.setAuthor("J.R. Baboon");
 		myPackage.setDescription("A book store package");
 		
-		RootContext modelContext = hubFactory.createRootContext();
-		modelContext.setTitle("Model context");
-		modelContext.setRelativePath(Path.of("/conf/$packageName/settings/dam/cfm/models"));
-		myPackage.getContexts().add(modelContext);
-
+		ContentFragmentModelSet models = cfFactory.createContentFragmentModelSet();
+		models.setPackage(myPackage);
+		
 		ContentFragmentModel bookModel = cfFactory.createContentFragmentModel();
 		bookModel.setId("book");
 		bookModel.setTitle("book");
 		bookModel.setDescription("A book as part of the library");
-		bookModel.setContext(modelContext);
-				
+		bookModel.setModelSet(models);
+						
 		{
 			DateTime field = fieldsFactory.createDateTime();
 			field.setPropertyName("added_date");
@@ -148,7 +145,7 @@ class GeneratorTest {
 		libraryModel.setId("library");
 		libraryModel.setTitle("library");
 		libraryModel.setDescription("A library");
-		libraryModel.setContext(modelContext);
+		libraryModel.setModelSet(models);
 
 		{
 			FragmentReference field = fieldsFactory.createFragmentReference();
@@ -159,18 +156,25 @@ class GeneratorTest {
 			field.setAllowMultiple(true);
 			field.getAllowedModels().add(bookModel);
 
-			bookModel.getFields().add(field);
+			libraryModel.getFields().add(field);
 		}
 
-		RootContext contentContext = hubFactory.createRootContext();
-		contentContext.setTitle("Content context");
-		contentContext.setRelativePath(Path.of("/content/dam/$packageName"));
-		myPackage.getContexts().add(modelContext);
-
-		ChildContext booksContext = hubFactory.createChildContext();
+		Context contentContext = hubFactory.createContext();
+		contentContext.setName("content");
+		contentContext.setParentContext(myPackage.getContentRoot());
+		
+		Context damContext = hubFactory.createContext();		
+		damContext.setName("dam");
+		damContext.setParentContext(contentContext);
+		
+		Context packageContext = hubFactory.createContext();		
+		packageContext.setName("$packageName");
+		packageContext.setParentContext(damContext);
+		
+		Context booksContext = hubFactory.createContext();
+		booksContext.setName("books");
+		booksContext.setParentContext(packageContext);	
 		booksContext.setTitle("All the books");
-		booksContext.setParentContext(contentContext);
-		booksContext.setRelativePath(Path.of("/books"));
 
 		AllowedContentFragmentModelPolicy onlyBooksPolicy = cfFactory.createAllowedContentFragmentModelPolicy();
 		onlyBooksPolicy.getModels().add(bookModel);
@@ -178,7 +182,7 @@ class GeneratorTest {
 
 		ContentFragmentInstance book = cfFactory.createContentFragmentInstance();
 		book.setModel(bookModel);
-
+		
 		{
 
 			ContentFragmentFieldInstance field = cfFactory.createContentFragmentFieldInstance();
@@ -241,7 +245,7 @@ class GeneratorTest {
 		cfg.unknownFieldHandling = UnknownFieldHandlingMode.Error;
 				
 		//FileSystemManager vfs = createInMemoryVFSManager();
-		FileSystemManager vfs = createFileVFSManager(Path.of("/tmp/foonbar"));
+		FileSystemManager vfs = createFileVFSManager(Path.of("/tmp/foobar"));
 		
 		cfg.targetRoot = vfs.resolveFile(VFSRootPath);
 

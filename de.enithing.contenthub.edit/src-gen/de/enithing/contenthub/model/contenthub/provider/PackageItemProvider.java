@@ -5,6 +5,7 @@ package de.enithing.contenthub.model.contenthub.provider;
 
 import de.enithing.contenthub.edit.ContentHubEditPlugin;
 
+import de.enithing.contenthub.model.contentfragment.ContentFragmentFactory;
 import de.enithing.contenthub.model.contenthub.ContentHubFactory;
 import de.enithing.contenthub.model.contenthub.ContentHubPackage;
 import java.util.Collection;
@@ -65,10 +66,12 @@ public class PackageItemProvider
 
 			addNamePropertyDescriptor(object);
 			addGroupPropertyDescriptor(object);
+			addTitlePropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
 			addAuthorPropertyDescriptor(object);
 			addVersionPropertyDescriptor(object);
-			addContextsPropertyDescriptor(object);
+			addContentFragmentModelPathPropertyDescriptor(object);
+			addContentPathPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -109,6 +112,28 @@ public class PackageItemProvider
 				 getString("_UI_Package_group_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Package_group_feature", "_UI_Package_type"),
 				 ContentHubPackage.Literals.PACKAGE__GROUP,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Title feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTitlePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Package_title_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Package_title_feature", "_UI_Package_type"),
+				 ContentHubPackage.Literals.PACKAGE__TITLE,
 				 true,
 				 false,
 				 false,
@@ -184,23 +209,45 @@ public class PackageItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Contexts feature.
+	 * This adds a property descriptor for the Content Fragment Model Path feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addContextsPropertyDescriptor(Object object) {
+	protected void addContentFragmentModelPathPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Package_contexts_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Package_contexts_feature", "_UI_Package_type"),
-				 ContentHubPackage.Literals.PACKAGE__CONTEXTS,
+				 getString("_UI_Package_contentFragmentModelPath_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Package_contentFragmentModelPath_feature", "_UI_Package_type"),
+				 ContentHubPackage.Literals.PACKAGE__CONTENT_FRAGMENT_MODEL_PATH,
 				 true,
 				 false,
-				 true,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Content Path feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addContentPathPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Package_contentPath_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Package_contentPath_feature", "_UI_Package_type"),
+				 ContentHubPackage.Literals.PACKAGE__CONTENT_PATH,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -217,7 +264,8 @@ public class PackageItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ContentHubPackage.Literals.PACKAGE__CONTEXTS);
+			childrenFeatures.add(ContentHubPackage.Literals.PACKAGE__CONTENT_FRAGMENT_MODEL_SETS);
+			childrenFeatures.add(ContentHubPackage.Literals.PACKAGE__CONTENT_ROOT);
 		}
 		return childrenFeatures;
 	}
@@ -275,12 +323,16 @@ public class PackageItemProvider
 		switch (notification.getFeatureID(de.enithing.contenthub.model.contenthub.Package.class)) {
 			case ContentHubPackage.PACKAGE__NAME:
 			case ContentHubPackage.PACKAGE__GROUP:
+			case ContentHubPackage.PACKAGE__TITLE:
 			case ContentHubPackage.PACKAGE__DESCRIPTION:
 			case ContentHubPackage.PACKAGE__AUTHOR:
 			case ContentHubPackage.PACKAGE__VERSION:
+			case ContentHubPackage.PACKAGE__CONTENT_FRAGMENT_MODEL_PATH:
+			case ContentHubPackage.PACKAGE__CONTENT_PATH:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case ContentHubPackage.PACKAGE__CONTEXTS:
+			case ContentHubPackage.PACKAGE__CONTENT_FRAGMENT_MODEL_SETS:
+			case ContentHubPackage.PACKAGE__CONTENT_ROOT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -300,8 +352,13 @@ public class PackageItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ContentHubPackage.Literals.PACKAGE__CONTEXTS,
-				 ContentHubFactory.eINSTANCE.createRootContext()));
+				(ContentHubPackage.Literals.PACKAGE__CONTENT_FRAGMENT_MODEL_SETS,
+				 ContentFragmentFactory.eINSTANCE.createContentFragmentModelSet()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ContentHubPackage.Literals.PACKAGE__CONTENT_ROOT,
+				 ContentHubFactory.eINSTANCE.createContext()));
 	}
 
 	/**

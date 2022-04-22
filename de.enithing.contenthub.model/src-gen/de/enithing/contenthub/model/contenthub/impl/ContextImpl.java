@@ -3,20 +3,14 @@
 package de.enithing.contenthub.model.contenthub.impl;
 
 import de.enithing.contenthub.model.contentfragment.ContentFragmentInstance;
-import de.enithing.contenthub.model.contentfragment.ContentFragmentModel;
 import de.enithing.contenthub.model.contentfragment.ContentFragmentPackage;
-
-import de.enithing.contenthub.model.contenthub.ChildContext;
-import de.enithing.contenthub.model.contenthub.ContentHubFactory;
 import de.enithing.contenthub.model.contenthub.ContentHubPackage;
 import de.enithing.contenthub.model.contenthub.Context;
 import de.enithing.contenthub.model.contenthub.ContextPolicy;
 import de.enithing.contenthub.model.contenthub.ContextType;
-import de.enithing.contenthub.model.contenthub.RootContext;
 import de.enithing.contenthub.model.contenthub.util.ContextUtils;
 
 import java.lang.reflect.InvocationTargetException;
-
 import java.nio.file.Path;
 import java.util.Collection;
 
@@ -33,6 +27,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -44,10 +39,10 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link de.enithing.contenthub.model.contenthub.impl.ContextImpl#getChildContexts <em>Child Contexts</em>}</li>
- *   <li>{@link de.enithing.contenthub.model.contenthub.impl.ContextImpl#getContentFragmentModels <em>Content Fragment Models</em>}</li>
+ *   <li>{@link de.enithing.contenthub.model.contenthub.impl.ContextImpl#getParentContext <em>Parent Context</em>}</li>
  *   <li>{@link de.enithing.contenthub.model.contenthub.impl.ContextImpl#getContentFragments <em>Content Fragments</em>}</li>
  *   <li>{@link de.enithing.contenthub.model.contenthub.impl.ContextImpl#getPolicies <em>Policies</em>}</li>
- *   <li>{@link de.enithing.contenthub.model.contenthub.impl.ContextImpl#getRelativePath <em>Relative Path</em>}</li>
+ *   <li>{@link de.enithing.contenthub.model.contenthub.impl.ContextImpl#getName <em>Name</em>}</li>
  *   <li>{@link de.enithing.contenthub.model.contenthub.impl.ContextImpl#getTitle <em>Title</em>}</li>
  *   <li>{@link de.enithing.contenthub.model.contenthub.impl.ContextImpl#getPrimaryType <em>Primary Type</em>}</li>
  * </ul>
@@ -63,17 +58,7 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ChildContext> childContexts;
-
-	/**
-	 * The cached value of the '{@link #getContentFragmentModels() <em>Content Fragment Models</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getContentFragmentModels()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<ContentFragmentModel> contentFragmentModels;
+	protected EList<Context> childContexts;
 
 	/**
 	 * The cached value of the '{@link #getContentFragments() <em>Content Fragments</em>}' containment reference list.
@@ -96,24 +81,24 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 	protected EList<ContextPolicy> policies;
 
 	/**
-	 * The default value of the '{@link #getRelativePath() <em>Relative Path</em>}' attribute.
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRelativePath()
+	 * @see #getName()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Path RELATIVE_PATH_EDEFAULT = (Path)ContentHubFactory.eINSTANCE.createFromString(ContentHubPackage.eINSTANCE.getPath(), "/child");
+	protected static final String NAME_EDEFAULT = "new_context";
 
 	/**
-	 * The cached value of the '{@link #getRelativePath() <em>Relative Path</em>}' attribute.
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRelativePath()
+	 * @see #getName()
 	 * @generated
 	 * @ordered
 	 */
-	protected Path relativePath = RELATIVE_PATH_EDEFAULT;
+	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getTitle() <em>Title</em>}' attribute.
@@ -180,9 +165,9 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 	 * @generated
 	 */
 	@Override
-	public EList<ChildContext> getChildContexts() {
+	public EList<Context> getChildContexts() {
 		if (childContexts == null) {
-			childContexts = new EObjectContainmentWithInverseEList<ChildContext>(ChildContext.class, this, ContentHubPackage.CONTEXT__CHILD_CONTEXTS, ContentHubPackage.CHILD_CONTEXT__PARENT_CONTEXT);
+			childContexts = new EObjectContainmentWithInverseEList<Context>(Context.class, this, ContentHubPackage.CONTEXT__CHILD_CONTEXTS, ContentHubPackage.CONTEXT__PARENT_CONTEXT);
 		}
 		return childContexts;
 	}
@@ -193,11 +178,41 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 	 * @generated
 	 */
 	@Override
-	public EList<ContentFragmentModel> getContentFragmentModels() {
-		if (contentFragmentModels == null) {
-			contentFragmentModels = new EObjectContainmentWithInverseEList<ContentFragmentModel>(ContentFragmentModel.class, this, ContentHubPackage.CONTEXT__CONTENT_FRAGMENT_MODELS, ContentFragmentPackage.CONTENT_FRAGMENT_MODEL__CONTEXT);
+	public Context getParentContext() {
+		if (eContainerFeatureID() != ContentHubPackage.CONTEXT__PARENT_CONTEXT) return null;
+		return (Context)eInternalContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetParentContext(Context newParentContext, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newParentContext, ContentHubPackage.CONTEXT__PARENT_CONTEXT, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setParentContext(Context newParentContext) {
+		if (newParentContext != eInternalContainer() || (eContainerFeatureID() != ContentHubPackage.CONTEXT__PARENT_CONTEXT && newParentContext != null)) {
+			if (EcoreUtil.isAncestor(this, newParentContext))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newParentContext != null)
+				msgs = ((InternalEObject)newParentContext).eInverseAdd(this, ContentHubPackage.CONTEXT__CHILD_CONTEXTS, Context.class, msgs);
+			msgs = basicSetParentContext(newParentContext, msgs);
+			if (msgs != null) msgs.dispatch();
 		}
-		return contentFragmentModels;
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ContentHubPackage.CONTEXT__PARENT_CONTEXT, newParentContext, newParentContext));
 	}
 
 	/**
@@ -232,8 +247,8 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 	 * @generated
 	 */
 	@Override
-	public Path getRelativePath() {
-		return relativePath;
+	public String getName() {
+		return name;
 	}
 
 	/**
@@ -242,11 +257,11 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 	 * @generated
 	 */
 	@Override
-	public void setRelativePath(Path newRelativePath) {
-		Path oldRelativePath = relativePath;
-		relativePath = newRelativePath;
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ContentHubPackage.CONTEXT__RELATIVE_PATH, oldRelativePath, relativePath));
+			eNotify(new ENotificationImpl(this, Notification.SET, ContentHubPackage.CONTEXT__NAME, oldName, name));
 	}
 
 	/**
@@ -300,7 +315,7 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 	 * <!-- end-user-doc -->
 	 */
 	@Override
-	public RootContext getRootContext() {
+	public Context getRootContext() {
 		return ContextUtils.getRootContext(this);
 	}
 
@@ -309,8 +324,8 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 	 * <!-- end-user-doc -->
 	 */
 	@Override
-	public EList<Context> getRelatedContexts() {
-		return ContextUtils.getRelatedContexts(this);
+	public <TPolicy extends ContextPolicy> EList<TPolicy> getPoliciesByType(Class<TPolicy> clazz) {
+		return ContextUtils.getPoliciesByType(this, clazz);
 	}
 
 	/**
@@ -318,26 +333,8 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 	 * <!-- end-user-doc -->
 	 */
 	@Override
-	public EList<ContextPolicy> getRelatedPolicies() {
-		return ContextUtils.getRelatedPolicies(this);
-	}
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
-	@Override
-	public String getUnifiedTitle() {
-		return ContextUtils.getUnifiedTitle(this);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
-	@Override
-	public ContextType getUnifiedPrimaryType() {
-		return ContextUtils.getUnifiedPrimaryType(this);
+	public Path getPath() {
+		return ContextUtils.getPath(this);
 	}
 
 	/**
@@ -351,8 +348,10 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 		switch (featureID) {
 			case ContentHubPackage.CONTEXT__CHILD_CONTEXTS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getChildContexts()).basicAdd(otherEnd, msgs);
-			case ContentHubPackage.CONTEXT__CONTENT_FRAGMENT_MODELS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getContentFragmentModels()).basicAdd(otherEnd, msgs);
+			case ContentHubPackage.CONTEXT__PARENT_CONTEXT:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetParentContext((Context)otherEnd, msgs);
 			case ContentHubPackage.CONTEXT__CONTENT_FRAGMENTS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getContentFragments()).basicAdd(otherEnd, msgs);
 		}
@@ -369,8 +368,8 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 		switch (featureID) {
 			case ContentHubPackage.CONTEXT__CHILD_CONTEXTS:
 				return ((InternalEList<?>)getChildContexts()).basicRemove(otherEnd, msgs);
-			case ContentHubPackage.CONTEXT__CONTENT_FRAGMENT_MODELS:
-				return ((InternalEList<?>)getContentFragmentModels()).basicRemove(otherEnd, msgs);
+			case ContentHubPackage.CONTEXT__PARENT_CONTEXT:
+				return basicSetParentContext(null, msgs);
 			case ContentHubPackage.CONTEXT__CONTENT_FRAGMENTS:
 				return ((InternalEList<?>)getContentFragments()).basicRemove(otherEnd, msgs);
 			case ContentHubPackage.CONTEXT__POLICIES:
@@ -385,18 +384,32 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 	 * @generated
 	 */
 	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case ContentHubPackage.CONTEXT__PARENT_CONTEXT:
+				return eInternalContainer().eInverseRemove(this, ContentHubPackage.CONTEXT__CHILD_CONTEXTS, Context.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case ContentHubPackage.CONTEXT__CHILD_CONTEXTS:
 				return getChildContexts();
-			case ContentHubPackage.CONTEXT__CONTENT_FRAGMENT_MODELS:
-				return getContentFragmentModels();
+			case ContentHubPackage.CONTEXT__PARENT_CONTEXT:
+				return getParentContext();
 			case ContentHubPackage.CONTEXT__CONTENT_FRAGMENTS:
 				return getContentFragments();
 			case ContentHubPackage.CONTEXT__POLICIES:
 				return getPolicies();
-			case ContentHubPackage.CONTEXT__RELATIVE_PATH:
-				return getRelativePath();
+			case ContentHubPackage.CONTEXT__NAME:
+				return getName();
 			case ContentHubPackage.CONTEXT__TITLE:
 				return getTitle();
 			case ContentHubPackage.CONTEXT__PRIMARY_TYPE:
@@ -416,11 +429,10 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 		switch (featureID) {
 			case ContentHubPackage.CONTEXT__CHILD_CONTEXTS:
 				getChildContexts().clear();
-				getChildContexts().addAll((Collection<? extends ChildContext>)newValue);
+				getChildContexts().addAll((Collection<? extends Context>)newValue);
 				return;
-			case ContentHubPackage.CONTEXT__CONTENT_FRAGMENT_MODELS:
-				getContentFragmentModels().clear();
-				getContentFragmentModels().addAll((Collection<? extends ContentFragmentModel>)newValue);
+			case ContentHubPackage.CONTEXT__PARENT_CONTEXT:
+				setParentContext((Context)newValue);
 				return;
 			case ContentHubPackage.CONTEXT__CONTENT_FRAGMENTS:
 				getContentFragments().clear();
@@ -430,8 +442,8 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 				getPolicies().clear();
 				getPolicies().addAll((Collection<? extends ContextPolicy>)newValue);
 				return;
-			case ContentHubPackage.CONTEXT__RELATIVE_PATH:
-				setRelativePath((Path)newValue);
+			case ContentHubPackage.CONTEXT__NAME:
+				setName((String)newValue);
 				return;
 			case ContentHubPackage.CONTEXT__TITLE:
 				setTitle((String)newValue);
@@ -454,8 +466,8 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 			case ContentHubPackage.CONTEXT__CHILD_CONTEXTS:
 				getChildContexts().clear();
 				return;
-			case ContentHubPackage.CONTEXT__CONTENT_FRAGMENT_MODELS:
-				getContentFragmentModels().clear();
+			case ContentHubPackage.CONTEXT__PARENT_CONTEXT:
+				setParentContext((Context)null);
 				return;
 			case ContentHubPackage.CONTEXT__CONTENT_FRAGMENTS:
 				getContentFragments().clear();
@@ -463,8 +475,8 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 			case ContentHubPackage.CONTEXT__POLICIES:
 				getPolicies().clear();
 				return;
-			case ContentHubPackage.CONTEXT__RELATIVE_PATH:
-				setRelativePath(RELATIVE_PATH_EDEFAULT);
+			case ContentHubPackage.CONTEXT__NAME:
+				setName(NAME_EDEFAULT);
 				return;
 			case ContentHubPackage.CONTEXT__TITLE:
 				setTitle(TITLE_EDEFAULT);
@@ -486,14 +498,14 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 		switch (featureID) {
 			case ContentHubPackage.CONTEXT__CHILD_CONTEXTS:
 				return childContexts != null && !childContexts.isEmpty();
-			case ContentHubPackage.CONTEXT__CONTENT_FRAGMENT_MODELS:
-				return contentFragmentModels != null && !contentFragmentModels.isEmpty();
+			case ContentHubPackage.CONTEXT__PARENT_CONTEXT:
+				return getParentContext() != null;
 			case ContentHubPackage.CONTEXT__CONTENT_FRAGMENTS:
 				return contentFragments != null && !contentFragments.isEmpty();
 			case ContentHubPackage.CONTEXT__POLICIES:
 				return policies != null && !policies.isEmpty();
-			case ContentHubPackage.CONTEXT__RELATIVE_PATH:
-				return RELATIVE_PATH_EDEFAULT == null ? relativePath != null : !RELATIVE_PATH_EDEFAULT.equals(relativePath);
+			case ContentHubPackage.CONTEXT__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case ContentHubPackage.CONTEXT__TITLE:
 				return TITLE_EDEFAULT == null ? title != null : !TITLE_EDEFAULT.equals(title);
 			case ContentHubPackage.CONTEXT__PRIMARY_TYPE:
@@ -508,18 +520,15 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 	 * @generated
 	 */
 	@Override
+	@SuppressWarnings({"rawtypes", "unchecked" })
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 			case ContentHubPackage.CONTEXT___GET_ROOT_CONTEXT:
 				return getRootContext();
-			case ContentHubPackage.CONTEXT___GET_RELATED_CONTEXTS:
-				return getRelatedContexts();
-			case ContentHubPackage.CONTEXT___GET_RELATED_POLICIES:
-				return getRelatedPolicies();
-			case ContentHubPackage.CONTEXT___GET_UNIFIED_TITLE:
-				return getUnifiedTitle();
-			case ContentHubPackage.CONTEXT___GET_UNIFIED_PRIMARY_TYPE:
-				return getUnifiedPrimaryType();
+			case ContentHubPackage.CONTEXT___GET_POLICIES_BY_TYPE__CLASS:
+				return getPoliciesByType((Class)arguments.get(0));
+			case ContentHubPackage.CONTEXT___GET_PATH:
+				return getPath();
 		}
 		return super.eInvoke(operationID, arguments);
 	}
@@ -534,8 +543,8 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (relativePath: ");
-		result.append(relativePath);
+		result.append(" (name: ");
+		result.append(name);
 		result.append(", title: ");
 		result.append(title);
 		result.append(", primaryType: ");

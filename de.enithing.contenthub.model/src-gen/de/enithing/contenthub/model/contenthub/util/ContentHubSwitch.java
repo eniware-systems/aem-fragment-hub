@@ -2,15 +2,12 @@
  */
 package de.enithing.contenthub.model.contenthub.util;
 
-import de.enithing.contenthub.model.contenthub.ChildContext;
 import de.enithing.contenthub.model.contenthub.ContentHubPackage;
 import de.enithing.contenthub.model.contenthub.Context;
 import de.enithing.contenthub.model.contenthub.ContextPath;
 import de.enithing.contenthub.model.contenthub.ContextPolicy;
 import de.enithing.contenthub.model.contenthub.Pair;
 import de.enithing.contenthub.model.contenthub.PathProvider;
-import de.enithing.contenthub.model.contenthub.RootContext;
-
 import de.enithing.contenthub.model.contenthub.SimplePath;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -106,20 +103,6 @@ public class ContentHubSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ContentHubPackage.ROOT_CONTEXT: {
-				RootContext rootContext = (RootContext)theEObject;
-				T result = caseRootContext(rootContext);
-				if (result == null) result = caseContext(rootContext);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case ContentHubPackage.CHILD_CONTEXT: {
-				ChildContext childContext = (ChildContext)theEObject;
-				T result = caseChildContext(childContext);
-				if (result == null) result = caseContext(childContext);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case ContentHubPackage.CONTEXT_POLICY: {
 				ContextPolicy contextPolicy = (ContextPolicy)theEObject;
 				T result = caseContextPolicy(contextPolicy);
@@ -208,36 +191,6 @@ public class ContentHubSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseContext(Context object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Root Context</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Root Context</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseRootContext(RootContext object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Child Context</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Child Context</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseChildContext(ChildContext object) {
 		return null;
 	}
 

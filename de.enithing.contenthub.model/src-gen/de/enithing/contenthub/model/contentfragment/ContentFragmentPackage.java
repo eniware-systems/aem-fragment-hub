@@ -59,6 +59,61 @@ public interface ContentFragmentPackage extends EPackage {
 	ContentFragmentPackage eINSTANCE = de.enithing.contenthub.model.contentfragment.impl.ContentFragmentPackageImpl.init();
 
 	/**
+	 * The meta object id for the '{@link de.enithing.contenthub.model.contentfragment.impl.ContentFragmentModelSetImpl <em>Model Set</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.enithing.contenthub.model.contentfragment.impl.ContentFragmentModelSetImpl
+	 * @see de.enithing.contenthub.model.contentfragment.impl.ContentFragmentPackageImpl#getContentFragmentModelSet()
+	 * @generated
+	 */
+	int CONTENT_FRAGMENT_MODEL_SET = 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_FRAGMENT_MODEL_SET__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Models</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_FRAGMENT_MODEL_SET__MODELS = 1;
+
+	/**
+	 * The feature id for the '<em><b>Package</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_FRAGMENT_MODEL_SET__PACKAGE = 2;
+
+	/**
+	 * The number of structural features of the '<em>Model Set</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_FRAGMENT_MODEL_SET_FEATURE_COUNT = 3;
+
+	/**
+	 * The number of operations of the '<em>Model Set</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_FRAGMENT_MODEL_SET_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link de.enithing.contenthub.model.contentfragment.impl.ContentFragmentModelImpl <em>Model</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -66,7 +121,7 @@ public interface ContentFragmentPackage extends EPackage {
 	 * @see de.enithing.contenthub.model.contentfragment.impl.ContentFragmentPackageImpl#getContentFragmentModel()
 	 * @generated
 	 */
-	int CONTENT_FRAGMENT_MODEL = 0;
+	int CONTENT_FRAGMENT_MODEL = 1;
 
 	/**
 	 * The feature id for the '<em><b>Fields</b></em>' containment reference list.
@@ -78,22 +133,13 @@ public interface ContentFragmentPackage extends EPackage {
 	int CONTENT_FRAGMENT_MODEL__FIELDS = 0;
 
 	/**
-	 * The feature id for the '<em><b>Context</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTENT_FRAGMENT_MODEL__CONTEXT = 1;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTENT_FRAGMENT_MODEL__ID = 2;
+	int CONTENT_FRAGMENT_MODEL__ID = 1;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -102,7 +148,7 @@ public interface ContentFragmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTENT_FRAGMENT_MODEL__TITLE = 3;
+	int CONTENT_FRAGMENT_MODEL__TITLE = 2;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -111,7 +157,16 @@ public interface ContentFragmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTENT_FRAGMENT_MODEL__DESCRIPTION = 4;
+	int CONTENT_FRAGMENT_MODEL__DESCRIPTION = 3;
+
+	/**
+	 * The feature id for the '<em><b>Model Set</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_FRAGMENT_MODEL__MODEL_SET = 4;
 
 	/**
 	 * The number of structural features of the '<em>Model</em>' class.
@@ -123,13 +178,22 @@ public interface ContentFragmentPackage extends EPackage {
 	int CONTENT_FRAGMENT_MODEL_FEATURE_COUNT = 5;
 
 	/**
-	 * The operation id for the '<em>Get All Children</em>' operation.
+	 * The operation id for the '<em>Get All Fields</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTENT_FRAGMENT_MODEL___GET_ALL_CHILDREN = 0;
+	int CONTENT_FRAGMENT_MODEL___GET_ALL_FIELDS = 0;
+
+	/**
+	 * The operation id for the '<em>Get Path</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_FRAGMENT_MODEL___GET_PATH = 1;
 
 	/**
 	 * The number of operations of the '<em>Model</em>' class.
@@ -138,7 +202,7 @@ public interface ContentFragmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTENT_FRAGMENT_MODEL_OPERATION_COUNT = 1;
+	int CONTENT_FRAGMENT_MODEL_OPERATION_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link de.enithing.contenthub.model.contentfragment.impl.ContentFragmentFieldTypeImpl <em>Field Type</em>}' class.
@@ -148,7 +212,7 @@ public interface ContentFragmentPackage extends EPackage {
 	 * @see de.enithing.contenthub.model.contentfragment.impl.ContentFragmentPackageImpl#getContentFragmentFieldType()
 	 * @generated
 	 */
-	int CONTENT_FRAGMENT_FIELD_TYPE = 1;
+	int CONTENT_FRAGMENT_FIELD_TYPE = 2;
 
 	/**
 	 * The feature id for the '<em><b>Property Name</b></em>' attribute.
@@ -212,7 +276,7 @@ public interface ContentFragmentPackage extends EPackage {
 	 * @see de.enithing.contenthub.model.contentfragment.impl.ContentFragmentPackageImpl#getContentFragmentInstance()
 	 * @generated
 	 */
-	int CONTENT_FRAGMENT_INSTANCE = 2;
+	int CONTENT_FRAGMENT_INSTANCE = 3;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -294,7 +358,7 @@ public interface ContentFragmentPackage extends EPackage {
 	 * @see de.enithing.contenthub.model.contentfragment.impl.ContentFragmentPackageImpl#getContentFragmentFieldInstance()
 	 * @generated
 	 */
-	int CONTENT_FRAGMENT_FIELD_INSTANCE = 3;
+	int CONTENT_FRAGMENT_FIELD_INSTANCE = 4;
 
 	/**
 	 * The feature id for the '<em><b>Fieldtype</b></em>' reference.
@@ -340,7 +404,7 @@ public interface ContentFragmentPackage extends EPackage {
 	 * @see de.enithing.contenthub.model.contentfragment.impl.ContentFragmentPackageImpl#getSimpleFieldType()
 	 * @generated
 	 */
-	int SIMPLE_FIELD_TYPE = 4;
+	int SIMPLE_FIELD_TYPE = 5;
 
 	/**
 	 * The feature id for the '<em><b>Property Name</b></em>' attribute.
@@ -404,7 +468,7 @@ public interface ContentFragmentPackage extends EPackage {
 	 * @see de.enithing.contenthub.model.contentfragment.impl.ContentFragmentPackageImpl#getGroupFieldType()
 	 * @generated
 	 */
-	int GROUP_FIELD_TYPE = 5;
+	int GROUP_FIELD_TYPE = 6;
 
 	/**
 	 * The feature id for the '<em><b>Property Name</b></em>' attribute.
@@ -477,7 +541,7 @@ public interface ContentFragmentPackage extends EPackage {
 	 * @see de.enithing.contenthub.model.contentfragment.impl.ContentFragmentPackageImpl#getContentFragmentFieldValue()
 	 * @generated
 	 */
-	int CONTENT_FRAGMENT_FIELD_VALUE = 6;
+	int CONTENT_FRAGMENT_FIELD_VALUE = 7;
 
 	/**
 	 * The number of structural features of the '<em>Field Value</em>' class.
@@ -506,7 +570,7 @@ public interface ContentFragmentPackage extends EPackage {
 	 * @see de.enithing.contenthub.model.contentfragment.impl.ContentFragmentPackageImpl#getAllowedContentFragmentModelPolicy()
 	 * @generated
 	 */
-	int ALLOWED_CONTENT_FRAGMENT_MODEL_POLICY = 7;
+	int ALLOWED_CONTENT_FRAGMENT_MODEL_POLICY = 8;
 
 	/**
 	 * The feature id for the '<em><b>Models</b></em>' reference list.
@@ -543,7 +607,7 @@ public interface ContentFragmentPackage extends EPackage {
 	 * @see de.enithing.contenthub.model.contentfragment.impl.ContentFragmentPackageImpl#getMultiFieldType()
 	 * @generated
 	 */
-	int MULTI_FIELD_TYPE = 8;
+	int MULTI_FIELD_TYPE = 9;
 
 	/**
 	 * The feature id for the '<em><b>Property Name</b></em>' attribute.
@@ -618,6 +682,49 @@ public interface ContentFragmentPackage extends EPackage {
 	int MULTI_FIELD_TYPE_OPERATION_COUNT = SIMPLE_FIELD_TYPE_OPERATION_COUNT + 0;
 
 	/**
+	 * Returns the meta object for class '{@link de.enithing.contenthub.model.contentfragment.ContentFragmentModelSet <em>Model Set</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Model Set</em>'.
+	 * @see de.enithing.contenthub.model.contentfragment.ContentFragmentModelSet
+	 * @generated
+	 */
+	EClass getContentFragmentModelSet();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.enithing.contenthub.model.contentfragment.ContentFragmentModelSet#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see de.enithing.contenthub.model.contentfragment.ContentFragmentModelSet#getName()
+	 * @see #getContentFragmentModelSet()
+	 * @generated
+	 */
+	EAttribute getContentFragmentModelSet_Name();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link de.enithing.contenthub.model.contentfragment.ContentFragmentModelSet#getModels <em>Models</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Models</em>'.
+	 * @see de.enithing.contenthub.model.contentfragment.ContentFragmentModelSet#getModels()
+	 * @see #getContentFragmentModelSet()
+	 * @generated
+	 */
+	EReference getContentFragmentModelSet_Models();
+
+	/**
+	 * Returns the meta object for the container reference '{@link de.enithing.contenthub.model.contentfragment.ContentFragmentModelSet#getPackage <em>Package</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Package</em>'.
+	 * @see de.enithing.contenthub.model.contentfragment.ContentFragmentModelSet#getPackage()
+	 * @see #getContentFragmentModelSet()
+	 * @generated
+	 */
+	EReference getContentFragmentModelSet_Package();
+
+	/**
 	 * Returns the meta object for class '{@link de.enithing.contenthub.model.contentfragment.ContentFragmentModel <em>Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -637,17 +744,6 @@ public interface ContentFragmentPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getContentFragmentModel_Fields();
-
-	/**
-	 * Returns the meta object for the container reference '{@link de.enithing.contenthub.model.contentfragment.ContentFragmentModel#getContext <em>Context</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Context</em>'.
-	 * @see de.enithing.contenthub.model.contentfragment.ContentFragmentModel#getContext()
-	 * @see #getContentFragmentModel()
-	 * @generated
-	 */
-	EReference getContentFragmentModel_Context();
 
 	/**
 	 * Returns the meta object for the attribute '{@link de.enithing.contenthub.model.contentfragment.ContentFragmentModel#getId <em>Id</em>}'.
@@ -683,14 +779,35 @@ public interface ContentFragmentPackage extends EPackage {
 	EAttribute getContentFragmentModel_Description();
 
 	/**
-	 * Returns the meta object for the '{@link de.enithing.contenthub.model.contentfragment.ContentFragmentModel#getAllChildren() <em>Get All Children</em>}' operation.
+	 * Returns the meta object for the container reference '{@link de.enithing.contenthub.model.contentfragment.ContentFragmentModel#getModelSet <em>Model Set</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get All Children</em>' operation.
-	 * @see de.enithing.contenthub.model.contentfragment.ContentFragmentModel#getAllChildren()
+	 * @return the meta object for the container reference '<em>Model Set</em>'.
+	 * @see de.enithing.contenthub.model.contentfragment.ContentFragmentModel#getModelSet()
+	 * @see #getContentFragmentModel()
 	 * @generated
 	 */
-	EOperation getContentFragmentModel__GetAllChildren();
+	EReference getContentFragmentModel_ModelSet();
+
+	/**
+	 * Returns the meta object for the '{@link de.enithing.contenthub.model.contentfragment.ContentFragmentModel#getAllFields() <em>Get All Fields</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get All Fields</em>' operation.
+	 * @see de.enithing.contenthub.model.contentfragment.ContentFragmentModel#getAllFields()
+	 * @generated
+	 */
+	EOperation getContentFragmentModel__GetAllFields();
+
+	/**
+	 * Returns the meta object for the '{@link de.enithing.contenthub.model.contentfragment.ContentFragmentModel#getPath() <em>Get Path</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Path</em>' operation.
+	 * @see de.enithing.contenthub.model.contentfragment.ContentFragmentModel#getPath()
+	 * @generated
+	 */
+	EOperation getContentFragmentModel__GetPath();
 
 	/**
 	 * Returns the meta object for class '{@link de.enithing.contenthub.model.contentfragment.ContentFragmentFieldType <em>Field Type</em>}'.
@@ -971,6 +1088,40 @@ public interface ContentFragmentPackage extends EPackage {
 	 */
 	interface Literals {
 		/**
+		 * The meta object literal for the '{@link de.enithing.contenthub.model.contentfragment.impl.ContentFragmentModelSetImpl <em>Model Set</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.enithing.contenthub.model.contentfragment.impl.ContentFragmentModelSetImpl
+		 * @see de.enithing.contenthub.model.contentfragment.impl.ContentFragmentPackageImpl#getContentFragmentModelSet()
+		 * @generated
+		 */
+		EClass CONTENT_FRAGMENT_MODEL_SET = eINSTANCE.getContentFragmentModelSet();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONTENT_FRAGMENT_MODEL_SET__NAME = eINSTANCE.getContentFragmentModelSet_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Models</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONTENT_FRAGMENT_MODEL_SET__MODELS = eINSTANCE.getContentFragmentModelSet_Models();
+
+		/**
+		 * The meta object literal for the '<em><b>Package</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONTENT_FRAGMENT_MODEL_SET__PACKAGE = eINSTANCE.getContentFragmentModelSet_Package();
+
+		/**
 		 * The meta object literal for the '{@link de.enithing.contenthub.model.contentfragment.impl.ContentFragmentModelImpl <em>Model</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -987,14 +1138,6 @@ public interface ContentFragmentPackage extends EPackage {
 		 * @generated
 		 */
 		EReference CONTENT_FRAGMENT_MODEL__FIELDS = eINSTANCE.getContentFragmentModel_Fields();
-
-		/**
-		 * The meta object literal for the '<em><b>Context</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CONTENT_FRAGMENT_MODEL__CONTEXT = eINSTANCE.getContentFragmentModel_Context();
 
 		/**
 		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
@@ -1021,12 +1164,28 @@ public interface ContentFragmentPackage extends EPackage {
 		EAttribute CONTENT_FRAGMENT_MODEL__DESCRIPTION = eINSTANCE.getContentFragmentModel_Description();
 
 		/**
-		 * The meta object literal for the '<em><b>Get All Children</b></em>' operation.
+		 * The meta object literal for the '<em><b>Model Set</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation CONTENT_FRAGMENT_MODEL___GET_ALL_CHILDREN = eINSTANCE.getContentFragmentModel__GetAllChildren();
+		EReference CONTENT_FRAGMENT_MODEL__MODEL_SET = eINSTANCE.getContentFragmentModel_ModelSet();
+
+		/**
+		 * The meta object literal for the '<em><b>Get All Fields</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation CONTENT_FRAGMENT_MODEL___GET_ALL_FIELDS = eINSTANCE.getContentFragmentModel__GetAllFields();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Path</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation CONTENT_FRAGMENT_MODEL___GET_PATH = eINSTANCE.getContentFragmentModel__GetPath();
 
 		/**
 		 * The meta object literal for the '{@link de.enithing.contenthub.model.contentfragment.impl.ContentFragmentFieldTypeImpl <em>Field Type</em>}' class.

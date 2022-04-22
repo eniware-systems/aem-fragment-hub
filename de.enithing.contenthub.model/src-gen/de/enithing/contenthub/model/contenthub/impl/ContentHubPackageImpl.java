@@ -11,8 +11,6 @@ import de.enithing.contenthub.model.contentfragment.corefields.impl.CorefieldsPa
 import de.enithing.contenthub.model.contentfragment.corefields.validation.ValidationPackage;
 import de.enithing.contenthub.model.contentfragment.corefields.validation.impl.ValidationPackageImpl;
 import de.enithing.contenthub.model.contentfragment.impl.ContentFragmentPackageImpl;
-
-import de.enithing.contenthub.model.contenthub.ChildContext;
 import de.enithing.contenthub.model.contenthub.ContentHubFactory;
 import de.enithing.contenthub.model.contenthub.ContentHubPackage;
 import de.enithing.contenthub.model.contenthub.Context;
@@ -21,8 +19,6 @@ import de.enithing.contenthub.model.contenthub.ContextPolicy;
 import de.enithing.contenthub.model.contenthub.ContextType;
 import de.enithing.contenthub.model.contenthub.Pair;
 import de.enithing.contenthub.model.contenthub.PathProvider;
-import de.enithing.contenthub.model.contenthub.RootContext;
-
 import de.enithing.contenthub.model.contenthub.SimplePath;
 import java.nio.file.Path;
 
@@ -78,20 +74,6 @@ public class ContentHubPackageImpl extends EPackageImpl implements ContentHubPac
 	 * @generated
 	 */
 	private EClass contextEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass rootContextEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass childContextEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -292,7 +274,7 @@ public class ContentHubPackageImpl extends EPackageImpl implements ContentHubPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getPackage_Description() {
+	public EAttribute getPackage_Title() {
 		return (EAttribute)packageEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -302,7 +284,7 @@ public class ContentHubPackageImpl extends EPackageImpl implements ContentHubPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getPackage_Author() {
+	public EAttribute getPackage_Description() {
 		return (EAttribute)packageEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -312,7 +294,7 @@ public class ContentHubPackageImpl extends EPackageImpl implements ContentHubPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getPackage_Version() {
+	public EAttribute getPackage_Author() {
 		return (EAttribute)packageEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -322,8 +304,8 @@ public class ContentHubPackageImpl extends EPackageImpl implements ContentHubPac
 	 * @generated
 	 */
 	@Override
-	public EReference getPackage_Contexts() {
-		return (EReference)packageEClass.getEStructuralFeatures().get(5);
+	public EAttribute getPackage_Version() {
+		return (EAttribute)packageEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -332,7 +314,47 @@ public class ContentHubPackageImpl extends EPackageImpl implements ContentHubPac
 	 * @generated
 	 */
 	@Override
-	public EOperation getPackage__CreateDefaultPackageStructure() {
+	public EReference getPackage_ContentFragmentModelSets() {
+		return (EReference)packageEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getPackage_ContentRoot() {
+		return (EReference)packageEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getPackage_ContentFragmentModelPath() {
+		return (EAttribute)packageEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getPackage_ContentPath() {
+		return (EAttribute)packageEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getPackage__GetAllContentFragmentModels() {
 		return packageEClass.getEOperations().get(0);
 	}
 
@@ -362,7 +384,7 @@ public class ContentHubPackageImpl extends EPackageImpl implements ContentHubPac
 	 * @generated
 	 */
 	@Override
-	public EReference getContext_ContentFragmentModels() {
+	public EReference getContext_ParentContext() {
 		return (EReference)contextEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -392,7 +414,7 @@ public class ContentHubPackageImpl extends EPackageImpl implements ContentHubPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getContext_RelativePath() {
+	public EAttribute getContext_Name() {
 		return (EAttribute)contextEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -432,7 +454,7 @@ public class ContentHubPackageImpl extends EPackageImpl implements ContentHubPac
 	 * @generated
 	 */
 	@Override
-	public EOperation getContext__GetRelatedContexts() {
+	public EOperation getContext__GetPoliciesByType__Class() {
 		return contextEClass.getEOperations().get(1);
 	}
 
@@ -442,58 +464,8 @@ public class ContentHubPackageImpl extends EPackageImpl implements ContentHubPac
 	 * @generated
 	 */
 	@Override
-	public EOperation getContext__GetRelatedPolicies() {
+	public EOperation getContext__GetPath() {
 		return contextEClass.getEOperations().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getContext__GetUnifiedTitle() {
-		return contextEClass.getEOperations().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getContext__GetUnifiedPrimaryType() {
-		return contextEClass.getEOperations().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getRootContext() {
-		return rootContextEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getChildContext() {
-		return childContextEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getChildContext_ParentContext() {
-		return (EReference)childContextEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -597,30 +569,27 @@ public class ContentHubPackageImpl extends EPackageImpl implements ContentHubPac
 		packageEClass = createEClass(PACKAGE);
 		createEAttribute(packageEClass, PACKAGE__NAME);
 		createEAttribute(packageEClass, PACKAGE__GROUP);
+		createEAttribute(packageEClass, PACKAGE__TITLE);
 		createEAttribute(packageEClass, PACKAGE__DESCRIPTION);
 		createEAttribute(packageEClass, PACKAGE__AUTHOR);
 		createEAttribute(packageEClass, PACKAGE__VERSION);
-		createEReference(packageEClass, PACKAGE__CONTEXTS);
-		createEOperation(packageEClass, PACKAGE___CREATE_DEFAULT_PACKAGE_STRUCTURE);
+		createEReference(packageEClass, PACKAGE__CONTENT_FRAGMENT_MODEL_SETS);
+		createEReference(packageEClass, PACKAGE__CONTENT_ROOT);
+		createEAttribute(packageEClass, PACKAGE__CONTENT_FRAGMENT_MODEL_PATH);
+		createEAttribute(packageEClass, PACKAGE__CONTENT_PATH);
+		createEOperation(packageEClass, PACKAGE___GET_ALL_CONTENT_FRAGMENT_MODELS);
 
 		contextEClass = createEClass(CONTEXT);
 		createEReference(contextEClass, CONTEXT__CHILD_CONTEXTS);
-		createEReference(contextEClass, CONTEXT__CONTENT_FRAGMENT_MODELS);
+		createEReference(contextEClass, CONTEXT__PARENT_CONTEXT);
 		createEReference(contextEClass, CONTEXT__CONTENT_FRAGMENTS);
 		createEReference(contextEClass, CONTEXT__POLICIES);
-		createEAttribute(contextEClass, CONTEXT__RELATIVE_PATH);
+		createEAttribute(contextEClass, CONTEXT__NAME);
 		createEAttribute(contextEClass, CONTEXT__TITLE);
 		createEAttribute(contextEClass, CONTEXT__PRIMARY_TYPE);
 		createEOperation(contextEClass, CONTEXT___GET_ROOT_CONTEXT);
-		createEOperation(contextEClass, CONTEXT___GET_RELATED_CONTEXTS);
-		createEOperation(contextEClass, CONTEXT___GET_RELATED_POLICIES);
-		createEOperation(contextEClass, CONTEXT___GET_UNIFIED_TITLE);
-		createEOperation(contextEClass, CONTEXT___GET_UNIFIED_PRIMARY_TYPE);
-
-		rootContextEClass = createEClass(ROOT_CONTEXT);
-
-		childContextEClass = createEClass(CHILD_CONTEXT);
-		createEReference(childContextEClass, CHILD_CONTEXT__PARENT_CONTEXT);
+		createEOperation(contextEClass, CONTEXT___GET_POLICIES_BY_TYPE__CLASS);
+		createEOperation(contextEClass, CONTEXT___GET_PATH);
 
 		contextPolicyEClass = createEClass(CONTEXT_POLICY);
 
@@ -673,8 +642,6 @@ public class ContentHubPackageImpl extends EPackageImpl implements ContentHubPac
 		// Add supertypes to classes
 		simplePathEClass.getESuperTypes().add(this.getPathProvider());
 		contextPathEClass.getESuperTypes().add(this.getPathProvider());
-		rootContextEClass.getESuperTypes().add(this.getContext());
-		childContextEClass.getESuperTypes().add(this.getContext());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(pathProviderEClass, PathProvider.class, "PathProvider", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -690,41 +657,45 @@ public class ContentHubPackageImpl extends EPackageImpl implements ContentHubPac
 		initEClass(packageEClass, de.enithing.contenthub.model.contenthub.Package.class, "Package", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPackage_Name(), ecorePackage.getEString(), "name", "my.content", 1, 1, de.enithing.contenthub.model.contenthub.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPackage_Group(), ecorePackage.getEString(), "group", "de.enithing", 1, 1, de.enithing.contenthub.model.contenthub.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPackage_Title(), ecorePackage.getEString(), "title", "My Content", 1, 1, de.enithing.contenthub.model.contenthub.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPackage_Description(), ecorePackage.getEString(), "description", "A new package", 1, 1, de.enithing.contenthub.model.contenthub.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPackage_Author(), ecorePackage.getEString(), "author", "admin", 1, 1, de.enithing.contenthub.model.contenthub.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPackage_Version(), ecorePackage.getEString(), "version", "1.0.0", 1, 1, de.enithing.contenthub.model.contenthub.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPackage_Contexts(), this.getRootContext(), null, "contexts", null, 0, -1, de.enithing.contenthub.model.contenthub.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPackage_ContentFragmentModelSets(), theContentFragmentPackage.getContentFragmentModelSet(), theContentFragmentPackage.getContentFragmentModelSet_Package(), "contentFragmentModelSets", null, 0, -1, de.enithing.contenthub.model.contenthub.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPackage_ContentRoot(), this.getContext(), null, "contentRoot", null, 1, 1, de.enithing.contenthub.model.contenthub.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPackage_ContentFragmentModelPath(), this.getPath(), "contentFragmentModelPath", "/conf/$packageName/settings/dam/cfm/models", 1, 1, de.enithing.contenthub.model.contenthub.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPackage_ContentPath(), this.getPath(), "contentPath", "/content/dam/$packageName", 1, 1, de.enithing.contenthub.model.contenthub.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getPackage__CreateDefaultPackageStructure(), null, "createDefaultPackageStructure", 0, 0, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getPackage__GetAllContentFragmentModels(), theContentFragmentPackage.getContentFragmentModel(), "getAllContentFragmentModels", 0, -1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(contextEClass, Context.class, "Context", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getContext_ChildContexts(), this.getChildContext(), this.getChildContext_ParentContext(), "childContexts", null, 0, -1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getContext_ContentFragmentModels(), theContentFragmentPackage.getContentFragmentModel(), theContentFragmentPackage.getContentFragmentModel_Context(), "contentFragmentModels", null, 0, -1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getContext_ChildContexts(), this.getContext(), this.getContext_ParentContext(), "childContexts", null, 0, -1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getContext_ParentContext(), this.getContext(), this.getContext_ChildContexts(), "parentContext", null, 0, 1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getContext_ContentFragments(), theContentFragmentPackage.getContentFragmentInstance(), theContentFragmentPackage.getContentFragmentInstance_Context(), "contentFragments", null, 0, -1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getContext_Policies(), this.getContextPolicy(), null, "policies", null, 0, -1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getContext_RelativePath(), this.getPath(), "relativePath", "/child", 1, 1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getContext_Name(), ecorePackage.getEString(), "name", "new_context", 1, 1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getContext_Title(), ecorePackage.getEString(), "title", null, 0, 1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getContext_PrimaryType(), this.getContextType(), "primaryType", "undefined", 1, 1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getContext__GetRootContext(), this.getRootContext(), "getRootContext", 1, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getContext__GetRootContext(), this.getContext(), "getRootContext", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getContext__GetRelatedContexts(), this.getContext(), "getRelatedContexts", 0, -1, IS_UNIQUE, IS_ORDERED);
+		EOperation op = initEOperation(getContext__GetPoliciesByType__Class(), null, "getPoliciesByType", 0, -1, IS_UNIQUE, IS_ORDERED);
+		ETypeParameter t1 = addETypeParameter(op, "TPolicy");
+		EGenericType g1 = createEGenericType(this.getContextPolicy());
+		t1.getEBounds().add(g1);
+		g1 = createEGenericType(ecorePackage.getEJavaClass());
+		EGenericType g2 = createEGenericType(t1);
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "clazz", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(t1);
+		initEOperation(op, g1);
 
-		initEOperation(getContext__GetRelatedPolicies(), this.getContextPolicy(), "getRelatedPolicies", 0, -1, IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getContext__GetUnifiedTitle(), ecorePackage.getEString(), "getUnifiedTitle", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getContext__GetUnifiedPrimaryType(), this.getContextType(), "getUnifiedPrimaryType", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEClass(rootContextEClass, RootContext.class, "RootContext", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(childContextEClass, ChildContext.class, "ChildContext", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getChildContext_ParentContext(), this.getContext(), this.getContext_ChildContexts(), "parentContext", null, 1, 1, ChildContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEOperation(getContext__GetPath(), this.getPath(), "getPath", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(contextPolicyEClass, ContextPolicy.class, "ContextPolicy", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(pairEClass, Pair.class, "Pair", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		EGenericType g1 = createEGenericType(pairEClass_TKey);
+		g1 = createEGenericType(pairEClass_TKey);
 		initEAttribute(getPair_Key(), g1, "key", null, 1, 1, Pair.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		g1 = createEGenericType(pairEClass_TValue);
 		initEAttribute(getPair_Value(), g1, "value", null, 1, 1, Pair.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

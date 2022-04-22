@@ -4,7 +4,6 @@ package de.enithing.contenthub.model.contentfragment.corefields.provider;
 
 
 import de.enithing.contenthub.edit.ContentHubEditPlugin;
-
 import de.enithing.contenthub.model.contentfragment.ContentFragmentPackage;
 
 import de.enithing.contenthub.model.contentfragment.corefields.CorefieldsPackage;

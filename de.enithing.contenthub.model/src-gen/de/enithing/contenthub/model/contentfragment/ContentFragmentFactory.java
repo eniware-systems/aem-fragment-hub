@@ -22,6 +22,15 @@ public interface ContentFragmentFactory extends EFactory {
 	ContentFragmentFactory eINSTANCE = de.enithing.contenthub.model.contentfragment.impl.ContentFragmentFactoryImpl.init();
 
 	/**
+	 * Returns a new object of class '<em>Model Set</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Model Set</em>'.
+	 * @generated
+	 */
+	ContentFragmentModelSet createContentFragmentModelSet();
+
+	/**
 	 * Returns a new object of class '<em>Model</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

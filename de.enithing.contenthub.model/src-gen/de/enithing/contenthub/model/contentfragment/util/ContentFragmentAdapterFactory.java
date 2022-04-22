@@ -69,6 +69,10 @@ public class ContentFragmentAdapterFactory extends AdapterFactoryImpl {
 	protected ContentFragmentSwitch<Adapter> modelSwitch =
 		new ContentFragmentSwitch<Adapter>() {
 			@Override
+			public Adapter caseContentFragmentModelSet(ContentFragmentModelSet object) {
+				return createContentFragmentModelSetAdapter();
+			}
+			@Override
 			public Adapter caseContentFragmentModel(ContentFragmentModel object) {
 				return createContentFragmentModelAdapter();
 			}
@@ -127,6 +131,20 @@ public class ContentFragmentAdapterFactory extends AdapterFactoryImpl {
 		return modelSwitch.doSwitch((EObject)target);
 	}
 
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.enithing.contenthub.model.contentfragment.ContentFragmentModelSet <em>Model Set</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.enithing.contenthub.model.contentfragment.ContentFragmentModelSet
+	 * @generated
+	 */
+	public Adapter createContentFragmentModelSetAdapter() {
+		return null;
+	}
 
 	/**
 	 * Creates a new adapter for an object of class '{@link de.enithing.contenthub.model.contentfragment.ContentFragmentModel <em>Model</em>}'.

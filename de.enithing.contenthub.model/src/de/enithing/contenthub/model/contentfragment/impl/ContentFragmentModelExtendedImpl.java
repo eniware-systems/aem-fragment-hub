@@ -14,6 +14,7 @@ import de.enithing.contenthub.model.contentfragment.ContentFragmentModel;
 import de.enithing.contenthub.model.contentfragment.ContentFragmentPackage;
 import de.enithing.contenthub.model.contentfragment.util.ContentFragmentUtils;
 import de.enithing.contenthub.model.contentfragment.util.NameGenerationUtils;
+import de.enithing.contenthub.model.contenthub.Package;
 import de.enithing.contenthub.model.contenthub.util.ContextUtils;
 
 /**
@@ -81,12 +82,22 @@ public class ContentFragmentModelExtendedImpl extends ContentFragmentModelImpl {
 
 	@Override
 	public void setId(String newId) {
-		if (getContext() != null) {
-			Collection<ContentFragmentModel> allModels = ContentFragmentUtils
-					.getAllModelsForContext(getContext(), false).stream().filter(mdl -> mdl != this).toList();
-
-			newId = NameGenerationUtils.generateName(newId, allModels, mdl -> mdl.getId(), "{0}_{1}");
+		if (getModelSet() == null) {
+			super.setId(newId);
+			return;
 		}
+
+		Package pkg = getModelSet().getPackage();
+
+		if (pkg == null) {
+			super.setId(newId);
+			return;
+		}
+
+		Collection<ContentFragmentModel> allModels = pkg.getAllContentFragmentModels().stream()
+				.filter(mdl -> mdl != this).toList();
+
+		newId = NameGenerationUtils.generateName(newId, allModels, mdl -> mdl.getId(), "{0}_{1}");
 
 		super.setId(newId);
 	}

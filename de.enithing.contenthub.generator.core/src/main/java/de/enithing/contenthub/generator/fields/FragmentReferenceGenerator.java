@@ -31,8 +31,7 @@ public class FragmentReferenceGenerator extends ContentFragmentMultiFieldGenerat
 		attribs.put("filter", "hierarchy");
 
 		List<Path> allowedModelPaths = element.getAllowedModels().stream()
-				.map(mdl -> VelocityUtils.replace(ContextUtils.getJcrPath(mdl.getContext(), true), ctx))
-				.collect(Collectors.toList());
+				.map(mdl -> VelocityUtils.replace(mdl.getPath(), ctx)).collect(Collectors.toList());
 		attribs.put("fragmentmodelreference", allowedModelPaths);
 
 		attribs.put("allowNew", element.isAllowFragmentCreation());

@@ -3,8 +3,6 @@
 package de.enithing.contenthub.model.contenthub;
 
 import de.enithing.contenthub.model.contentfragment.ContentFragmentInstance;
-import de.enithing.contenthub.model.contentfragment.ContentFragmentModel;
-
 import java.nio.file.Path;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
@@ -19,10 +17,10 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link de.enithing.contenthub.model.contenthub.Context#getChildContexts <em>Child Contexts</em>}</li>
- *   <li>{@link de.enithing.contenthub.model.contenthub.Context#getContentFragmentModels <em>Content Fragment Models</em>}</li>
+ *   <li>{@link de.enithing.contenthub.model.contenthub.Context#getParentContext <em>Parent Context</em>}</li>
  *   <li>{@link de.enithing.contenthub.model.contenthub.Context#getContentFragments <em>Content Fragments</em>}</li>
  *   <li>{@link de.enithing.contenthub.model.contenthub.Context#getPolicies <em>Policies</em>}</li>
- *   <li>{@link de.enithing.contenthub.model.contenthub.Context#getRelativePath <em>Relative Path</em>}</li>
+ *   <li>{@link de.enithing.contenthub.model.contenthub.Context#getName <em>Name</em>}</li>
  *   <li>{@link de.enithing.contenthub.model.contenthub.Context#getTitle <em>Title</em>}</li>
  *   <li>{@link de.enithing.contenthub.model.contenthub.Context#getPrimaryType <em>Primary Type</em>}</li>
  * </ul>
@@ -34,31 +32,41 @@ import org.eclipse.emf.ecore.EObject;
 public interface Context extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Child Contexts</b></em>' containment reference list.
-	 * The list contents are of type {@link de.enithing.contenthub.model.contenthub.ChildContext}.
-	 * It is bidirectional and its opposite is '{@link de.enithing.contenthub.model.contenthub.ChildContext#getParentContext <em>Parent Context</em>}'.
+	 * The list contents are of type {@link de.enithing.contenthub.model.contenthub.Context}.
+	 * It is bidirectional and its opposite is '{@link de.enithing.contenthub.model.contenthub.Context#getParentContext <em>Parent Context</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Child Contexts</em>' containment reference list.
 	 * @see de.enithing.contenthub.model.contenthub.ContentHubPackage#getContext_ChildContexts()
-	 * @see de.enithing.contenthub.model.contenthub.ChildContext#getParentContext
+	 * @see de.enithing.contenthub.model.contenthub.Context#getParentContext
 	 * @model opposite="parentContext" containment="true"
 	 * @generated
 	 */
-	EList<ChildContext> getChildContexts();
+	EList<Context> getChildContexts();
 
 	/**
-	 * Returns the value of the '<em><b>Content Fragment Models</b></em>' containment reference list.
-	 * The list contents are of type {@link de.enithing.contenthub.model.contentfragment.ContentFragmentModel}.
-	 * It is bidirectional and its opposite is '{@link de.enithing.contenthub.model.contentfragment.ContentFragmentModel#getContext <em>Context</em>}'.
+	 * Returns the value of the '<em><b>Parent Context</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link de.enithing.contenthub.model.contenthub.Context#getChildContexts <em>Child Contexts</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Content Fragment Models</em>' containment reference list.
-	 * @see de.enithing.contenthub.model.contenthub.ContentHubPackage#getContext_ContentFragmentModels()
-	 * @see de.enithing.contenthub.model.contentfragment.ContentFragmentModel#getContext
-	 * @model opposite="context" containment="true"
+	 * @return the value of the '<em>Parent Context</em>' container reference.
+	 * @see #setParentContext(Context)
+	 * @see de.enithing.contenthub.model.contenthub.ContentHubPackage#getContext_ParentContext()
+	 * @see de.enithing.contenthub.model.contenthub.Context#getChildContexts
+	 * @model opposite="childContexts" transient="false"
 	 * @generated
 	 */
-	EList<ContentFragmentModel> getContentFragmentModels();
+	Context getParentContext();
+
+	/**
+	 * Sets the value of the '{@link de.enithing.contenthub.model.contenthub.Context#getParentContext <em>Parent Context</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Parent Context</em>' container reference.
+	 * @see #getParentContext()
+	 * @generated
+	 */
+	void setParentContext(Context value);
 
 	/**
 	 * Returns the value of the '<em><b>Content Fragments</b></em>' containment reference list.
@@ -87,27 +95,27 @@ public interface Context extends EObject {
 	EList<ContextPolicy> getPolicies();
 
 	/**
-	 * Returns the value of the '<em><b>Relative Path</b></em>' attribute.
-	 * The default value is <code>"/child"</code>.
+	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * The default value is <code>"new_context"</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Relative Path</em>' attribute.
-	 * @see #setRelativePath(Path)
-	 * @see de.enithing.contenthub.model.contenthub.ContentHubPackage#getContext_RelativePath()
-	 * @model default="/child" dataType="de.enithing.contenthub.model.contenthub.Path" required="true"
+	 * @return the value of the '<em>Name</em>' attribute.
+	 * @see #setName(String)
+	 * @see de.enithing.contenthub.model.contenthub.ContentHubPackage#getContext_Name()
+	 * @model default="new_context" required="true"
 	 * @generated
 	 */
-	Path getRelativePath();
+	String getName();
 
 	/**
-	 * Sets the value of the '{@link de.enithing.contenthub.model.contenthub.Context#getRelativePath <em>Relative Path</em>}' attribute.
+	 * Sets the value of the '{@link de.enithing.contenthub.model.contenthub.Context#getName <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Relative Path</em>' attribute.
-	 * @see #getRelativePath()
+	 * @param value the new value of the '<em>Name</em>' attribute.
+	 * @see #getName()
 	 * @generated
 	 */
-	void setRelativePath(Path value);
+	void setName(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Title</b></em>' attribute.
@@ -163,38 +171,22 @@ public interface Context extends EObject {
 	 * @model kind="operation" required="true"
 	 * @generated
 	 */
-	RootContext getRootContext();
+	Context getRootContext();
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model kind="operation"
+	 * @model
 	 * @generated
 	 */
-	EList<Context> getRelatedContexts();
+	<TPolicy extends ContextPolicy> EList<TPolicy> getPoliciesByType(Class<TPolicy> clazz);
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model kind="operation"
+	 * @model kind="operation" dataType="de.enithing.contenthub.model.contenthub.Path" required="true"
 	 * @generated
 	 */
-	EList<ContextPolicy> getRelatedPolicies();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model kind="operation"
-	 * @generated
-	 */
-	String getUnifiedTitle();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model kind="operation"
-	 * @generated
-	 */
-	ContextType getUnifiedPrimaryType();
+	Path getPath();
 
 } // Context

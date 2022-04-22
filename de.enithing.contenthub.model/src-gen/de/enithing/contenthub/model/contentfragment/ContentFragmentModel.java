@@ -2,10 +2,8 @@
  */
 package de.enithing.contenthub.model.contentfragment;
 
-import de.enithing.contenthub.model.contenthub.Context;
-
+import java.nio.file.Path;
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -18,10 +16,10 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link de.enithing.contenthub.model.contentfragment.ContentFragmentModel#getFields <em>Fields</em>}</li>
- *   <li>{@link de.enithing.contenthub.model.contentfragment.ContentFragmentModel#getContext <em>Context</em>}</li>
  *   <li>{@link de.enithing.contenthub.model.contentfragment.ContentFragmentModel#getId <em>Id</em>}</li>
  *   <li>{@link de.enithing.contenthub.model.contentfragment.ContentFragmentModel#getTitle <em>Title</em>}</li>
  *   <li>{@link de.enithing.contenthub.model.contentfragment.ContentFragmentModel#getDescription <em>Description</em>}</li>
+ *   <li>{@link de.enithing.contenthub.model.contentfragment.ContentFragmentModel#getModelSet <em>Model Set</em>}</li>
  * </ul>
  *
  * @see de.enithing.contenthub.model.contentfragment.ContentFragmentPackage#getContentFragmentModel()
@@ -40,30 +38,6 @@ public interface ContentFragmentModel extends EObject {
 	 * @generated
 	 */
 	EList<ContentFragmentFieldType> getFields();
-
-	/**
-	 * Returns the value of the '<em><b>Context</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link de.enithing.contenthub.model.contenthub.Context#getContentFragmentModels <em>Content Fragment Models</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Context</em>' container reference.
-	 * @see #setContext(Context)
-	 * @see de.enithing.contenthub.model.contentfragment.ContentFragmentPackage#getContentFragmentModel_Context()
-	 * @see de.enithing.contenthub.model.contenthub.Context#getContentFragmentModels
-	 * @model opposite="contentFragmentModels" required="true" transient="false"
-	 * @generated
-	 */
-	Context getContext();
-
-	/**
-	 * Sets the value of the '{@link de.enithing.contenthub.model.contentfragment.ContentFragmentModel#getContext <em>Context</em>}' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Context</em>' container reference.
-	 * @see #getContext()
-	 * @generated
-	 */
-	void setContext(Context value);
 
 	/**
 	 * Returns the value of the '<em><b>Id</b></em>' attribute.
@@ -132,11 +106,43 @@ public interface ContentFragmentModel extends EObject {
 	void setDescription(String value);
 
 	/**
+	 * Returns the value of the '<em><b>Model Set</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link de.enithing.contenthub.model.contentfragment.ContentFragmentModelSet#getModels <em>Models</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Model Set</em>' container reference.
+	 * @see #setModelSet(ContentFragmentModelSet)
+	 * @see de.enithing.contenthub.model.contentfragment.ContentFragmentPackage#getContentFragmentModel_ModelSet()
+	 * @see de.enithing.contenthub.model.contentfragment.ContentFragmentModelSet#getModels
+	 * @model opposite="models" required="true" transient="false"
+	 * @generated
+	 */
+	ContentFragmentModelSet getModelSet();
+
+	/**
+	 * Sets the value of the '{@link de.enithing.contenthub.model.contentfragment.ContentFragmentModel#getModelSet <em>Model Set</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Model Set</em>' container reference.
+	 * @see #getModelSet()
+	 * @generated
+	 */
+	void setModelSet(ContentFragmentModelSet value);
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model kind="operation"
 	 * @generated
 	 */
-	EList<ContentFragmentFieldType<?>> getAllChildren();
+	EList<ContentFragmentFieldType<?>> getAllFields();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" dataType="de.enithing.contenthub.model.contenthub.Path" required="true"
+	 * @generated
+	 */
+	Path getPath();
 
 } // ContentFragmentModel

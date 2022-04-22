@@ -16,7 +16,8 @@ import junit.textui.TestRunner;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link de.enithing.contenthub.model.contentfragment.ContentFragmentModel#getAllChildren() <em>Get All Children</em>}</li>
+ *   <li>{@link de.enithing.contenthub.model.contentfragment.ContentFragmentModel#getAllFields() <em>Get All Fields</em>}</li>
+ *   <li>{@link de.enithing.contenthub.model.contentfragment.ContentFragmentModel#getPath() <em>Get Path</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -93,13 +94,26 @@ public class ContentFragmentModelTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link de.enithing.contenthub.model.contentfragment.ContentFragmentModel#getAllChildren() <em>Get All Children</em>}' operation.
+	 * Tests the '{@link de.enithing.contenthub.model.contentfragment.ContentFragmentModel#getAllFields() <em>Get All Fields</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see de.enithing.contenthub.model.contentfragment.ContentFragmentModel#getAllChildren()
+	 * @see de.enithing.contenthub.model.contentfragment.ContentFragmentModel#getAllFields()
 	 * @generated
 	 */
-	public void testGetAllChildren() {
+	public void testGetAllFields() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link de.enithing.contenthub.model.contentfragment.ContentFragmentModel#getPath() <em>Get Path</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.enithing.contenthub.model.contentfragment.ContentFragmentModel#getPath()
+	 * @generated
+	 */
+	public void testGetPath() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

@@ -36,7 +36,7 @@ public class MultiLineTextGenerator extends ContentFragmentMultiFieldGenerator<M
 		
 		if(!element.getAllowedFragmentModels().isEmpty()) {
 			List<Path> allowedFragmentModelPaths = element.getAllowedFragmentModels().stream()
-					.map(mdl -> VelocityUtils.replace(ContextUtils.getJcrPath(mdl.getContext(), true), ctx))
+					.map(mdl -> VelocityUtils.replace(mdl.getPath(), ctx))
 					.collect(Collectors.toList());
 			attribs.put("fragmentmodelreference", allowedFragmentModelPaths);
 		}

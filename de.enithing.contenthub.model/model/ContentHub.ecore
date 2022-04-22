@@ -15,19 +15,28 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="Path" instanceClassName="java.nio.file.Path"/>
   <eClassifiers xsi:type="ecore:EClass" name="Package">
-    <eOperations name="createDefaultPackageStructure" upperBound="0"/>
+    <eOperations name="getAllContentFragmentModels" upperBound="-1" eType="#//contentfragment/ContentFragmentModel"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="my.content" iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="group" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="de.enithing"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="My Content"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="A new package"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="author" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="admin"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="1.0.0"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="contexts" upperBound="-1"
-        eType="#//RootContext" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contentFragmentModelSets"
+        upperBound="-1" eType="#//contentfragment/ContentFragmentModelSet" containment="true"
+        eOpposite="#//contentfragment/ContentFragmentModelSet/package"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contentRoot" lowerBound="1"
+        eType="#//Context" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="contentFragmentModelPath"
+        lowerBound="1" eType="#//Path" defaultValueLiteral="/conf/$packageName/settings/dam/cfm/models"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="contentPath" lowerBound="1"
+        eType="#//Path" defaultValueLiteral="/content/dam/$packageName"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ContextType">
     <eLiterals name="undefined"/>
@@ -35,30 +44,32 @@
     <eLiterals name="page" value="2" literal="cq:Page"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Context">
-    <eOperations name="getRootContext" lowerBound="1" eType="#//RootContext"/>
-    <eOperations name="getRelatedContexts" upperBound="-1" eType="#//Context"/>
-    <eOperations name="getRelatedPolicies" upperBound="-1" eType="#//ContextPolicy"/>
-    <eOperations name="getUnifiedTitle" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eOperations name="getUnifiedPrimaryType" eType="#//ContextType"/>
+    <eOperations name="getRootContext" lowerBound="1" eType="#//Context"/>
+    <eOperations name="getPoliciesByType" upperBound="-1">
+      <eGenericType eTypeParameter="#//Context/getPoliciesByType/TPolicy"/>
+      <eTypeParameters name="TPolicy">
+        <eBounds eClassifier="#//ContextPolicy"/>
+      </eTypeParameters>
+      <eParameters name="clazz">
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaClass">
+          <eTypeArguments eTypeParameter="#//Context/getPoliciesByType/TPolicy"/>
+        </eGenericType>
+      </eParameters>
+    </eOperations>
+    <eOperations name="getPath" lowerBound="1" eType="#//Path"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="childContexts" upperBound="-1"
-        eType="#//ChildContext" containment="true" eOpposite="#//ChildContext/parentContext"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="contentFragmentModels"
-        upperBound="-1" eType="#//contentfragment/ContentFragmentModel" containment="true"
-        eOpposite="#//contentfragment/ContentFragmentModel/context"/>
+        eType="#//Context" containment="true" eOpposite="#//Context/parentContext"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parentContext" eType="#//Context"
+        eOpposite="#//Context/childContexts"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="contentFragments" upperBound="-1"
         eType="#//contentfragment/ContentFragmentInstance" containment="true" eOpposite="#//contentfragment/ContentFragmentInstance/context"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="policies" upperBound="-1"
         eType="#//ContextPolicy" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="relativePath" lowerBound="1"
-        eType="#//Path" defaultValueLiteral="/child"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="new_context"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="primaryType" lowerBound="1"
         eType="#//ContextType" defaultValueLiteral="undefined"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RootContext" eSuperTypes="#//Context"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ChildContext" eSuperTypes="#//Context">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parentContext" lowerBound="1"
-        eType="#//Context" eOpposite="#//Context/childContexts"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ContextPolicy" abstract="true" interface="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="Pair">
@@ -73,21 +84,30 @@
   </eClassifiers>
   <eSubpackages name="contentfragment" nsURI="https://aemcontenthub.eniware-systems.de/ns/contentfragments"
       nsPrefix="chub">
+    <eClassifiers xsi:type="ecore:EClass" name="ContentFragmentModelSet">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="models" upperBound="-1"
+          eType="#//contentfragment/ContentFragmentModel" containment="true" eOpposite="#//contentfragment/ContentFragmentModel/modelSet"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="package" lowerBound="1"
+          eType="#//Package" eOpposite="#//Package/contentFragmentModelSets"/>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ContentFragmentModel">
-      <eOperations name="getAllChildren" upperBound="-1">
+      <eOperations name="getAllFields" upperBound="-1">
         <eGenericType eClassifier="#//contentfragment/ContentFragmentFieldType">
           <eTypeArguments/>
         </eGenericType>
       </eOperations>
+      <eOperations name="getPath" lowerBound="1" eType="#//Path"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="fields" upperBound="-1"
           eType="#//contentfragment/ContentFragmentFieldType" containment="true" eKeys="#//contentfragment/ContentFragmentFieldType/propertyName"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="context" lowerBound="1"
-          eType="#//Context" eOpposite="#//Context/contentFragmentModels"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           iD="true"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="modelSet" lowerBound="1"
+          eType="#//contentfragment/ContentFragmentModelSet" eOpposite="#//contentfragment/ContentFragmentModelSet/models"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ContentFragmentFieldType" abstract="true">
       <eTypeParameters name="TValue">

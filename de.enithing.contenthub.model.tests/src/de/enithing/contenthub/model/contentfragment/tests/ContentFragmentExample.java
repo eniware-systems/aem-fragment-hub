@@ -3,7 +3,7 @@
 package de.enithing.contenthub.model.contentfragment.tests;
 
 import de.enithing.contenthub.model.contentfragment.ContentFragmentFactory;
-import de.enithing.contenthub.model.contentfragment.ContentFragmentModel;
+import de.enithing.contenthub.model.contentfragment.ContentFragmentModelSet;
 import de.enithing.contenthub.model.contentfragment.ContentFragmentPackage;
 
 import java.io.File;
@@ -60,7 +60,7 @@ public class ContentFragmentExample {
 			System.out.println("Enter a list of file paths or URIs that have content like this:");
 			try {
 				Resource resource = resourceSet.createResource(URI.createURI("http:///My.contentfragment"));
-				ContentFragmentModel root = ContentFragmentFactory.eINSTANCE.createContentFragmentModel();
+				ContentFragmentModelSet root = ContentFragmentFactory.eINSTANCE.createContentFragmentModelSet();
 				resource.getContents().add(root);
 				resource.save(System.out, null);
 			}

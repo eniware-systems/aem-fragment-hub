@@ -1,5 +1,6 @@
 package de.enithing.contenthub.model.contentfragment.util;
 
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
@@ -10,9 +11,11 @@ import de.enithing.contenthub.model.contentfragment.ContentFragmentFieldType;
 import de.enithing.contenthub.model.contentfragment.ContentFragmentModel;
 import de.enithing.contenthub.model.contentfragment.GroupFieldType;
 import de.enithing.contenthub.model.contenthub.Context;
+import de.enithing.contenthub.model.contenthub.Package;
 import de.enithing.contenthub.model.contenthub.util.ContextUtils;
 
 public class ContentFragmentModelUtils {
+	
 	private ContentFragmentModelUtils() {
 	}
 
@@ -33,5 +36,9 @@ public class ContentFragmentModelUtils {
 		}
 
 		return results;
+	}
+	
+	public static Path getPath(ContentFragmentModel mdl) {
+		return mdl.getModelSet().getPackage().getContentFragmentModelPath().resolve(mdl.getId());
 	}
 }

@@ -17,10 +17,8 @@ import junit.textui.TestRunner;
  * The following operations are tested:
  * <ul>
  *   <li>{@link de.enithing.contenthub.model.contenthub.Context#getRootContext() <em>Get Root Context</em>}</li>
- *   <li>{@link de.enithing.contenthub.model.contenthub.Context#getRelatedContexts() <em>Get Related Contexts</em>}</li>
- *   <li>{@link de.enithing.contenthub.model.contenthub.Context#getRelatedPolicies() <em>Get Related Policies</em>}</li>
- *   <li>{@link de.enithing.contenthub.model.contenthub.Context#getUnifiedTitle() <em>Get Unified Title</em>}</li>
- *   <li>{@link de.enithing.contenthub.model.contenthub.Context#getUnifiedPrimaryType() <em>Get Unified Primary Type</em>}</li>
+ *   <li>{@link de.enithing.contenthub.model.contenthub.Context#getPoliciesByType(java.lang.Class) <em>Get Policies By Type</em>}</li>
+ *   <li>{@link de.enithing.contenthub.model.contenthub.Context#getPath() <em>Get Path</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -110,52 +108,26 @@ public class ContextTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link de.enithing.contenthub.model.contenthub.Context#getRelatedContexts() <em>Get Related Contexts</em>}' operation.
+	 * Tests the '{@link de.enithing.contenthub.model.contenthub.Context#getPoliciesByType(java.lang.Class) <em>Get Policies By Type</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see de.enithing.contenthub.model.contenthub.Context#getRelatedContexts()
+	 * @see de.enithing.contenthub.model.contenthub.Context#getPoliciesByType(java.lang.Class)
 	 * @generated
 	 */
-	public void testGetRelatedContexts() {
+	public void testGetPoliciesByType__Class() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
 	}
 
 	/**
-	 * Tests the '{@link de.enithing.contenthub.model.contenthub.Context#getRelatedPolicies() <em>Get Related Policies</em>}' operation.
+	 * Tests the '{@link de.enithing.contenthub.model.contenthub.Context#getPath() <em>Get Path</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see de.enithing.contenthub.model.contenthub.Context#getRelatedPolicies()
+	 * @see de.enithing.contenthub.model.contenthub.Context#getPath()
 	 * @generated
 	 */
-	public void testGetRelatedPolicies() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link de.enithing.contenthub.model.contenthub.Context#getUnifiedTitle() <em>Get Unified Title</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.enithing.contenthub.model.contenthub.Context#getUnifiedTitle()
-	 * @generated
-	 */
-	public void testGetUnifiedTitle() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link de.enithing.contenthub.model.contenthub.Context#getUnifiedPrimaryType() <em>Get Unified Primary Type</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.enithing.contenthub.model.contenthub.Context#getUnifiedPrimaryType()
-	 * @generated
-	 */
-	public void testGetUnifiedPrimaryType() {
+	public void testGetPath() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

@@ -15,7 +15,7 @@ import junit.textui.TestRunner;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link de.enithing.contenthub.model.contenthub.Package#createDefaultPackageStructure() <em>Create Default Package Structure</em>}</li>
+ *   <li>{@link de.enithing.contenthub.model.contenthub.Package#getAllContentFragmentModels() <em>Get All Content Fragment Models</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -92,13 +92,13 @@ public class PackageTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link de.enithing.contenthub.model.contenthub.Package#createDefaultPackageStructure() <em>Create Default Package Structure</em>}' operation.
+	 * Tests the '{@link de.enithing.contenthub.model.contenthub.Package#getAllContentFragmentModels() <em>Get All Content Fragment Models</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see de.enithing.contenthub.model.contenthub.Package#createDefaultPackageStructure()
+	 * @see de.enithing.contenthub.model.contenthub.Package#getAllContentFragmentModels()
 	 * @generated
 	 */
-	public void testCreateDefaultPackageStructure() {
+	public void testGetAllContentFragmentModels() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

@@ -56,6 +56,7 @@ public class ContentFragmentFactoryImpl extends EFactoryImpl implements ContentF
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
+			case ContentFragmentPackage.CONTENT_FRAGMENT_MODEL_SET: return createContentFragmentModelSet();
 			case ContentFragmentPackage.CONTENT_FRAGMENT_MODEL: return createContentFragmentModel();
 			case ContentFragmentPackage.CONTENT_FRAGMENT_INSTANCE: return createContentFragmentInstance();
 			case ContentFragmentPackage.CONTENT_FRAGMENT_FIELD_INSTANCE: return createContentFragmentFieldInstance();
@@ -63,6 +64,17 @@ public class ContentFragmentFactoryImpl extends EFactoryImpl implements ContentF
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ContentFragmentModelSet createContentFragmentModelSet() {
+		ContentFragmentModelSetImpl contentFragmentModelSet = new ContentFragmentModelSetImpl();
+		return contentFragmentModelSet;
 	}
 
 	/**

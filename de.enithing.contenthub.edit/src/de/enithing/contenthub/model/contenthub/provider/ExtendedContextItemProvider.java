@@ -12,9 +12,9 @@ import de.enithing.contenthub.model.contenthub.ContentHubPackage;
 import de.enithing.contenthub.model.contenthub.Context;
 import de.enithing.contenthub.model.contentfragment.util.ContentFragmentUtils;
 
-public class ExtendedChildContextItemProvider extends ChildContextItemProvider {
+public class ExtendedContextItemProvider extends ContextItemProvider {
 
-	public ExtendedChildContextItemProvider(AdapterFactory adapterFactory) {
+	public ExtendedContextItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 		// TODO Auto-generated constructor stub
 	}

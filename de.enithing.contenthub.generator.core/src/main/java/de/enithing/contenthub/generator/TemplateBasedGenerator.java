@@ -52,7 +52,7 @@ public interface TemplateBasedGenerator<T> extends Generator<T> {
 
 		return ctx;
 	}
-
+	
 	default public Template resolveTemplate(T element) {
 		return resolveTemplate(element, StringUtils.EMPTY);
 	}

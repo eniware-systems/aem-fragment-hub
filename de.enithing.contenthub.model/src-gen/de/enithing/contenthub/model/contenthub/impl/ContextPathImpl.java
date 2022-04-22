@@ -5,7 +5,6 @@ package de.enithing.contenthub.model.contenthub.impl;
 import de.enithing.contenthub.model.contenthub.ContentHubPackage;
 import de.enithing.contenthub.model.contenthub.Context;
 import de.enithing.contenthub.model.contenthub.ContextPath;
-import de.enithing.contenthub.model.contenthub.util.ContextUtils;
 
 import java.lang.reflect.InvocationTargetException;
 
@@ -110,7 +109,7 @@ public class ContextPathImpl extends MinimalEObjectImpl.Container implements Con
 	 */
 	@Override
 	public Path getPath() {
-		return ContextUtils.getJcrPath(getContext(), true);
+		return getContext().getPath();
 	}
 
 	/**

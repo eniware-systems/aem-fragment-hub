@@ -6,12 +6,9 @@ package de.enithing.contenthub.model.contenthub.provider;
 import de.enithing.contenthub.edit.ContentHubEditPlugin;
 
 import de.enithing.contenthub.model.contentfragment.ContentFragmentFactory;
-
 import de.enithing.contenthub.model.contenthub.ContentHubFactory;
 import de.enithing.contenthub.model.contenthub.ContentHubPackage;
 import de.enithing.contenthub.model.contenthub.Context;
-
-import java.nio.file.Path;
 import java.util.Collection;
 import java.util.List;
 
@@ -69,7 +66,7 @@ public class ContextItemProvider
 			super.getPropertyDescriptors(object);
 
 			addChildContextsPropertyDescriptor(object);
-			addRelativePathPropertyDescriptor(object);
+			addNamePropertyDescriptor(object);
 			addTitlePropertyDescriptor(object);
 			addPrimaryTypePropertyDescriptor(object);
 		}
@@ -99,19 +96,19 @@ public class ContextItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Relative Path feature.
+	 * This adds a property descriptor for the Name feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addRelativePathPropertyDescriptor(Object object) {
+	protected void addNamePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Context_relativePath_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Context_relativePath_feature", "_UI_Context_type"),
-				 ContentHubPackage.Literals.CONTEXT__RELATIVE_PATH,
+				 getString("_UI_Context_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Context_name_feature", "_UI_Context_type"),
+				 ContentHubPackage.Literals.CONTEXT__NAME,
 				 true,
 				 false,
 				 false,
@@ -177,7 +174,6 @@ public class ContextItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(ContentHubPackage.Literals.CONTEXT__CHILD_CONTEXTS);
-			childrenFeatures.add(ContentHubPackage.Literals.CONTEXT__CONTENT_FRAGMENT_MODELS);
 			childrenFeatures.add(ContentHubPackage.Literals.CONTEXT__CONTENT_FRAGMENTS);
 			childrenFeatures.add(ContentHubPackage.Literals.CONTEXT__POLICIES);
 		}
@@ -216,8 +212,7 @@ public class ContextItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		Path labelValue = ((Context)object).getRelativePath();
-		String label = labelValue == null ? null : labelValue.toString();
+		String label = ((Context)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Context_type") :
 			getString("_UI_Context_type") + " " + label;
@@ -236,13 +231,12 @@ public class ContextItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Context.class)) {
-			case ContentHubPackage.CONTEXT__RELATIVE_PATH:
+			case ContentHubPackage.CONTEXT__NAME:
 			case ContentHubPackage.CONTEXT__TITLE:
 			case ContentHubPackage.CONTEXT__PRIMARY_TYPE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case ContentHubPackage.CONTEXT__CHILD_CONTEXTS:
-			case ContentHubPackage.CONTEXT__CONTENT_FRAGMENT_MODELS:
 			case ContentHubPackage.CONTEXT__CONTENT_FRAGMENTS:
 			case ContentHubPackage.CONTEXT__POLICIES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
@@ -265,12 +259,7 @@ public class ContextItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(ContentHubPackage.Literals.CONTEXT__CHILD_CONTEXTS,
-				 ContentHubFactory.eINSTANCE.createChildContext()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ContentHubPackage.Literals.CONTEXT__CONTENT_FRAGMENT_MODELS,
-				 ContentFragmentFactory.eINSTANCE.createContentFragmentModel()));
+				 ContentHubFactory.eINSTANCE.createContext()));
 
 		newChildDescriptors.add
 			(createChildParameter

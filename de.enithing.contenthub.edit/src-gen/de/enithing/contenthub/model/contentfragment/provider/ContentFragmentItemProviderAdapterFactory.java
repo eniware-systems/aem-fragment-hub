@@ -72,6 +72,29 @@ public class ContentFragmentItemProviderAdapterFactory extends ContentFragmentAd
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.enithing.contenthub.model.contentfragment.ContentFragmentModelSet} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ContentFragmentModelSetItemProvider contentFragmentModelSetItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.enithing.contenthub.model.contentfragment.ContentFragmentModelSet}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createContentFragmentModelSetAdapter() {
+		if (contentFragmentModelSetItemProvider == null) {
+			contentFragmentModelSetItemProvider = new ContentFragmentModelSetItemProvider(this);
+		}
+
+		return contentFragmentModelSetItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link de.enithing.contenthub.model.contentfragment.ContentFragmentModel} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -268,6 +291,7 @@ public class ContentFragmentItemProviderAdapterFactory extends ContentFragmentAd
 	 */
 	@Override
 	public void dispose() {
+		if (contentFragmentModelSetItemProvider != null) contentFragmentModelSetItemProvider.dispose();
 		if (contentFragmentModelItemProvider != null) contentFragmentModelItemProvider.dispose();
 		if (contentFragmentInstanceItemProvider != null) contentFragmentInstanceItemProvider.dispose();
 		if (contentFragmentFieldInstanceItemProvider != null) contentFragmentFieldInstanceItemProvider.dispose();

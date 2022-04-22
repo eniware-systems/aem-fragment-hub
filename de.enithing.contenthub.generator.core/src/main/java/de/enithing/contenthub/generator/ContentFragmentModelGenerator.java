@@ -38,7 +38,7 @@ public class ContentFragmentModelGenerator implements TemplateBasedGenerator<Con
 	public void onEnter(ContentFragmentModel mdl) throws Exception {
 		VelocityContext ctx = getTemplateContext(mdl);
 		
-		Path modelPath = VelocityUtils.replace(ContextUtils.getJcrPath(mdl.getContext(), true), ctx);
+		Path modelPath = VelocityUtils.replace(mdl.getPath(), ctx);
 		ctx.put("scaffolding", modelPath.toString());
 		ctx.put("title", mdl.getTitle());
 				

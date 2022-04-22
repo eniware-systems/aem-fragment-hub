@@ -151,61 +151,15 @@ public class ContentHubItemProviderAdapterFactory extends ContentHubAdapterFacto
 	 * This creates an adapter for a {@link de.enithing.contenthub.model.contenthub.Context}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	@Override
 	public Adapter createContextAdapter() {
 		if (contextItemProvider == null) {
-			contextItemProvider = new ContextItemProvider(this);
+			// This was changed to get the extended provider.
+			contextItemProvider = new ExtendedContextItemProvider(this);
 		}
 
 		return contextItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link de.enithing.contenthub.model.contenthub.RootContext} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected RootContextItemProvider rootContextItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.enithing.contenthub.model.contenthub.RootContext}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createRootContextAdapter() {
-		if (rootContextItemProvider == null) {
-			rootContextItemProvider = new RootContextItemProvider(this);
-		}
-
-		return rootContextItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link de.enithing.contenthub.model.contenthub.ChildContext} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ChildContextItemProvider childContextItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.enithing.contenthub.model.contenthub.ChildContext}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
-	@Override
-	public Adapter createChildContextAdapter() {
-		if (childContextItemProvider == null) {
-			// This was changed to get the extended provider.
-			childContextItemProvider = new ExtendedChildContextItemProvider(this);
-		}
-
-		return childContextItemProvider;
 	}
 
 	/**

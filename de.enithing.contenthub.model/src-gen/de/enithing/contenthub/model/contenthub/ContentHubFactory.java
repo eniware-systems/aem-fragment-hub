@@ -58,24 +58,6 @@ public interface ContentHubFactory extends EFactory {
 	Context createContext();
 
 	/**
-	 * Returns a new object of class '<em>Root Context</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Root Context</em>'.
-	 * @generated
-	 */
-	RootContext createRootContext();
-
-	/**
-	 * Returns a new object of class '<em>Child Context</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Child Context</em>'.
-	 * @generated
-	 */
-	ChildContext createChildContext();
-
-	/**
 	 * Returns a new object of class '<em>Pair</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

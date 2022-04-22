@@ -15,8 +15,8 @@ import org.apache.velocity.VelocityContext;
 import org.apache.velocity.runtime.parser.ParseException;
 
 import de.enithing.contenthub.generator.util.XmlUtils;
+import de.enithing.contenthub.model.contentfragment.ContentFragmentInstance;
 import de.enithing.contenthub.model.contentfragment.ContentFragmentModel;
-import de.enithing.contenthub.model.contenthub.ChildContext;
 import de.enithing.contenthub.model.contenthub.Context;
 import de.enithing.contenthub.model.contenthub.ContextType;
 
@@ -39,73 +39,66 @@ public class ContextGenerator implements TemplateBasedGenerator<Context> {
 
 	@Override
 	public void onEnter(Context ctx) throws Exception {
-		String title = ctx.getUnifiedTitle();
+		FileObject targetRoot;
+		Template tpl = resolveTemplate(ctx, ".content.xml");
 
+		if (ctx.getParentContext() != null) {
+			VelocityContext templateContext = getTemplateContext(ctx);
+
+			// Replace the variables used in the path
+			String subFolder = VelocityUtils.replace(ctx.getName(), templateContext);
+			targetRoot = getConfig().targetRoot.resolveFile(subFolder);
+
+			if (targetRoot.exists()) {
+				// Clean up
+				targetRoot.deleteAll();
+			}
+
+			targetRoot.createFolder();
+		} else {
+			targetRoot = getConfig().targetRoot;
+		}
+
+		VelocityContext templateCtx = getTemplateContext(ctx);
+
+		templateCtx.put("contextTitle", ctx.getTitle());
+		templateCtx.put("contextPrimaryType", ctx.getPrimaryType());
+
+		final FileObject contentXml = targetRoot.resolveFile(".content.xml");
+		contentXml.createFile();
+
+		OutputStream os = contentXml.getContent().getOutputStream();
+		Writer writer = XmlUtils.getPrettyPrintWriter(os);
+		tpl.merge(templateCtx, writer);
+		os.flush();
+		writer.close();
+	}
+
+	@Override
+	public void onExit(Context ctx) throws Exception {
 		VelocityContext templateContext = getTemplateContext(ctx);
 
 		// Replace the variables used in the path
-		final Path relativePath = PathUtils.makeRelative(VelocityUtils.replace(ctx.getRelativePath(), templateContext));
+		String subFolder = VelocityUtils.replace(ctx.getName(), templateContext);
+		final FileObject targetRoot = getConfig().targetRoot.resolveFile(subFolder);
 
-		final FileObject targetRoot = getConfig().targetRoot;
-		FileObject current = targetRoot;
+		// Write the content fragments
+		for (ContentFragmentInstance cf : ctx.getContentFragments()) {
+			GeneratorConfiguration childConfig = createChildConfig(ctx);
+			childConfig.targetRoot = targetRoot;
 
-		final FileObject finalTargetRoot = targetRoot.resolveFile(relativePath.toString());
-
-		Template tpl = resolveTemplate(ctx, ".content.xml");
-
-		for (Path p : relativePath) {
-			current = current.resolveFile(p.toString());
-			current.createFolder();
-
-			VelocityContext templateCtx = getTemplateContext(ctx);
-
-			FileObject contentXml = current.resolveFile(".content.xml");
-
-			if (current.equals(finalTargetRoot)) {
-				// This is the final folder				
-				if (StringUtils.isNotEmpty(title)) {
-					templateCtx.put("contextTitle", title);
-				}
-
-				templateCtx.put("contextPrimaryType", ctx.getUnifiedPrimaryType());
-				
-			} else {
-				templateCtx.put("contextPrimaryType", ContextType.FOLDER.getLiteral());
-			}
-
-			if (!contentXml.exists()) {
-				// Create the .content.xml only if it does not exist
-				contentXml.createFile();
-				OutputStream os = contentXml.getContent().getOutputStream();
-				Writer writer = XmlUtils.getPrettyPrintWriter(os);
-				tpl.merge(templateCtx, writer);
-				os.flush();
-				writer.close();
-			}
+			ContentFragmentGenerator cfGen = new ContentFragmentGenerator(childConfig);
+			cfGen.generate(cf);
 		}
 
-		for (ChildContext child : ctx.getChildContexts()) {
+		// Write the child contexts
+		for (Context child : ctx.getChildContexts()) {
 			GeneratorConfiguration childConfig = createChildConfig(ctx);
-			childConfig.targetRoot = current;
+			childConfig.targetRoot = targetRoot;
 
 			ContextGenerator childGenerator = new ContextGenerator(childConfig);
 			childGenerator.generate(child);
 		}
-
-		for (ContentFragmentModel mdl : ctx.getContentFragmentModels()) {
-			FileObject dir = current.resolveFile(mdl.getId());
-			dir.createFolder();
-
-			GeneratorConfiguration childConfig = createChildConfig(ctx);
-			childConfig.targetRoot = dir;
-
-			ContentFragmentModelGenerator mdlGenerator = new ContentFragmentModelGenerator(childConfig);
-			mdlGenerator.generate(mdl);
-		}
-	}
-
-	@Override
-	public void onExit(Context ctx) throws IOException {
 	}
 
 	@Override
