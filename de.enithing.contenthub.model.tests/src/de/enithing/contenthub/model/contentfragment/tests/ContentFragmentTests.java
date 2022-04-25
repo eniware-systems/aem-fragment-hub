@@ -32,6 +32,7 @@ public class ContentFragmentTests extends TestSuite {
 	public static Test suite() {
 		TestSuite suite = new ContentFragmentTests("contentfragment Tests");
 		suite.addTestSuite(ContentFragmentModelTest.class);
+		suite.addTestSuite(ContentFragmentInstanceTest.class);
 		return suite;
 	}
 

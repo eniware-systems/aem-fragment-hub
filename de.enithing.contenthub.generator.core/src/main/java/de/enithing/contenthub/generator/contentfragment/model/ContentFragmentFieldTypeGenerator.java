@@ -1,10 +1,8 @@
-package de.enithing.contenthub.generator;
+package de.enithing.contenthub.generator.contentfragment.model;
 
 import java.io.IOException;
 import java.nio.file.Path;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
@@ -12,14 +10,18 @@ import org.apache.velocity.Template;
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.runtime.parser.ParseException;
 
+import de.enithing.contenthub.generator.GeneratorConfiguration;
+import de.enithing.contenthub.generator.TemplateBasedGenerator;
+import de.enithing.contenthub.generator.util.JcrUtils;
+import de.enithing.contenthub.generator.util.StringUtils;
+import de.enithing.contenthub.generator.util.VelocityUtils;
 import de.enithing.contenthub.model.contentfragment.ContentFragmentFieldType;
-import de.enithing.contenthub.model.contentfragment.MultiFieldType;
 
-public abstract class ContentFragmentFieldGenerator<TField extends ContentFragmentFieldType<?>>
+public abstract class ContentFragmentFieldTypeGenerator<TField extends ContentFragmentFieldType<?>>
 		implements TemplateBasedGenerator<TField> {
 	private GeneratorConfiguration config;
 
-	public ContentFragmentFieldGenerator(GeneratorConfiguration cfg) {
+	public ContentFragmentFieldTypeGenerator(GeneratorConfiguration cfg) {
 		this.config = cfg;
 	}
 

@@ -1,11 +1,13 @@
 package de.enithing.contenthub.model.contenthub.util;
 
 import java.nio.file.Path;
+
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
 import de.enithing.contenthub.model.contenthub.Context;
 import de.enithing.contenthub.model.contenthub.ContextPolicy;
+import de.enithing.contenthub.model.contenthub.Package;
 
 /**
  * Utilities for working with contexts
@@ -24,7 +26,8 @@ public class ContextUtils {
 	 */
 	public static Path getPath(Context ctx) {
 		if (ctx.getParentContext() == null) {
-			return Path.of("/").resolve(ctx.getName());
+			Package pkg =(Package) ctx.eContainer();
+			return pkg.getContentPath();
 		}
 
 		Path parentPath = getPath(ctx.getParentContext());

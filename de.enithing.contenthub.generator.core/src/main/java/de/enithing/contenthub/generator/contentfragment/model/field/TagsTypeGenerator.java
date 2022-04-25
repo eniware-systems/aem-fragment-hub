@@ -1,17 +1,17 @@
-package de.enithing.contenthub.generator.fields;
+package de.enithing.contenthub.generator.contentfragment.model.field;
 
 import java.util.Map;
 
 import org.apache.velocity.VelocityContext;
 
-import de.enithing.contenthub.generator.ContentFragmentFieldGenerator;
 import de.enithing.contenthub.generator.GeneratorConfiguration;
-import de.enithing.contenthub.generator.JcrUtils;
+import de.enithing.contenthub.generator.contentfragment.model.ContentFragmentFieldTypeGenerator;
+import de.enithing.contenthub.generator.util.JcrUtils;
 import de.enithing.contenthub.model.contentfragment.corefields.Tags;
 
-public class TagsGenerator extends ContentFragmentFieldGenerator<Tags> {
+public class TagsTypeGenerator extends ContentFragmentFieldTypeGenerator<Tags> {
 
-	public TagsGenerator(GeneratorConfiguration cfg) {
+	public TagsTypeGenerator(GeneratorConfiguration cfg) {
 		super(cfg);
 		// TODO Auto-generated constructor stub
 	}

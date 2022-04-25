@@ -1,9 +1,6 @@
-package de.enithing.contenthub.generator;
+package de.enithing.contenthub.generator.contentfragment.model;
 
-import java.io.IOException;
 import java.io.OutputStream;
-import java.io.PrintWriter;
-import java.io.StringWriter;
 import java.io.Writer;
 import java.nio.file.Path;
 
@@ -11,6 +8,10 @@ import org.apache.commons.vfs2.FileObject;
 import org.apache.velocity.Template;
 import org.apache.velocity.VelocityContext;
 
+import de.enithing.contenthub.generator.GeneratorConfiguration;
+import de.enithing.contenthub.generator.TemplateBasedGenerator;
+import de.enithing.contenthub.generator.contentfragment.ContentFragmentFieldGeneratorRegistry;
+import de.enithing.contenthub.generator.util.VelocityUtils;
 import de.enithing.contenthub.generator.util.XmlUtils;
 import de.enithing.contenthub.model.contentfragment.ContentFragmentFieldType;
 import de.enithing.contenthub.model.contentfragment.ContentFragmentModel;
@@ -49,7 +50,7 @@ public class ContentFragmentModelGenerator implements TemplateBasedGenerator<Con
 		for(ContentFragmentFieldType<?> field : mdl.getFields()) {
 			GeneratorConfiguration childConfig = createChildConfig(mdl);					
 			@SuppressWarnings("unchecked")
-			ContentFragmentFieldGenerator<ContentFragmentFieldType<?>> generator = (ContentFragmentFieldGenerator<ContentFragmentFieldType<?>>) fieldGeneratorRegistry.createGeneratorInstance(field, childConfig);
+			ContentFragmentFieldTypeGenerator<ContentFragmentFieldType<?>> generator = (ContentFragmentFieldTypeGenerator<ContentFragmentFieldType<?>>) fieldGeneratorRegistry.createTypeGeneratorInstance(field, childConfig);
 			
 			if(generator == null) {
 				// Skip ignored field

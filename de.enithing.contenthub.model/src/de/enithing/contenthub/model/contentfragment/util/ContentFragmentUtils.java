@@ -2,11 +2,7 @@ package de.enithing.contenthub.model.contentfragment.util;
 
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.List;
-import java.util.Optional;
-
 import de.enithing.contenthub.model.contentfragment.AllowedContentFragmentModelPolicy;
-import de.enithing.contenthub.model.contentfragment.ContentFragmentInstance;
 import de.enithing.contenthub.model.contentfragment.ContentFragmentModel;
 import de.enithing.contenthub.model.contenthub.Context;
 import de.enithing.contenthub.model.contenthub.util.ContextUtils;

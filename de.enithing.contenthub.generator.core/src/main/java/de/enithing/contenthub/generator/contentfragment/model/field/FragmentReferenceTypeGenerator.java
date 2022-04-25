@@ -1,27 +1,22 @@
-package de.enithing.contenthub.generator.fields;
+package de.enithing.contenthub.generator.contentfragment.model.field;
 
-import java.io.IOException;
 import java.nio.file.Path;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
 import org.apache.velocity.VelocityContext;
-import org.apache.velocity.runtime.parser.ParseException;
 
-import de.enithing.contenthub.generator.ContentFragmentFieldGenerator;
-import de.enithing.contenthub.generator.ContentFragmentMultiFieldGenerator;
 import de.enithing.contenthub.generator.GeneratorConfiguration;
-import de.enithing.contenthub.generator.JcrUtils;
-import de.enithing.contenthub.generator.VelocityUtils;
+import de.enithing.contenthub.generator.util.JcrUtils;
+import de.enithing.contenthub.generator.util.VelocityUtils;
 import de.enithing.contenthub.model.contentfragment.corefields.FragmentReference;
 import de.enithing.contenthub.model.contenthub.util.ContextUtils;
 
-public class FragmentReferenceGenerator extends ContentFragmentMultiFieldGenerator<FragmentReference> {
+public class FragmentReferenceTypeGenerator extends ContentFragmentMultiFieldTypeGenerator<FragmentReference> {
 
-	public FragmentReferenceGenerator(GeneratorConfiguration cfg) {
+	public FragmentReferenceTypeGenerator(GeneratorConfiguration cfg) {
 		super(cfg);
 	}
 

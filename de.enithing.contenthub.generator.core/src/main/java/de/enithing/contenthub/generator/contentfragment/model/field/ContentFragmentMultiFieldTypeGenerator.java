@@ -1,7 +1,6 @@
-package de.enithing.contenthub.generator;
+package de.enithing.contenthub.generator.contentfragment.model.field;
 
 import java.io.IOException;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -10,12 +9,14 @@ import java.util.Set;
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.runtime.parser.ParseException;
 
+import de.enithing.contenthub.generator.GeneratorConfiguration;
+import de.enithing.contenthub.generator.contentfragment.model.ContentFragmentFieldTypeGenerator;
 import de.enithing.contenthub.model.contentfragment.MultiFieldType;
 
-public abstract class ContentFragmentMultiFieldGenerator<TField extends MultiFieldType<?>>
-		extends ContentFragmentFieldGenerator<TField> {
+public abstract class ContentFragmentMultiFieldTypeGenerator<TField extends MultiFieldType<?>>
+		extends ContentFragmentFieldTypeGenerator<TField> {
 
-	public ContentFragmentMultiFieldGenerator(GeneratorConfiguration cfg) {
+	public ContentFragmentMultiFieldTypeGenerator(GeneratorConfiguration cfg) {
 		super(cfg);
 		// TODO Auto-generated constructor stub
 	}

@@ -11,8 +11,13 @@ import org.apache.commons.vfs2.FileSystemManager;
 import org.apache.commons.vfs2.impl.DefaultFileSystemManager;
 import org.apache.commons.vfs2.provider.local.DefaultLocalFileProvider;
 import org.apache.commons.vfs2.provider.ram.RamFileProvider;
+import org.eclipse.emf.common.util.URI;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import de.enithing.contenthub.generator.GeneratorConfiguration.UnknownFieldHandlingMode;
+import de.enithing.contenthub.generator.TestUtils.TestConfig;
+import de.enithing.contenthub.generator.pkg.PackageGenerator;
 import de.enithing.contenthub.model.contentfragment.AllowedContentFragmentModelPolicy;
 import de.enithing.contenthub.model.contentfragment.ContentFragmentFactory;
 import de.enithing.contenthub.model.contentfragment.ContentFragmentFieldInstance;
@@ -33,52 +38,67 @@ import de.enithing.contenthub.model.contenthub.Context;
 import de.enithing.contenthub.model.contenthub.Package;
 
 class GeneratorTest {
-	public static String VFSRootPath;
+	private FileSystemManager vfsManager;
+	private String vfsRoot;
 
-	public static FileSystemManager createInMemoryVFSManager() throws FileSystemException {
-		VFSRootPath = "ram://virtual";
-		
-		DefaultFileSystemManager manager = new DefaultFileSystemManager();
-		manager.addProvider("ram", new RamFileProvider());
-		manager.init();
-		manager.createVirtualFileSystem(VFSRootPath);
-		return manager;
+	@BeforeEach
+	void setupVfs() throws FileSystemException {
+		//TestConfig cfg = TestUtils.createInMemoryVFSManager();
+		TestConfig cfg = TestUtils.createFileVFSManager(Path.of("/tmp/foo"));
+		vfsManager = cfg.vfsManager;
+		vfsRoot = cfg.vfsRoot;
 	}
 	
-	public static FileSystemManager createFileVFSManager(Path root) throws FileSystemException {
-		VFSRootPath = "file://" + root.toString();
+	private PackageGenerator createPackageGenerator() throws FileSystemException {
+		GeneratorConfiguration cfg = new GeneratorConfiguration();
+		cfg.unknownFieldHandling = UnknownFieldHandlingMode.Error;
+
+		cfg.targetRoot = vfsManager.resolveFile(vfsRoot);
+
+		if (cfg.targetRoot.exists()) {
+			cfg.targetRoot.deleteAll();
+		}
+		cfg.targetRoot.createFolder();
+
+		PackageGenerator gen = new PackageGenerator(cfg);
 		
-		DefaultFileSystemManager manager = new DefaultFileSystemManager();
-		manager.addProvider("file", new DefaultLocalFileProvider());
-		manager.init();
-		manager.createVirtualFileSystem(VFSRootPath);
-		return manager;
+		return gen;
 	}
 
 	@Test
-	void test() throws FileSystemException {
+	void resourceTest() throws FileSystemException {
+		PackageGenerator gen = createPackageGenerator();
+		
+		Package myPackage = GeneratorUtils.loadPackageFromUri(URI.createURI("file:///tmp/test.chub"));
+
+		assertDoesNotThrow(() -> gen.generate(myPackage));
+	}
+
+	@Test
+	void bookStoreTest() throws FileSystemException {
+
 		ContentHubFactory hubFactory = ContentHubFactory.eINSTANCE;
 		ContentFragmentFactory cfFactory = ContentFragmentFactory.eINSTANCE;
 		CorefieldsFactory fieldsFactory = CorefieldsFactory.eINSTANCE;
 
 		Package myPackage = hubFactory.createPackage();
-				
+
 		myPackage.setGroup("de.enithing.contenthub");
 		myPackage.setName("bookstore");
 		myPackage.setTitle("Bookstore package");
 		myPackage.setVersion("1.0.0");
 		myPackage.setAuthor("J.R. Baboon");
 		myPackage.setDescription("A book store package");
-		
+
 		ContentFragmentModelSet models = cfFactory.createContentFragmentModelSet();
 		models.setPackage(myPackage);
-		
+
 		ContentFragmentModel bookModel = cfFactory.createContentFragmentModel();
 		bookModel.setId("book");
 		bookModel.setTitle("book");
 		bookModel.setDescription("A book as part of the library");
 		bookModel.setModelSet(models);
-						
+
 		{
 			DateTime field = fieldsFactory.createDateTime();
 			field.setPropertyName("added_date");
@@ -112,15 +132,16 @@ class GeneratorTest {
 
 			bookModel.getFields().add(field);
 		}
-		
+
 		{
 			Tab tab = fieldsFactory.createTab();
 			tab.setPropertyName("tab_info");
 			tab.setFieldLabel("info");
-			tab.setDescription("additional information");;
+			tab.setDescription("additional information");
+			;
 
 			bookModel.getFields().add(tab);
-			
+
 			{
 				MultiLineText field = fieldsFactory.createMultiLineText();
 				field.setPropertyName("abstract");
@@ -129,7 +150,7 @@ class GeneratorTest {
 
 				bookModel.getFields().add(field);
 			}
-			
+
 			{
 				MultiLineText field = fieldsFactory.createMultiLineText();
 				field.setPropertyName("examples");
@@ -159,21 +180,9 @@ class GeneratorTest {
 			libraryModel.getFields().add(field);
 		}
 
-		Context contentContext = hubFactory.createContext();
-		contentContext.setName("content");
-		contentContext.setParentContext(myPackage.getContentRoot());
-		
-		Context damContext = hubFactory.createContext();		
-		damContext.setName("dam");
-		damContext.setParentContext(contentContext);
-		
-		Context packageContext = hubFactory.createContext();		
-		packageContext.setName("$packageName");
-		packageContext.setParentContext(damContext);
-		
 		Context booksContext = hubFactory.createContext();
 		booksContext.setName("books");
-		booksContext.setParentContext(packageContext);	
+		booksContext.setParentContext(myPackage.getContentRoot());
 		booksContext.setTitle("All the books");
 
 		AllowedContentFragmentModelPolicy onlyBooksPolicy = cfFactory.createAllowedContentFragmentModelPolicy();
@@ -182,7 +191,9 @@ class GeneratorTest {
 
 		ContentFragmentInstance book = cfFactory.createContentFragmentInstance();
 		book.setModel(bookModel);
-		
+		book.setId("necronomicon");
+		book.setTitle("The Necronomicon");
+
 		{
 
 			ContentFragmentFieldInstance field = cfFactory.createContentFragmentFieldInstance();
@@ -230,7 +241,7 @@ class GeneratorTest {
 		{
 
 			ContentFragmentFieldInstance field = cfFactory.createContentFragmentFieldInstance();
-			field.setFieldtype(bookModel.getFields().get(2));
+			field.setFieldtype(libraryModel.getFields().get(0));
 
 			FragmentReferenceValue value = fieldsFactory.createFragmentReferenceValue();
 			value.getFragments().add(book);
@@ -239,24 +250,15 @@ class GeneratorTest {
 			library.getFields().add(field);
 		}
 
-		library.setContext(contentContext);
+		Context libraryContext = hubFactory.createContext();
+		libraryContext.setName("libraries");
+		libraryContext.setParentContext(myPackage.getContentRoot());
+		libraryContext.setTitle("Libraries");
+		library.setContext(libraryContext);
 
-		GeneratorConfiguration cfg = new GeneratorConfiguration();
-		cfg.unknownFieldHandling = UnknownFieldHandlingMode.Error;
-				
-		//FileSystemManager vfs = createInMemoryVFSManager();
-		FileSystemManager vfs = createFileVFSManager(Path.of("/tmp/foobar"));
-		
-		cfg.targetRoot = vfs.resolveFile(VFSRootPath);
+		PackageGenerator gen = createPackageGenerator();
 
-		if (cfg.targetRoot.exists()) {
-			cfg.targetRoot.deleteAll();
-		}
-		cfg.targetRoot.createFolder();
-
-		PackageGenerator gen = new PackageGenerator(cfg);
-		
-		assertDoesNotThrow(() -> gen.generate(myPackage));		
+		assertDoesNotThrow(() -> gen.generate(myPackage));
 	}
 
 }

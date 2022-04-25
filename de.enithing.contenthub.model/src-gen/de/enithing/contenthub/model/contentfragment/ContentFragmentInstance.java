@@ -3,6 +3,7 @@
 package de.enithing.contenthub.model.contentfragment;
 
 import de.enithing.contenthub.model.contenthub.Context;
+import java.nio.file.Path;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
@@ -152,5 +153,13 @@ public interface ContentFragmentInstance extends EObject {
 	 * @generated
 	 */
 	void setContext(Context value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" dataType="de.enithing.contenthub.model.contenthub.Path" required="true"
+	 * @generated
+	 */
+	Path getPath();
 
 } // ContentFragmentInstance

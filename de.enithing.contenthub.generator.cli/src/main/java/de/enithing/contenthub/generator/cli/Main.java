@@ -2,8 +2,8 @@ package de.enithing.contenthub.generator.cli;
 
 import de.enithing.contenthub.generator.GeneratorConfiguration;
 import de.enithing.contenthub.generator.GeneratorConfiguration.UnknownFieldHandlingMode;
+import de.enithing.contenthub.generator.pkg.PackageGenerator;
 import de.enithing.contenthub.generator.GeneratorUtils;
-import de.enithing.contenthub.generator.PackageGenerator;
 import de.enithing.contenthub.model.contenthub.Package;
 
 import org.apache.commons.cli.*;

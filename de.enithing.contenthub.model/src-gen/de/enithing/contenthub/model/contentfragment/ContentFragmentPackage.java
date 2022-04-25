@@ -342,13 +342,22 @@ public interface ContentFragmentPackage extends EPackage {
 	int CONTENT_FRAGMENT_INSTANCE_FEATURE_COUNT = 6;
 
 	/**
+	 * The operation id for the '<em>Get Path</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_FRAGMENT_INSTANCE___GET_PATH = 0;
+
+	/**
 	 * The number of operations of the '<em>Instance</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTENT_FRAGMENT_INSTANCE_OPERATION_COUNT = 0;
+	int CONTENT_FRAGMENT_INSTANCE_OPERATION_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link de.enithing.contenthub.model.contentfragment.impl.ContentFragmentFieldInstanceImpl <em>Field Instance</em>}' class.
@@ -939,6 +948,16 @@ public interface ContentFragmentPackage extends EPackage {
 	EReference getContentFragmentInstance_Context();
 
 	/**
+	 * Returns the meta object for the '{@link de.enithing.contenthub.model.contentfragment.ContentFragmentInstance#getPath() <em>Get Path</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Path</em>' operation.
+	 * @see de.enithing.contenthub.model.contentfragment.ContentFragmentInstance#getPath()
+	 * @generated
+	 */
+	EOperation getContentFragmentInstance__GetPath();
+
+	/**
 	 * Returns the meta object for class '{@link de.enithing.contenthub.model.contentfragment.ContentFragmentFieldInstance <em>Field Instance</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1286,6 +1305,14 @@ public interface ContentFragmentPackage extends EPackage {
 		 * @generated
 		 */
 		EReference CONTENT_FRAGMENT_INSTANCE__CONTEXT = eINSTANCE.getContentFragmentInstance_Context();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Path</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation CONTENT_FRAGMENT_INSTANCE___GET_PATH = eINSTANCE.getContentFragmentInstance__GetPath();
 
 		/**
 		 * The meta object literal for the '{@link de.enithing.contenthub.model.contentfragment.impl.ContentFragmentFieldInstanceImpl <em>Field Instance</em>}' class.

@@ -13,6 +13,12 @@ import junit.textui.TestRunner;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Instance</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following operations are tested:
+ * <ul>
+ *   <li>{@link de.enithing.contenthub.model.contentfragment.ContentFragmentInstance#getPath() <em>Get Path</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
 public class ContentFragmentInstanceTest extends TestCase {
@@ -84,6 +90,19 @@ public class ContentFragmentInstanceTest extends TestCase {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+	}
+
+	/**
+	 * Tests the '{@link de.enithing.contenthub.model.contentfragment.ContentFragmentInstance#getPath() <em>Get Path</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.enithing.contenthub.model.contentfragment.ContentFragmentInstance#getPath()
+	 * @generated
+	 */
+	public void testGetPath() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 } //ContentFragmentInstanceTest

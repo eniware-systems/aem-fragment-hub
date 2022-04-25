@@ -1,4 +1,4 @@
-package de.enithing.contenthub.generator.fields;
+package de.enithing.contenthub.generator.contentfragment.model.field;
 
 import java.nio.file.Path;
 import java.util.List;
@@ -8,18 +8,15 @@ import java.util.stream.Collectors;
 
 import org.apache.velocity.VelocityContext;
 
-import de.enithing.contenthub.generator.ContentFragmentFieldGenerator;
-import de.enithing.contenthub.generator.ContentFragmentMultiFieldGenerator;
 import de.enithing.contenthub.generator.GeneratorConfiguration;
-import de.enithing.contenthub.generator.JcrUtils;
-import de.enithing.contenthub.generator.VelocityUtils;
+import de.enithing.contenthub.generator.util.VelocityUtils;
 import de.enithing.contenthub.model.contentfragment.corefields.MultiLineText;
 import de.enithing.contenthub.model.contentfragment.corefields.SingleLineText;
 import de.enithing.contenthub.model.contenthub.util.ContextUtils;
 
-public class MultiLineTextGenerator extends ContentFragmentMultiFieldGenerator<MultiLineText>{
+public class MultiLineTextTypeGenerator extends ContentFragmentMultiFieldTypeGenerator<MultiLineText> {
 
-	public MultiLineTextGenerator(GeneratorConfiguration cfg) {
+	public MultiLineTextTypeGenerator(GeneratorConfiguration cfg) {
 		super(cfg);
 	}
 

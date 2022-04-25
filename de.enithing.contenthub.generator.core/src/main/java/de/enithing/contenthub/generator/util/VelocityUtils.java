@@ -1,4 +1,4 @@
-package de.enithing.contenthub.generator;
+package de.enithing.contenthub.generator.util;
 
 import java.io.StringReader;
 import java.io.StringWriter;

@@ -1,19 +1,17 @@
-package de.enithing.contenthub.generator.fields;
+package de.enithing.contenthub.generator.contentfragment.model.field;
 
 import java.util.Map;
 
 import org.apache.velocity.VelocityContext;
 
-import com.fasterxml.jackson.databind.type.PlaceholderForType;
-
-import de.enithing.contenthub.generator.ContentFragmentFieldGenerator;
 import de.enithing.contenthub.generator.GeneratorConfiguration;
-import de.enithing.contenthub.generator.JcrUtils;
+import de.enithing.contenthub.generator.contentfragment.model.ContentFragmentFieldTypeGenerator;
+import de.enithing.contenthub.generator.util.JcrUtils;
 import de.enithing.contenthub.model.contentfragment.corefields.DateTime;
 
-public class DateTimeGenerator extends ContentFragmentFieldGenerator<DateTime> {
+public class DateTimeTypeGenerator extends ContentFragmentFieldTypeGenerator<DateTime> {
 
-	public DateTimeGenerator(GeneratorConfiguration cfg) {
+	public DateTimeTypeGenerator(GeneratorConfiguration cfg) {
 		super(cfg);
 	}
 

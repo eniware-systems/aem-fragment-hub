@@ -6,9 +6,11 @@ import de.enithing.contenthub.model.contentfragment.ContentFragmentFieldInstance
 import de.enithing.contenthub.model.contentfragment.ContentFragmentInstance;
 import de.enithing.contenthub.model.contentfragment.ContentFragmentModel;
 import de.enithing.contenthub.model.contentfragment.ContentFragmentPackage;
-
+import de.enithing.contenthub.model.contentfragment.util.ContentFragmentInstanceUtils;
 import de.enithing.contenthub.model.contenthub.ContentHubPackage;
 import de.enithing.contenthub.model.contenthub.Context;
+import java.lang.reflect.InvocationTargetException;
+import java.nio.file.Path;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -310,6 +312,15 @@ public class ContentFragmentInstanceImpl extends MinimalEObjectImpl.Container im
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 */
+	@Override
+	public Path getPath() {
+		return ContentFragmentInstanceUtils.getPath(this);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -454,6 +465,20 @@ public class ContentFragmentInstanceImpl extends MinimalEObjectImpl.Container im
 				return getContext() != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case ContentFragmentPackage.CONTENT_FRAGMENT_INSTANCE___GET_PATH:
+				return getPath();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

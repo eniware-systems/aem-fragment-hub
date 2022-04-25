@@ -14,16 +14,32 @@ import de.enithing.contenthub.model.contenthub.ContentHubFactory;
 import de.enithing.contenthub.model.contenthub.ContentHubPackage;
 import de.enithing.contenthub.model.contenthub.Package;
 
+/**
+ * Utility methods for loading packages and initializing the generator
+ * 
+ * @author mvonkeil
+ *
+ */
 public class GeneratorUtils {
 	private GeneratorUtils() {
 	}
 
+	/**
+	 * Initializes the factories. No need to do this manually, usually this will be
+	 * called when needed automatically
+	 */
 	public static void initFactories() {
 		ContentHubFactory.eINSTANCE.eClass();
 		ContentFragmentFactory.eINSTANCE.eClass();
 		CorefieldsFactory.eINSTANCE.eClass();
 	}
 
+	/**
+	 * Loads a package from a given resource URI
+	 * 
+	 * @param uri The resource URI to load the package from
+	 * @return The loaded package
+	 */
 	public static Package loadPackageFromUri(URI uri) {
 		initFactories();
 
@@ -32,7 +48,8 @@ public class GeneratorUtils {
 		ResourceSet resourceSet = new ResourceSetImpl();
 
 		// Register the appropriate resource factory to handle all file extensions.
-		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put(Resource.Factory.Registry.DEFAULT_EXTENSION, new XMIResourceFactoryImpl());
+		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap()
+				.put(Resource.Factory.Registry.DEFAULT_EXTENSION, new XMIResourceFactoryImpl());
 
 		// Register the package to ensure it is available during loading.
 		resourceSet.getPackageRegistry().put(ContentHubPackage.eNS_URI, ContentHubPackage.eINSTANCE);

@@ -15,6 +15,9 @@ import org.apache.velocity.app.Velocity;
 import org.apache.velocity.exception.ResourceNotFoundException;
 import org.apache.velocity.runtime.parser.ParseException;
 
+import de.enithing.contenthub.generator.util.PathUtils;
+import de.enithing.contenthub.generator.util.VelocityHelper;
+import de.enithing.contenthub.generator.util.VelocityUtils;
 import de.enithing.contenthub.model.contenthub.Package;
 
 public interface TemplateBasedGenerator<T> extends Generator<T> {

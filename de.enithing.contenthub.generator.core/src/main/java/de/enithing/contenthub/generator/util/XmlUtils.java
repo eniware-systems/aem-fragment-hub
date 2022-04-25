@@ -12,10 +12,20 @@ import org.jdom2.input.SAXBuilder;
 import org.jdom2.output.Format;
 import org.jdom2.output.XMLOutputter;
 
+/**
+ * Pretty printing utilities for XML
+ * @author mvonkeil
+ *
+ */
 public class XmlUtils {
 	private XmlUtils() {
 	}
 
+	/**
+	 * Pretty prints a string containing XML
+	 * @param raw The raw XML string
+	 * @return The pretty printed version of the input 
+	 */
 	public static String prettyPrint(String raw) {
 		SAXBuilder builder = new SAXBuilder();
 		try {
@@ -69,10 +79,20 @@ public class XmlUtils {
 		}
 	}
 
+	/**
+	 * Creates a writer that pretty prints input before sending it down to the wrapped sink
+	 * @param sink The sink to receive the pretty printed result
+	 * @return A pretty printing wrapper for the given sink
+	 */
 	public static Writer getPrettyPrintWriter(Writer sink) {
 		return new PrettyPrintWriter(sink);
 	}
 
+	/**
+	 * Creates a writer that pretty prints input before sending it down to the sink
+	 * @param sink The sink to receive the pretty printed result
+	 * @return A pretty printing writer for the given sink
+	 */
 	public static Writer getPrettyPrintWriter(OutputStream sink) {
 		return new PrettyPrintWriter(new PrintWriter(sink));
 	}

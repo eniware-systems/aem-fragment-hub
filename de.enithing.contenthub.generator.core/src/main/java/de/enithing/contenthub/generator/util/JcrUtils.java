@@ -1,4 +1,4 @@
-package de.enithing.contenthub.generator;
+package de.enithing.contenthub.generator.util;
 
 import java.text.SimpleDateFormat;
 import java.util.Collection;
@@ -7,10 +7,20 @@ import java.util.Objects;
 
 import org.apache.commons.lang.StringEscapeUtils;
 
+/**
+ * Utilities for generating JCR related code
+ * @author mvonkeil
+ *
+ */
 public class JcrUtils {
 	private JcrUtils() {
 	}
 
+	/**
+	 * Stringifies a value for usage in a JCR definition
+	 * @param value The value
+	 * @return The JCR compatible representation of the value
+	 */
 	public static String toStringValue(Object value) {
 		if (value instanceof String) {
 			return StringEscapeUtils.escapeXml((String) value);
@@ -33,18 +43,40 @@ public class JcrUtils {
 		return Objects.toString(value);
 	}
 
-	public static String toFlag(Boolean value) {
+	/**
+	 * Creates a flag representation of a boolean where 'on' means true and 'off' means false.
+	 * @param value The boolean value
+	 * @return The stringified flag representation
+	 */
+	public static String toFlag(boolean value) {
 		return value ? "on" : "off";
 	}
 
+	/**
+	 * Generates the valueType attribute for a given type.
+	 * @param type The type name
+	 * @param isArray Whether the item is an array
+	 * @return The input type representation in either unary or nary form.
+	 */
 	public static String getValueType(String type, boolean isArray) {
 		return isArray ? type + "[]" : type;
 	}
 
+	/**
+	 * Creates a stringified array value representation from an iterable
+	 * @param items The input elements
+	 * @return The string representation of the elements (as array)
+	 */
 	public static String toStringValueArray(Iterable<?> items) {
 		return toStringValueArray(items, false);
 	}
 
+	/**
+	 * Creates a stringified array value representation from an iterable
+	 * @param items The input elements
+	 * @param forceSingleItems whether to treat single items as arrays with one element
+	 * @return The string representation of the elements (as array)
+	 */
 	public static String toStringValueArray(Iterable<?> items, boolean forceSingleItems) {
 		boolean first = true;
 

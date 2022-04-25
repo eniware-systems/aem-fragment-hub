@@ -1,24 +1,24 @@
-package de.enithing.contenthub.generator.fields;
+package de.enithing.contenthub.generator.contentfragment.model.field;
 
 import java.util.Map;
 
 import org.apache.velocity.VelocityContext;
 
-import de.enithing.contenthub.generator.ContentFragmentFieldGenerator;
-import de.enithing.contenthub.generator.ContentFragmentFieldGeneratorRegistry;
 import de.enithing.contenthub.generator.Generator;
 import de.enithing.contenthub.generator.GeneratorConfiguration;
+import de.enithing.contenthub.generator.contentfragment.ContentFragmentFieldGeneratorRegistry;
+import de.enithing.contenthub.generator.contentfragment.model.ContentFragmentFieldTypeGenerator;
 import de.enithing.contenthub.model.contentfragment.ContentFragmentFieldType;
 import de.enithing.contenthub.model.contentfragment.ContentFragmentModel;
 import de.enithing.contenthub.model.contentfragment.SimpleFieldType;
 import de.enithing.contenthub.model.contentfragment.corefields.DateTime;
 import de.enithing.contenthub.model.contentfragment.corefields.Tab;
 
-public class TabGenerator extends ContentFragmentFieldGenerator<Tab> {
+public class TabTypeGenerator extends ContentFragmentFieldTypeGenerator<Tab> {
 
 	private String renderedChildFields = "";
 
-	public TabGenerator(GeneratorConfiguration cfg) {
+	public TabTypeGenerator(GeneratorConfiguration cfg) {
 		super(cfg);
 		// TODO Auto-generated constructor stub
 	}
@@ -58,8 +58,8 @@ public class TabGenerator extends ContentFragmentFieldGenerator<Tab> {
 					.createChildConfig((ContentFragmentModel) getConfig().parentElement);
 			@SuppressWarnings("unchecked")
 
-			ContentFragmentFieldGenerator<ContentFragmentFieldType<?>> generator = (ContentFragmentFieldGenerator<ContentFragmentFieldType<?>>) fieldGeneratorRegistry
-					.createGeneratorInstance(child, childConfig);
+			ContentFragmentFieldTypeGenerator<ContentFragmentFieldType<?>> generator = (ContentFragmentFieldTypeGenerator<ContentFragmentFieldType<?>>) fieldGeneratorRegistry
+					.createTypeGeneratorInstance(child, childConfig);
 
 			if (generator == null) {
 				// Skip ignored field

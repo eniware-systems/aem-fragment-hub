@@ -1,5 +1,11 @@
-package de.enithing.contenthub.generator;
+package de.enithing.contenthub.generator.pkg;
 
+import de.enithing.contenthub.generator.GeneratorConfiguration;
+import de.enithing.contenthub.generator.TemplateBasedGenerator;
+import de.enithing.contenthub.generator.contentfragment.model.ContentFragmentModelGenerator;
+import de.enithing.contenthub.generator.context.ContextGenerator;
+import de.enithing.contenthub.generator.util.PathUtils;
+import de.enithing.contenthub.generator.util.VelocityUtils;
 import de.enithing.contenthub.generator.util.XmlUtils;
 import de.enithing.contenthub.model.contentfragment.ContentFragmentModel;
 import de.enithing.contenthub.model.contentfragment.ContentFragmentModelSet;
@@ -90,7 +96,7 @@ public class PackageGenerator implements TemplateBasedGenerator<Package> {
 
 		// Create the fragment models
 		for (ContentFragmentModel mdl : pkg.getAllContentFragmentModels()) {
-			FileObject dir = targetRoot.resolveFile(
+			FileObject dir = targetRoot.resolveFile(					
 					String.format("jcr_root/conf/%s/settings/dam/cfm/models/%s", pkg.getName(), mdl.getId()));
 			dir.createFolder();
 
@@ -104,10 +110,13 @@ public class PackageGenerator implements TemplateBasedGenerator<Package> {
 		// Create the content
 		de.enithing.contenthub.model.contenthub.Context contentRoot = pkg.getContentRoot();
 		if(contentRoot != null) {
+			FileObject dir = targetRoot.resolveFile(
+					String.format("jcr_root/content/dam/%s", pkg.getName()));
+			
 			GeneratorConfiguration childConfig = createChildConfig(pkg);
-			childConfig.targetRoot = targetRoot.resolveFile("jcr_root");
+			childConfig.targetRoot = dir;
 			ContextGenerator ctxGen = new ContextGenerator(childConfig);
-			ctxGen.generate(pkg.getContentRoot());
+			ctxGen.generate(contentRoot);
 		}
 	}
 

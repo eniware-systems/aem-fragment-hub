@@ -1,18 +1,17 @@
-package de.enithing.contenthub.generator.fields;
+package de.enithing.contenthub.generator.contentfragment.model.field;
 
 import java.util.Map;
 import java.util.Set;
 
 import org.apache.velocity.VelocityContext;
 
-import de.enithing.contenthub.generator.ContentFragmentMultiFieldGenerator;
 import de.enithing.contenthub.generator.GeneratorConfiguration;
-import de.enithing.contenthub.generator.JcrUtils;
+import de.enithing.contenthub.generator.util.JcrUtils;
 import de.enithing.contenthub.model.contentfragment.corefields.SingleLineText;
 
-public class SingleLineTextGenerator extends ContentFragmentMultiFieldGenerator<SingleLineText>{
+public class SingleLineTextTypeGenerator extends ContentFragmentMultiFieldTypeGenerator<SingleLineText> {
 
-	public SingleLineTextGenerator(GeneratorConfiguration cfg) {
+	public SingleLineTextTypeGenerator(GeneratorConfiguration cfg) {
 		super(cfg);
 		// TODO Auto-generated constructor stub
 	}

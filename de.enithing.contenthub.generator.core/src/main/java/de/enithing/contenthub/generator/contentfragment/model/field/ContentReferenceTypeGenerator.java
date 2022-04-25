@@ -1,15 +1,13 @@
-package de.enithing.contenthub.generator.fields;
+package de.enithing.contenthub.generator.contentfragment.model.field;
 
 import java.math.BigInteger;
 import java.util.Map;
 import java.util.Set;
 
-import org.apache.commons.lang.NotImplementedException;
 import org.apache.velocity.VelocityContext;
 
-import de.enithing.contenthub.generator.ContentFragmentMultiFieldGenerator;
 import de.enithing.contenthub.generator.GeneratorConfiguration;
-import de.enithing.contenthub.generator.JcrUtils;
+import de.enithing.contenthub.generator.util.JcrUtils;
 import de.enithing.contenthub.model.contentfragment.corefields.ContentReference;
 import de.enithing.contenthub.model.contentfragment.corefields.validation.FileSizeValue;
 import de.enithing.contenthub.model.contentfragment.corefields.validation.LowerBoundConstraint;
@@ -17,9 +15,9 @@ import de.enithing.contenthub.model.contentfragment.corefields.validation.LowerU
 import de.enithing.contenthub.model.contentfragment.corefields.validation.UpperBoundConstraint;
 import de.enithing.contenthub.model.contentfragment.corefields.validation.ValidationConstraint;
 
-public class ContentReferenceGenerator extends ContentFragmentMultiFieldGenerator<ContentReference> {
+public class ContentReferenceTypeGenerator extends ContentFragmentMultiFieldTypeGenerator<ContentReference> {
 
-	public ContentReferenceGenerator(GeneratorConfiguration cfg) {
+	public ContentReferenceTypeGenerator(GeneratorConfiguration cfg) {
 		super(cfg);
 		// TODO Auto-generated constructor stub
 	}
