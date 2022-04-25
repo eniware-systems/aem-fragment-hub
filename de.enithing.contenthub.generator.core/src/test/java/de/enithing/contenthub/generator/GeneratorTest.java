@@ -76,7 +76,6 @@ class GeneratorTest {
 
 	@Test
 	void bookStoreTest() throws FileSystemException {
-
 		ContentHubFactory hubFactory = ContentHubFactory.eINSTANCE;
 		ContentFragmentFactory cfFactory = ContentFragmentFactory.eINSTANCE;
 		CorefieldsFactory fieldsFactory = CorefieldsFactory.eINSTANCE;

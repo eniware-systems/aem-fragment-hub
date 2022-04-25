@@ -128,7 +128,7 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 	 * @generated
 	 * @ordered
 	 */
-	protected static final ContextType PRIMARY_TYPE_EDEFAULT = ContextType.UNDEFINED;
+	protected static final ContextType PRIMARY_TYPE_EDEFAULT = ContextType.FOLDER;
 
 	/**
 	 * The cached value of the '{@link #getPrimaryType() <em>Primary Type</em>}' attribute.

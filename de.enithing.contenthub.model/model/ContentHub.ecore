@@ -39,8 +39,8 @@
         eType="#//Path" defaultValueLiteral="/content/dam/$packageName"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ContextType">
-    <eLiterals name="undefined"/>
-    <eLiterals name="folder" value="1" literal="sling:Folder"/>
+    <eLiterals name="folder" literal="sling:Folder"/>
+    <eLiterals name="orderedFolder" value="1" literal="sling:OrderedFolder"/>
     <eLiterals name="page" value="2" literal="cq:Page"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Context">
@@ -69,7 +69,7 @@
         defaultValueLiteral="new_context"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="primaryType" lowerBound="1"
-        eType="#//ContextType" defaultValueLiteral="undefined"/>
+        eType="#//ContextType" defaultValueLiteral="sling:Folder"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ContextPolicy" abstract="true" interface="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="Pair">

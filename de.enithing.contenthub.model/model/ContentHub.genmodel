@@ -11,8 +11,8 @@
   <genPackages prefix="ContentHub" basePackage="de.enithing.contenthub.model" fileExtensions="chub"
       ecorePackage="ContentHub.ecore#/" loadInitializationFileExtension="chub">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="ContentHub.ecore#//ContextType">
-      <genEnumLiterals ecoreEnumLiteral="ContentHub.ecore#//ContextType/undefined"/>
       <genEnumLiterals ecoreEnumLiteral="ContentHub.ecore#//ContextType/folder"/>
+      <genEnumLiterals ecoreEnumLiteral="ContentHub.ecore#//ContextType/orderedFolder"/>
       <genEnumLiterals ecoreEnumLiteral="ContentHub.ecore#//ContextType/page"/>
     </genEnums>
     <genDataTypes ecoreDataType="ContentHub.ecore#//Path"/>

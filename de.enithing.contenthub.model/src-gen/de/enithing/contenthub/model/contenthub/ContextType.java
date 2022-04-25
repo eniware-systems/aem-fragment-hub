@@ -19,14 +19,6 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum ContextType implements Enumerator {
 	/**
-	 * The '<em><b>Undefined</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #UNDEFINED_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	UNDEFINED(0, "undefined", "undefined"), /**
 	 * The '<em><b>Folder</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -34,9 +26,17 @@ public enum ContextType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	FOLDER(1, "folder", "sling:Folder"),
+	FOLDER(0, "folder", "sling:Folder"),
 
 	/**
+	 * The '<em><b>Ordered Folder</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ORDERED_FOLDER_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	ORDERED_FOLDER(1, "orderedFolder", "sling:OrderedFolder"), /**
 	 * The '<em><b>Page</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -47,17 +47,6 @@ public enum ContextType implements Enumerator {
 	PAGE(2, "page", "cq:Page");
 
 	/**
-	 * The '<em><b>Undefined</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #UNDEFINED
-	 * @model name="undefined"
-	 * @generated
-	 * @ordered
-	 */
-	public static final int UNDEFINED_VALUE = 0;
-
-	/**
 	 * The '<em><b>Folder</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -66,7 +55,18 @@ public enum ContextType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int FOLDER_VALUE = 1;
+	public static final int FOLDER_VALUE = 0;
+
+	/**
+	 * The '<em><b>Ordered Folder</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ORDERED_FOLDER
+	 * @model name="orderedFolder" literal="sling:OrderedFolder"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int ORDERED_FOLDER_VALUE = 1;
 
 	/**
 	 * The '<em><b>Page</b></em>' literal value.
@@ -87,8 +87,8 @@ public enum ContextType implements Enumerator {
 	 */
 	private static final ContextType[] VALUES_ARRAY =
 		new ContextType[] {
-			UNDEFINED,
 			FOLDER,
+			ORDERED_FOLDER,
 			PAGE,
 		};
 
@@ -146,8 +146,8 @@ public enum ContextType implements Enumerator {
 	 */
 	public static ContextType get(int value) {
 		switch (value) {
-			case UNDEFINED_VALUE: return UNDEFINED;
 			case FOLDER_VALUE: return FOLDER;
+			case ORDERED_FOLDER_VALUE: return ORDERED_FOLDER;
 			case PAGE_VALUE: return PAGE;
 		}
 		return null;

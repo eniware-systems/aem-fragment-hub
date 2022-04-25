@@ -675,7 +675,7 @@ public class ContentHubPackageImpl extends EPackageImpl implements ContentHubPac
 		initEReference(getContext_Policies(), this.getContextPolicy(), null, "policies", null, 0, -1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getContext_Name(), ecorePackage.getEString(), "name", "new_context", 1, 1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getContext_Title(), ecorePackage.getEString(), "title", null, 0, 1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getContext_PrimaryType(), this.getContextType(), "primaryType", "undefined", 1, 1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getContext_PrimaryType(), this.getContextType(), "primaryType", "sling:Folder", 1, 1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getContext__GetRootContext(), this.getContext(), "getRootContext", 1, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -702,8 +702,8 @@ public class ContentHubPackageImpl extends EPackageImpl implements ContentHubPac
 
 		// Initialize enums and add enum literals
 		initEEnum(contextTypeEEnum, ContextType.class, "ContextType");
-		addEEnumLiteral(contextTypeEEnum, ContextType.UNDEFINED);
 		addEEnumLiteral(contextTypeEEnum, ContextType.FOLDER);
+		addEEnumLiteral(contextTypeEEnum, ContextType.ORDERED_FOLDER);
 		addEEnumLiteral(contextTypeEEnum, ContextType.PAGE);
 
 		// Initialize data types

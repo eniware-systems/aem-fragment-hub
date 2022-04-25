@@ -41,8 +41,8 @@ public class ExtendedContentFragmentFieldInstanceItemProvider extends ContentFra
 				// Restrict the choice of values by those that are reflected in the content fragment model set for
 				// the content fragment instance owning this field instance
 				ContentFragmentFieldInstance fieldInstance = (ContentFragmentFieldInstance) object;
-				@SuppressWarnings("rawtypes")
-				EList<ContentFragmentFieldType> availableFieldTypes = ((ContentFragmentInstance)fieldInstance.eContainer()).getModel().getFields();
+
+				EList<ContentFragmentFieldType<?>> availableFieldTypes = ((ContentFragmentInstance)fieldInstance.eContainer()).getModel().getAllFields();
 				
 				List<?> choiceOfValues = super.getChoiceOfValues(object)
 						.stream()

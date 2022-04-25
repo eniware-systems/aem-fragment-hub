@@ -141,7 +141,7 @@ public interface Context extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Primary Type</b></em>' attribute.
-	 * The default value is <code>"undefined"</code>.
+	 * The default value is <code>"sling:Folder"</code>.
 	 * The literals are from the enumeration {@link de.enithing.contenthub.model.contenthub.ContextType}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -149,7 +149,7 @@ public interface Context extends EObject {
 	 * @see de.enithing.contenthub.model.contenthub.ContextType
 	 * @see #setPrimaryType(ContextType)
 	 * @see de.enithing.contenthub.model.contenthub.ContentHubPackage#getContext_PrimaryType()
-	 * @model default="undefined" required="true"
+	 * @model default="sling:Folder" required="true"
 	 * @generated
 	 */
 	ContextType getPrimaryType();

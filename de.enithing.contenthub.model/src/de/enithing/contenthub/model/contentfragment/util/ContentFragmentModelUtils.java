@@ -15,7 +15,7 @@ import de.enithing.contenthub.model.contenthub.Package;
 import de.enithing.contenthub.model.contenthub.util.ContextUtils;
 
 public class ContentFragmentModelUtils {
-	
+
 	private ContentFragmentModelUtils() {
 	}
 
@@ -25,9 +25,16 @@ public class ContentFragmentModelUtils {
 			for (ContentFragmentFieldType<?> child : ((GroupFieldType<?>) field).getFields()) {
 				collectFields(child, results);
 			}
+		} else {
+			results.add(field);
 		}
 	}
 
+	/**
+	 * Gets a flat list of all available terminal fields for a given model
+	 * @param mdl The model
+	 * @return The containing fields
+	 */
 	public static Collection<ContentFragmentFieldType<?>> getAllFields(ContentFragmentModel mdl) {
 		ArrayList<ContentFragmentFieldType<?>> results = new ArrayList<>();
 
@@ -37,7 +44,7 @@ public class ContentFragmentModelUtils {
 
 		return results;
 	}
-	
+
 	public static Path getPath(ContentFragmentModel mdl) {
 		return mdl.getModelSet().getPackage().getContentFragmentModelPath().resolve(mdl.getId());
 	}
