@@ -279,6 +279,29 @@ public class CorefieldsItemProviderAdapterFactory extends CorefieldsAdapterFacto
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.enithing.contenthub.model.contentfragment.corefields.EnumerationOption} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EnumerationOptionItemProvider enumerationOptionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.enithing.contenthub.model.contentfragment.corefields.EnumerationOption}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createEnumerationOptionAdapter() {
+		if (enumerationOptionItemProvider == null) {
+			enumerationOptionItemProvider = new EnumerationOptionItemProvider(this);
+		}
+
+		return enumerationOptionItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link de.enithing.contenthub.model.contentfragment.corefields.Enumeration} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -576,6 +599,7 @@ public class CorefieldsItemProviderAdapterFactory extends CorefieldsAdapterFacto
 		if (booleanValueItemProvider != null) booleanValueItemProvider.dispose();
 		if (dateTimeItemProvider != null) dateTimeItemProvider.dispose();
 		if (dateTimeValueItemProvider != null) dateTimeValueItemProvider.dispose();
+		if (enumerationOptionItemProvider != null) enumerationOptionItemProvider.dispose();
 		if (enumerationItemProvider != null) enumerationItemProvider.dispose();
 		if (tagsItemProvider != null) tagsItemProvider.dispose();
 		if (contentReferenceItemProvider != null) contentReferenceItemProvider.dispose();

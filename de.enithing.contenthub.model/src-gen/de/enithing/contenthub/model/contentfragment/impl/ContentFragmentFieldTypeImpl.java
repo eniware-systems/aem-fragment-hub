@@ -4,6 +4,7 @@ package de.enithing.contenthub.model.contentfragment.impl;
 
 import de.enithing.contenthub.model.contentfragment.ContentFragmentFieldType;
 import de.enithing.contenthub.model.contentfragment.ContentFragmentFieldValue;
+import de.enithing.contenthub.model.contentfragment.ContentFragmentModel;
 import de.enithing.contenthub.model.contentfragment.ContentFragmentPackage;
 import de.enithing.contenthub.model.contentfragment.util.ContentFragmentFieldTypeUtils;
 
@@ -192,6 +193,15 @@ public abstract class ContentFragmentFieldTypeImpl<TValue extends ContentFragmen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 */
+	@Override
+	public ContentFragmentModel getModel() {
+		return ContentFragmentFieldTypeUtils.getModel(this);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -277,6 +287,8 @@ public abstract class ContentFragmentFieldTypeImpl<TValue extends ContentFragmen
 		switch (operationID) {
 			case ContentFragmentPackage.CONTENT_FRAGMENT_FIELD_TYPE___CREATE_EMPTY_VALUE:
 				return createEmptyValue();
+			case ContentFragmentPackage.CONTENT_FRAGMENT_FIELD_TYPE___GET_MODEL:
+				return getModel();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

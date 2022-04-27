@@ -1,9 +1,9 @@
 /**
  */
-package de.enithing.contenthub.model.contenthub.tests;
+package de.enithing.contenthub.model.contentfragment.corefields.tests;
 
-import de.enithing.contenthub.model.contenthub.ContentHubFactory;
-import de.enithing.contenthub.model.contenthub.Pair;
+import de.enithing.contenthub.model.contentfragment.corefields.CorefieldsFactory;
+import de.enithing.contenthub.model.contentfragment.corefields.EnumerationOption;
 
 import junit.framework.TestCase;
 
@@ -11,19 +11,19 @@ import junit.textui.TestRunner;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Pair</b></em>'.
+ * A test case for the model object '<em><b>Enumeration Option</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
-public class PairTest extends TestCase {
+public class EnumerationOptionTest extends TestCase {
 
 	/**
-	 * The fixture for this Pair test case.
+	 * The fixture for this Enumeration Option test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected Pair<?, ?> fixture = null;
+	protected EnumerationOption fixture = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -31,36 +31,36 @@ public class PairTest extends TestCase {
 	 * @generated
 	 */
 	public static void main(String[] args) {
-		TestRunner.run(PairTest.class);
+		TestRunner.run(EnumerationOptionTest.class);
 	}
 
 	/**
-	 * Constructs a new Pair test case with the given name.
+	 * Constructs a new Enumeration Option test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PairTest(String name) {
+	public EnumerationOptionTest(String name) {
 		super(name);
 	}
 
 	/**
-	 * Sets the fixture for this Pair test case.
+	 * Sets the fixture for this Enumeration Option test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void setFixture(Pair<?, ?> fixture) {
+	protected void setFixture(EnumerationOption fixture) {
 		this.fixture = fixture;
 	}
 
 	/**
-	 * Returns the fixture for this Pair test case.
+	 * Returns the fixture for this Enumeration Option test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected Pair<?, ?> getFixture() {
+	protected EnumerationOption getFixture() {
 		return fixture;
 	}
 
@@ -72,7 +72,7 @@ public class PairTest extends TestCase {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(ContentHubFactory.eINSTANCE.createPair());
+		setFixture(CorefieldsFactory.eINSTANCE.createEnumerationOption());
 	}
 
 	/**
@@ -86,4 +86,4 @@ public class PairTest extends TestCase {
 		setFixture(null);
 	}
 
-} //PairTest
+} //EnumerationOptionTest

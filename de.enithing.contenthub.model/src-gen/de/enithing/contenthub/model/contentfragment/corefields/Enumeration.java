@@ -3,7 +3,6 @@
 package de.enithing.contenthub.model.contentfragment.corefields;
 
 import de.enithing.contenthub.model.contentfragment.SimpleFieldType;
-import de.enithing.contenthub.model.contenthub.Pair;
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -27,16 +26,16 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface Enumeration extends SimpleFieldType<StringValue> {
 	/**
-	 * Returns the value of the '<em><b>Options</b></em>' reference list.
-	 * The list contents are of type {@link de.enithing.contenthub.model.contenthub.Pair}<code>&lt;java.lang.String, java.lang.String&gt;</code>.
+	 * Returns the value of the '<em><b>Options</b></em>' containment reference list.
+	 * The list contents are of type {@link de.enithing.contenthub.model.contentfragment.corefields.EnumerationOption}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Options</em>' reference list.
+	 * @return the value of the '<em>Options</em>' containment reference list.
 	 * @see de.enithing.contenthub.model.contentfragment.corefields.CorefieldsPackage#getEnumeration_Options()
-	 * @model type="de.enithing.contenthub.model.contenthub.Pair&lt;org.eclipse.emf.ecore.EString, org.eclipse.emf.ecore.EString&gt;"
+	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Pair<String, String>> getOptions();
+	EList<EnumerationOption> getOptions();
 
 	/**
 	 * Returns the value of the '<em><b>Placeholder</b></em>' attribute.

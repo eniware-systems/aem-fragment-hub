@@ -27,6 +27,8 @@ import de.enithing.contenthub.model.contentfragment.ContentFragmentModelSet;
 import de.enithing.contenthub.model.contentfragment.corefields.CorefieldsFactory;
 import de.enithing.contenthub.model.contentfragment.corefields.DateTime;
 import de.enithing.contenthub.model.contentfragment.corefields.DateTimeValue;
+import de.enithing.contenthub.model.contentfragment.corefields.Enumeration;
+import de.enithing.contenthub.model.contentfragment.corefields.EnumerationOption;
 import de.enithing.contenthub.model.contentfragment.corefields.FragmentReference;
 import de.enithing.contenthub.model.contentfragment.corefields.FragmentReferenceValue;
 import de.enithing.contenthub.model.contentfragment.corefields.MultiLineText;
@@ -43,12 +45,12 @@ class GeneratorTest {
 
 	@BeforeEach
 	void setupVfs() throws FileSystemException {
-		//TestConfig cfg = TestUtils.createInMemoryVFSManager();
-		TestConfig cfg = TestUtils.createFileVFSManager(Path.of("/tmp/foo"));
+		TestConfig cfg = TestUtils.createInMemoryVFSManager();
+		// TestConfig cfg = TestUtils.createFileVFSManager(Path.of("/tmp/foo"));
 		vfsManager = cfg.vfsManager;
 		vfsRoot = cfg.vfsRoot;
 	}
-	
+
 	private PackageGenerator createPackageGenerator() throws FileSystemException {
 		GeneratorConfiguration cfg = new GeneratorConfiguration();
 		cfg.unknownFieldHandling = UnknownFieldHandlingMode.Error;
@@ -61,18 +63,19 @@ class GeneratorTest {
 		cfg.targetRoot.createFolder();
 
 		PackageGenerator gen = new PackageGenerator(cfg);
-		
+
 		return gen;
 	}
 
-	@Test
-	void resourceTest() throws FileSystemException {
-		PackageGenerator gen = createPackageGenerator();
-		
-		Package myPackage = GeneratorUtils.loadPackageFromUri(URI.createURI("file:///tmp/test.chub"));
-
-		assertDoesNotThrow(() -> gen.generate(myPackage));
-	}
+	/*
+	 * @Test void resourceTest() throws FileSystemException { PackageGenerator gen =
+	 * createPackageGenerator();
+	 * 
+	 * Package myPackage =
+	 * GeneratorUtils.loadPackageFromUri(URI.createURI("file:///tmp/test.chub"));
+	 * 
+	 * assertDoesNotThrow(() -> gen.generate(myPackage)); }
+	 */
 
 	@Test
 	void bookStoreTest() throws FileSystemException {
@@ -137,7 +140,6 @@ class GeneratorTest {
 			tab.setPropertyName("tab_info");
 			tab.setFieldLabel("info");
 			tab.setDescription("additional information");
-			;
 
 			bookModel.getFields().add(tab);
 
@@ -147,7 +149,7 @@ class GeneratorTest {
 				field.setFieldLabel("abstract");
 				field.setDescription("the abstract of the book");
 
-				bookModel.getFields().add(field);
+				tab.getFields().add(field);
 			}
 
 			{
@@ -157,7 +159,33 @@ class GeneratorTest {
 				field.setDescription("reading examples of the book");
 				field.setAllowMultiple(true);
 
-				bookModel.getFields().add(field);
+				tab.getFields().add(field);
+			}
+
+			{
+				Enumeration field = fieldsFactory.createEnumeration();
+
+				field.setPropertyName("genre");
+				field.setFieldLabel("book genre");
+				field.setDescription("the genre of the book");
+
+				{
+					EnumerationOption opt = fieldsFactory.createEnumerationOption();
+					opt.setKey("scifi");
+					opt.setValue("science fiction");
+					field.getOptions().add(opt);
+				}
+
+				{
+					EnumerationOption opt = fieldsFactory.createEnumerationOption();
+					opt.setKey("drama");
+					opt.setValue("drama");
+					field.getOptions().add(opt);
+				}
+
+				field.setRequired(true);
+
+				tab.getFields().add(field);
 			}
 		}
 
@@ -194,9 +222,8 @@ class GeneratorTest {
 		book.setTitle("The Necronomicon");
 
 		{
-
 			ContentFragmentFieldInstance field = cfFactory.createContentFragmentFieldInstance();
-			field.setFieldtype(bookModel.getFields().get(0));
+			field.setFieldtype(bookModel.getFieldByName("added_date"));
 
 			DateTimeValue value = fieldsFactory.createDateTimeValue();
 			value.setValue(Date.from(Instant.now()));
@@ -206,9 +233,8 @@ class GeneratorTest {
 		}
 
 		{
-
 			ContentFragmentFieldInstance field = cfFactory.createContentFragmentFieldInstance();
-			field.setFieldtype(bookModel.getFields().get(1));
+			field.setFieldtype(bookModel.getFieldByName("title"));
 
 			StringValue value = fieldsFactory.createStringValue();
 			value.setValue("The Necronomicon");
@@ -220,10 +246,22 @@ class GeneratorTest {
 		{
 
 			ContentFragmentFieldInstance field = cfFactory.createContentFragmentFieldInstance();
-			field.setFieldtype(bookModel.getFields().get(2));
+			field.setFieldtype(bookModel.getFieldByName("author"));
 
 			StringValue value = fieldsFactory.createStringValue();
 			value.setValue("Abdul Alhazred");
+
+			field.setValue(value);
+			book.getFields().add(field);
+		}
+
+		{
+
+			ContentFragmentFieldInstance field = cfFactory.createContentFragmentFieldInstance();
+			field.setFieldtype(bookModel.getFieldByName("genre"));
+
+			StringValue value = fieldsFactory.createStringValue();
+			value.setValue("scifi");
 
 			field.setValue(value);
 			book.getFields().add(field);

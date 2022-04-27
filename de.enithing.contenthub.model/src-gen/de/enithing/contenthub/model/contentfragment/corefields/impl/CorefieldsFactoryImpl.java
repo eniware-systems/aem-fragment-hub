@@ -12,6 +12,7 @@ import de.enithing.contenthub.model.contentfragment.corefields.DateTime;
 import de.enithing.contenthub.model.contentfragment.corefields.DateTimeType;
 import de.enithing.contenthub.model.contentfragment.corefields.DateTimeValue;
 import de.enithing.contenthub.model.contentfragment.corefields.Enumeration;
+import de.enithing.contenthub.model.contentfragment.corefields.EnumerationOption;
 import de.enithing.contenthub.model.contentfragment.corefields.FragmentReference;
 import de.enithing.contenthub.model.contentfragment.corefields.FragmentReferenceValue;
 import de.enithing.contenthub.model.contentfragment.corefields.Json;
@@ -88,6 +89,7 @@ public class CorefieldsFactoryImpl extends EFactoryImpl implements CorefieldsFac
 			case CorefieldsPackage.BOOLEAN_VALUE: return createBooleanValue();
 			case CorefieldsPackage.DATE_TIME: return createDateTime();
 			case CorefieldsPackage.DATE_TIME_VALUE: return createDateTimeValue();
+			case CorefieldsPackage.ENUMERATION_OPTION: return createEnumerationOption();
 			case CorefieldsPackage.ENUMERATION: return createEnumeration();
 			case CorefieldsPackage.TAGS: return createTags();
 			case CorefieldsPackage.CONTENT_REFERENCE: return createContentReference();
@@ -230,6 +232,17 @@ public class CorefieldsFactoryImpl extends EFactoryImpl implements CorefieldsFac
 	public DateTimeValue createDateTimeValue() {
 		DateTimeValueImpl dateTimeValue = new DateTimeValueImpl();
 		return dateTimeValue;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EnumerationOption createEnumerationOption() {
+		EnumerationOptionImpl enumerationOption = new EnumerationOptionImpl();
+		return enumerationOption;
 	}
 
 	/**

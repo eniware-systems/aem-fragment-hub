@@ -270,6 +270,25 @@ public class ContentFragmentModelImpl extends MinimalEObjectImpl.Container imple
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
+	 */
+	@Override
+	public <TField extends ContentFragmentFieldType<?>> TField getFieldByName(String name, Class<TField> clazz) {
+		return ContentFragmentModelUtils.getFieldByName(this, name, clazz);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	@Override
+	public ContentFragmentFieldType<?> getFieldByName(String name) {
+		return ContentFragmentModelUtils.getFieldByName(this, name);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 */
 	@Override
 	public Path getPath() {
@@ -428,10 +447,15 @@ public class ContentFragmentModelImpl extends MinimalEObjectImpl.Container imple
 	 * @generated
 	 */
 	@Override
+	@SuppressWarnings({"rawtypes", "unchecked" })
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 			case ContentFragmentPackage.CONTENT_FRAGMENT_MODEL___GET_ALL_FIELDS:
 				return getAllFields();
+			case ContentFragmentPackage.CONTENT_FRAGMENT_MODEL___GET_FIELD_BY_NAME__STRING_CLASS:
+				return getFieldByName((String)arguments.get(0), (Class)arguments.get(1));
+			case ContentFragmentPackage.CONTENT_FRAGMENT_MODEL___GET_FIELD_BY_NAME__STRING:
+				return getFieldByName((String)arguments.get(0));
 			case ContentFragmentPackage.CONTENT_FRAGMENT_MODEL___GET_PATH:
 				return getPath();
 		}

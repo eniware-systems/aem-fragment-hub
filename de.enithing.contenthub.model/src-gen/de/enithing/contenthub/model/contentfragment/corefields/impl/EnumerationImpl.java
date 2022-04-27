@@ -5,20 +5,22 @@ package de.enithing.contenthub.model.contentfragment.corefields.impl;
 import de.enithing.contenthub.model.contentfragment.corefields.CorefieldsPackage;
 import de.enithing.contenthub.model.contentfragment.corefields.Enumeration;
 
+import de.enithing.contenthub.model.contentfragment.corefields.EnumerationOption;
 import de.enithing.contenthub.model.contentfragment.corefields.StringValue;
 import de.enithing.contenthub.model.contentfragment.impl.ContentFragmentFieldTypeImpl;
-
-import de.enithing.contenthub.model.contenthub.Pair;
 import java.lang.Boolean;
 
 import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -38,14 +40,14 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  */
 public class EnumerationImpl extends ContentFragmentFieldTypeImpl<StringValue> implements Enumeration {
 	/**
-	 * The cached value of the '{@link #getOptions() <em>Options</em>}' reference list.
+	 * The cached value of the '{@link #getOptions() <em>Options</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getOptions()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Pair<String, String>> options;
+	protected EList<EnumerationOption> options;
 
 	/**
 	 * The default value of the '{@link #getPlaceholder() <em>Placeholder</em>}' attribute.
@@ -132,9 +134,9 @@ public class EnumerationImpl extends ContentFragmentFieldTypeImpl<StringValue> i
 	 * @generated
 	 */
 	@Override
-	public EList<Pair<String, String>> getOptions() {
+	public EList<EnumerationOption> getOptions() {
 		if (options == null) {
-			options = new EObjectResolvingEList<Pair<String, String>>(Pair.class, this, CorefieldsPackage.ENUMERATION__OPTIONS);
+			options = new EObjectContainmentEList<EnumerationOption>(EnumerationOption.class, this, CorefieldsPackage.ENUMERATION__OPTIONS);
 		}
 		return options;
 	}
@@ -214,6 +216,20 @@ public class EnumerationImpl extends ContentFragmentFieldTypeImpl<StringValue> i
 	 * @generated
 	 */
 	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case CorefieldsPackage.ENUMERATION__OPTIONS:
+				return ((InternalEList<?>)getOptions()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case CorefieldsPackage.ENUMERATION__OPTIONS:
@@ -239,7 +255,7 @@ public class EnumerationImpl extends ContentFragmentFieldTypeImpl<StringValue> i
 		switch (featureID) {
 			case CorefieldsPackage.ENUMERATION__OPTIONS:
 				getOptions().clear();
-				getOptions().addAll((Collection<? extends Pair<String, String>>)newValue);
+				getOptions().addAll((Collection<? extends EnumerationOption>)newValue);
 				return;
 			case CorefieldsPackage.ENUMERATION__PLACEHOLDER:
 				setPlaceholder((String)newValue);

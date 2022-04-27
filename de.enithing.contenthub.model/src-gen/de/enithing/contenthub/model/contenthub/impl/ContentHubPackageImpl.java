@@ -17,7 +17,6 @@ import de.enithing.contenthub.model.contenthub.Context;
 import de.enithing.contenthub.model.contenthub.ContextPath;
 import de.enithing.contenthub.model.contenthub.ContextPolicy;
 import de.enithing.contenthub.model.contenthub.ContextType;
-import de.enithing.contenthub.model.contenthub.Pair;
 import de.enithing.contenthub.model.contenthub.PathProvider;
 import de.enithing.contenthub.model.contenthub.SimplePath;
 import java.nio.file.Path;
@@ -81,13 +80,6 @@ public class ContentHubPackageImpl extends EPackageImpl implements ContentHubPac
 	 * @generated
 	 */
 	private EClass contextPolicyEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass pairEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -484,36 +476,6 @@ public class ContentHubPackageImpl extends EPackageImpl implements ContentHubPac
 	 * @generated
 	 */
 	@Override
-	public EClass getPair() {
-		return pairEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getPair_Key() {
-		return (EAttribute)pairEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getPair_Value() {
-		return (EAttribute)pairEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EEnum getContextType() {
 		return contextTypeEEnum;
 	}
@@ -593,10 +555,6 @@ public class ContentHubPackageImpl extends EPackageImpl implements ContentHubPac
 
 		contextPolicyEClass = createEClass(CONTEXT_POLICY);
 
-		pairEClass = createEClass(PAIR);
-		createEAttribute(pairEClass, PAIR__KEY);
-		createEAttribute(pairEClass, PAIR__VALUE);
-
 		// Create enums
 		contextTypeEEnum = createEEnum(CONTEXT_TYPE);
 
@@ -634,8 +592,6 @@ public class ContentHubPackageImpl extends EPackageImpl implements ContentHubPac
 		getESubpackages().add(theContentFragmentPackage);
 
 		// Create type parameters
-		ETypeParameter pairEClass_TKey = addETypeParameter(pairEClass, "TKey");
-		ETypeParameter pairEClass_TValue = addETypeParameter(pairEClass, "TValue");
 
 		// Set bounds for type parameters
 
@@ -693,12 +649,6 @@ public class ContentHubPackageImpl extends EPackageImpl implements ContentHubPac
 		initEOperation(getContext__GetPath(), this.getPath(), "getPath", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(contextPolicyEClass, ContextPolicy.class, "ContextPolicy", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(pairEClass, Pair.class, "Pair", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		g1 = createEGenericType(pairEClass_TKey);
-		initEAttribute(getPair_Key(), g1, "key", null, 1, 1, Pair.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		g1 = createEGenericType(pairEClass_TValue);
-		initEAttribute(getPair_Value(), g1, "value", null, 1, 1, Pair.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(contextTypeEEnum, ContextType.class, "ContextType");

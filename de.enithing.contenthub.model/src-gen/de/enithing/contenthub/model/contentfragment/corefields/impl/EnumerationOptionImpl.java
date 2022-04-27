@@ -1,9 +1,9 @@
 /**
  */
-package de.enithing.contenthub.model.contenthub.impl;
+package de.enithing.contenthub.model.contentfragment.corefields.impl;
 
-import de.enithing.contenthub.model.contenthub.ContentHubPackage;
-import de.enithing.contenthub.model.contenthub.Pair;
+import de.enithing.contenthub.model.contentfragment.corefields.CorefieldsPackage;
+import de.enithing.contenthub.model.contentfragment.corefields.EnumerationOption;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -14,19 +14,29 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Pair</b></em>'.
+ * An implementation of the model object '<em><b>Enumeration Option</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link de.enithing.contenthub.model.contenthub.impl.PairImpl#getKey <em>Key</em>}</li>
- *   <li>{@link de.enithing.contenthub.model.contenthub.impl.PairImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link de.enithing.contenthub.model.contentfragment.corefields.impl.EnumerationOptionImpl#getKey <em>Key</em>}</li>
+ *   <li>{@link de.enithing.contenthub.model.contentfragment.corefields.impl.EnumerationOptionImpl#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class PairImpl<TKey, TValue> extends MinimalEObjectImpl.Container implements Pair<TKey, TValue> {
+public class EnumerationOptionImpl extends MinimalEObjectImpl.Container implements EnumerationOption {
+	/**
+	 * The default value of the '{@link #getKey() <em>Key</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getKey()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String KEY_EDEFAULT = null;
+
 	/**
 	 * The cached value of the '{@link #getKey() <em>Key</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -35,7 +45,17 @@ public class PairImpl<TKey, TValue> extends MinimalEObjectImpl.Container impleme
 	 * @generated
 	 * @ordered
 	 */
-	protected TKey key;
+	protected String key = KEY_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String VALUE_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
@@ -45,14 +65,14 @@ public class PairImpl<TKey, TValue> extends MinimalEObjectImpl.Container impleme
 	 * @generated
 	 * @ordered
 	 */
-	protected TValue value;
+	protected String value = VALUE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PairImpl() {
+	protected EnumerationOptionImpl() {
 		super();
 	}
 
@@ -63,7 +83,7 @@ public class PairImpl<TKey, TValue> extends MinimalEObjectImpl.Container impleme
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ContentHubPackage.Literals.PAIR;
+		return CorefieldsPackage.Literals.ENUMERATION_OPTION;
 	}
 
 	/**
@@ -72,7 +92,7 @@ public class PairImpl<TKey, TValue> extends MinimalEObjectImpl.Container impleme
 	 * @generated
 	 */
 	@Override
-	public TKey getKey() {
+	public String getKey() {
 		return key;
 	}
 
@@ -82,11 +102,11 @@ public class PairImpl<TKey, TValue> extends MinimalEObjectImpl.Container impleme
 	 * @generated
 	 */
 	@Override
-	public void setKey(TKey newKey) {
-		TKey oldKey = key;
+	public void setKey(String newKey) {
+		String oldKey = key;
 		key = newKey;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ContentHubPackage.PAIR__KEY, oldKey, key));
+			eNotify(new ENotificationImpl(this, Notification.SET, CorefieldsPackage.ENUMERATION_OPTION__KEY, oldKey, key));
 	}
 
 	/**
@@ -95,7 +115,7 @@ public class PairImpl<TKey, TValue> extends MinimalEObjectImpl.Container impleme
 	 * @generated
 	 */
 	@Override
-	public TValue getValue() {
+	public String getValue() {
 		return value;
 	}
 
@@ -105,11 +125,11 @@ public class PairImpl<TKey, TValue> extends MinimalEObjectImpl.Container impleme
 	 * @generated
 	 */
 	@Override
-	public void setValue(TValue newValue) {
-		TValue oldValue = value;
+	public void setValue(String newValue) {
+		String oldValue = value;
 		value = newValue;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ContentHubPackage.PAIR__VALUE, oldValue, value));
+			eNotify(new ENotificationImpl(this, Notification.SET, CorefieldsPackage.ENUMERATION_OPTION__VALUE, oldValue, value));
 	}
 
 	/**
@@ -120,9 +140,9 @@ public class PairImpl<TKey, TValue> extends MinimalEObjectImpl.Container impleme
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ContentHubPackage.PAIR__KEY:
+			case CorefieldsPackage.ENUMERATION_OPTION__KEY:
 				return getKey();
-			case ContentHubPackage.PAIR__VALUE:
+			case CorefieldsPackage.ENUMERATION_OPTION__VALUE:
 				return getValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -133,15 +153,14 @@ public class PairImpl<TKey, TValue> extends MinimalEObjectImpl.Container impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ContentHubPackage.PAIR__KEY:
-				setKey((TKey)newValue);
+			case CorefieldsPackage.ENUMERATION_OPTION__KEY:
+				setKey((String)newValue);
 				return;
-			case ContentHubPackage.PAIR__VALUE:
-				setValue((TValue)newValue);
+			case CorefieldsPackage.ENUMERATION_OPTION__VALUE:
+				setValue((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -155,11 +174,11 @@ public class PairImpl<TKey, TValue> extends MinimalEObjectImpl.Container impleme
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ContentHubPackage.PAIR__KEY:
-				setKey((TKey)null);
+			case CorefieldsPackage.ENUMERATION_OPTION__KEY:
+				setKey(KEY_EDEFAULT);
 				return;
-			case ContentHubPackage.PAIR__VALUE:
-				setValue((TValue)null);
+			case CorefieldsPackage.ENUMERATION_OPTION__VALUE:
+				setValue(VALUE_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -173,10 +192,10 @@ public class PairImpl<TKey, TValue> extends MinimalEObjectImpl.Container impleme
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ContentHubPackage.PAIR__KEY:
-				return key != null;
-			case ContentHubPackage.PAIR__VALUE:
-				return value != null;
+			case CorefieldsPackage.ENUMERATION_OPTION__KEY:
+				return KEY_EDEFAULT == null ? key != null : !KEY_EDEFAULT.equals(key);
+			case CorefieldsPackage.ENUMERATION_OPTION__VALUE:
+				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -199,4 +218,4 @@ public class PairImpl<TKey, TValue> extends MinimalEObjectImpl.Container impleme
 		return result.toString();
 	}
 
-} //PairImpl
+} //EnumerationOptionImpl

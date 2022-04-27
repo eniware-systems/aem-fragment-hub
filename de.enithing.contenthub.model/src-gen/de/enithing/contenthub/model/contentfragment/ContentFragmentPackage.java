@@ -187,13 +187,31 @@ public interface ContentFragmentPackage extends EPackage {
 	int CONTENT_FRAGMENT_MODEL___GET_ALL_FIELDS = 0;
 
 	/**
+	 * The operation id for the '<em>Get Field By Name</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_FRAGMENT_MODEL___GET_FIELD_BY_NAME__STRING_CLASS = 1;
+
+	/**
+	 * The operation id for the '<em>Get Field By Name</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_FRAGMENT_MODEL___GET_FIELD_BY_NAME__STRING = 2;
+
+	/**
 	 * The operation id for the '<em>Get Path</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTENT_FRAGMENT_MODEL___GET_PATH = 1;
+	int CONTENT_FRAGMENT_MODEL___GET_PATH = 3;
 
 	/**
 	 * The number of operations of the '<em>Model</em>' class.
@@ -202,7 +220,7 @@ public interface ContentFragmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTENT_FRAGMENT_MODEL_OPERATION_COUNT = 2;
+	int CONTENT_FRAGMENT_MODEL_OPERATION_COUNT = 4;
 
 	/**
 	 * The meta object id for the '{@link de.enithing.contenthub.model.contentfragment.impl.ContentFragmentFieldTypeImpl <em>Field Type</em>}' class.
@@ -260,13 +278,22 @@ public interface ContentFragmentPackage extends EPackage {
 	int CONTENT_FRAGMENT_FIELD_TYPE___CREATE_EMPTY_VALUE = 0;
 
 	/**
+	 * The operation id for the '<em>Get Model</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_FRAGMENT_FIELD_TYPE___GET_MODEL = 1;
+
+	/**
 	 * The number of operations of the '<em>Field Type</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTENT_FRAGMENT_FIELD_TYPE_OPERATION_COUNT = 1;
+	int CONTENT_FRAGMENT_FIELD_TYPE_OPERATION_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link de.enithing.contenthub.model.contentfragment.impl.ContentFragmentInstanceImpl <em>Instance</em>}' class.
@@ -461,6 +488,15 @@ public interface ContentFragmentPackage extends EPackage {
 	int SIMPLE_FIELD_TYPE___CREATE_EMPTY_VALUE = CONTENT_FRAGMENT_FIELD_TYPE___CREATE_EMPTY_VALUE;
 
 	/**
+	 * The operation id for the '<em>Get Model</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIMPLE_FIELD_TYPE___GET_MODEL = CONTENT_FRAGMENT_FIELD_TYPE___GET_MODEL;
+
+	/**
 	 * The number of operations of the '<em>Simple Field Type</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -532,6 +568,15 @@ public interface ContentFragmentPackage extends EPackage {
 	 * @ordered
 	 */
 	int GROUP_FIELD_TYPE___CREATE_EMPTY_VALUE = CONTENT_FRAGMENT_FIELD_TYPE___CREATE_EMPTY_VALUE;
+
+	/**
+	 * The operation id for the '<em>Get Model</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GROUP_FIELD_TYPE___GET_MODEL = CONTENT_FRAGMENT_FIELD_TYPE___GET_MODEL;
 
 	/**
 	 * The number of operations of the '<em>Group Field Type</em>' class.
@@ -682,6 +727,15 @@ public interface ContentFragmentPackage extends EPackage {
 	int MULTI_FIELD_TYPE___CREATE_EMPTY_VALUE = SIMPLE_FIELD_TYPE___CREATE_EMPTY_VALUE;
 
 	/**
+	 * The operation id for the '<em>Get Model</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTI_FIELD_TYPE___GET_MODEL = SIMPLE_FIELD_TYPE___GET_MODEL;
+
+	/**
 	 * The number of operations of the '<em>Multi Field Type</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -809,6 +863,26 @@ public interface ContentFragmentPackage extends EPackage {
 	EOperation getContentFragmentModel__GetAllFields();
 
 	/**
+	 * Returns the meta object for the '{@link de.enithing.contenthub.model.contentfragment.ContentFragmentModel#getFieldByName(java.lang.String, java.lang.Class) <em>Get Field By Name</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Field By Name</em>' operation.
+	 * @see de.enithing.contenthub.model.contentfragment.ContentFragmentModel#getFieldByName(java.lang.String, java.lang.Class)
+	 * @generated
+	 */
+	EOperation getContentFragmentModel__GetFieldByName__String_Class();
+
+	/**
+	 * Returns the meta object for the '{@link de.enithing.contenthub.model.contentfragment.ContentFragmentModel#getFieldByName(java.lang.String) <em>Get Field By Name</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Field By Name</em>' operation.
+	 * @see de.enithing.contenthub.model.contentfragment.ContentFragmentModel#getFieldByName(java.lang.String)
+	 * @generated
+	 */
+	EOperation getContentFragmentModel__GetFieldByName__String();
+
+	/**
 	 * Returns the meta object for the '{@link de.enithing.contenthub.model.contentfragment.ContentFragmentModel#getPath() <em>Get Path</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -870,6 +944,16 @@ public interface ContentFragmentPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getContentFragmentFieldType__CreateEmptyValue();
+
+	/**
+	 * Returns the meta object for the '{@link de.enithing.contenthub.model.contentfragment.ContentFragmentFieldType#getModel() <em>Get Model</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Model</em>' operation.
+	 * @see de.enithing.contenthub.model.contentfragment.ContentFragmentFieldType#getModel()
+	 * @generated
+	 */
+	EOperation getContentFragmentFieldType__GetModel();
 
 	/**
 	 * Returns the meta object for class '{@link de.enithing.contenthub.model.contentfragment.ContentFragmentInstance <em>Instance</em>}'.
@@ -1199,6 +1283,22 @@ public interface ContentFragmentPackage extends EPackage {
 		EOperation CONTENT_FRAGMENT_MODEL___GET_ALL_FIELDS = eINSTANCE.getContentFragmentModel__GetAllFields();
 
 		/**
+		 * The meta object literal for the '<em><b>Get Field By Name</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation CONTENT_FRAGMENT_MODEL___GET_FIELD_BY_NAME__STRING_CLASS = eINSTANCE.getContentFragmentModel__GetFieldByName__String_Class();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Field By Name</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation CONTENT_FRAGMENT_MODEL___GET_FIELD_BY_NAME__STRING = eINSTANCE.getContentFragmentModel__GetFieldByName__String();
+
+		/**
 		 * The meta object literal for the '<em><b>Get Path</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1247,6 +1347,14 @@ public interface ContentFragmentPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation CONTENT_FRAGMENT_FIELD_TYPE___CREATE_EMPTY_VALUE = eINSTANCE.getContentFragmentFieldType__CreateEmptyValue();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Model</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation CONTENT_FRAGMENT_FIELD_TYPE___GET_MODEL = eINSTANCE.getContentFragmentFieldType__GetModel();
 
 		/**
 		 * The meta object literal for the '{@link de.enithing.contenthub.model.contentfragment.impl.ContentFragmentInstanceImpl <em>Instance</em>}' class.

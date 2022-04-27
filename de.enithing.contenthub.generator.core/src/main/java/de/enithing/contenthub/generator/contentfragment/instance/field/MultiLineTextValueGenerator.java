@@ -18,8 +18,7 @@ public class MultiLineTextValueGenerator extends StringValueGenerator {
 
 	@Override
 	public void populateAttribs(ContentFragmentFieldInstance element, StringValue value, VelocityContext ctx,
-			Map<String, Object> attribs) {
-		// TODO Auto-generated method stub
+			Map<String, Object> attribs) { 
 		super.populateAttribs(element, value, ctx, attribs);
 
 		attribs.put("x0040_ContentType", ((MultiLineText) element.getFieldtype()).getDefaultType());

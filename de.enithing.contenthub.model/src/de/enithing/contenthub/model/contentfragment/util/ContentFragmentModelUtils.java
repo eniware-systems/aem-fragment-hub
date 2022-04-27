@@ -32,6 +32,7 @@ public class ContentFragmentModelUtils {
 
 	/**
 	 * Gets a flat list of all available terminal fields for a given model
+	 * 
 	 * @param mdl The model
 	 * @return The containing fields
 	 */
@@ -48,4 +49,17 @@ public class ContentFragmentModelUtils {
 	public static Path getPath(ContentFragmentModel mdl) {
 		return mdl.getModelSet().getPackage().getContentFragmentModelPath().resolve(mdl.getId());
 	}
+
+	@SuppressWarnings("unchecked")
+	public static <TField extends ContentFragmentFieldType<?>> TField getFieldByName(ContentFragmentModel mdl,
+			String name, Class<TField> clazz) {
+		return (TField) mdl.getAllFields().stream()
+				.filter(f -> f.getPropertyName().equals(name) && clazz.isAssignableFrom(f.getClass())).findFirst()
+				.orElseThrow();
+	}
+
+	public static ContentFragmentFieldType<?> getFieldByName(ContentFragmentModel mdl, String name) {
+		return mdl.getAllFields().stream().filter(f -> f.getPropertyName().equals(name)).findFirst().orElseThrow();
+	}
+
 }

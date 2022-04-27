@@ -7,7 +7,6 @@ import de.enithing.contenthub.model.contenthub.ContentHubPackage;
 import de.enithing.contenthub.model.contenthub.Context;
 import de.enithing.contenthub.model.contenthub.ContextPath;
 import de.enithing.contenthub.model.contenthub.ContextType;
-import de.enithing.contenthub.model.contenthub.Pair;
 import de.enithing.contenthub.model.contenthub.SimplePath;
 import java.nio.file.Path;
 
@@ -68,7 +67,6 @@ public class ContentHubFactoryImpl extends EFactoryImpl implements ContentHubFac
 			case ContentHubPackage.CONTEXT_PATH: return createContextPath();
 			case ContentHubPackage.PACKAGE: return createPackage();
 			case ContentHubPackage.CONTEXT: return createContext();
-			case ContentHubPackage.PAIR: return createPair();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -150,17 +148,6 @@ public class ContentHubFactoryImpl extends EFactoryImpl implements ContentHubFac
 	public Context createContext() {
 		ContextImpl context = new ContextImpl();
 		return context;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public <TKey, TValue> Pair<TKey, TValue> createPair() {
-		PairImpl<TKey, TValue> pair = new PairImpl<TKey, TValue>();
-		return pair;
 	}
 
 	/**

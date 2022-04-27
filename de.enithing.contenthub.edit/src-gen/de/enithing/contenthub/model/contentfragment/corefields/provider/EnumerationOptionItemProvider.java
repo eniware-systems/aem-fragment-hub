@@ -1,12 +1,12 @@
 /**
  */
-package de.enithing.contenthub.model.contenthub.provider;
+package de.enithing.contenthub.model.contentfragment.corefields.provider;
 
 
 import de.enithing.contenthub.edit.ContentHubEditPlugin;
 
-import de.enithing.contenthub.model.contenthub.ContentHubPackage;
-import de.enithing.contenthub.model.contenthub.Pair;
+import de.enithing.contenthub.model.contentfragment.corefields.CorefieldsPackage;
+import de.enithing.contenthub.model.contentfragment.corefields.EnumerationOption;
 
 import java.util.Collection;
 import java.util.List;
@@ -28,12 +28,12 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link de.enithing.contenthub.model.contenthub.Pair} object.
+ * This is the item provider adapter for a {@link de.enithing.contenthub.model.contentfragment.corefields.EnumerationOption} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class PairItemProvider 
+public class EnumerationOptionItemProvider 
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -47,7 +47,7 @@ public class PairItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PairItemProvider(AdapterFactory adapterFactory) {
+	public EnumerationOptionItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -79,9 +79,9 @@ public class PairItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Pair_key_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Pair_key_feature", "_UI_Pair_type"),
-				 ContentHubPackage.Literals.PAIR__KEY,
+				 getString("_UI_EnumerationOption_key_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EnumerationOption_key_feature", "_UI_EnumerationOption_type"),
+				 CorefieldsPackage.Literals.ENUMERATION_OPTION__KEY,
 				 true,
 				 false,
 				 false,
@@ -101,9 +101,9 @@ public class PairItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Pair_value_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Pair_value_feature", "_UI_Pair_type"),
-				 ContentHubPackage.Literals.PAIR__VALUE,
+				 getString("_UI_EnumerationOption_value_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EnumerationOption_value_feature", "_UI_EnumerationOption_type"),
+				 CorefieldsPackage.Literals.ENUMERATION_OPTION__VALUE,
 				 true,
 				 false,
 				 false,
@@ -113,14 +113,14 @@ public class PairItemProvider
 	}
 
 	/**
-	 * This returns Pair.gif.
+	 * This returns EnumerationOption.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Pair"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/EnumerationOption"));
 	}
 
 	/**
@@ -131,11 +131,10 @@ public class PairItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		Object labelValue = ((Pair<?, ?>)object).getKey();
-		String label = labelValue == null ? null : labelValue.toString();
+		String label = ((EnumerationOption)object).getKey();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Pair_type") :
-			getString("_UI_Pair_type") + " " + label;
+			getString("_UI_EnumerationOption_type") :
+			getString("_UI_EnumerationOption_type") + " " + label;
 	}
 
 
@@ -150,9 +149,9 @@ public class PairItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Pair.class)) {
-			case ContentHubPackage.PAIR__KEY:
-			case ContentHubPackage.PAIR__VALUE:
+		switch (notification.getFeatureID(EnumerationOption.class)) {
+			case CorefieldsPackage.ENUMERATION_OPTION__KEY:
+			case CorefieldsPackage.ENUMERATION_OPTION__VALUE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

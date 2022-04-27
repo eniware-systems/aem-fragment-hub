@@ -14,6 +14,7 @@ import junit.framework.TestCase;
  * The following operations are tested:
  * <ul>
  *   <li>{@link de.enithing.contenthub.model.contentfragment.ContentFragmentFieldType#createEmptyValue() <em>Create Empty Value</em>}</li>
+ *   <li>{@link de.enithing.contenthub.model.contentfragment.ContentFragmentFieldType#getModel() <em>Get Model</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -66,6 +67,19 @@ public abstract class ContentFragmentFieldTypeTest extends TestCase {
 	 * @generated
 	 */
 	public void testCreateEmptyValue() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link de.enithing.contenthub.model.contentfragment.ContentFragmentFieldType#getModel() <em>Get Model</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.enithing.contenthub.model.contentfragment.ContentFragmentFieldType#getModel()
+	 * @generated
+	 */
+	public void testGetModel() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

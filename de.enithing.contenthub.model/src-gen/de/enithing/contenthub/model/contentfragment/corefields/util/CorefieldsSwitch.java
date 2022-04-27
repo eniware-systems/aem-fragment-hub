@@ -14,6 +14,7 @@ import de.enithing.contenthub.model.contentfragment.corefields.CorefieldsPackage
 import de.enithing.contenthub.model.contentfragment.corefields.DateTime;
 import de.enithing.contenthub.model.contentfragment.corefields.DateTimeValue;
 import de.enithing.contenthub.model.contentfragment.corefields.Enumeration;
+import de.enithing.contenthub.model.contentfragment.corefields.EnumerationOption;
 import de.enithing.contenthub.model.contentfragment.corefields.FragmentReference;
 import de.enithing.contenthub.model.contentfragment.corefields.FragmentReferenceValue;
 import de.enithing.contenthub.model.contentfragment.corefields.Json;
@@ -152,6 +153,12 @@ public class CorefieldsSwitch<T> extends Switch<T> {
 				DateTimeValue dateTimeValue = (DateTimeValue)theEObject;
 				T result = caseDateTimeValue(dateTimeValue);
 				if (result == null) result = caseContentFragmentFieldValue(dateTimeValue);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CorefieldsPackage.ENUMERATION_OPTION: {
+				EnumerationOption enumerationOption = (EnumerationOption)theEObject;
+				T result = caseEnumerationOption(enumerationOption);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -326,6 +333,21 @@ public class CorefieldsSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseDateTimeValue(DateTimeValue object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Enumeration Option</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Enumeration Option</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEnumerationOption(EnumerationOption object) {
 		return null;
 	}
 

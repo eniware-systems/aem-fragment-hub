@@ -85,6 +85,15 @@ public interface CorefieldsFactory extends EFactory {
 	DateTimeValue createDateTimeValue();
 
 	/**
+	 * Returns a new object of class '<em>Enumeration Option</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Enumeration Option</em>'.
+	 * @generated
+	 */
+	EnumerationOption createEnumerationOption();
+
+	/**
 	 * Returns a new object of class '<em>Enumeration</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

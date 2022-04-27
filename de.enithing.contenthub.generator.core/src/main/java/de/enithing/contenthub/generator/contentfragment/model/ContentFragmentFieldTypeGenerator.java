@@ -16,6 +16,9 @@ import de.enithing.contenthub.generator.util.JcrUtils;
 import de.enithing.contenthub.generator.util.StringUtils;
 import de.enithing.contenthub.generator.util.VelocityUtils;
 import de.enithing.contenthub.model.contentfragment.ContentFragmentFieldType;
+import de.enithing.contenthub.model.contentfragment.ContentFragmentModel;
+import de.enithing.contenthub.model.contentfragment.GroupFieldType;
+import de.enithing.contenthub.model.contentfragment.MultiFieldType;
 
 public abstract class ContentFragmentFieldTypeGenerator<TField extends ContentFragmentFieldType<?>>
 		implements TemplateBasedGenerator<TField> {
@@ -68,13 +71,37 @@ public abstract class ContentFragmentFieldTypeGenerator<TField extends ContentFr
 	protected void populateDefaultGraniteAttribs(TField element, VelocityContext ctx, Map<String, Object> attribs) {
 		attribs.put("jcr:primaryType", "nt:unstructured");
 	}
+	
+	private static int getElementSpacing(ContentFragmentFieldType<?> fieldType) {
+		if(fieldType instanceof GroupFieldType<?>) {
+			GroupFieldType<?> group = (GroupFieldType<?>) fieldType;
+			return group.getFields().size();
+		}
+		
+		return 1;
+	}
+	
+	
+	private int getListOrder(TField element) {
+		int rank = 1;
+		
+		for(ContentFragmentFieldType<?> field : element.getModel().getAllFields()) {
+			if(field == element) {
+				break;
+			}
+			
+			rank++;
+		}
+		
+		return rank;
+	}
 
 	protected void populateDefaultAttribs(TField element, VelocityContext ctx, Map<String, Object> attribs) {
 		attribs.put("jcr:primaryType", "nt:unstructured");
 		attribs.put("sling:resourceType", getResourceType());
 		attribs.put("valueType", getValueType());
-		attribs.put("metaType", getMetaType());
-		attribs.put("listOrder", 1);
+		attribs.put("metaType", getMetaType());		
+		attribs.put("listOrder", getListOrder(element));
 		attribs.put("fieldLabel", element.getFieldLabel());
 		attribs.put("fieldDescription", element.getDescription());
 		attribs.put("name", element.getPropertyName());

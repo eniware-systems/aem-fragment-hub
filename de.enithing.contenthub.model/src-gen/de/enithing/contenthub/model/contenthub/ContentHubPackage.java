@@ -462,52 +462,6 @@ public interface ContentHubPackage extends EPackage {
 	int CONTEXT_POLICY_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link de.enithing.contenthub.model.contenthub.impl.PairImpl <em>Pair</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.enithing.contenthub.model.contenthub.impl.PairImpl
-	 * @see de.enithing.contenthub.model.contenthub.impl.ContentHubPackageImpl#getPair()
-	 * @generated
-	 */
-	int PAIR = 6;
-
-	/**
-	 * The feature id for the '<em><b>Key</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PAIR__KEY = 0;
-
-	/**
-	 * The feature id for the '<em><b>Value</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PAIR__VALUE = 1;
-
-	/**
-	 * The number of structural features of the '<em>Pair</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PAIR_FEATURE_COUNT = 2;
-
-	/**
-	 * The number of operations of the '<em>Pair</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PAIR_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link de.enithing.contenthub.model.contenthub.ContextType <em>Context Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -515,7 +469,7 @@ public interface ContentHubPackage extends EPackage {
 	 * @see de.enithing.contenthub.model.contenthub.impl.ContentHubPackageImpl#getContextType()
 	 * @generated
 	 */
-	int CONTEXT_TYPE = 7;
+	int CONTEXT_TYPE = 6;
 
 	/**
 	 * The meta object id for the '<em>Path</em>' data type.
@@ -525,7 +479,7 @@ public interface ContentHubPackage extends EPackage {
 	 * @see de.enithing.contenthub.model.contenthub.impl.ContentHubPackageImpl#getPath()
 	 * @generated
 	 */
-	int PATH = 8;
+	int PATH = 7;
 
 
 	/**
@@ -848,38 +802,6 @@ public interface ContentHubPackage extends EPackage {
 	EClass getContextPolicy();
 
 	/**
-	 * Returns the meta object for class '{@link de.enithing.contenthub.model.contenthub.Pair <em>Pair</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Pair</em>'.
-	 * @see de.enithing.contenthub.model.contenthub.Pair
-	 * @generated
-	 */
-	EClass getPair();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.enithing.contenthub.model.contenthub.Pair#getKey <em>Key</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Key</em>'.
-	 * @see de.enithing.contenthub.model.contenthub.Pair#getKey()
-	 * @see #getPair()
-	 * @generated
-	 */
-	EAttribute getPair_Key();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.enithing.contenthub.model.contenthub.Pair#getValue <em>Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Value</em>'.
-	 * @see de.enithing.contenthub.model.contenthub.Pair#getValue()
-	 * @see #getPair()
-	 * @generated
-	 */
-	EAttribute getPair_Value();
-
-	/**
 	 * Returns the meta object for enum '{@link de.enithing.contenthub.model.contenthub.ContextType <em>Context Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1174,32 +1096,6 @@ public interface ContentHubPackage extends EPackage {
 		 * @generated
 		 */
 		EClass CONTEXT_POLICY = eINSTANCE.getContextPolicy();
-
-		/**
-		 * The meta object literal for the '{@link de.enithing.contenthub.model.contenthub.impl.PairImpl <em>Pair</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.enithing.contenthub.model.contenthub.impl.PairImpl
-		 * @see de.enithing.contenthub.model.contenthub.impl.ContentHubPackageImpl#getPair()
-		 * @generated
-		 */
-		EClass PAIR = eINSTANCE.getPair();
-
-		/**
-		 * The meta object literal for the '<em><b>Key</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PAIR__KEY = eINSTANCE.getPair_Key();
-
-		/**
-		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PAIR__VALUE = eINSTANCE.getPair_Value();
 
 		/**
 		 * The meta object literal for the '{@link de.enithing.contenthub.model.contenthub.ContextType <em>Context Type</em>}' enum.

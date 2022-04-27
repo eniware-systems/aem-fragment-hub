@@ -14,6 +14,7 @@ import de.enithing.contenthub.model.contentfragment.corefields.CorefieldsPackage
 import de.enithing.contenthub.model.contentfragment.corefields.DateTime;
 import de.enithing.contenthub.model.contentfragment.corefields.DateTimeValue;
 import de.enithing.contenthub.model.contentfragment.corefields.Enumeration;
+import de.enithing.contenthub.model.contentfragment.corefields.EnumerationOption;
 import de.enithing.contenthub.model.contentfragment.corefields.FragmentReference;
 import de.enithing.contenthub.model.contentfragment.corefields.FragmentReferenceValue;
 import de.enithing.contenthub.model.contentfragment.corefields.Json;
@@ -121,6 +122,10 @@ public class CorefieldsAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseDateTimeValue(DateTimeValue object) {
 				return createDateTimeValueAdapter();
+			}
+			@Override
+			public Adapter caseEnumerationOption(EnumerationOption object) {
+				return createEnumerationOptionAdapter();
 			}
 			@Override
 			public Adapter caseEnumeration(Enumeration object) {
@@ -289,6 +294,20 @@ public class CorefieldsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createDateTimeValueAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.enithing.contenthub.model.contentfragment.corefields.EnumerationOption <em>Enumeration Option</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.enithing.contenthub.model.contentfragment.corefields.EnumerationOption
+	 * @generated
+	 */
+	public Adapter createEnumerationOptionAdapter() {
 		return null;
 	}
 

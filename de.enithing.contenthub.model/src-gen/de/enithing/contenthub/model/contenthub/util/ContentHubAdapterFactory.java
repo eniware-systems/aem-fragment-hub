@@ -6,7 +6,6 @@ import de.enithing.contenthub.model.contenthub.ContentHubPackage;
 import de.enithing.contenthub.model.contenthub.Context;
 import de.enithing.contenthub.model.contenthub.ContextPath;
 import de.enithing.contenthub.model.contenthub.ContextPolicy;
-import de.enithing.contenthub.model.contenthub.Pair;
 import de.enithing.contenthub.model.contenthub.PathProvider;
 import de.enithing.contenthub.model.contenthub.SimplePath;
 import org.eclipse.emf.common.notify.Adapter;
@@ -95,10 +94,6 @@ public class ContentHubAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseContextPolicy(ContextPolicy object) {
 				return createContextPolicyAdapter();
-			}
-			@Override
-			public <TKey, TValue> Adapter casePair(Pair<TKey, TValue> object) {
-				return createPairAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -201,20 +196,6 @@ public class ContentHubAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createContextPolicyAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.enithing.contenthub.model.contenthub.Pair <em>Pair</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.enithing.contenthub.model.contenthub.Pair
-	 * @generated
-	 */
-	public Adapter createPairAdapter() {
 		return null;
 	}
 

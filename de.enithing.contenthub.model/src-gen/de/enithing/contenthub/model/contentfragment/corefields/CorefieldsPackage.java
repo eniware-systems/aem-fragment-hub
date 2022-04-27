@@ -135,7 +135,7 @@ public interface CorefieldsPackage extends EPackage {
 	 * @see de.enithing.contenthub.model.contentfragment.corefields.impl.CorefieldsPackageImpl#getEnumeration()
 	 * @generated
 	 */
-	int ENUMERATION = 9;
+	int ENUMERATION = 10;
 
 	/**
 	 * The meta object id for the '{@link de.enithing.contenthub.model.contentfragment.corefields.impl.TagsImpl <em>Tags</em>}' class.
@@ -145,7 +145,7 @@ public interface CorefieldsPackage extends EPackage {
 	 * @see de.enithing.contenthub.model.contentfragment.corefields.impl.CorefieldsPackageImpl#getTags()
 	 * @generated
 	 */
-	int TAGS = 10;
+	int TAGS = 11;
 
 	/**
 	 * The meta object id for the '{@link de.enithing.contenthub.model.contentfragment.corefields.impl.ContentReferenceImpl <em>Content Reference</em>}' class.
@@ -155,7 +155,7 @@ public interface CorefieldsPackage extends EPackage {
 	 * @see de.enithing.contenthub.model.contentfragment.corefields.impl.CorefieldsPackageImpl#getContentReference()
 	 * @generated
 	 */
-	int CONTENT_REFERENCE = 11;
+	int CONTENT_REFERENCE = 12;
 
 	/**
 	 * The meta object id for the '{@link de.enithing.contenthub.model.contentfragment.corefields.impl.FragmentReferenceImpl <em>Fragment Reference</em>}' class.
@@ -165,7 +165,7 @@ public interface CorefieldsPackage extends EPackage {
 	 * @see de.enithing.contenthub.model.contentfragment.corefields.impl.CorefieldsPackageImpl#getFragmentReference()
 	 * @generated
 	 */
-	int FRAGMENT_REFERENCE = 13;
+	int FRAGMENT_REFERENCE = 14;
 
 	/**
 	 * The meta object id for the '{@link de.enithing.contenthub.model.contentfragment.corefields.impl.FragmentReferenceValueImpl <em>Fragment Reference Value</em>}' class.
@@ -175,7 +175,7 @@ public interface CorefieldsPackage extends EPackage {
 	 * @see de.enithing.contenthub.model.contentfragment.corefields.impl.CorefieldsPackageImpl#getFragmentReferenceValue()
 	 * @generated
 	 */
-	int FRAGMENT_REFERENCE_VALUE = 14;
+	int FRAGMENT_REFERENCE_VALUE = 15;
 
 	/**
 	 * The meta object id for the '{@link de.enithing.contenthub.model.contentfragment.corefields.impl.JsonImpl <em>Json</em>}' class.
@@ -185,7 +185,7 @@ public interface CorefieldsPackage extends EPackage {
 	 * @see de.enithing.contenthub.model.contentfragment.corefields.impl.CorefieldsPackageImpl#getJson()
 	 * @generated
 	 */
-	int JSON = 15;
+	int JSON = 16;
 
 	/**
 	 * The meta object id for the '{@link de.enithing.contenthub.model.contentfragment.corefields.impl.SingleLineTextImpl <em>Single Line Text</em>}' class.
@@ -342,6 +342,15 @@ public interface CorefieldsPackage extends EPackage {
 	int SINGLE_LINE_TEXT___CREATE_EMPTY_VALUE = ContentFragmentPackage.MULTI_FIELD_TYPE___CREATE_EMPTY_VALUE;
 
 	/**
+	 * The operation id for the '<em>Get Model</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_LINE_TEXT___GET_MODEL = ContentFragmentPackage.MULTI_FIELD_TYPE___GET_MODEL;
+
+	/**
 	 * The number of operations of the '<em>Single Line Text</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -460,6 +469,15 @@ public interface CorefieldsPackage extends EPackage {
 	int MULTI_LINE_TEXT___CREATE_EMPTY_VALUE = ContentFragmentPackage.MULTI_FIELD_TYPE___CREATE_EMPTY_VALUE;
 
 	/**
+	 * The operation id for the '<em>Get Model</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTI_LINE_TEXT___GET_MODEL = ContentFragmentPackage.MULTI_FIELD_TYPE___GET_MODEL;
+
+	/**
 	 * The number of operations of the '<em>Multi Line Text</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -557,6 +575,15 @@ public interface CorefieldsPackage extends EPackage {
 	 * @ordered
 	 */
 	int NUMBER___CREATE_EMPTY_VALUE = ContentFragmentPackage.SIMPLE_FIELD_TYPE___CREATE_EMPTY_VALUE;
+
+	/**
+	 * The operation id for the '<em>Get Model</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER___GET_MODEL = ContentFragmentPackage.SIMPLE_FIELD_TYPE___GET_MODEL;
 
 	/**
 	 * The number of operations of the '<em>Number</em>' class.
@@ -666,6 +693,15 @@ public interface CorefieldsPackage extends EPackage {
 	 * @ordered
 	 */
 	int BOOLEAN___CREATE_EMPTY_VALUE = ContentFragmentPackage.SIMPLE_FIELD_TYPE___CREATE_EMPTY_VALUE;
+
+	/**
+	 * The operation id for the '<em>Get Model</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN___GET_MODEL = ContentFragmentPackage.SIMPLE_FIELD_TYPE___GET_MODEL;
 
 	/**
 	 * The number of operations of the '<em>Boolean</em>' class.
@@ -795,6 +831,15 @@ public interface CorefieldsPackage extends EPackage {
 	int DATE_TIME___CREATE_EMPTY_VALUE = ContentFragmentPackage.SIMPLE_FIELD_TYPE___CREATE_EMPTY_VALUE;
 
 	/**
+	 * The operation id for the '<em>Get Model</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_TIME___GET_MODEL = ContentFragmentPackage.SIMPLE_FIELD_TYPE___GET_MODEL;
+
+	/**
 	 * The number of operations of the '<em>Date Time</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -841,6 +886,52 @@ public interface CorefieldsPackage extends EPackage {
 	int DATE_TIME_VALUE_OPERATION_COUNT = ContentFragmentPackage.CONTENT_FRAGMENT_FIELD_VALUE_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link de.enithing.contenthub.model.contentfragment.corefields.impl.EnumerationOptionImpl <em>Enumeration Option</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.enithing.contenthub.model.contentfragment.corefields.impl.EnumerationOptionImpl
+	 * @see de.enithing.contenthub.model.contentfragment.corefields.impl.CorefieldsPackageImpl#getEnumerationOption()
+	 * @generated
+	 */
+	int ENUMERATION_OPTION = 9;
+
+	/**
+	 * The feature id for the '<em><b>Key</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUMERATION_OPTION__KEY = 0;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUMERATION_OPTION__VALUE = 1;
+
+	/**
+	 * The number of structural features of the '<em>Enumeration Option</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUMERATION_OPTION_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Enumeration Option</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUMERATION_OPTION_OPERATION_COUNT = 0;
+
+	/**
 	 * The feature id for the '<em><b>Property Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -868,7 +959,7 @@ public interface CorefieldsPackage extends EPackage {
 	int ENUMERATION__DESCRIPTION = ContentFragmentPackage.SIMPLE_FIELD_TYPE__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Options</b></em>' reference list.
+	 * The feature id for the '<em><b>Options</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -920,6 +1011,15 @@ public interface CorefieldsPackage extends EPackage {
 	 * @ordered
 	 */
 	int ENUMERATION___CREATE_EMPTY_VALUE = ContentFragmentPackage.SIMPLE_FIELD_TYPE___CREATE_EMPTY_VALUE;
+
+	/**
+	 * The operation id for the '<em>Get Model</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUMERATION___GET_MODEL = ContentFragmentPackage.SIMPLE_FIELD_TYPE___GET_MODEL;
 
 	/**
 	 * The number of operations of the '<em>Enumeration</em>' class.
@@ -1019,6 +1119,15 @@ public interface CorefieldsPackage extends EPackage {
 	 * @ordered
 	 */
 	int TAGS___CREATE_EMPTY_VALUE = ContentFragmentPackage.MULTI_FIELD_TYPE___CREATE_EMPTY_VALUE;
+
+	/**
+	 * The operation id for the '<em>Get Model</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TAGS___GET_MODEL = ContentFragmentPackage.MULTI_FIELD_TYPE___GET_MODEL;
 
 	/**
 	 * The number of operations of the '<em>Tags</em>' class.
@@ -1174,6 +1283,15 @@ public interface CorefieldsPackage extends EPackage {
 	int CONTENT_REFERENCE___CREATE_EMPTY_VALUE = ContentFragmentPackage.MULTI_FIELD_TYPE___CREATE_EMPTY_VALUE;
 
 	/**
+	 * The operation id for the '<em>Get Model</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_REFERENCE___GET_MODEL = ContentFragmentPackage.MULTI_FIELD_TYPE___GET_MODEL;
+
+	/**
 	 * The number of operations of the '<em>Content Reference</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1190,7 +1308,7 @@ public interface CorefieldsPackage extends EPackage {
 	 * @see de.enithing.contenthub.model.contentfragment.corefields.impl.CorefieldsPackageImpl#getContentReferenceValue()
 	 * @generated
 	 */
-	int CONTENT_REFERENCE_VALUE = 12;
+	int CONTENT_REFERENCE_VALUE = 13;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1328,6 +1446,15 @@ public interface CorefieldsPackage extends EPackage {
 	int FRAGMENT_REFERENCE___CREATE_EMPTY_VALUE = ContentFragmentPackage.MULTI_FIELD_TYPE___CREATE_EMPTY_VALUE;
 
 	/**
+	 * The operation id for the '<em>Get Model</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FRAGMENT_REFERENCE___GET_MODEL = ContentFragmentPackage.MULTI_FIELD_TYPE___GET_MODEL;
+
+	/**
 	 * The number of operations of the '<em>Fragment Reference</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1436,6 +1563,15 @@ public interface CorefieldsPackage extends EPackage {
 	int JSON___CREATE_EMPTY_VALUE = ContentFragmentPackage.SIMPLE_FIELD_TYPE___CREATE_EMPTY_VALUE;
 
 	/**
+	 * The operation id for the '<em>Get Model</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JSON___GET_MODEL = ContentFragmentPackage.SIMPLE_FIELD_TYPE___GET_MODEL;
+
+	/**
 	 * The number of operations of the '<em>Json</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1452,7 +1588,7 @@ public interface CorefieldsPackage extends EPackage {
 	 * @see de.enithing.contenthub.model.contentfragment.corefields.impl.CorefieldsPackageImpl#getTab()
 	 * @generated
 	 */
-	int TAB = 16;
+	int TAB = 17;
 
 	/**
 	 * The feature id for the '<em><b>Property Name</b></em>' attribute.
@@ -1509,6 +1645,15 @@ public interface CorefieldsPackage extends EPackage {
 	int TAB___CREATE_EMPTY_VALUE = ContentFragmentPackage.GROUP_FIELD_TYPE___CREATE_EMPTY_VALUE;
 
 	/**
+	 * The operation id for the '<em>Get Model</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TAB___GET_MODEL = ContentFragmentPackage.GROUP_FIELD_TYPE___GET_MODEL;
+
+	/**
 	 * The number of operations of the '<em>Tab</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1526,7 +1671,7 @@ public interface CorefieldsPackage extends EPackage {
 	 * @see de.enithing.contenthub.model.contentfragment.corefields.impl.CorefieldsPackageImpl#getTextMimeType()
 	 * @generated
 	 */
-	int TEXT_MIME_TYPE = 17;
+	int TEXT_MIME_TYPE = 18;
 
 	/**
 	 * The meta object id for the '{@link de.enithing.contenthub.model.contentfragment.corefields.TextValidationType <em>Text Validation Type</em>}' enum.
@@ -1536,7 +1681,7 @@ public interface CorefieldsPackage extends EPackage {
 	 * @see de.enithing.contenthub.model.contentfragment.corefields.impl.CorefieldsPackageImpl#getTextValidationType()
 	 * @generated
 	 */
-	int TEXT_VALIDATION_TYPE = 18;
+	int TEXT_VALIDATION_TYPE = 19;
 
 	/**
 	 * The meta object id for the '{@link de.enithing.contenthub.model.contentfragment.corefields.NumberTypeHint <em>Number Type Hint</em>}' enum.
@@ -1546,7 +1691,7 @@ public interface CorefieldsPackage extends EPackage {
 	 * @see de.enithing.contenthub.model.contentfragment.corefields.impl.CorefieldsPackageImpl#getNumberTypeHint()
 	 * @generated
 	 */
-	int NUMBER_TYPE_HINT = 19;
+	int NUMBER_TYPE_HINT = 20;
 
 	/**
 	 * The meta object id for the '{@link de.enithing.contenthub.model.contentfragment.corefields.NumberValidationType <em>Number Validation Type</em>}' enum.
@@ -1556,7 +1701,7 @@ public interface CorefieldsPackage extends EPackage {
 	 * @see de.enithing.contenthub.model.contentfragment.corefields.impl.CorefieldsPackageImpl#getNumberValidationType()
 	 * @generated
 	 */
-	int NUMBER_VALIDATION_TYPE = 20;
+	int NUMBER_VALIDATION_TYPE = 21;
 
 	/**
 	 * The meta object id for the '{@link de.enithing.contenthub.model.contentfragment.corefields.DateTimeType <em>Date Time Type</em>}' enum.
@@ -1566,7 +1711,7 @@ public interface CorefieldsPackage extends EPackage {
 	 * @see de.enithing.contenthub.model.contentfragment.corefields.impl.CorefieldsPackageImpl#getDateTimeType()
 	 * @generated
 	 */
-	int DATE_TIME_TYPE = 21;
+	int DATE_TIME_TYPE = 22;
 
 	/**
 	 * The meta object id for the '{@link de.enithing.contenthub.model.contentfragment.corefields.ContentReferenceType <em>Content Reference Type</em>}' enum.
@@ -1576,7 +1721,7 @@ public interface CorefieldsPackage extends EPackage {
 	 * @see de.enithing.contenthub.model.contentfragment.corefields.impl.CorefieldsPackageImpl#getContentReferenceType()
 	 * @generated
 	 */
-	int CONTENT_REFERENCE_TYPE = 22;
+	int CONTENT_REFERENCE_TYPE = 23;
 
 	/**
 	 * The meta object id for the '<em>Date</em>' data type.
@@ -1586,7 +1731,7 @@ public interface CorefieldsPackage extends EPackage {
 	 * @see de.enithing.contenthub.model.contentfragment.corefields.impl.CorefieldsPackageImpl#getDate()
 	 * @generated
 	 */
-	int DATE = 23;
+	int DATE = 24;
 
 	/**
 	 * Returns the meta object for class '{@link de.enithing.contenthub.model.contentfragment.corefields.StringValue <em>String Value</em>}'.
@@ -1824,6 +1969,38 @@ public interface CorefieldsPackage extends EPackage {
 	EAttribute getDateTimeValue_Value();
 
 	/**
+	 * Returns the meta object for class '{@link de.enithing.contenthub.model.contentfragment.corefields.EnumerationOption <em>Enumeration Option</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Enumeration Option</em>'.
+	 * @see de.enithing.contenthub.model.contentfragment.corefields.EnumerationOption
+	 * @generated
+	 */
+	EClass getEnumerationOption();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.enithing.contenthub.model.contentfragment.corefields.EnumerationOption#getKey <em>Key</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Key</em>'.
+	 * @see de.enithing.contenthub.model.contentfragment.corefields.EnumerationOption#getKey()
+	 * @see #getEnumerationOption()
+	 * @generated
+	 */
+	EAttribute getEnumerationOption_Key();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.enithing.contenthub.model.contentfragment.corefields.EnumerationOption#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see de.enithing.contenthub.model.contentfragment.corefields.EnumerationOption#getValue()
+	 * @see #getEnumerationOption()
+	 * @generated
+	 */
+	EAttribute getEnumerationOption_Value();
+
+	/**
 	 * Returns the meta object for class '{@link de.enithing.contenthub.model.contentfragment.corefields.Enumeration <em>Enumeration</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1834,10 +2011,10 @@ public interface CorefieldsPackage extends EPackage {
 	EClass getEnumeration();
 
 	/**
-	 * Returns the meta object for the reference list '{@link de.enithing.contenthub.model.contentfragment.corefields.Enumeration#getOptions <em>Options</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.enithing.contenthub.model.contentfragment.corefields.Enumeration#getOptions <em>Options</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Options</em>'.
+	 * @return the meta object for the containment reference list '<em>Options</em>'.
 	 * @see de.enithing.contenthub.model.contentfragment.corefields.Enumeration#getOptions()
 	 * @see #getEnumeration()
 	 * @generated
@@ -2637,6 +2814,32 @@ public interface CorefieldsPackage extends EPackage {
 		EAttribute DATE_TIME_VALUE__VALUE = eINSTANCE.getDateTimeValue_Value();
 
 		/**
+		 * The meta object literal for the '{@link de.enithing.contenthub.model.contentfragment.corefields.impl.EnumerationOptionImpl <em>Enumeration Option</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.enithing.contenthub.model.contentfragment.corefields.impl.EnumerationOptionImpl
+		 * @see de.enithing.contenthub.model.contentfragment.corefields.impl.CorefieldsPackageImpl#getEnumerationOption()
+		 * @generated
+		 */
+		EClass ENUMERATION_OPTION = eINSTANCE.getEnumerationOption();
+
+		/**
+		 * The meta object literal for the '<em><b>Key</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ENUMERATION_OPTION__KEY = eINSTANCE.getEnumerationOption_Key();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ENUMERATION_OPTION__VALUE = eINSTANCE.getEnumerationOption_Value();
+
+		/**
 		 * The meta object literal for the '{@link de.enithing.contenthub.model.contentfragment.corefields.impl.EnumerationImpl <em>Enumeration</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2647,7 +2850,7 @@ public interface CorefieldsPackage extends EPackage {
 		EClass ENUMERATION = eINSTANCE.getEnumeration();
 
 		/**
-		 * The meta object literal for the '<em><b>Options</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Options</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

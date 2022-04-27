@@ -97,4 +97,12 @@ public interface ContentFragmentFieldType<TValue extends ContentFragmentFieldVal
 	 */
 	TValue createEmptyValue();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" required="true"
+	 * @generated
+	 */
+	ContentFragmentModel getModel();
+
 } // ContentFragmentFieldType

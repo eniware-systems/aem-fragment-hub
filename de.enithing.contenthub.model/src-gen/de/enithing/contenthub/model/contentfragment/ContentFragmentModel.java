@@ -140,6 +140,22 @@ public interface ContentFragmentModel extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @model required="true" nameRequired="true" clazzRequired="true"
+	 * @generated
+	 */
+	<TField extends ContentFragmentFieldType<?>> TField getFieldByName(String name, Class<TField> clazz);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model required="true" nameRequired="true"
+	 * @generated
+	 */
+	ContentFragmentFieldType<?> getFieldByName(String name);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @model kind="operation" dataType="de.enithing.contenthub.model.contenthub.Path" required="true"
 	 * @generated
 	 */

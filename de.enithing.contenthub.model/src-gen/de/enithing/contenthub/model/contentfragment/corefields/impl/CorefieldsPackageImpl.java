@@ -13,6 +13,7 @@ import de.enithing.contenthub.model.contentfragment.corefields.DateTime;
 import de.enithing.contenthub.model.contentfragment.corefields.DateTimeType;
 import de.enithing.contenthub.model.contentfragment.corefields.DateTimeValue;
 import de.enithing.contenthub.model.contentfragment.corefields.Enumeration;
+import de.enithing.contenthub.model.contentfragment.corefields.EnumerationOption;
 import de.enithing.contenthub.model.contentfragment.corefields.FragmentReference;
 import de.enithing.contenthub.model.contentfragment.corefields.FragmentReferenceValue;
 import de.enithing.contenthub.model.contentfragment.corefields.Json;
@@ -100,6 +101,13 @@ public class CorefieldsPackageImpl extends EPackageImpl implements CorefieldsPac
 	 * @generated
 	 */
 	private EClass dateTimeValueEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass enumerationOptionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -513,6 +521,36 @@ public class CorefieldsPackageImpl extends EPackageImpl implements CorefieldsPac
 	@Override
 	public EAttribute getDateTimeValue_Value() {
 		return (EAttribute)dateTimeValueEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getEnumerationOption() {
+		return enumerationOptionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getEnumerationOption_Key() {
+		return (EAttribute)enumerationOptionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getEnumerationOption_Value() {
+		return (EAttribute)enumerationOptionEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1150,6 +1188,10 @@ public class CorefieldsPackageImpl extends EPackageImpl implements CorefieldsPac
 		dateTimeValueEClass = createEClass(DATE_TIME_VALUE);
 		createEAttribute(dateTimeValueEClass, DATE_TIME_VALUE__VALUE);
 
+		enumerationOptionEClass = createEClass(ENUMERATION_OPTION);
+		createEAttribute(enumerationOptionEClass, ENUMERATION_OPTION__KEY);
+		createEAttribute(enumerationOptionEClass, ENUMERATION_OPTION__VALUE);
+
 		enumerationEClass = createEClass(ENUMERATION);
 		createEReference(enumerationEClass, ENUMERATION__OPTIONS);
 		createEAttribute(enumerationEClass, ENUMERATION__PLACEHOLDER);
@@ -1341,13 +1383,12 @@ public class CorefieldsPackageImpl extends EPackageImpl implements CorefieldsPac
 		initEClass(dateTimeValueEClass, DateTimeValue.class, "DateTimeValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDateTimeValue_Value(), this.getDate(), "value", null, 1, 1, DateTimeValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(enumerationOptionEClass, EnumerationOption.class, "EnumerationOption", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getEnumerationOption_Key(), ecorePackage.getEString(), "key", null, 1, 1, EnumerationOption.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEnumerationOption_Value(), ecorePackage.getEString(), "value", null, 1, 1, EnumerationOption.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(enumerationEClass, Enumeration.class, "Enumeration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		g1 = createEGenericType(theContentHubPackage.getPair());
-		g2 = createEGenericType(ecorePackage.getEString());
-		g1.getETypeArguments().add(g2);
-		g2 = createEGenericType(ecorePackage.getEString());
-		g1.getETypeArguments().add(g2);
-		initEReference(getEnumeration_Options(), g1, null, "options", null, 0, -1, Enumeration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEnumeration_Options(), this.getEnumerationOption(), null, "options", null, 0, -1, Enumeration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEnumeration_Placeholder(), ecorePackage.getEString(), "placeholder", null, 1, 1, Enumeration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEnumeration_Required(), ecorePackage.getEBoolean(), "required", "false", 1, 1, Enumeration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEnumeration_Unique(), ecorePackage.getEBoolean(), "unique", "false", 1, 1, Enumeration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
