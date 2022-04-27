@@ -114,6 +114,7 @@ public class CorefieldsSwitch<T> extends Switch<T> {
 			case CorefieldsPackage.NUMBER: {
 				de.enithing.contenthub.model.contentfragment.corefields.Number number = (de.enithing.contenthub.model.contentfragment.corefields.Number)theEObject;
 				T result = caseNumber(number);
+				if (result == null) result = caseMultiFieldType(number);
 				if (result == null) result = caseSimpleFieldType(number);
 				if (result == null) result = caseContentFragmentFieldType(number);
 				if (result == null) result = defaultCase(theEObject);

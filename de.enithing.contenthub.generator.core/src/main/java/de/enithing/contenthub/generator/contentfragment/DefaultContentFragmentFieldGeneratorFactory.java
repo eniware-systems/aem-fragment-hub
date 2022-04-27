@@ -6,6 +6,7 @@ import de.enithing.contenthub.generator.contentfragment.instance.field.BooleanVa
 import de.enithing.contenthub.generator.contentfragment.instance.field.DateTimeValueGenerator;
 import de.enithing.contenthub.generator.contentfragment.instance.field.FragmentReferenceValueGenerator;
 import de.enithing.contenthub.generator.contentfragment.instance.field.MultiLineTextValueGenerator;
+import de.enithing.contenthub.generator.contentfragment.instance.field.NumberValueGenerator;
 import de.enithing.contenthub.generator.contentfragment.instance.field.StringValueGenerator;
 import de.enithing.contenthub.generator.contentfragment.model.ContentFragmentFieldTypeGenerator;
 import de.enithing.contenthub.generator.contentfragment.model.field.BooleanTypeGenerator;
@@ -14,10 +15,12 @@ import de.enithing.contenthub.generator.contentfragment.model.field.DateTimeType
 import de.enithing.contenthub.generator.contentfragment.model.field.EnumerationTypeGenerator;
 import de.enithing.contenthub.generator.contentfragment.model.field.FragmentReferenceTypeGenerator;
 import de.enithing.contenthub.generator.contentfragment.model.field.MultiLineTextTypeGenerator;
+import de.enithing.contenthub.generator.contentfragment.model.field.NumberTypeGenerator;
 import de.enithing.contenthub.generator.contentfragment.model.field.SingleLineTextTypeGenerator;
 import de.enithing.contenthub.generator.contentfragment.model.field.TabTypeGenerator;
 import de.enithing.contenthub.generator.contentfragment.model.field.TagsTypeGenerator;
 import de.enithing.contenthub.model.contentfragment.corefields.Boolean;
+import de.enithing.contenthub.model.contentfragment.corefields.Number;
 import de.enithing.contenthub.model.contentfragment.corefields.ContentReference;
 import de.enithing.contenthub.model.contentfragment.corefields.DateTime;
 import de.enithing.contenthub.model.contentfragment.corefields.Enumeration;
@@ -192,6 +195,25 @@ public class DefaultContentFragmentFieldGeneratorFactory extends ContentFragment
 			public ContentFragmentFieldInstanceGenerator<?> createInstanceGeneratorInstance(
 					GeneratorConfiguration cfg) {
 				return new BooleanValueGenerator(cfg);
+			}
+		});
+
+		registerFactory(new ContentFragmentFieldGeneratorFactory() {
+
+			@Override
+			public Class<?> getFieldTypeClass() {
+				return Number.class;
+			}
+
+			@Override
+			public ContentFragmentFieldTypeGenerator<?> createTypeGeneratorInstance(GeneratorConfiguration cfg) {
+				return new NumberTypeGenerator(cfg);
+			}
+
+			@Override
+			public ContentFragmentFieldInstanceGenerator<?> createInstanceGeneratorInstance(
+					GeneratorConfiguration cfg) {
+				return new NumberValueGenerator(cfg);
 			}
 		});
 	}

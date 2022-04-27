@@ -5,6 +5,7 @@ package de.enithing.contenthub.model.contentfragment.corefields.provider;
 
 import de.enithing.contenthub.edit.ContentHubEditPlugin;
 
+import de.enithing.contenthub.model.contentfragment.ContentFragmentPackage;
 import de.enithing.contenthub.model.contentfragment.corefields.CorefieldsPackage;
 
 import de.enithing.contenthub.model.contentfragment.corefields.validation.ValidationFactory;
@@ -54,12 +55,58 @@ public class NumberItemProvider extends ContentFragmentFieldTypeItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addAllowMultiplePropertyDescriptor(object);
+			addMaxItemsPropertyDescriptor(object);
 			addPlaceholderPropertyDescriptor(object);
 			addTypePropertyDescriptor(object);
 			addDefaultValuePropertyDescriptor(object);
 			addRequiredPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Allow Multiple feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addAllowMultiplePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_MultiFieldType_allowMultiple_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_MultiFieldType_allowMultiple_feature", "_UI_MultiFieldType_type"),
+				 ContentFragmentPackage.Literals.MULTI_FIELD_TYPE__ALLOW_MULTIPLE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Max Items feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addMaxItemsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_MultiFieldType_maxItems_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_MultiFieldType_maxItems_feature", "_UI_MultiFieldType_type"),
+				 ContentFragmentPackage.Literals.MULTI_FIELD_TYPE__MAX_ITEMS,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -218,6 +265,8 @@ public class NumberItemProvider extends ContentFragmentFieldTypeItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(de.enithing.contenthub.model.contentfragment.corefields.Number.class)) {
+			case CorefieldsPackage.NUMBER__ALLOW_MULTIPLE:
+			case CorefieldsPackage.NUMBER__MAX_ITEMS:
 			case CorefieldsPackage.NUMBER__PLACEHOLDER:
 			case CorefieldsPackage.NUMBER__TYPE:
 			case CorefieldsPackage.NUMBER__DEFAULT_VALUE:

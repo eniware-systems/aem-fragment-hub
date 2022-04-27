@@ -40,7 +40,7 @@ public abstract class ContentFragmentFieldTypeGenerator<TField extends ContentFr
 
 	@Override
 	public void onExit(TField field) throws Exception {
-		String variant = getClass().getSimpleName().toLowerCase().replace("generator", "");
+		String variant = getClass().getSimpleName().replace("Generator", "").replace("Type", "").toLowerCase();
 
 		Template tpl = resolveTemplate(field, "field", new String[] { "-" + variant });
 		VelocityContext ctx = getTemplateContext(field);
@@ -57,11 +57,11 @@ public abstract class ContentFragmentFieldTypeGenerator<TField extends ContentFr
 		return config;
 	}
 
-	public abstract String getResourceType();
+	public abstract String getResourceType(TField elemen);
 
-	public abstract String getValueType();
+	public abstract String getValueType(TField element);
 
-	public abstract String getMetaType();
+	public abstract String getMetaType(TField element);
 
 	public abstract void populateAttribs(TField element, VelocityContext ctx, Map<String, Object> attribs);
 
@@ -71,16 +71,6 @@ public abstract class ContentFragmentFieldTypeGenerator<TField extends ContentFr
 	protected void populateDefaultGraniteAttribs(TField element, VelocityContext ctx, Map<String, Object> attribs) {
 		attribs.put("jcr:primaryType", "nt:unstructured");
 	}
-	
-	private static int getElementSpacing(ContentFragmentFieldType<?> fieldType) {
-		if(fieldType instanceof GroupFieldType<?>) {
-			GroupFieldType<?> group = (GroupFieldType<?>) fieldType;
-			return group.getFields().size();
-		}
-		
-		return 1;
-	}
-	
 	
 	private int getListOrder(TField element) {
 		int rank = 1;
@@ -98,9 +88,9 @@ public abstract class ContentFragmentFieldTypeGenerator<TField extends ContentFr
 
 	protected void populateDefaultAttribs(TField element, VelocityContext ctx, Map<String, Object> attribs) {
 		attribs.put("jcr:primaryType", "nt:unstructured");
-		attribs.put("sling:resourceType", getResourceType());
-		attribs.put("valueType", getValueType());
-		attribs.put("metaType", getMetaType());		
+		attribs.put("sling:resourceType", getResourceType(element));
+		attribs.put("valueType", getValueType(element));
+		attribs.put("metaType", getMetaType(element));		
 		attribs.put("listOrder", getListOrder(element));
 		attribs.put("fieldLabel", element.getFieldLabel());
 		attribs.put("fieldDescription", element.getDescription());

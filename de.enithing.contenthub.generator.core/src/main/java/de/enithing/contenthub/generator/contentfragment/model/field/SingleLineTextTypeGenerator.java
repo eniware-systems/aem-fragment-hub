@@ -13,7 +13,6 @@ public class SingleLineTextTypeGenerator extends ContentFragmentMultiFieldTypeGe
 
 	public SingleLineTextTypeGenerator(GeneratorConfiguration cfg) {
 		super(cfg);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
@@ -32,26 +31,22 @@ public class SingleLineTextTypeGenerator extends ContentFragmentMultiFieldTypeGe
 	}
 
 	@Override
-	public String getMultiResourceType() {
-		// TODO Auto-generated method stub
+	public String getMultiResourceType(SingleLineText unused) {
 		return "granite/ui/components/coral/foundation/form/multifield";
 	}
 
 	@Override
-	public String getResourceType() {
-		// TODO Auto-generated method stub
+	public String getResourceType(SingleLineText unused) {
 		return "granite/ui/components/coral/foundation/form/textfield";
 	}
 
 	@Override
-	public String getValueType() {
-		// TODO Auto-generated method stub
+	public String getValueType(SingleLineText unused) { 
 		return "string";
 	}
 
 	@Override
-	public String getMetaType() {
-		// TODO Auto-generated method stub
+	public String getMetaType(SingleLineText unused) {
 		return "text-single";
 	}
 

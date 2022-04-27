@@ -493,7 +493,7 @@ public interface CorefieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER__PROPERTY_NAME = ContentFragmentPackage.SIMPLE_FIELD_TYPE__PROPERTY_NAME;
+	int NUMBER__PROPERTY_NAME = ContentFragmentPackage.MULTI_FIELD_TYPE__PROPERTY_NAME;
 
 	/**
 	 * The feature id for the '<em><b>Field Label</b></em>' attribute.
@@ -502,7 +502,7 @@ public interface CorefieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER__FIELD_LABEL = ContentFragmentPackage.SIMPLE_FIELD_TYPE__FIELD_LABEL;
+	int NUMBER__FIELD_LABEL = ContentFragmentPackage.MULTI_FIELD_TYPE__FIELD_LABEL;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -511,7 +511,25 @@ public interface CorefieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER__DESCRIPTION = ContentFragmentPackage.SIMPLE_FIELD_TYPE__DESCRIPTION;
+	int NUMBER__DESCRIPTION = ContentFragmentPackage.MULTI_FIELD_TYPE__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Allow Multiple</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER__ALLOW_MULTIPLE = ContentFragmentPackage.MULTI_FIELD_TYPE__ALLOW_MULTIPLE;
+
+	/**
+	 * The feature id for the '<em><b>Max Items</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER__MAX_ITEMS = ContentFragmentPackage.MULTI_FIELD_TYPE__MAX_ITEMS;
 
 	/**
 	 * The feature id for the '<em><b>Placeholder</b></em>' attribute.
@@ -520,7 +538,7 @@ public interface CorefieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER__PLACEHOLDER = ContentFragmentPackage.SIMPLE_FIELD_TYPE_FEATURE_COUNT + 0;
+	int NUMBER__PLACEHOLDER = ContentFragmentPackage.MULTI_FIELD_TYPE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -529,7 +547,7 @@ public interface CorefieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER__TYPE = ContentFragmentPackage.SIMPLE_FIELD_TYPE_FEATURE_COUNT + 1;
+	int NUMBER__TYPE = ContentFragmentPackage.MULTI_FIELD_TYPE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Default Value</b></em>' attribute.
@@ -538,7 +556,7 @@ public interface CorefieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER__DEFAULT_VALUE = ContentFragmentPackage.SIMPLE_FIELD_TYPE_FEATURE_COUNT + 2;
+	int NUMBER__DEFAULT_VALUE = ContentFragmentPackage.MULTI_FIELD_TYPE_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Required</b></em>' attribute.
@@ -547,7 +565,7 @@ public interface CorefieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER__REQUIRED = ContentFragmentPackage.SIMPLE_FIELD_TYPE_FEATURE_COUNT + 3;
+	int NUMBER__REQUIRED = ContentFragmentPackage.MULTI_FIELD_TYPE_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Validation Constraint</b></em>' containment reference.
@@ -556,7 +574,7 @@ public interface CorefieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER__VALIDATION_CONSTRAINT = ContentFragmentPackage.SIMPLE_FIELD_TYPE_FEATURE_COUNT + 4;
+	int NUMBER__VALIDATION_CONSTRAINT = ContentFragmentPackage.MULTI_FIELD_TYPE_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Number</em>' class.
@@ -565,7 +583,7 @@ public interface CorefieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_FEATURE_COUNT = ContentFragmentPackage.SIMPLE_FIELD_TYPE_FEATURE_COUNT + 5;
+	int NUMBER_FEATURE_COUNT = ContentFragmentPackage.MULTI_FIELD_TYPE_FEATURE_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Create Empty Value</em>' operation.
@@ -574,7 +592,7 @@ public interface CorefieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER___CREATE_EMPTY_VALUE = ContentFragmentPackage.SIMPLE_FIELD_TYPE___CREATE_EMPTY_VALUE;
+	int NUMBER___CREATE_EMPTY_VALUE = ContentFragmentPackage.MULTI_FIELD_TYPE___CREATE_EMPTY_VALUE;
 
 	/**
 	 * The operation id for the '<em>Get Model</em>' operation.
@@ -583,7 +601,7 @@ public interface CorefieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER___GET_MODEL = ContentFragmentPackage.SIMPLE_FIELD_TYPE___GET_MODEL;
+	int NUMBER___GET_MODEL = ContentFragmentPackage.MULTI_FIELD_TYPE___GET_MODEL;
 
 	/**
 	 * The number of operations of the '<em>Number</em>' class.
@@ -592,7 +610,7 @@ public interface CorefieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_OPERATION_COUNT = ContentFragmentPackage.SIMPLE_FIELD_TYPE_OPERATION_COUNT + 0;
+	int NUMBER_OPERATION_COUNT = ContentFragmentPackage.MULTI_FIELD_TYPE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link de.enithing.contenthub.model.contentfragment.corefields.impl.NumberValueImpl <em>Number Value</em>}' class.

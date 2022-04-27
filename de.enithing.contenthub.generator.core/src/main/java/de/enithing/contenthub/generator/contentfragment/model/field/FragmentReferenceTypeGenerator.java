@@ -40,22 +40,22 @@ public class FragmentReferenceTypeGenerator extends ContentFragmentMultiFieldTyp
 	}
 
 	@Override
-	public String getMultiResourceType() {
+	public String getMultiResourceType(FragmentReference unused) {
 		return "dam/cfm/models/editor/components/fragmentreference/multifield";
 	}
 
 	@Override
-	public String getResourceType() {
+	public String getResourceType(FragmentReference unused) {
 		return "dam/cfm/models/editor/components/fragmentreference";
 	}
 
 	@Override
-	public String getValueType() {
+	public String getValueType(FragmentReference unused) {
 		return "string/content-fragment";
 	}
 
 	@Override
-	public String getMetaType() {
+	public String getMetaType(FragmentReference unused) {
 		return "fragment-reference";
 	}
 }

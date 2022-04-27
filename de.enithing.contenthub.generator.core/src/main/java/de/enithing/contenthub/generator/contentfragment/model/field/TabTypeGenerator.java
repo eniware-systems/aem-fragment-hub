@@ -20,30 +20,25 @@ public class TabTypeGenerator extends ContentFragmentFieldTypeGenerator<Tab> {
 
 	public TabTypeGenerator(GeneratorConfiguration cfg) {
 		super(cfg);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
-	public String getResourceType() {
-		// TODO Auto-generated method stub
+	public String getResourceType(Tab unused) {
 		return "dam/cfm/models/editor/components/tabplaceholder";
 	}
 
 	@Override
-	public String getValueType() {
-		// TODO Auto-generated method stub
+	public String getValueType(Tab unused) {
 		return "string/tab";
 	}
 
 	@Override
-	public String getMetaType() {
-		// TODO Auto-generated method stub
+	public String getMetaType(Tab unused) {
 		return "tab-placeholder";
 	}
 
 	@Override
 	public void populateAttribs(Tab field, VelocityContext ctx, Map<String, Object> attribs) {
-		// TODO Auto-generated method stub
 
 	}
 

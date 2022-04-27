@@ -19,29 +19,25 @@ public class ContentReferenceTypeGenerator extends ContentFragmentMultiFieldType
 
 	public ContentReferenceTypeGenerator(GeneratorConfiguration cfg) {
 		super(cfg);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
-	public String getResourceType() {
-		// TODO Auto-generated method stub
+	public String getResourceType(ContentReference unused) {
 		return "dam/cfm/models/editor/components/contentreference";
 	}
 
 	@Override
-	public String getMultiResourceType() {
+	public String getMultiResourceType(ContentReference unused) {
 		return "granite/ui/components/coral/foundation/form/multifield";
 	}
 
 	@Override
-	public String getValueType() {
-		// TODO Auto-generated method stub
+	public String getValueType(ContentReference unused) {
 		return "string/reference";
 	}
 
 	@Override
-	public String getMetaType() {
-		// TODO Auto-generated method stub
+	public String getMetaType(ContentReference unused) {
 		return "reference";
 	}
 
@@ -54,26 +50,6 @@ public class ContentReferenceTypeGenerator extends ContentFragmentMultiFieldType
 
 		attribs.put("showThumbnail", element.isShowThumbnail());
 		attribs.put("validation", element.getAllowedContentTypes());
-	}
-
-	private static String getValidationAttrib(String prefix, ValidationConstraint<?> constraint) {
-		if (constraint == null) {
-			return "None";
-		}
-
-		if (constraint instanceof LowerUpperBoundConstraint<?>) {
-			return prefix + "interval";
-		}
-
-		if (constraint instanceof LowerBoundConstraint<?>) {
-			return prefix + "min";
-		}
-
-		if (constraint instanceof UpperBoundConstraint<?>) {
-			return prefix + "max";
-		}
-
-		throw new IllegalArgumentException("Unknown validation constraint type");
 	}
 
 	@Override
@@ -92,7 +68,7 @@ public class ContentReferenceTypeGenerator extends ContentFragmentMultiFieldType
 			attribs.put("filesize-maxunit", constraint.getMax().getUnit());
 		}
 
-		attribs.put("filesize-validation", getValidationAttrib("cfm.validation.filesize.", fileSize));
+		attribs.put("filesize-validation", JcrUtils.getValidationAttrib("cfm.validation.filesize.", fileSize));
 
 		ValidationConstraint<BigInteger> imageWidth = element.getImageWidthConstraint();
 
@@ -106,7 +82,7 @@ public class ContentReferenceTypeGenerator extends ContentFragmentMultiFieldType
 			attribs.put("imagewidth-max", constraint.getMax());
 		}
 
-		attribs.put("imagewidth-validation", getValidationAttrib("cfm.validation.imagewidth.", imageWidth));
+		attribs.put("imagewidth-validation", JcrUtils.getValidationAttrib("cfm.validation.imagewidth.", imageWidth));
 
 		ValidationConstraint<BigInteger> imageHeight = element.getImageHeightConstraint();
 
@@ -120,7 +96,7 @@ public class ContentReferenceTypeGenerator extends ContentFragmentMultiFieldType
 			attribs.put("imageheight-max", constraint.getMax());
 		}
 
-		attribs.put("imageheight-validation", getValidationAttrib("cfm.validation.imageheight.", imageHeight));
+		attribs.put("imageheight-validation", JcrUtils.getValidationAttrib("cfm.validation.imageheight.", imageHeight));
 
 		attribs.put("showThumbnail", element.isShowThumbnail());
 		attribs.put("thumbnail-validation", "cfm.validation.thumbnail.show");
@@ -128,7 +104,6 @@ public class ContentReferenceTypeGenerator extends ContentFragmentMultiFieldType
 
 	@Override
 	public void getSharedFieldAttribs(Set<String> attribs) {
-		// TODO Auto-generated method stub
 	}
 
 	@Override

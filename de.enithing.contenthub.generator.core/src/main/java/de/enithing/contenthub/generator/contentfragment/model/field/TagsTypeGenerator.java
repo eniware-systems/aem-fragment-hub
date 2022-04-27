@@ -13,24 +13,20 @@ public class TagsTypeGenerator extends ContentFragmentFieldTypeGenerator<Tags> {
 
 	public TagsTypeGenerator(GeneratorConfiguration cfg) {
 		super(cfg);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
-	public String getResourceType() {
-		// TODO Auto-generated method stub
+	public String getResourceType(Tags unused) {
 		return "cq/gui/components/coral/common/form/tagfield";
 	}
 
 	@Override
-	public String getValueType() {
-		// TODO Auto-generated method stub
+	public String getValueType(Tags unused) {
 		return "string/tags[]";
 	}
 
 	@Override
-	public String getMetaType() {
-		// TODO Auto-generated method stub
+	public String getMetaType(Tags unused) {
 		return "tags";
 	}
 

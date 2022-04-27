@@ -1291,7 +1291,7 @@ public class CorefieldsPackageImpl extends EPackageImpl implements CorefieldsPac
 		g2 = createEGenericType(this.getStringValue());
 		g1.getETypeArguments().add(g2);
 		multiLineTextEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(theContentFragmentPackage.getSimpleFieldType());
+		g1 = createEGenericType(theContentFragmentPackage.getMultiFieldType());
 		g2 = createEGenericType(this.getNumberValue());
 		g1.getETypeArguments().add(g2);
 		numberEClass.getEGenericSuperTypes().add(g1);

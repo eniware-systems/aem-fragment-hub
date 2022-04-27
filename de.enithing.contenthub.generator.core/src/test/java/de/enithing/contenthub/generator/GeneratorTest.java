@@ -68,14 +68,15 @@ class GeneratorTest {
 	}
 
 	/*
-	 * @Test void resourceTest() throws FileSystemException { PackageGenerator gen =
-	 * createPackageGenerator();
-	 * 
-	 * Package myPackage =
-	 * GeneratorUtils.loadPackageFromUri(URI.createURI("file:///tmp/test.chub"));
-	 * 
-	 * assertDoesNotThrow(() -> gen.generate(myPackage)); }
-	 */
+	@Test
+	void resourceTest() throws FileSystemException {
+		PackageGenerator gen = createPackageGenerator();
+
+		Package myPackage = GeneratorUtils.loadPackageFromUri(URI.createURI("file:///tmp/test.chub"));
+
+		assertDoesNotThrow(() -> gen.generate(myPackage));
+	}
+	*/
 
 	@Test
 	void bookStoreTest() throws FileSystemException {
@@ -297,5 +298,4 @@ class GeneratorTest {
 
 		assertDoesNotThrow(() -> gen.generate(myPackage));
 	}
-
 }

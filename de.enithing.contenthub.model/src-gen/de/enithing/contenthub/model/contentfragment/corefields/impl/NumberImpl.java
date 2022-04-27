@@ -26,6 +26,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link de.enithing.contenthub.model.contentfragment.corefields.impl.NumberImpl#isAllowMultiple <em>Allow Multiple</em>}</li>
+ *   <li>{@link de.enithing.contenthub.model.contentfragment.corefields.impl.NumberImpl#getMaxItems <em>Max Items</em>}</li>
  *   <li>{@link de.enithing.contenthub.model.contentfragment.corefields.impl.NumberImpl#getPlaceholder <em>Placeholder</em>}</li>
  *   <li>{@link de.enithing.contenthub.model.contentfragment.corefields.impl.NumberImpl#getType <em>Type</em>}</li>
  *   <li>{@link de.enithing.contenthub.model.contentfragment.corefields.impl.NumberImpl#getDefaultValue <em>Default Value</em>}</li>
@@ -36,6 +38,46 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * @generated
  */
 public class NumberImpl extends ContentFragmentFieldTypeImpl<NumberValue> implements de.enithing.contenthub.model.contentfragment.corefields.Number {
+	/**
+	 * The default value of the '{@link #isAllowMultiple() <em>Allow Multiple</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isAllowMultiple()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean ALLOW_MULTIPLE_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isAllowMultiple() <em>Allow Multiple</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isAllowMultiple()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean allowMultiple = ALLOW_MULTIPLE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getMaxItems() <em>Max Items</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMaxItems()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int MAX_ITEMS_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getMaxItems() <em>Max Items</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMaxItems()
+	 * @generated
+	 * @ordered
+	 */
+	protected int maxItems = MAX_ITEMS_EDEFAULT;
+
 	/**
 	 * The default value of the '{@link #getPlaceholder() <em>Placeholder</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -143,6 +185,52 @@ public class NumberImpl extends ContentFragmentFieldTypeImpl<NumberValue> implem
 	@Override
 	protected EClass eStaticClass() {
 		return CorefieldsPackage.Literals.NUMBER;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean isAllowMultiple() {
+		return allowMultiple;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setAllowMultiple(boolean newAllowMultiple) {
+		boolean oldAllowMultiple = allowMultiple;
+		allowMultiple = newAllowMultiple;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CorefieldsPackage.NUMBER__ALLOW_MULTIPLE, oldAllowMultiple, allowMultiple));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int getMaxItems() {
+		return maxItems;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setMaxItems(int newMaxItems) {
+		int oldMaxItems = maxItems;
+		maxItems = newMaxItems;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CorefieldsPackage.NUMBER__MAX_ITEMS, oldMaxItems, maxItems));
 	}
 
 	/**
@@ -304,6 +392,10 @@ public class NumberImpl extends ContentFragmentFieldTypeImpl<NumberValue> implem
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case CorefieldsPackage.NUMBER__ALLOW_MULTIPLE:
+				return isAllowMultiple();
+			case CorefieldsPackage.NUMBER__MAX_ITEMS:
+				return getMaxItems();
 			case CorefieldsPackage.NUMBER__PLACEHOLDER:
 				return getPlaceholder();
 			case CorefieldsPackage.NUMBER__TYPE:
@@ -327,6 +419,12 @@ public class NumberImpl extends ContentFragmentFieldTypeImpl<NumberValue> implem
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case CorefieldsPackage.NUMBER__ALLOW_MULTIPLE:
+				setAllowMultiple((Boolean)newValue);
+				return;
+			case CorefieldsPackage.NUMBER__MAX_ITEMS:
+				setMaxItems((Integer)newValue);
+				return;
 			case CorefieldsPackage.NUMBER__PLACEHOLDER:
 				setPlaceholder((String)newValue);
 				return;
@@ -354,6 +452,12 @@ public class NumberImpl extends ContentFragmentFieldTypeImpl<NumberValue> implem
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case CorefieldsPackage.NUMBER__ALLOW_MULTIPLE:
+				setAllowMultiple(ALLOW_MULTIPLE_EDEFAULT);
+				return;
+			case CorefieldsPackage.NUMBER__MAX_ITEMS:
+				setMaxItems(MAX_ITEMS_EDEFAULT);
+				return;
 			case CorefieldsPackage.NUMBER__PLACEHOLDER:
 				setPlaceholder(PLACEHOLDER_EDEFAULT);
 				return;
@@ -381,6 +485,10 @@ public class NumberImpl extends ContentFragmentFieldTypeImpl<NumberValue> implem
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case CorefieldsPackage.NUMBER__ALLOW_MULTIPLE:
+				return allowMultiple != ALLOW_MULTIPLE_EDEFAULT;
+			case CorefieldsPackage.NUMBER__MAX_ITEMS:
+				return maxItems != MAX_ITEMS_EDEFAULT;
 			case CorefieldsPackage.NUMBER__PLACEHOLDER:
 				return PLACEHOLDER_EDEFAULT == null ? placeholder != null : !PLACEHOLDER_EDEFAULT.equals(placeholder);
 			case CorefieldsPackage.NUMBER__TYPE:
@@ -405,7 +513,11 @@ public class NumberImpl extends ContentFragmentFieldTypeImpl<NumberValue> implem
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (placeholder: ");
+		result.append(" (allowMultiple: ");
+		result.append(allowMultiple);
+		result.append(", maxItems: ");
+		result.append(maxItems);
+		result.append(", placeholder: ");
 		result.append(placeholder);
 		result.append(", type: ");
 		result.append(type);

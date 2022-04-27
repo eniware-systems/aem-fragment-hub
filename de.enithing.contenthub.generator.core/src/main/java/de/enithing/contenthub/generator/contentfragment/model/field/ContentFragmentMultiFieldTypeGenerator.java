@@ -18,14 +18,13 @@ public abstract class ContentFragmentMultiFieldTypeGenerator<TField extends Mult
 
 	public ContentFragmentMultiFieldTypeGenerator(GeneratorConfiguration cfg) {
 		super(cfg);
-		// TODO Auto-generated constructor stub
 	}
 
 	private void populateDefaultFieldAttribs(TField element, VelocityContext ctx, Map<String, Object> attribs) {
 		attribs.put("jcr:primaryType", "nt:unstructured");
 		attribs.put("name", element.getPropertyName());
 		attribs.put("renderReadOnly", false);
-		attribs.put("sling:resourceType", getResourceType());
+		attribs.put("sling:resourceType", getResourceType(element));
 
 		@SuppressWarnings("unchecked")
 		Map<String, String> baseAttribs = (Map<String, String>) ctx.get("attribs");
@@ -43,8 +42,8 @@ public abstract class ContentFragmentMultiFieldTypeGenerator<TField extends Mult
 		super.populateDefaultAttribs(element, ctx, attribs);
 
 		if (element.isAllowMultiple()) {
-			attribs.put("sling:resourceType", getMultiResourceType());
-			attribs.put("valueType", String.format("%s[]", getValueType()));
+			attribs.put("sling:resourceType", getMultiResourceType(element));
+			attribs.put("valueType", String.format("%s[]", getValueType(element)));
 		}
 	}
 
@@ -105,11 +104,10 @@ public abstract class ContentFragmentMultiFieldTypeGenerator<TField extends Mult
 		return results;
 	}
 
-	public abstract String getMultiResourceType();
+	public abstract String getMultiResourceType(TField element);
 
 	@Override
 	public void populateTemplateContext(TField element, VelocityContext ctx) throws IOException, ParseException {
-		// TODO Auto-generated method stub
 		super.populateTemplateContext(element, ctx);
 
 		MultiFieldType<?> multiField = (MultiFieldType<?>) element;

@@ -31,17 +31,17 @@ public class DateTimeTypeGenerator extends ContentFragmentFieldTypeGenerator<Dat
 	}
 
 	@Override
-	public String getResourceType() {
+	public String getResourceType(DateTime unused) {
 		return "dam/cfm/models/editor/components/datatypes/datepicker";
 	}
 
 	@Override
-	public String getValueType() {
+	public String getValueType(DateTime unused) {
 		return "calendar/datetime";
 	}
 
 	@Override
-	public String getMetaType() {
+	public String getMetaType(DateTime unused) {
 		return "date";
 	}
 

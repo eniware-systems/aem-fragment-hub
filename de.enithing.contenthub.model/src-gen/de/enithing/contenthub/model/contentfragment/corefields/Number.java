@@ -2,7 +2,7 @@
  */
 package de.enithing.contenthub.model.contentfragment.corefields;
 
-import de.enithing.contenthub.model.contentfragment.SimpleFieldType;
+import de.enithing.contenthub.model.contentfragment.MultiFieldType;
 import de.enithing.contenthub.model.contentfragment.corefields.validation.ValidationConstraint;
 import java.math.BigDecimal;
 
@@ -26,7 +26,7 @@ import java.math.BigDecimal;
  * @model
  * @generated
  */
-public interface Number extends SimpleFieldType<NumberValue> {
+public interface Number extends MultiFieldType<NumberValue> {
 	/**
 	 * Returns the value of the '<em><b>Placeholder</b></em>' attribute.
 	 * <!-- begin-user-doc -->

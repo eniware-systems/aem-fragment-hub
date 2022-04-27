@@ -12,21 +12,20 @@ public class BooleanTypeGenerator extends ContentFragmentFieldTypeGenerator<Bool
 
 	public BooleanTypeGenerator(GeneratorConfiguration cfg) {
 		super(cfg);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
-	public String getResourceType() {
+	public String getResourceType(Boolean unused) {
 		return "granite/ui/components/coral/foundation/form/checkbox";
 	}
 
 	@Override
-	public String getValueType() {
+	public String getValueType(Boolean unused) {
 		return "boolean";
 	}
 
 	@Override
-	public String getMetaType() {
+	public String getMetaType(Boolean unused) {
 		return "boolean";
 	}
 

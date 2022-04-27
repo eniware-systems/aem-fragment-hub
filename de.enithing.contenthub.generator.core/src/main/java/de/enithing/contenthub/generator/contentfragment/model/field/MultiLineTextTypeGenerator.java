@@ -40,23 +40,22 @@ public class MultiLineTextTypeGenerator extends ContentFragmentMultiFieldTypeGen
 	}
 
 	@Override
-	public String getResourceType() {
-		// TODO Auto-generated method stub
+	public String getResourceType(MultiLineText unused) {
 		return "dam/cfm/admin/components/authoring/contenteditor/multieditor";
 	}
 	
 	@Override
-	public String getMultiResourceType() {
+	public String getMultiResourceType(MultiLineText unused) {
 		return "dam/cfm/admin/components/authoring/contenteditor/cfmmultifield";
 	}
 
 	@Override
-	public String getValueType() {
+	public String getValueType(MultiLineText unused) {
 		return "string/multiline";
 	}
 
 	@Override
-	public String getMetaType() {
+	public String getMetaType(MultiLineText unused) {
 		return "text-multi";
 	}
 

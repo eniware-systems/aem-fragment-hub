@@ -17,6 +17,8 @@ import junit.textui.TestRunner;
  * The following operations are tested:
  * <ul>
  *   <li>{@link de.enithing.contenthub.model.contentfragment.ContentFragmentModel#getAllFields() <em>Get All Fields</em>}</li>
+ *   <li>{@link de.enithing.contenthub.model.contentfragment.ContentFragmentModel#getFieldByName(java.lang.String, java.lang.Class) <em>Get Field By Name</em>}</li>
+ *   <li>{@link de.enithing.contenthub.model.contentfragment.ContentFragmentModel#getFieldByName(java.lang.String) <em>Get Field By Name</em>}</li>
  *   <li>{@link de.enithing.contenthub.model.contentfragment.ContentFragmentModel#getPath() <em>Get Path</em>}</li>
  * </ul>
  * </p>
@@ -101,6 +103,32 @@ public class ContentFragmentModelTest extends TestCase {
 	 * @generated
 	 */
 	public void testGetAllFields() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link de.enithing.contenthub.model.contentfragment.ContentFragmentModel#getFieldByName(java.lang.String, java.lang.Class) <em>Get Field By Name</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.enithing.contenthub.model.contentfragment.ContentFragmentModel#getFieldByName(java.lang.String, java.lang.Class)
+	 * @generated
+	 */
+	public void testGetFieldByName__String_Class() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link de.enithing.contenthub.model.contentfragment.ContentFragmentModel#getFieldByName(java.lang.String) <em>Get Field By Name</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.enithing.contenthub.model.contentfragment.ContentFragmentModel#getFieldByName(java.lang.String)
+	 * @generated
+	 */
+	public void testGetFieldByName__String() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

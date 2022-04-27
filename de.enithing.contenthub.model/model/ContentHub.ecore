@@ -276,7 +276,7 @@
             <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigDecimal"/>
           </eGenericType>
         </eStructuralFeatures>
-        <eGenericSuperTypes eClassifier="#//contentfragment/SimpleFieldType">
+        <eGenericSuperTypes eClassifier="#//contentfragment/MultiFieldType">
           <eTypeArguments eClassifier="#//contentfragment/corefields/NumberValue"/>
         </eGenericSuperTypes>
       </eClassifiers>
