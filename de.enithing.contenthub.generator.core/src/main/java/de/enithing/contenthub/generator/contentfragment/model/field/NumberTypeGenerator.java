@@ -56,14 +56,14 @@ public class NumberTypeGenerator extends ContentFragmentMultiFieldTypeGenerator<
 
 	@Override
 	public void populateAttribs(Number element, VelocityContext ctx, Map<String, Object> attribs) {
-		ctx.put("emptyText", element.getPlaceholder());
-		ctx.put("required", JcrUtils.toFlag(element.isRequired()));
-		ctx.put("typeHint", element.getType());
-		ctx.put("step", "any");
+		attribs.put("emptyText", element.getPlaceholder());
+		attribs.put("required", JcrUtils.toFlag(element.isRequired()));
+		attribs.put("typeHint", element.getType());
+		attribs.put("step", "any");
 
 		ValidationConstraint<BigDecimal> validation = element.getValidationConstraint();
 
-		ctx.put("validation", JcrUtils.getValidationAttrib("cfm.validation.number.", validation));
+		attribs.put("validation", JcrUtils.getValidationAttrib("cfm.validation.number.", validation));
 	}
 
 	@Override

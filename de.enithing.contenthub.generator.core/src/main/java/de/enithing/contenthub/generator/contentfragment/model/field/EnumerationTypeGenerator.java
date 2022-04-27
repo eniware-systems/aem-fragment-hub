@@ -55,7 +55,7 @@ public class EnumerationTypeGenerator extends ContentFragmentFieldTypeGenerator<
 		for (EnumerationOption opt : element.getOptions()) {
 			Map<String, String> item = new HashMap<>();
 
-			item.put("tag", "foo");
+			item.put("tag", String.format("item%s", n++));
 			item.put("label", opt.getValue());
 			item.put("value", opt.getKey());
 			items.add(item);

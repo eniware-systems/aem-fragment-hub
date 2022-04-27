@@ -20,7 +20,6 @@
 #end
 	<optionsmultifield jcr:primaryType="nt:unstructured">
 	#foreach ($item in $items)
-	$item
         <$item.tag
             jcr:primaryType="nt:unstructured"
             fieldLabel="$item.label"
