@@ -189,4 +189,28 @@ public interface Context extends EObject {
 	 */
 	Path getPath();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" required="true"
+	 * @generated
+	 */
+	de.enithing.contenthub.model.contenthub.Package getPackage();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model patternDataType="de.enithing.contenthub.model.contenthub.Path" patternRequired="true"
+	 * @generated
+	 */
+	EList<Context> resolveContextsByPattern(Path pattern);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model patternDataType="de.enithing.contenthub.model.contenthub.Path" patternRequired="true"
+	 * @generated
+	 */
+	EList<ContentFragmentInstance> resolveContentFragmentInstancesByPattern(Path pattern);
+
 } // Context

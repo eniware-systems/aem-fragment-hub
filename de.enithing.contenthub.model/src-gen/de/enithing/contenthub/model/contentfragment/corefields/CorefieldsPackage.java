@@ -1491,13 +1491,22 @@ public interface CorefieldsPackage extends EPackage {
 	int FRAGMENT_REFERENCE_VALUE__FRAGMENTS = ContentFragmentPackage.CONTENT_FRAGMENT_FIELD_VALUE_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Fragments By Path Pattern</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FRAGMENT_REFERENCE_VALUE__FRAGMENTS_BY_PATH_PATTERN = ContentFragmentPackage.CONTENT_FRAGMENT_FIELD_VALUE_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Fragment Reference Value</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FRAGMENT_REFERENCE_VALUE_FEATURE_COUNT = ContentFragmentPackage.CONTENT_FRAGMENT_FIELD_VALUE_FEATURE_COUNT + 1;
+	int FRAGMENT_REFERENCE_VALUE_FEATURE_COUNT = ContentFragmentPackage.CONTENT_FRAGMENT_FIELD_VALUE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Fragment Reference Value</em>' class.
@@ -2332,6 +2341,17 @@ public interface CorefieldsPackage extends EPackage {
 	EReference getFragmentReferenceValue_Fragments();
 
 	/**
+	 * Returns the meta object for the attribute '{@link de.enithing.contenthub.model.contentfragment.corefields.FragmentReferenceValue#getFragmentsByPathPattern <em>Fragments By Path Pattern</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Fragments By Path Pattern</em>'.
+	 * @see de.enithing.contenthub.model.contentfragment.corefields.FragmentReferenceValue#getFragmentsByPathPattern()
+	 * @see #getFragmentReferenceValue()
+	 * @generated
+	 */
+	EAttribute getFragmentReferenceValue_FragmentsByPathPattern();
+
+	/**
 	 * Returns the meta object for class '{@link de.enithing.contenthub.model.contentfragment.corefields.Json <em>Json</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3100,6 +3120,14 @@ public interface CorefieldsPackage extends EPackage {
 		 * @generated
 		 */
 		EReference FRAGMENT_REFERENCE_VALUE__FRAGMENTS = eINSTANCE.getFragmentReferenceValue_Fragments();
+
+		/**
+		 * The meta object literal for the '<em><b>Fragments By Path Pattern</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FRAGMENT_REFERENCE_VALUE__FRAGMENTS_BY_PATH_PATTERN = eINSTANCE.getFragmentReferenceValue_FragmentsByPathPattern();
 
 		/**
 		 * The meta object literal for the '{@link de.enithing.contenthub.model.contentfragment.corefields.impl.JsonImpl <em>Json</em>}' class.

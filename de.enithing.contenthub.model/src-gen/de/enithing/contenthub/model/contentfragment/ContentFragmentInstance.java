@@ -121,11 +121,13 @@ public interface ContentFragmentInstance extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Fields</b></em>' containment reference list.
 	 * The list contents are of type {@link de.enithing.contenthub.model.contentfragment.ContentFragmentFieldInstance}.
+	 * It is bidirectional and its opposite is '{@link de.enithing.contenthub.model.contentfragment.ContentFragmentFieldInstance#getInstance <em>Instance</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Fields</em>' containment reference list.
 	 * @see de.enithing.contenthub.model.contentfragment.ContentFragmentPackage#getContentFragmentInstance_Fields()
-	 * @model containment="true" changeable="false"
+	 * @see de.enithing.contenthub.model.contentfragment.ContentFragmentFieldInstance#getInstance
+	 * @model opposite="instance" containment="true" changeable="false"
 	 * @generated
 	 */
 	EList<ContentFragmentFieldInstance> getFields();

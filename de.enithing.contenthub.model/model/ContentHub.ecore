@@ -57,6 +57,13 @@
       </eParameters>
     </eOperations>
     <eOperations name="getPath" lowerBound="1" eType="#//Path"/>
+    <eOperations name="getPackage" lowerBound="1" eType="#//Package"/>
+    <eOperations name="resolveContextsByPattern" upperBound="-1" eType="#//Context">
+      <eParameters name="pattern" lowerBound="1" eType="#//Path"/>
+    </eOperations>
+    <eOperations name="resolveContentFragmentInstancesByPattern" upperBound="-1" eType="#//contentfragment/ContentFragmentInstance">
+      <eParameters name="pattern" lowerBound="1" eType="#//Path"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="childContexts" upperBound="-1"
         eType="#//Context" containment="true" eOpposite="#//Context/parentContext"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parentContext" eType="#//Context"
@@ -142,11 +149,13 @@
           eType="#//contentfragment/ContentFragmentModel"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="fields" upperBound="-1"
           eType="#//contentfragment/ContentFragmentFieldInstance" changeable="false"
-          containment="true"/>
+          containment="true" eOpposite="#//contentfragment/ContentFragmentFieldInstance/instance"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="context" lowerBound="1"
           eType="#//Context" eOpposite="#//Context/contentFragments"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ContentFragmentFieldInstance">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="instance" lowerBound="1"
+          eType="#//contentfragment/ContentFragmentInstance" eOpposite="#//contentfragment/ContentFragmentInstance/fields"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="fieldtype" lowerBound="1"
           eType="#//contentfragment/ContentFragmentFieldType"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1"
@@ -426,6 +435,8 @@
       <eClassifiers xsi:type="ecore:EClass" name="FragmentReferenceValue" eSuperTypes="#//contentfragment/ContentFragmentFieldValue">
         <eStructuralFeatures xsi:type="ecore:EReference" name="fragments" upperBound="-1"
             eType="#//contentfragment/ContentFragmentInstance"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="fragmentsByPathPattern"
+            eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="Json">
         <eStructuralFeatures xsi:type="ecore:EAttribute" name="placeholder" lowerBound="1"

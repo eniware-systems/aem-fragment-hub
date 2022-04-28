@@ -17,6 +17,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link de.enithing.contenthub.model.contentfragment.corefields.FragmentReferenceValue#getFragments <em>Fragments</em>}</li>
+ *   <li>{@link de.enithing.contenthub.model.contentfragment.corefields.FragmentReferenceValue#getFragmentsByPathPattern <em>Fragments By Path Pattern</em>}</li>
  * </ul>
  *
  * @see de.enithing.contenthub.model.contentfragment.corefields.CorefieldsPackage#getFragmentReferenceValue()
@@ -35,5 +36,27 @@ public interface FragmentReferenceValue extends ContentFragmentFieldValue {
 	 * @generated
 	 */
 	EList<ContentFragmentInstance> getFragments();
+
+	/**
+	 * Returns the value of the '<em><b>Fragments By Path Pattern</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Fragments By Path Pattern</em>' attribute.
+	 * @see #setFragmentsByPathPattern(String)
+	 * @see de.enithing.contenthub.model.contentfragment.corefields.CorefieldsPackage#getFragmentReferenceValue_FragmentsByPathPattern()
+	 * @model
+	 * @generated
+	 */
+	String getFragmentsByPathPattern();
+
+	/**
+	 * Sets the value of the '{@link de.enithing.contenthub.model.contentfragment.corefields.FragmentReferenceValue#getFragmentsByPathPattern <em>Fragments By Path Pattern</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Fragments By Path Pattern</em>' attribute.
+	 * @see #getFragmentsByPathPattern()
+	 * @generated
+	 */
+	void setFragmentsByPathPattern(String value);
 
 } // FragmentReferenceValue

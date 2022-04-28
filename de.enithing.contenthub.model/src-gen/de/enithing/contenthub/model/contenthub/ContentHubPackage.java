@@ -425,13 +425,40 @@ public interface ContentHubPackage extends EPackage {
 	int CONTEXT___GET_PATH = 2;
 
 	/**
+	 * The operation id for the '<em>Get Package</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTEXT___GET_PACKAGE = 3;
+
+	/**
+	 * The operation id for the '<em>Resolve Contexts By Pattern</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTEXT___RESOLVE_CONTEXTS_BY_PATTERN__PATH = 4;
+
+	/**
+	 * The operation id for the '<em>Resolve Content Fragment Instances By Pattern</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTEXT___RESOLVE_CONTENT_FRAGMENT_INSTANCES_BY_PATTERN__PATH = 5;
+
+	/**
 	 * The number of operations of the '<em>Context</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTEXT_OPERATION_COUNT = 3;
+	int CONTEXT_OPERATION_COUNT = 6;
 
 	/**
 	 * The meta object id for the '{@link de.enithing.contenthub.model.contenthub.ContextPolicy <em>Context Policy</em>}' class.
@@ -792,6 +819,36 @@ public interface ContentHubPackage extends EPackage {
 	EOperation getContext__GetPath();
 
 	/**
+	 * Returns the meta object for the '{@link de.enithing.contenthub.model.contenthub.Context#getPackage() <em>Get Package</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Package</em>' operation.
+	 * @see de.enithing.contenthub.model.contenthub.Context#getPackage()
+	 * @generated
+	 */
+	EOperation getContext__GetPackage();
+
+	/**
+	 * Returns the meta object for the '{@link de.enithing.contenthub.model.contenthub.Context#resolveContextsByPattern(java.nio.file.Path) <em>Resolve Contexts By Pattern</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Resolve Contexts By Pattern</em>' operation.
+	 * @see de.enithing.contenthub.model.contenthub.Context#resolveContextsByPattern(java.nio.file.Path)
+	 * @generated
+	 */
+	EOperation getContext__ResolveContextsByPattern__Path();
+
+	/**
+	 * Returns the meta object for the '{@link de.enithing.contenthub.model.contenthub.Context#resolveContentFragmentInstancesByPattern(java.nio.file.Path) <em>Resolve Content Fragment Instances By Pattern</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Resolve Content Fragment Instances By Pattern</em>' operation.
+	 * @see de.enithing.contenthub.model.contenthub.Context#resolveContentFragmentInstancesByPattern(java.nio.file.Path)
+	 * @generated
+	 */
+	EOperation getContext__ResolveContentFragmentInstancesByPattern__Path();
+
+	/**
 	 * Returns the meta object for class '{@link de.enithing.contenthub.model.contenthub.ContextPolicy <em>Context Policy</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1086,6 +1143,30 @@ public interface ContentHubPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation CONTEXT___GET_PATH = eINSTANCE.getContext__GetPath();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Package</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation CONTEXT___GET_PACKAGE = eINSTANCE.getContext__GetPackage();
+
+		/**
+		 * The meta object literal for the '<em><b>Resolve Contexts By Pattern</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation CONTEXT___RESOLVE_CONTEXTS_BY_PATTERN__PATH = eINSTANCE.getContext__ResolveContextsByPattern__Path();
+
+		/**
+		 * The meta object literal for the '<em><b>Resolve Content Fragment Instances By Pattern</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation CONTEXT___RESOLVE_CONTENT_FRAGMENT_INSTANCES_BY_PATTERN__PATH = eINSTANCE.getContext__ResolveContentFragmentInstancesByPattern__Path();
 
 		/**
 		 * The meta object literal for the '{@link de.enithing.contenthub.model.contenthub.ContextPolicy <em>Context Policy</em>}' class.

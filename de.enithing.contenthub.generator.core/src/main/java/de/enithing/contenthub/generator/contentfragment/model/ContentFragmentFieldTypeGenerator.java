@@ -111,7 +111,7 @@ public abstract class ContentFragmentFieldTypeGenerator<TField extends ContentFr
 	}
 
 	@Override
-	public void populateTemplateContext(TField element, VelocityContext ctx) throws IOException, ParseException {
+	public void populateTemplateContext(TField element, VelocityContext ctx) throws IOException, ParseException {		
 		{
 			Map<String, Object> attribs = new HashMap<>();
 

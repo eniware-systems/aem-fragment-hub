@@ -19,6 +19,8 @@ import junit.textui.TestRunner;
  *   <li>{@link de.enithing.contenthub.model.contenthub.Context#getRootContext() <em>Get Root Context</em>}</li>
  *   <li>{@link de.enithing.contenthub.model.contenthub.Context#getPoliciesByType(java.lang.Class) <em>Get Policies By Type</em>}</li>
  *   <li>{@link de.enithing.contenthub.model.contenthub.Context#getPath() <em>Get Path</em>}</li>
+ *   <li>{@link de.enithing.contenthub.model.contenthub.Context#getPackage() <em>Get Package</em>}</li>
+ *   <li>{@link de.enithing.contenthub.model.contenthub.Context#resolveContextsByPattern(java.nio.file.Path) <em>Resolve Contexts By Pattern</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -128,6 +130,32 @@ public class ContextTest extends TestCase {
 	 * @generated
 	 */
 	public void testGetPath() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link de.enithing.contenthub.model.contenthub.Context#getPackage() <em>Get Package</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.enithing.contenthub.model.contenthub.Context#getPackage()
+	 * @generated
+	 */
+	public void testGetPackage() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link de.enithing.contenthub.model.contenthub.Context#resolveContextsByPattern(java.nio.file.Path) <em>Resolve Contexts By Pattern</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.enithing.contenthub.model.contenthub.Context#resolveContextsByPattern(java.nio.file.Path)
+	 * @generated
+	 */
+	public void testResolveContextsByPattern__Path() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

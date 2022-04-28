@@ -76,6 +76,8 @@ public abstract class ContentFragmentFieldInstanceGenerator<TValue extends Conte
 		TValue value = (TValue) element.getValue();
 
 		populateDefaultAttribs(element, value, ctx, attribs);
+		
+		ctx.put("name", element.getFieldtype().getPropertyName());
 
 		populateAttribs(element, value, ctx, attribs);
 		

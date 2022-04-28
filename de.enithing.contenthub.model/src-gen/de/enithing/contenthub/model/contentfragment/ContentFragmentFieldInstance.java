@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link de.enithing.contenthub.model.contentfragment.ContentFragmentFieldInstance#getInstance <em>Instance</em>}</li>
  *   <li>{@link de.enithing.contenthub.model.contentfragment.ContentFragmentFieldInstance#getFieldtype <em>Fieldtype</em>}</li>
  *   <li>{@link de.enithing.contenthub.model.contentfragment.ContentFragmentFieldInstance#getValue <em>Value</em>}</li>
  * </ul>
@@ -22,6 +23,30 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface ContentFragmentFieldInstance extends EObject {
+	/**
+	 * Returns the value of the '<em><b>Instance</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link de.enithing.contenthub.model.contentfragment.ContentFragmentInstance#getFields <em>Fields</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Instance</em>' container reference.
+	 * @see #setInstance(ContentFragmentInstance)
+	 * @see de.enithing.contenthub.model.contentfragment.ContentFragmentPackage#getContentFragmentFieldInstance_Instance()
+	 * @see de.enithing.contenthub.model.contentfragment.ContentFragmentInstance#getFields
+	 * @model opposite="fields" required="true" transient="false"
+	 * @generated
+	 */
+	ContentFragmentInstance getInstance();
+
+	/**
+	 * Sets the value of the '{@link de.enithing.contenthub.model.contentfragment.ContentFragmentFieldInstance#getInstance <em>Instance</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Instance</em>' container reference.
+	 * @see #getInstance()
+	 * @generated
+	 */
+	void setInstance(ContentFragmentInstance value);
+
 	/**
 	 * Returns the value of the '<em><b>Fieldtype</b></em>' reference.
 	 * <!-- begin-user-doc -->

@@ -21,8 +21,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -261,7 +260,7 @@ public class ContentFragmentInstanceImpl extends MinimalEObjectImpl.Container im
 	@Override
 	public EList<ContentFragmentFieldInstance> getFields() {
 		if (fields == null) {
-			fields = new EObjectContainmentEList<ContentFragmentFieldInstance>(ContentFragmentFieldInstance.class, this, ContentFragmentPackage.CONTENT_FRAGMENT_INSTANCE__FIELDS);
+			fields = new EObjectContainmentWithInverseEList<ContentFragmentFieldInstance>(ContentFragmentFieldInstance.class, this, ContentFragmentPackage.CONTENT_FRAGMENT_INSTANCE__FIELDS, ContentFragmentPackage.CONTENT_FRAGMENT_FIELD_INSTANCE__INSTANCE);
 		}
 		return fields;
 	}
@@ -323,9 +322,12 @@ public class ContentFragmentInstanceImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case ContentFragmentPackage.CONTENT_FRAGMENT_INSTANCE__FIELDS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getFields()).basicAdd(otherEnd, msgs);
 			case ContentFragmentPackage.CONTENT_FRAGMENT_INSTANCE__CONTEXT:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);

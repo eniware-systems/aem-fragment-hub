@@ -1,5 +1,7 @@
 package de.enithing.contenthub.model.contenthub.util;
 
+import java.nio.file.Path;
+import java.util.Collection;
 import java.util.stream.Collectors;
 
 import org.eclipse.emf.common.util.BasicEList;

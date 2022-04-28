@@ -9,14 +9,13 @@ import de.enithing.contenthub.model.contenthub.Context;
 import de.enithing.contenthub.model.contenthub.ContextPolicy;
 import de.enithing.contenthub.model.contenthub.ContextType;
 import de.enithing.contenthub.model.contenthub.util.ContextUtils;
-
 import java.lang.reflect.InvocationTargetException;
 import java.nio.file.Path;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -339,6 +338,33 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->	 * 
+	 */
+	@Override
+	public de.enithing.contenthub.model.contenthub.Package getPackage() {
+		return ContextUtils.getPackage(this);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	@Override
+	public EList<Context> resolveContextsByPattern(Path pattern) {
+		return new BasicEList<Context>(ContextUtils.resolveContextsByPattern(this, pattern));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	@Override
+	public EList<ContentFragmentInstance> resolveContentFragmentInstancesByPattern(Path pattern) {
+		return new BasicEList<ContentFragmentInstance>(ContextUtils.resolveContentFragmentInstancesByPattern(this, pattern));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -529,6 +555,12 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 				return getPoliciesByType((Class)arguments.get(0));
 			case ContentHubPackage.CONTEXT___GET_PATH:
 				return getPath();
+			case ContentHubPackage.CONTEXT___GET_PACKAGE:
+				return getPackage();
+			case ContentHubPackage.CONTEXT___RESOLVE_CONTEXTS_BY_PATTERN__PATH:
+				return resolveContextsByPattern((Path)arguments.get(0));
+			case ContentHubPackage.CONTEXT___RESOLVE_CONTENT_FRAGMENT_INSTANCES_BY_PATTERN__PATH:
+				return resolveContentFragmentInstancesByPattern((Path)arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

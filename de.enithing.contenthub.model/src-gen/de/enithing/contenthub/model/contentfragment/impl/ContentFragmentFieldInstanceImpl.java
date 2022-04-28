@@ -5,6 +5,7 @@ package de.enithing.contenthub.model.contentfragment.impl;
 import de.enithing.contenthub.model.contentfragment.ContentFragmentFieldInstance;
 import de.enithing.contenthub.model.contentfragment.ContentFragmentFieldType;
 import de.enithing.contenthub.model.contentfragment.ContentFragmentFieldValue;
+import de.enithing.contenthub.model.contentfragment.ContentFragmentInstance;
 import de.enithing.contenthub.model.contentfragment.ContentFragmentPackage;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -15,6 +16,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,6 +26,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link de.enithing.contenthub.model.contentfragment.impl.ContentFragmentFieldInstanceImpl#getInstance <em>Instance</em>}</li>
  *   <li>{@link de.enithing.contenthub.model.contentfragment.impl.ContentFragmentFieldInstanceImpl#getFieldtype <em>Fieldtype</em>}</li>
  *   <li>{@link de.enithing.contenthub.model.contentfragment.impl.ContentFragmentFieldInstanceImpl#getValue <em>Value</em>}</li>
  * </ul>
@@ -68,6 +71,49 @@ public class ContentFragmentFieldInstanceImpl extends MinimalEObjectImpl.Contain
 	@Override
 	protected EClass eStaticClass() {
 		return ContentFragmentPackage.Literals.CONTENT_FRAGMENT_FIELD_INSTANCE;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ContentFragmentInstance getInstance() {
+		if (eContainerFeatureID() != ContentFragmentPackage.CONTENT_FRAGMENT_FIELD_INSTANCE__INSTANCE) return null;
+		return (ContentFragmentInstance)eInternalContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetInstance(ContentFragmentInstance newInstance, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newInstance, ContentFragmentPackage.CONTENT_FRAGMENT_FIELD_INSTANCE__INSTANCE, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setInstance(ContentFragmentInstance newInstance) {
+		if (newInstance != eInternalContainer() || (eContainerFeatureID() != ContentFragmentPackage.CONTENT_FRAGMENT_FIELD_INSTANCE__INSTANCE && newInstance != null)) {
+			if (EcoreUtil.isAncestor(this, newInstance))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newInstance != null)
+				msgs = ((InternalEObject)newInstance).eInverseAdd(this, ContentFragmentPackage.CONTENT_FRAGMENT_INSTANCE__FIELDS, ContentFragmentInstance.class, msgs);
+			msgs = basicSetInstance(newInstance, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ContentFragmentPackage.CONTENT_FRAGMENT_FIELD_INSTANCE__INSTANCE, newInstance, newInstance));
 	}
 
 	/**
@@ -161,8 +207,26 @@ public class ContentFragmentFieldInstanceImpl extends MinimalEObjectImpl.Contain
 	 * @generated
 	 */
 	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case ContentFragmentPackage.CONTENT_FRAGMENT_FIELD_INSTANCE__INSTANCE:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetInstance((ContentFragmentInstance)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case ContentFragmentPackage.CONTENT_FRAGMENT_FIELD_INSTANCE__INSTANCE:
+				return basicSetInstance(null, msgs);
 			case ContentFragmentPackage.CONTENT_FRAGMENT_FIELD_INSTANCE__VALUE:
 				return basicSetValue(null, msgs);
 		}
@@ -175,8 +239,24 @@ public class ContentFragmentFieldInstanceImpl extends MinimalEObjectImpl.Contain
 	 * @generated
 	 */
 	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case ContentFragmentPackage.CONTENT_FRAGMENT_FIELD_INSTANCE__INSTANCE:
+				return eInternalContainer().eInverseRemove(this, ContentFragmentPackage.CONTENT_FRAGMENT_INSTANCE__FIELDS, ContentFragmentInstance.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case ContentFragmentPackage.CONTENT_FRAGMENT_FIELD_INSTANCE__INSTANCE:
+				return getInstance();
 			case ContentFragmentPackage.CONTENT_FRAGMENT_FIELD_INSTANCE__FIELDTYPE:
 				if (resolve) return getFieldtype();
 				return basicGetFieldtype();
@@ -194,6 +274,9 @@ public class ContentFragmentFieldInstanceImpl extends MinimalEObjectImpl.Contain
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case ContentFragmentPackage.CONTENT_FRAGMENT_FIELD_INSTANCE__INSTANCE:
+				setInstance((ContentFragmentInstance)newValue);
+				return;
 			case ContentFragmentPackage.CONTENT_FRAGMENT_FIELD_INSTANCE__FIELDTYPE:
 				setFieldtype((ContentFragmentFieldType)newValue);
 				return;
@@ -212,6 +295,9 @@ public class ContentFragmentFieldInstanceImpl extends MinimalEObjectImpl.Contain
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case ContentFragmentPackage.CONTENT_FRAGMENT_FIELD_INSTANCE__INSTANCE:
+				setInstance((ContentFragmentInstance)null);
+				return;
 			case ContentFragmentPackage.CONTENT_FRAGMENT_FIELD_INSTANCE__FIELDTYPE:
 				setFieldtype((ContentFragmentFieldType)null);
 				return;
@@ -230,6 +316,8 @@ public class ContentFragmentFieldInstanceImpl extends MinimalEObjectImpl.Contain
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case ContentFragmentPackage.CONTENT_FRAGMENT_FIELD_INSTANCE__INSTANCE:
+				return getInstance() != null;
 			case ContentFragmentPackage.CONTENT_FRAGMENT_FIELD_INSTANCE__FIELDTYPE:
 				return fieldtype != null;
 			case ContentFragmentPackage.CONTENT_FRAGMENT_FIELD_INSTANCE__VALUE:

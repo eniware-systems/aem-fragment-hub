@@ -466,6 +466,36 @@ public class ContentHubPackageImpl extends EPackageImpl implements ContentHubPac
 	 * @generated
 	 */
 	@Override
+	public EOperation getContext__GetPackage() {
+		return contextEClass.getEOperations().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getContext__ResolveContextsByPattern__Path() {
+		return contextEClass.getEOperations().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getContext__ResolveContentFragmentInstancesByPattern__Path() {
+		return contextEClass.getEOperations().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getContextPolicy() {
 		return contextPolicyEClass;
 	}
@@ -552,6 +582,9 @@ public class ContentHubPackageImpl extends EPackageImpl implements ContentHubPac
 		createEOperation(contextEClass, CONTEXT___GET_ROOT_CONTEXT);
 		createEOperation(contextEClass, CONTEXT___GET_POLICIES_BY_TYPE__CLASS);
 		createEOperation(contextEClass, CONTEXT___GET_PATH);
+		createEOperation(contextEClass, CONTEXT___GET_PACKAGE);
+		createEOperation(contextEClass, CONTEXT___RESOLVE_CONTEXTS_BY_PATTERN__PATH);
+		createEOperation(contextEClass, CONTEXT___RESOLVE_CONTENT_FRAGMENT_INSTANCES_BY_PATTERN__PATH);
 
 		contextPolicyEClass = createEClass(CONTEXT_POLICY);
 
@@ -647,6 +680,14 @@ public class ContentHubPackageImpl extends EPackageImpl implements ContentHubPac
 		initEOperation(op, g1);
 
 		initEOperation(getContext__GetPath(), this.getPath(), "getPath", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getContext__GetPackage(), this.getPackage(), "getPackage", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getContext__ResolveContextsByPattern__Path(), this.getContext(), "resolveContextsByPattern", 0, -1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getPath(), "pattern", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getContext__ResolveContentFragmentInstancesByPattern__Path(), theContentFragmentPackage.getContentFragmentInstance(), "resolveContentFragmentInstancesByPattern", 0, -1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getPath(), "pattern", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(contextPolicyEClass, ContextPolicy.class, "ContextPolicy", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

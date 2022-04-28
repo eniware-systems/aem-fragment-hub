@@ -397,13 +397,22 @@ public interface ContentFragmentPackage extends EPackage {
 	int CONTENT_FRAGMENT_FIELD_INSTANCE = 4;
 
 	/**
+	 * The feature id for the '<em><b>Instance</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_FRAGMENT_FIELD_INSTANCE__INSTANCE = 0;
+
+	/**
 	 * The feature id for the '<em><b>Fieldtype</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTENT_FRAGMENT_FIELD_INSTANCE__FIELDTYPE = 0;
+	int CONTENT_FRAGMENT_FIELD_INSTANCE__FIELDTYPE = 1;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -412,7 +421,7 @@ public interface ContentFragmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTENT_FRAGMENT_FIELD_INSTANCE__VALUE = 1;
+	int CONTENT_FRAGMENT_FIELD_INSTANCE__VALUE = 2;
 
 	/**
 	 * The number of structural features of the '<em>Field Instance</em>' class.
@@ -421,7 +430,7 @@ public interface ContentFragmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTENT_FRAGMENT_FIELD_INSTANCE_FEATURE_COUNT = 2;
+	int CONTENT_FRAGMENT_FIELD_INSTANCE_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Field Instance</em>' class.
@@ -1052,6 +1061,17 @@ public interface ContentFragmentPackage extends EPackage {
 	EClass getContentFragmentFieldInstance();
 
 	/**
+	 * Returns the meta object for the container reference '{@link de.enithing.contenthub.model.contentfragment.ContentFragmentFieldInstance#getInstance <em>Instance</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Instance</em>'.
+	 * @see de.enithing.contenthub.model.contentfragment.ContentFragmentFieldInstance#getInstance()
+	 * @see #getContentFragmentFieldInstance()
+	 * @generated
+	 */
+	EReference getContentFragmentFieldInstance_Instance();
+
+	/**
 	 * Returns the meta object for the reference '{@link de.enithing.contenthub.model.contentfragment.ContentFragmentFieldInstance#getFieldtype <em>Fieldtype</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1431,6 +1451,14 @@ public interface ContentFragmentPackage extends EPackage {
 		 * @generated
 		 */
 		EClass CONTENT_FRAGMENT_FIELD_INSTANCE = eINSTANCE.getContentFragmentFieldInstance();
+
+		/**
+		 * The meta object literal for the '<em><b>Instance</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONTENT_FRAGMENT_FIELD_INSTANCE__INSTANCE = eINSTANCE.getContentFragmentFieldInstance_Instance();
 
 		/**
 		 * The meta object literal for the '<em><b>Fieldtype</b></em>' reference feature.

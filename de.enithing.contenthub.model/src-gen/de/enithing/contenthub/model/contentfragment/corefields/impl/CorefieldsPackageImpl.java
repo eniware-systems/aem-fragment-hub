@@ -849,6 +849,16 @@ public class CorefieldsPackageImpl extends EPackageImpl implements CorefieldsPac
 	 * @generated
 	 */
 	@Override
+	public EAttribute getFragmentReferenceValue_FragmentsByPathPattern() {
+		return (EAttribute)fragmentReferenceValueEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getJson() {
 		return jsonEClass;
 	}
@@ -1226,6 +1236,7 @@ public class CorefieldsPackageImpl extends EPackageImpl implements CorefieldsPac
 
 		fragmentReferenceValueEClass = createEClass(FRAGMENT_REFERENCE_VALUE);
 		createEReference(fragmentReferenceValueEClass, FRAGMENT_REFERENCE_VALUE__FRAGMENTS);
+		createEAttribute(fragmentReferenceValueEClass, FRAGMENT_REFERENCE_VALUE__FRAGMENTS_BY_PATH_PATTERN);
 
 		jsonEClass = createEClass(JSON);
 		createEAttribute(jsonEClass, JSON__PLACEHOLDER);
@@ -1430,6 +1441,7 @@ public class CorefieldsPackageImpl extends EPackageImpl implements CorefieldsPac
 
 		initEClass(fragmentReferenceValueEClass, FragmentReferenceValue.class, "FragmentReferenceValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getFragmentReferenceValue_Fragments(), theContentFragmentPackage.getContentFragmentInstance(), null, "fragments", null, 0, -1, FragmentReferenceValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getFragmentReferenceValue_FragmentsByPathPattern(), ecorePackage.getEString(), "fragmentsByPathPattern", null, 0, 1, FragmentReferenceValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(jsonEClass, Json.class, "Json", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getJson_Placeholder(), ecorePackage.getEString(), "placeholder", null, 1, 1, Json.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
