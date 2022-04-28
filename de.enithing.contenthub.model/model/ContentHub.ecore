@@ -17,7 +17,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Package">
     <eOperations name="getAllContentFragmentModels" upperBound="-1" eType="#//contentfragment/ContentFragmentModel"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        defaultValueLiteral="my.content" iD="true"/>
+        defaultValueLiteral="my.content"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="group" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="de.enithing"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
@@ -75,8 +75,7 @@
   <eSubpackages name="contentfragment" nsURI="https://aemcontenthub.eniware-systems.de/ns/contentfragments"
       nsPrefix="chub">
     <eClassifiers xsi:type="ecore:EClass" name="ContentFragmentModelSet">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-          iD="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="models" upperBound="-1"
           eType="#//contentfragment/ContentFragmentModel" containment="true" eOpposite="#//contentfragment/ContentFragmentModel/modelSet"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="package" lowerBound="1"
@@ -111,8 +110,7 @@
       <eOperations name="getPath" lowerBound="1" eType="#//Path"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="fields" upperBound="-1"
           eType="#//contentfragment/ContentFragmentFieldType" containment="true" eKeys="#//contentfragment/ContentFragmentFieldType/propertyName"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-          iD="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -136,8 +134,7 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ContentFragmentInstance">
       <eOperations name="getPath" lowerBound="1" eType="#//Path"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-          iD="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

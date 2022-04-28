@@ -32,7 +32,7 @@ public interface ContentFragmentModelSet extends EObject {
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see de.enithing.contenthub.model.contentfragment.ContentFragmentPackage#getContentFragmentModelSet_Name()
-	 * @model id="true"
+	 * @model
 	 * @generated
 	 */
 	String getName();

@@ -37,7 +37,7 @@ public interface ContentFragmentInstance extends EObject {
 	 * @return the value of the '<em>Id</em>' attribute.
 	 * @see #setId(String)
 	 * @see de.enithing.contenthub.model.contentfragment.ContentFragmentPackage#getContentFragmentInstance_Id()
-	 * @model id="true" required="true"
+	 * @model required="true"
 	 * @generated
 	 */
 	String getId();

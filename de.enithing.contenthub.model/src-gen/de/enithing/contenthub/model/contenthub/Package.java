@@ -43,7 +43,7 @@ public interface Package extends EObject {
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see de.enithing.contenthub.model.contenthub.ContentHubPackage#getPackage_Name()
-	 * @model default="my.content" id="true" required="true"
+	 * @model default="my.content" required="true"
 	 * @generated
 	 */
 	String getName();
