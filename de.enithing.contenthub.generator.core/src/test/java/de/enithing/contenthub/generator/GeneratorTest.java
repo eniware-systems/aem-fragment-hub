@@ -67,7 +67,7 @@ class GeneratorTest {
 		return gen;
 	}
 
-	/*
+	
 	@Test
 	void resourceTest() throws FileSystemException {
 		PackageGenerator gen = createPackageGenerator();
@@ -76,7 +76,7 @@ class GeneratorTest {
 
 		assertDoesNotThrow(() -> gen.generate(myPackage));
 	}
-	*/
+	
 
 	@Test
 	void bookStoreTest() throws FileSystemException {

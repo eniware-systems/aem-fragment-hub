@@ -83,12 +83,16 @@ public class PackageGenerator implements TemplateBasedGenerator<Package> {
 		renderTemplate(pkg, targetRoot, Path.of("jcr_root/conf/$packageName/settings/dam/.content.xml"));
 		renderTemplate(pkg, targetRoot, Path.of("jcr_root/conf/$packageName/settings/dam/cfm/.content.xml"));
 		renderTemplate(pkg, targetRoot, Path.of("jcr_root/conf/$packageName/settings/dam/cfm/models/.content.xml"));
-
+		
 		// Create the content directory
 		renderTemplate(pkg, targetRoot, Path.of("jcr_root/content/.content.xml"));
 		renderTemplate(pkg, targetRoot, Path.of("jcr_root/content/dam/.content.xml"));
 		renderTemplate(pkg, targetRoot, Path.of("jcr_root/content/dam/$packageName/.content.xml"));
-
+		
+		// Create the GraphQL endpoints directory
+		renderTemplate(pkg, targetRoot, Path.of("jcr_root/content/_cq_graphql/.content.xml"));
+		renderTemplate(pkg, targetRoot, Path.of("jcr_root/content/_cq_graphql/$packageName/.content.xml"));
+		renderTemplate(pkg, targetRoot, Path.of("jcr_root/content/_cq_graphql/$packageName/endpoint/.content.xml"));
 	}
 
 	@Override
