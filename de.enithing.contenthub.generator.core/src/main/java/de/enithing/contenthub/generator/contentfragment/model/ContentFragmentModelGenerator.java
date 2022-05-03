@@ -11,6 +11,7 @@ import org.apache.velocity.VelocityContext;
 import de.enithing.contenthub.generator.GeneratorConfiguration;
 import de.enithing.contenthub.generator.TemplateBasedGenerator;
 import de.enithing.contenthub.generator.contentfragment.ContentFragmentFieldGeneratorRegistry;
+import de.enithing.contenthub.generator.util.JcrUtils;
 import de.enithing.contenthub.generator.util.VelocityUtils;
 import de.enithing.contenthub.generator.util.XmlUtils;
 import de.enithing.contenthub.model.contentfragment.ContentFragmentFieldType;
@@ -41,7 +42,7 @@ public class ContentFragmentModelGenerator implements TemplateBasedGenerator<Con
 		
 		Path modelPath = VelocityUtils.replace(mdl.getPath(), ctx);
 		ctx.put("scaffolding", modelPath.toString());
-		ctx.put("title", mdl.getTitle());
+		ctx.put("title", JcrUtils.toStringValue(mdl.getTitle()));
 				
 		ContentFragmentFieldGeneratorRegistry fieldGeneratorRegistry = getConfig().getFieldGeneratorRegistry();
 		

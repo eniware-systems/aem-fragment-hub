@@ -4,6 +4,7 @@ import de.enithing.contenthub.generator.GeneratorConfiguration;
 import de.enithing.contenthub.generator.TemplateBasedGenerator;
 import de.enithing.contenthub.generator.contentfragment.model.ContentFragmentModelGenerator;
 import de.enithing.contenthub.generator.context.ContextGenerator;
+import de.enithing.contenthub.generator.util.JcrUtils;
 import de.enithing.contenthub.generator.util.PathUtils;
 import de.enithing.contenthub.generator.util.VelocityUtils;
 import de.enithing.contenthub.generator.util.XmlUtils;
@@ -143,11 +144,11 @@ public class PackageGenerator implements TemplateBasedGenerator<Package> {
 		// Add the basic fields
 		ctx.put("packageName", pkg.getName());
 		ctx.put("packageGroup", pkg.getGroup());
-		ctx.put("packageTitle", pkg.getTitle());
-		ctx.put("packageAuthor", pkg.getAuthor());
-		ctx.put("packageDescription", pkg.getDescription());
-		ctx.put("packageVersion", pkg.getVersion());
-		ctx.put("packageCreator", "admin");
+		ctx.put("packageTitle", JcrUtils.toStringValue(pkg.getTitle()));
+		ctx.put("packageAuthor", JcrUtils.toStringValue(pkg.getAuthor()));
+		ctx.put("packageDescription", JcrUtils.toStringValue(pkg.getDescription()));
+		ctx.put("packageVersion", JcrUtils.toStringValue((pkg.getVersion())));
+		ctx.put("packageCreator", JcrUtils.toStringValue("admin"));
 
 		// Generate the package filter list
 		List<Path> packageFilterPaths = new ArrayList<>(Arrays.asList(Path.of("/content/dam/" + pkg.getName()),

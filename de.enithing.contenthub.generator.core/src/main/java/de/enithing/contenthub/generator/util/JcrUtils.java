@@ -31,6 +31,10 @@ public class JcrUtils {
 	 * @return The JCR compatible representation of the value
 	 */
 	public static String toStringValue(Object value) {
+		if (value == null) {
+			return "";
+		}
+
 		if (value instanceof String) {
 			return StringEscapeUtils.escapeXml((String) value);
 		}

@@ -12,6 +12,7 @@ import org.apache.velocity.runtime.parser.ParseException;
 
 import de.enithing.contenthub.generator.GeneratorConfiguration;
 import de.enithing.contenthub.generator.TemplateBasedGenerator;
+import de.enithing.contenthub.generator.util.JcrUtils;
 import de.enithing.contenthub.generator.util.StringUtils;
 import de.enithing.contenthub.generator.util.VelocityUtils;
 import de.enithing.contenthub.generator.util.XmlUtils;
@@ -48,9 +49,9 @@ public class ContentFragmentGenerator implements TemplateBasedGenerator<ContentF
 
 		ctx.put("fragmentUuid", generateUuid(cf));
 		ctx.put("fragmentParentPath", VelocityUtils.replace(cf.getContext().getPath(), ctx));
-		ctx.put("fragmentName", cf.getId());
-		ctx.put("fragmentTitle", cf.getTitle());
-		ctx.put("fragmentDescription", cf.getDescription());
+		ctx.put("fragmentName", JcrUtils.toStringValue(cf.getId()));
+		ctx.put("fragmentTitle", JcrUtils.toStringValue(cf.getTitle()));
+		ctx.put("fragmentDescription", JcrUtils.toStringValue(cf.getDescription()));
 		ctx.put("fragmentModel", VelocityUtils.replace(cf.getModel().getPath(), ctx));
 
 		FileObject targetRoot = getConfig().targetRoot.resolveFile(cf.getId());
@@ -95,7 +96,7 @@ public class ContentFragmentGenerator implements TemplateBasedGenerator<ContentF
 		file.createFile();
 		OutputStream os = file.getContent().getOutputStream();
 		Writer writer = XmlUtils.getPrettyPrintWriter(os);
-
+		
 		tpl.merge(ctx, writer);
 		writer.flush();
 		writer.close();
