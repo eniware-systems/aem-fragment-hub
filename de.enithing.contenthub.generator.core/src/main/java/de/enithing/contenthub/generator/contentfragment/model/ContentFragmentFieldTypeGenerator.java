@@ -5,6 +5,7 @@ import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.logging.Logger;
 
 import org.apache.velocity.Template;
 import org.apache.velocity.VelocityContext;
@@ -12,6 +13,7 @@ import org.apache.velocity.runtime.parser.ParseException;
 
 import de.enithing.contenthub.generator.GeneratorConfiguration;
 import de.enithing.contenthub.generator.TemplateBasedGenerator;
+import de.enithing.contenthub.generator.context.ContextGenerator;
 import de.enithing.contenthub.generator.util.JcrUtils;
 import de.enithing.contenthub.generator.util.StringUtils;
 import de.enithing.contenthub.generator.util.VelocityUtils;
@@ -71,18 +73,18 @@ public abstract class ContentFragmentFieldTypeGenerator<TField extends ContentFr
 	protected void populateDefaultGraniteAttribs(TField element, VelocityContext ctx, Map<String, Object> attribs) {
 		attribs.put("jcr:primaryType", "nt:unstructured");
 	}
-	
+
 	private int getListOrder(TField element) {
 		int rank = 1;
-		
-		for(ContentFragmentFieldType<?> field : element.getModel().getAllFields()) {
-			if(field == element) {
+
+		for (ContentFragmentFieldType<?> field : element.getModel().getAllFields()) {
+			if (field == element) {
 				break;
 			}
-			
+
 			rank++;
 		}
-		
+
 		return rank;
 	}
 
@@ -90,7 +92,7 @@ public abstract class ContentFragmentFieldTypeGenerator<TField extends ContentFr
 		attribs.put("jcr:primaryType", "nt:unstructured");
 		attribs.put("sling:resourceType", getResourceType(element));
 		attribs.put("valueType", getValueType(element));
-		attribs.put("metaType", getMetaType(element));		
+		attribs.put("metaType", getMetaType(element));
 		attribs.put("listOrder", getListOrder(element));
 		attribs.put("fieldLabel", element.getFieldLabel());
 		attribs.put("fieldDescription", element.getDescription());
@@ -103,7 +105,7 @@ public abstract class ContentFragmentFieldTypeGenerator<TField extends ContentFr
 			Map<String, Map<String, String>> resultChildren) {
 
 		for (Entry<String, Object> e : attribs.entrySet()) {
-			if(e.getValue() == null) {
+			if (e.getValue() == null) {
 				continue;
 			}
 			resultAttribs.put(e.getKey(), JcrUtils.toStringValue(e.getValue()));
@@ -111,7 +113,7 @@ public abstract class ContentFragmentFieldTypeGenerator<TField extends ContentFr
 	}
 
 	@Override
-	public void populateTemplateContext(TField element, VelocityContext ctx) throws IOException, ParseException {		
+	public void populateTemplateContext(TField element, VelocityContext ctx) throws IOException, ParseException {
 		{
 			Map<String, Object> attribs = new HashMap<>();
 
@@ -143,5 +145,12 @@ public abstract class ContentFragmentFieldTypeGenerator<TField extends ContentFr
 
 	private static String generateTagName() {
 		return String.format("_x0031_%s", StringUtils.generateNumericId(12));
+	}
+
+	private static Logger logger = Logger.getLogger(ContentFragmentFieldTypeGenerator.class.getSimpleName());
+
+	@Override
+	public Logger getLogger() {
+		return logger;
 	}
 }

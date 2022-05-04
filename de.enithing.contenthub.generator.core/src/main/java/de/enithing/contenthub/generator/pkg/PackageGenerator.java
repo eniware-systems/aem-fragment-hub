@@ -22,6 +22,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 import org.apache.commons.lang3.StringUtils;
@@ -171,5 +172,12 @@ public class PackageGenerator implements TemplateBasedGenerator<Package> {
 		Date packageDate = Date.from(Instant.now());
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
 		ctx.put("packageDate", format.format(packageDate));
+	}
+	
+	private static Logger logger = Logger.getLogger(PackageGenerator.class.getSimpleName());
+	
+	@Override
+	public Logger getLogger() {
+		return logger;
 	}
 }

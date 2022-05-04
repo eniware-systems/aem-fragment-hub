@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.io.Writer;
 import java.nio.file.Path;
+import java.util.logging.Logger;
 
 import org.apache.commons.vfs2.FileObject;
 import org.apache.velocity.Template;
@@ -12,6 +13,7 @@ import org.apache.velocity.runtime.parser.ParseException;
 
 import de.enithing.contenthub.generator.GeneratorConfiguration;
 import de.enithing.contenthub.generator.TemplateBasedGenerator;
+import de.enithing.contenthub.generator.contentfragment.model.ContentFragmentFieldTypeGenerator;
 import de.enithing.contenthub.generator.util.JcrUtils;
 import de.enithing.contenthub.generator.util.StringUtils;
 import de.enithing.contenthub.generator.util.VelocityUtils;
@@ -96,7 +98,7 @@ public class ContentFragmentGenerator implements TemplateBasedGenerator<ContentF
 		file.createFile();
 		OutputStream os = file.getContent().getOutputStream();
 		Writer writer = XmlUtils.getPrettyPrintWriter(os);
-		
+
 		tpl.merge(ctx, writer);
 		writer.flush();
 		writer.close();
@@ -113,6 +115,13 @@ public class ContentFragmentGenerator implements TemplateBasedGenerator<ContentF
 			throws IOException, ParseException {
 		// TODO Auto-generated method stub
 
+	}
+
+	private static Logger logger = Logger.getLogger(ContentFragmentGenerator.class.getSimpleName());
+
+	@Override
+	public Logger getLogger() {
+		return logger;
 	}
 
 }

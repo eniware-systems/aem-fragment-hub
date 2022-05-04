@@ -6,6 +6,7 @@ import java.io.StringWriter;
 import java.io.Writer;
 import java.nio.file.Path;
 import java.util.List;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 import org.apache.commons.lang.NotImplementedException;
@@ -17,6 +18,7 @@ import org.apache.velocity.runtime.parser.ParseException;
 import de.enithing.contenthub.generator.GeneratorConfiguration;
 import de.enithing.contenthub.generator.TemplateBasedGenerator;
 import de.enithing.contenthub.generator.contentfragment.instance.ContentFragmentGenerator;
+import de.enithing.contenthub.generator.pkg.PackageGenerator;
 import de.enithing.contenthub.generator.util.JcrUtils;
 import de.enithing.contenthub.generator.util.VelocityUtils;
 import de.enithing.contenthub.generator.util.XmlUtils;
@@ -61,7 +63,7 @@ public class ContextGenerator implements TemplateBasedGenerator<Context> {
 
 		return writer.toString();
 	}
-	
+
 	private FileObject getOrCreateTargetRoot(Context ctx, boolean deleteIfExists) throws Exception {
 		FileObject targetRoot;
 
@@ -81,7 +83,7 @@ public class ContextGenerator implements TemplateBasedGenerator<Context> {
 		} else {
 			targetRoot = getConfig().targetRoot;
 		}
-		
+
 		return targetRoot;
 	}
 
@@ -119,7 +121,7 @@ public class ContextGenerator implements TemplateBasedGenerator<Context> {
 
 		// Replace the variables used in the path
 		FileObject targetRoot = getOrCreateTargetRoot(ctx, false);
-		
+
 		// Write the content fragments
 		for (ContentFragmentInstance cf : ctx.getContentFragments()) {
 			GeneratorConfiguration childConfig = createChildConfig(ctx);
@@ -141,5 +143,12 @@ public class ContextGenerator implements TemplateBasedGenerator<Context> {
 
 	@Override
 	public void populateTemplateContext(Context ctx, VelocityContext templateCtx) {
+	}
+
+	private static Logger logger = Logger.getLogger(ContextGenerator.class.getSimpleName());
+
+	@Override
+	public Logger getLogger() {
+		return logger;
 	}
 }

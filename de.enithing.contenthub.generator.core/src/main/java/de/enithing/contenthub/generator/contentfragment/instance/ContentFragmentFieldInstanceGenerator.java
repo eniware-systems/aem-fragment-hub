@@ -7,6 +7,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.logging.Logger;
 
 import org.apache.velocity.Template;
 import org.apache.velocity.VelocityContext;
@@ -40,12 +41,12 @@ public abstract class ContentFragmentFieldInstanceGenerator<TValue extends Conte
 	public GeneratorConfiguration getConfig() {
 		return config;
 	}
-	
+
 	@Override
 	public Path getTemplatesPath() {
 		return Path.of("cffield");
 	}
-	
+
 	@Override
 	public void onEnter(ContentFragmentFieldInstance element) throws Exception {
 	}
@@ -71,24 +72,32 @@ public abstract class ContentFragmentFieldInstanceGenerator<TValue extends Conte
 	public void populateTemplateContext(ContentFragmentFieldInstance element, VelocityContext ctx)
 			throws IOException, ParseException {
 		Map<String, Object> attribs = new HashMap<>();
-		
+
 		@SuppressWarnings("unchecked")
 		TValue value = (TValue) element.getValue();
 
 		populateDefaultAttribs(element, value, ctx, attribs);
-		
+
 		ctx.put("name", element.getFieldtype().getPropertyName());
 
 		populateAttribs(element, value, ctx, attribs);
-		
+
 		// Prefix and store the attributes
 		String prefix = element.getFieldtype().getPropertyName();
 		Map<String, String> prefixedAttribs = new HashMap<>();
 
 		for (Entry<String, Object> entry : attribs.entrySet()) {
-			prefixedAttribs.put(String.format("%s%s", prefix, entry.getKey()), JcrUtils.toStringValue(entry.getValue()));
+			prefixedAttribs.put(String.format("%s%s", prefix, entry.getKey()),
+					JcrUtils.toStringValue(entry.getValue()));
 		}
 
 		ctx.put("field", prefixedAttribs);
+	}
+
+	private static Logger logger = Logger.getLogger(ContentFragmentFieldInstanceGenerator.class.getSimpleName());
+
+	@Override
+	public Logger getLogger() {
+		return logger;
 	}
 }

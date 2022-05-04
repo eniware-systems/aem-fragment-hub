@@ -18,6 +18,11 @@ import java.nio.file.Path;
 import java.util.logging.Logger;
 
 public class Main {	
+	static {
+		System.setProperty("java.util.logging.SimpleFormatter.format",
+	              "[%4$-7s] %5$s %n");
+	}
+	
     private static String getBanner() {
 
         return "ContentHub Generator 0.1a";
