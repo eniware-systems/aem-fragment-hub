@@ -4,7 +4,6 @@ package de.enithing.contenthub.model.contenthub;
 
 import java.nio.file.Path;
 
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Simple Path</b></em>'.
@@ -22,7 +21,6 @@ import java.nio.file.Path;
  * @generated
  */
 public interface SimplePath extends PathProvider {
-
 	/**
 	 * Returns the value of the '<em><b>Path</b></em>' attribute.
 	 * The default value is <code>""</code>.
@@ -45,4 +43,5 @@ public interface SimplePath extends PathProvider {
 	 * @generated
 	 */
 	void setPath(Path value);
+
 } // SimplePath

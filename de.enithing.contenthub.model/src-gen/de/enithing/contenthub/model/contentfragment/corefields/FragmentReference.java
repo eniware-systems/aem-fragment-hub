@@ -6,6 +6,7 @@ import de.enithing.contenthub.model.contentfragment.ContentFragmentModel;
 import de.enithing.contenthub.model.contentfragment.MultiFieldType;
 
 import de.enithing.contenthub.model.contenthub.PathProvider;
+
 import org.eclipse.emf.common.util.EList;
 
 /**

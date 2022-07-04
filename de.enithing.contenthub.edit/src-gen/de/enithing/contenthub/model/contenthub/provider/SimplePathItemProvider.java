@@ -7,7 +7,9 @@ import de.enithing.contenthub.edit.ContentHubEditPlugin;
 
 import de.enithing.contenthub.model.contenthub.ContentHubPackage;
 import de.enithing.contenthub.model.contenthub.SimplePath;
+
 import java.nio.file.Path;
+
 import java.util.Collection;
 import java.util.List;
 

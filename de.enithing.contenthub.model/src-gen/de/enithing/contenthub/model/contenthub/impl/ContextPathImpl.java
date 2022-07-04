@@ -106,10 +106,13 @@ public class ContextPathImpl extends MinimalEObjectImpl.Container implements Con
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
 	 */
 	@Override
 	public Path getPath() {
-		return getContext().getPath();
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**

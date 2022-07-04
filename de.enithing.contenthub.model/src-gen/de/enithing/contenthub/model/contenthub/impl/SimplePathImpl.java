@@ -5,9 +5,11 @@ package de.enithing.contenthub.model.contenthub.impl;
 import de.enithing.contenthub.model.contenthub.ContentHubFactory;
 import de.enithing.contenthub.model.contenthub.ContentHubPackage;
 import de.enithing.contenthub.model.contenthub.SimplePath;
+
 import java.nio.file.Path;
 
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -36,6 +38,7 @@ public class SimplePathImpl extends MinimalEObjectImpl.Container implements Simp
 	 * @ordered
 	 */
 	protected static final Path PATH_EDEFAULT = (Path)ContentHubFactory.eINSTANCE.createFromString(ContentHubPackage.eINSTANCE.getPath(), "");
+
 	/**
 	 * The cached value of the '{@link #getPath() <em>Path</em>}' attribute.
 	 * <!-- begin-user-doc -->

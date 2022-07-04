@@ -171,5 +171,6 @@
 		<module>../de.enithing.contenthub.model</module>
 		<module>../de.enithing.contenthub.generator.core</module>
 		<module>../de.enithing.contenthub.generator.cli</module>
+		<module>../de.enithing.contenthub.importer.core</module>
 	</modules>
 </project>

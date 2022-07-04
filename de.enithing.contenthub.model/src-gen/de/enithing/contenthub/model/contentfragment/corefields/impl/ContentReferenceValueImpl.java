@@ -4,9 +4,13 @@ package de.enithing.contenthub.model.contentfragment.corefields.impl;
 
 import de.enithing.contenthub.model.contentfragment.corefields.ContentReferenceValue;
 import de.enithing.contenthub.model.contentfragment.corefields.CorefieldsPackage;
+
 import java.nio.file.Path;
+
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EClass;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
@@ -33,6 +37,7 @@ public class ContentReferenceValueImpl extends MinimalEObjectImpl.Container impl
 	 * @ordered
 	 */
 	protected static final Path VALUE_EDEFAULT = null;
+
 	/**
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->

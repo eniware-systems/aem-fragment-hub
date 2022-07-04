@@ -2,8 +2,7 @@ package de.enithing.contenthub.model.contentfragment.impl;
 
 import java.util.Collection;
 
-import org.apache.commons.lang.StringUtils;
-
+import de.enithing.contenthub.StringUtils;
 import de.enithing.contenthub.model.contentfragment.ContentFragmentModel;
 import de.enithing.contenthub.model.contentfragment.util.ContentFragmentUtils;
 import de.enithing.contenthub.model.contentfragment.util.NameGenerationUtils;

@@ -7,14 +7,17 @@ import de.enithing.contenthub.model.contentfragment.corefields.StringValue;
 import de.enithing.contenthub.model.contentfragment.corefields.Tags;
 
 import de.enithing.contenthub.model.contentfragment.impl.ContentFragmentFieldTypeImpl;
+
 import de.enithing.contenthub.model.contenthub.PathProvider;
+
 import java.lang.Boolean;
+
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**

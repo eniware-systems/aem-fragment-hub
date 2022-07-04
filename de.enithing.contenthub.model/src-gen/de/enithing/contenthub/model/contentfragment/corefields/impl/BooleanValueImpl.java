@@ -4,9 +4,13 @@ package de.enithing.contenthub.model.contentfragment.corefields.impl;
 
 import de.enithing.contenthub.model.contentfragment.corefields.BooleanValue;
 import de.enithing.contenthub.model.contentfragment.corefields.CorefieldsPackage;
+
 import java.lang.Boolean;
+
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EClass;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
@@ -33,6 +37,7 @@ public class BooleanValueImpl extends MinimalEObjectImpl.Container implements Bo
 	 * @ordered
 	 */
 	protected static final boolean VALUE_EDEFAULT = false;
+
 	/**
 	 * The cached value of the '{@link #isValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->

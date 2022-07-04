@@ -3,20 +3,26 @@
 package de.enithing.contenthub.model.contentfragment.corefields.impl;
 
 import de.enithing.contenthub.model.contentfragment.ContentFragmentModel;
+
 import de.enithing.contenthub.model.contentfragment.corefields.CorefieldsPackage;
 import de.enithing.contenthub.model.contentfragment.corefields.MultiLineText;
 import de.enithing.contenthub.model.contentfragment.corefields.StringValue;
 import de.enithing.contenthub.model.contentfragment.corefields.TextMimeType;
+
 import de.enithing.contenthub.model.contentfragment.impl.ContentFragmentFieldTypeImpl;
 
 import java.lang.Boolean;
+
 import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 

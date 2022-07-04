@@ -10,6 +10,7 @@ import de.enithing.contenthub.model.contentfragment.corefields.FragmentReference
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -53,6 +54,7 @@ public class FragmentReferenceValueImpl extends MinimalEObjectImpl.Container imp
 	 * @ordered
 	 */
 	protected static final String FRAGMENTS_BY_PATH_PATTERN_EDEFAULT = null;
+
 	/**
 	 * The cached value of the '{@link #getFragmentsByPathPattern() <em>Fragments By Path Pattern</em>}' attribute.
 	 * <!-- begin-user-doc -->

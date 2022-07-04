@@ -3,6 +3,7 @@
 package de.enithing.contenthub.model.contentfragment.corefields;
 
 import de.enithing.contenthub.model.contentfragment.SimpleFieldType;
+
 import org.eclipse.emf.common.util.EList;
 
 /**

@@ -5,8 +5,8 @@ package de.enithing.contenthub.model.contentfragment.corefields.impl;
 import de.enithing.contenthub.model.contentfragment.corefields.CorefieldsPackage;
 import de.enithing.contenthub.model.contentfragment.corefields.DateTime;
 import de.enithing.contenthub.model.contentfragment.corefields.DateTimeType;
-
 import de.enithing.contenthub.model.contentfragment.corefields.DateTimeValue;
+
 import de.enithing.contenthub.model.contentfragment.impl.ContentFragmentFieldTypeImpl;
 
 import java.lang.Boolean;
