@@ -28,7 +28,7 @@ public interface GroupFieldType<TValue extends ContentFragmentFieldValue> extend
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Fields</em>' containment reference list.
 	 * @see de.enithing.contenthub.model.contentfragment.ContentFragmentPackage#getGroupFieldType_Fields()
-	 * @model containment="true" keys="id"
+	 * @model containment="true" keys="propertyName"
 	 * @generated
 	 */
 	EList<SimpleFieldType> getFields();

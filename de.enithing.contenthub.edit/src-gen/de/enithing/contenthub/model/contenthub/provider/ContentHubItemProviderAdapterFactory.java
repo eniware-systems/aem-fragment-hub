@@ -71,6 +71,52 @@ public class ContentHubItemProviderAdapterFactory extends ContentHubAdapterFacto
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.enithing.contenthub.model.contenthub.SimplePath} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SimplePathItemProvider simplePathItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.enithing.contenthub.model.contenthub.SimplePath}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSimplePathAdapter() {
+		if (simplePathItemProvider == null) {
+			simplePathItemProvider = new SimplePathItemProvider(this);
+		}
+
+		return simplePathItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.enithing.contenthub.model.contenthub.ContextPath} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ContextPathItemProvider contextPathItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.enithing.contenthub.model.contenthub.ContextPath}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createContextPathAdapter() {
+		if (contextPathItemProvider == null) {
+			contextPathItemProvider = new ContextPathItemProvider(this);
+		}
+
+		return contextPathItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link de.enithing.contenthub.model.contenthub.Package} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -105,61 +151,15 @@ public class ContentHubItemProviderAdapterFactory extends ContentHubAdapterFacto
 	 * This creates an adapter for a {@link de.enithing.contenthub.model.contenthub.Context}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	@Override
 	public Adapter createContextAdapter() {
 		if (contextItemProvider == null) {
-			contextItemProvider = new ContextItemProvider(this);
+			// This was changed to get the extended provider.
+			contextItemProvider = new ExtendedContextItemProvider(this);
 		}
 
 		return contextItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link de.enithing.contenthub.model.contenthub.RootContext} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected RootContextItemProvider rootContextItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.enithing.contenthub.model.contenthub.RootContext}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createRootContextAdapter() {
-		if (rootContextItemProvider == null) {
-			rootContextItemProvider = new RootContextItemProvider(this);
-		}
-
-		return rootContextItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link de.enithing.contenthub.model.contenthub.ChildContext} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ChildContextItemProvider childContextItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.enithing.contenthub.model.contenthub.ChildContext}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createChildContextAdapter() {
-		if (childContextItemProvider == null) {
-			childContextItemProvider = new ChildContextItemProvider(this);
-		}
-
-		return childContextItemProvider;
 	}
 
 	/**
@@ -168,6 +168,7 @@ public class ContentHubItemProviderAdapterFactory extends ContentHubAdapterFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ComposeableAdapterFactory getRootAdapterFactory() {
 		return parentAdapterFactory == null ? this : parentAdapterFactory.getRootAdapterFactory();
 	}
@@ -178,6 +179,7 @@ public class ContentHubItemProviderAdapterFactory extends ContentHubAdapterFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setParentAdapterFactory(ComposedAdapterFactory parentAdapterFactory) {
 		this.parentAdapterFactory = parentAdapterFactory;
 	}
@@ -226,6 +228,7 @@ public class ContentHubItemProviderAdapterFactory extends ContentHubAdapterFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void addListener(INotifyChangedListener notifyChangedListener) {
 		changeNotifier.addListener(notifyChangedListener);
 	}
@@ -236,6 +239,7 @@ public class ContentHubItemProviderAdapterFactory extends ContentHubAdapterFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void removeListener(INotifyChangedListener notifyChangedListener) {
 		changeNotifier.removeListener(notifyChangedListener);
 	}
@@ -246,6 +250,7 @@ public class ContentHubItemProviderAdapterFactory extends ContentHubAdapterFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void fireNotifyChanged(Notification notification) {
 		changeNotifier.fireNotifyChanged(notification);
 

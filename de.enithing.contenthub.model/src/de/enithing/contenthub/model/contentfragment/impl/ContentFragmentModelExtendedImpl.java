@@ -12,7 +12,9 @@ import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import de.enithing.contenthub.model.contentfragment.ContentFragmentFieldType;
 import de.enithing.contenthub.model.contentfragment.ContentFragmentModel;
 import de.enithing.contenthub.model.contentfragment.ContentFragmentPackage;
+import de.enithing.contenthub.model.contentfragment.util.ContentFragmentUtils;
 import de.enithing.contenthub.model.contentfragment.util.NameGenerationUtils;
+import de.enithing.contenthub.model.contenthub.Package;
 import de.enithing.contenthub.model.contenthub.util.ContextUtils;
 
 /**
@@ -27,16 +29,16 @@ public class ContentFragmentModelExtendedImpl extends ContentFragmentModelImpl {
 	 */
 	private static void intializeField(ContentFragmentModel model, ContentFragmentFieldType<?> fieldType) {
 		// Generate a unique id for the new field
-		String baseId = fieldType.getId() != null ? fieldType.getId()
-				: fieldType.getLabel() != null ? fieldType.getLabel() : fieldType.eClass().getName();
+		String baseId = fieldType.getPropertyName() != null ? fieldType.getPropertyName()
+				: fieldType.getFieldLabel() != null ? fieldType.getFieldLabel() : fieldType.eClass().getName();
 		baseId = NameGenerationUtils.toMachineString(baseId, true);
 
-		fieldType.setId(
-				NameGenerationUtils.generateName(baseId, model.getFields(), f -> f.getId(), "{0}_{1}", fieldType));
+		fieldType.setPropertyName(NameGenerationUtils.generateName(baseId, model.getFields(), f -> f.getPropertyName(),
+				"{0}_{1}", fieldType));
 
 		// Generate a label for the new field
-		String baseLabel = fieldType.getLabel() != null ? fieldType.getLabel() : fieldType.eClass().getName();
-		fieldType.setLabel(NameGenerationUtils.generateName(baseLabel, model.getFields(), f -> f.getLabel(),
+		String baseLabel = fieldType.getFieldLabel() != null ? fieldType.getFieldLabel() : fieldType.eClass().getName();
+		fieldType.setFieldLabel(NameGenerationUtils.generateName(baseLabel, model.getFields(), f -> f.getFieldLabel(),
 				"{0} ({1})", fieldType));
 	}
 
@@ -71,26 +73,44 @@ public class ContentFragmentModelExtendedImpl extends ContentFragmentModelImpl {
 					}
 				}
 
-		
 				super.notifyChanged(msg);
 			}
 		};
 
 		eAdapters().add(adapter);
 	}
-	
+
 	@Override
 	public void setId(String newId) {
-		if (getContext() != null) {
-			Collection<ContentFragmentModel> allModels = ContextUtils
-					.findAllContextWithSameJcrPath(getContext(), false).stream()
-					.flatMap(c -> c.getContentFragmentModels().stream()).filter(mdl -> mdl != this)
-					.toList();
-
-			newId = NameGenerationUtils.generateName(newId, allModels, mdl -> mdl.getId(), "{0}_{1}");
+		if (getModelSet() == null) {
+			super.setId(newId);
+			return;
 		}
-		
+
+		Package pkg = getModelSet().getPackage();
+
+		if (pkg == null) {
+			super.setId(newId);
+			return;
+		}
+
+		Collection<ContentFragmentModel> allModels = pkg.getAllContentFragmentModels().stream()
+				.filter(mdl -> mdl != this).toList();
+
+		newId = NameGenerationUtils.generateName(newId, allModels, mdl -> mdl.getId(), "{0}_{1}");
+
 		super.setId(newId);
+	}
+
+	@Override
+	public void setTitle(String newTitle) {
+		String prevGeneratedId = NameGenerationUtils.toMachineString(getTitle(), true);
+
+		super.setTitle(newTitle);
+
+		if (StringUtils.isBlank(getId()) || StringUtils.equals(prevGeneratedId, getId())) {
+			setId(NameGenerationUtils.toMachineString(newTitle, true));
+		}
 	}
 
 }

@@ -3,6 +3,7 @@ package de.enithing.contenthub.model.contentfragment.provider;
 import java.util.Collection;
 import java.util.List;
 
+import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
@@ -10,9 +11,11 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 
 import de.enithing.contenthub.model.contentfragment.ContentFragmentFieldInstance;
 import de.enithing.contenthub.model.contentfragment.ContentFragmentFieldType;
+import de.enithing.contenthub.model.contentfragment.ContentFragmentFieldValue;
 import de.enithing.contenthub.model.contentfragment.ContentFragmentInstance;
 import de.enithing.contenthub.model.contentfragment.ContentFragmentPackage;
 import de.enithing.contenthub.model.contentfragment.SimpleFieldType;
+import de.enithing.contenthub.model.contentfragment.util.ContentFragmentAdapterFactory;
 
 /**
  * Extensions for the ContentFragmentFieldInstanceItemProvider
@@ -38,8 +41,8 @@ public class ExtendedContentFragmentFieldInstanceItemProvider extends ContentFra
 				// Restrict the choice of values by those that are reflected in the content fragment model set for
 				// the content fragment instance owning this field instance
 				ContentFragmentFieldInstance fieldInstance = (ContentFragmentFieldInstance) object;
-				@SuppressWarnings("rawtypes")
-				EList<ContentFragmentFieldType> availableFieldTypes = ((ContentFragmentInstance)fieldInstance.eContainer()).getModel().getFields();
+
+				EList<ContentFragmentFieldType<?>> availableFieldTypes = ((ContentFragmentInstance)fieldInstance.eContainer()).getModel().getAllFields();
 				
 				List<?> choiceOfValues = super.getChoiceOfValues(object)
 						.stream()
@@ -50,6 +53,18 @@ public class ExtendedContentFragmentFieldInstanceItemProvider extends ContentFra
 				return choiceOfValues;
 			}
 		});
+	}
+	
+	@Override
+	public String getText(Object object) {
+		ContentFragmentFieldInstance fieldInstance = (ContentFragmentFieldInstance) object;
+		ContentFragmentFieldType<?> fieldType = fieldInstance.getFieldtype();
+		
+		if(fieldType == null) {
+			return "???";
+		}
+		
+		return fieldType.getPropertyName();
 	}
 
 }

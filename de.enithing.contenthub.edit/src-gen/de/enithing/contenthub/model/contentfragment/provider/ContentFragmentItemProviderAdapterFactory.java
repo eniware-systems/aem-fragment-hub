@@ -72,6 +72,29 @@ public class ContentFragmentItemProviderAdapterFactory extends ContentFragmentAd
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.enithing.contenthub.model.contentfragment.ContentFragmentModelSet} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ContentFragmentModelSetItemProvider contentFragmentModelSetItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.enithing.contenthub.model.contentfragment.ContentFragmentModelSet}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createContentFragmentModelSetAdapter() {
+		if (contentFragmentModelSetItemProvider == null) {
+			contentFragmentModelSetItemProvider = new ContentFragmentModelSetItemProvider(this);
+		}
+
+		return contentFragmentModelSetItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link de.enithing.contenthub.model.contentfragment.ContentFragmentModel} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -105,13 +128,13 @@ public class ContentFragmentItemProviderAdapterFactory extends ContentFragmentAd
 	/**
 	 * This creates an adapter for a {@link de.enithing.contenthub.model.contentfragment.ContentFragmentInstance}.
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
+	 * <!-- end-user-doc --> 
 	 */
 	@Override
 	public Adapter createContentFragmentInstanceAdapter() {
 		if (contentFragmentInstanceItemProvider == null) {
-			contentFragmentInstanceItemProvider = new ContentFragmentInstanceItemProvider(this);
+			// This was changed to get the extended provider.
+			contentFragmentInstanceItemProvider = new ExtendedContentFragmentInstanceItemProvider(this);
 		}
 
 		return contentFragmentInstanceItemProvider;
@@ -141,11 +164,35 @@ public class ContentFragmentItemProviderAdapterFactory extends ContentFragmentAd
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.enithing.contenthub.model.contentfragment.AllowedContentFragmentModelPolicy} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AllowedContentFragmentModelPolicyItemProvider allowedContentFragmentModelPolicyItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.enithing.contenthub.model.contentfragment.AllowedContentFragmentModelPolicy}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAllowedContentFragmentModelPolicyAdapter() {
+		if (allowedContentFragmentModelPolicyItemProvider == null) {
+			allowedContentFragmentModelPolicyItemProvider = new AllowedContentFragmentModelPolicyItemProvider(this);
+		}
+
+		return allowedContentFragmentModelPolicyItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ComposeableAdapterFactory getRootAdapterFactory() {
 		return parentAdapterFactory == null ? this : parentAdapterFactory.getRootAdapterFactory();
 	}
@@ -156,6 +203,7 @@ public class ContentFragmentItemProviderAdapterFactory extends ContentFragmentAd
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setParentAdapterFactory(ComposedAdapterFactory parentAdapterFactory) {
 		this.parentAdapterFactory = parentAdapterFactory;
 	}
@@ -204,6 +252,7 @@ public class ContentFragmentItemProviderAdapterFactory extends ContentFragmentAd
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void addListener(INotifyChangedListener notifyChangedListener) {
 		changeNotifier.addListener(notifyChangedListener);
 	}
@@ -214,6 +263,7 @@ public class ContentFragmentItemProviderAdapterFactory extends ContentFragmentAd
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void removeListener(INotifyChangedListener notifyChangedListener) {
 		changeNotifier.removeListener(notifyChangedListener);
 	}
@@ -224,6 +274,7 @@ public class ContentFragmentItemProviderAdapterFactory extends ContentFragmentAd
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void fireNotifyChanged(Notification notification) {
 		changeNotifier.fireNotifyChanged(notification);
 
@@ -238,10 +289,13 @@ public class ContentFragmentItemProviderAdapterFactory extends ContentFragmentAd
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void dispose() {
+		if (contentFragmentModelSetItemProvider != null) contentFragmentModelSetItemProvider.dispose();
 		if (contentFragmentModelItemProvider != null) contentFragmentModelItemProvider.dispose();
 		if (contentFragmentInstanceItemProvider != null) contentFragmentInstanceItemProvider.dispose();
 		if (contentFragmentFieldInstanceItemProvider != null) contentFragmentFieldInstanceItemProvider.dispose();
+		if (allowedContentFragmentModelPolicyItemProvider != null) allowedContentFragmentModelPolicyItemProvider.dispose();
 	}
 
 }

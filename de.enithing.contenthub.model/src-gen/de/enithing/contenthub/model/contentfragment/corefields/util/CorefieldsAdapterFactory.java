@@ -5,14 +5,25 @@ package de.enithing.contenthub.model.contentfragment.corefields.util;
 import de.enithing.contenthub.model.contentfragment.ContentFragmentFieldType;
 import de.enithing.contenthub.model.contentfragment.ContentFragmentFieldValue;
 import de.enithing.contenthub.model.contentfragment.GroupFieldType;
+import de.enithing.contenthub.model.contentfragment.MultiFieldType;
 import de.enithing.contenthub.model.contentfragment.SimpleFieldType;
-
+import de.enithing.contenthub.model.contentfragment.corefields.BooleanValue;
+import de.enithing.contenthub.model.contentfragment.corefields.ContentReference;
+import de.enithing.contenthub.model.contentfragment.corefields.ContentReferenceValue;
 import de.enithing.contenthub.model.contentfragment.corefields.CorefieldsPackage;
+import de.enithing.contenthub.model.contentfragment.corefields.DateTime;
+import de.enithing.contenthub.model.contentfragment.corefields.DateTimeValue;
+import de.enithing.contenthub.model.contentfragment.corefields.Enumeration;
+import de.enithing.contenthub.model.contentfragment.corefields.EnumerationOption;
+import de.enithing.contenthub.model.contentfragment.corefields.FragmentReference;
+import de.enithing.contenthub.model.contentfragment.corefields.FragmentReferenceValue;
+import de.enithing.contenthub.model.contentfragment.corefields.Json;
+import de.enithing.contenthub.model.contentfragment.corefields.MultiLineText;
 import de.enithing.contenthub.model.contentfragment.corefields.NumberValue;
 import de.enithing.contenthub.model.contentfragment.corefields.SingleLineText;
+import de.enithing.contenthub.model.contentfragment.corefields.StringValue;
 import de.enithing.contenthub.model.contentfragment.corefields.Tab;
-import de.enithing.contenthub.model.contentfragment.corefields.TextValue;
-
+import de.enithing.contenthub.model.contentfragment.corefields.Tags;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 
@@ -77,6 +88,18 @@ public class CorefieldsAdapterFactory extends AdapterFactoryImpl {
 	protected CorefieldsSwitch<Adapter> modelSwitch =
 		new CorefieldsSwitch<Adapter>() {
 			@Override
+			public Adapter caseStringValue(StringValue object) {
+				return createStringValueAdapter();
+			}
+			@Override
+			public Adapter caseSingleLineText(SingleLineText object) {
+				return createSingleLineTextAdapter();
+			}
+			@Override
+			public Adapter caseMultiLineText(MultiLineText object) {
+				return createMultiLineTextAdapter();
+			}
+			@Override
 			public Adapter caseNumber(de.enithing.contenthub.model.contentfragment.corefields.Number object) {
 				return createNumberAdapter();
 			}
@@ -85,16 +108,60 @@ public class CorefieldsAdapterFactory extends AdapterFactoryImpl {
 				return createNumberValueAdapter();
 			}
 			@Override
-			public Adapter caseSingleLineText(SingleLineText object) {
-				return createSingleLineTextAdapter();
+			public Adapter caseBoolean(de.enithing.contenthub.model.contentfragment.corefields.Boolean object) {
+				return createBooleanAdapter();
 			}
 			@Override
-			public Adapter caseTextValue(TextValue object) {
-				return createTextValueAdapter();
+			public Adapter caseBooleanValue(BooleanValue object) {
+				return createBooleanValueAdapter();
+			}
+			@Override
+			public Adapter caseDateTime(DateTime object) {
+				return createDateTimeAdapter();
+			}
+			@Override
+			public Adapter caseDateTimeValue(DateTimeValue object) {
+				return createDateTimeValueAdapter();
+			}
+			@Override
+			public Adapter caseEnumerationOption(EnumerationOption object) {
+				return createEnumerationOptionAdapter();
+			}
+			@Override
+			public Adapter caseEnumeration(Enumeration object) {
+				return createEnumerationAdapter();
+			}
+			@Override
+			public Adapter caseTags(Tags object) {
+				return createTagsAdapter();
+			}
+			@Override
+			public Adapter caseContentReference(ContentReference object) {
+				return createContentReferenceAdapter();
+			}
+			@Override
+			public Adapter caseContentReferenceValue(ContentReferenceValue object) {
+				return createContentReferenceValueAdapter();
+			}
+			@Override
+			public Adapter caseFragmentReference(FragmentReference object) {
+				return createFragmentReferenceAdapter();
+			}
+			@Override
+			public Adapter caseFragmentReferenceValue(FragmentReferenceValue object) {
+				return createFragmentReferenceValueAdapter();
+			}
+			@Override
+			public Adapter caseJson(Json object) {
+				return createJsonAdapter();
 			}
 			@Override
 			public Adapter caseTab(Tab object) {
 				return createTabAdapter();
+			}
+			@Override
+			public Adapter caseContentFragmentFieldValue(ContentFragmentFieldValue object) {
+				return createContentFragmentFieldValueAdapter();
 			}
 			@Override
 			public <TValue extends ContentFragmentFieldValue> Adapter caseContentFragmentFieldType(ContentFragmentFieldType<TValue> object) {
@@ -105,8 +172,8 @@ public class CorefieldsAdapterFactory extends AdapterFactoryImpl {
 				return createSimpleFieldTypeAdapter();
 			}
 			@Override
-			public Adapter caseContentFragmentFieldValue(ContentFragmentFieldValue object) {
-				return createContentFragmentFieldValueAdapter();
+			public <TValue extends ContentFragmentFieldValue> Adapter caseMultiFieldType(MultiFieldType<TValue> object) {
+				return createMultiFieldTypeAdapter();
 			}
 			@Override
 			public <TValue extends ContentFragmentFieldValue> Adapter caseGroupFieldType(GroupFieldType<TValue> object) {
@@ -131,6 +198,20 @@ public class CorefieldsAdapterFactory extends AdapterFactoryImpl {
 		return modelSwitch.doSwitch((EObject)target);
 	}
 
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.enithing.contenthub.model.contentfragment.corefields.StringValue <em>String Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.enithing.contenthub.model.contentfragment.corefields.StringValue
+	 * @generated
+	 */
+	public Adapter createStringValueAdapter() {
+		return null;
+	}
 
 	/**
 	 * Creates a new adapter for an object of class '{@link de.enithing.contenthub.model.contentfragment.corefields.Number <em>Number</em>}'.
@@ -161,6 +242,174 @@ public class CorefieldsAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link de.enithing.contenthub.model.contentfragment.corefields.Boolean <em>Boolean</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.enithing.contenthub.model.contentfragment.corefields.Boolean
+	 * @generated
+	 */
+	public Adapter createBooleanAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.enithing.contenthub.model.contentfragment.corefields.BooleanValue <em>Boolean Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.enithing.contenthub.model.contentfragment.corefields.BooleanValue
+	 * @generated
+	 */
+	public Adapter createBooleanValueAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.enithing.contenthub.model.contentfragment.corefields.DateTime <em>Date Time</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.enithing.contenthub.model.contentfragment.corefields.DateTime
+	 * @generated
+	 */
+	public Adapter createDateTimeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.enithing.contenthub.model.contentfragment.corefields.DateTimeValue <em>Date Time Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.enithing.contenthub.model.contentfragment.corefields.DateTimeValue
+	 * @generated
+	 */
+	public Adapter createDateTimeValueAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.enithing.contenthub.model.contentfragment.corefields.EnumerationOption <em>Enumeration Option</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.enithing.contenthub.model.contentfragment.corefields.EnumerationOption
+	 * @generated
+	 */
+	public Adapter createEnumerationOptionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.enithing.contenthub.model.contentfragment.corefields.Enumeration <em>Enumeration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.enithing.contenthub.model.contentfragment.corefields.Enumeration
+	 * @generated
+	 */
+	public Adapter createEnumerationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.enithing.contenthub.model.contentfragment.corefields.Tags <em>Tags</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.enithing.contenthub.model.contentfragment.corefields.Tags
+	 * @generated
+	 */
+	public Adapter createTagsAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.enithing.contenthub.model.contentfragment.corefields.ContentReference <em>Content Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.enithing.contenthub.model.contentfragment.corefields.ContentReference
+	 * @generated
+	 */
+	public Adapter createContentReferenceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.enithing.contenthub.model.contentfragment.corefields.ContentReferenceValue <em>Content Reference Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.enithing.contenthub.model.contentfragment.corefields.ContentReferenceValue
+	 * @generated
+	 */
+	public Adapter createContentReferenceValueAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.enithing.contenthub.model.contentfragment.corefields.FragmentReference <em>Fragment Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.enithing.contenthub.model.contentfragment.corefields.FragmentReference
+	 * @generated
+	 */
+	public Adapter createFragmentReferenceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.enithing.contenthub.model.contentfragment.corefields.FragmentReferenceValue <em>Fragment Reference Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.enithing.contenthub.model.contentfragment.corefields.FragmentReferenceValue
+	 * @generated
+	 */
+	public Adapter createFragmentReferenceValueAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.enithing.contenthub.model.contentfragment.corefields.Json <em>Json</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.enithing.contenthub.model.contentfragment.corefields.Json
+	 * @generated
+	 */
+	public Adapter createJsonAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link de.enithing.contenthub.model.contentfragment.corefields.SingleLineText <em>Single Line Text</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -175,16 +424,16 @@ public class CorefieldsAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.enithing.contenthub.model.contentfragment.corefields.TextValue <em>Text Value</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.enithing.contenthub.model.contentfragment.corefields.MultiLineText <em>Multi Line Text</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.enithing.contenthub.model.contentfragment.corefields.TextValue
+	 * @see de.enithing.contenthub.model.contentfragment.corefields.MultiLineText
 	 * @generated
 	 */
-	public Adapter createTextValueAdapter() {
+	public Adapter createMultiLineTextAdapter() {
 		return null;
 	}
 
@@ -255,6 +504,20 @@ public class CorefieldsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createGroupFieldTypeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.enithing.contenthub.model.contentfragment.MultiFieldType <em>Multi Field Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.enithing.contenthub.model.contentfragment.MultiFieldType
+	 * @generated
+	 */
+	public Adapter createMultiFieldTypeAdapter() {
 		return null;
 	}
 

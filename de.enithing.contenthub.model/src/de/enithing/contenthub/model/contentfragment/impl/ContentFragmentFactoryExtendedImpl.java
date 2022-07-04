@@ -1,6 +1,7 @@
 package de.enithing.contenthub.model.contentfragment.impl;
 
 import de.enithing.contenthub.model.contentfragment.ContentFragmentFieldInstance;
+import de.enithing.contenthub.model.contentfragment.ContentFragmentInstance;
 import de.enithing.contenthub.model.contentfragment.ContentFragmentModel;
 
 /**
@@ -11,9 +12,14 @@ public class ContentFragmentFactoryExtendedImpl extends ContentFragmentFactoryIm
 	public ContentFragmentModel createContentFragmentModel() {
 		return new ContentFragmentModelExtendedImpl();
 	}
-	
+
 	@Override
 	public ContentFragmentFieldInstance createContentFragmentFieldInstance() {
 		return new ContentFragmentFieldInstanceExtendedImpl();
+	}
+
+	@Override
+	public ContentFragmentInstance createContentFragmentInstance() {
+		return new ContentFragmentInstanceExtendedImpl();
 	}
 }

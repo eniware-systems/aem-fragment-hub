@@ -1,0 +1,26 @@
+<$tagName
+#foreach ($attrib in $attribs.entrySet())
+    $attrib.key="$attrib.value"
+#end
+	>
+#if($isMultifield)
+	<field
+#foreach ($attrib in $fieldAttribs.entrySet())
+    	$attrib.key="$attrib.value"
+#end
+	>
+        <granite:data
+		#foreach ($attrib in $fieldGraniteAttribs.entrySet())
+		    	$attrib.key="$attrib.value"
+		#end
+		/>
+    </field>
+#else
+    <field jcr:primaryType="nt:unstructured"/>
+#end
+    <granite:data 
+    #foreach ($attrib in $graniteAttribs.entrySet())
+		$attrib.key="$attrib.value"
+	#end
+    />
+</$tagName>

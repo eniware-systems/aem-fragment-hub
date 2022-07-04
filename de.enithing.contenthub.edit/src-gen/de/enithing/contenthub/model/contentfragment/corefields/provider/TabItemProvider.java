@@ -107,7 +107,7 @@ public class TabItemProvider extends ContentFragmentFieldTypeItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Tab)object).getId();
+		String label = ((Tab)object).getPropertyName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Tab_type") :
 			getString("_UI_Tab_type") + " " + label;
@@ -147,12 +147,52 @@ public class TabItemProvider extends ContentFragmentFieldTypeItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(ContentFragmentPackage.Literals.GROUP_FIELD_TYPE__FIELDS,
+				 CorefieldsFactory.eINSTANCE.createSingleLineText()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ContentFragmentPackage.Literals.GROUP_FIELD_TYPE__FIELDS,
+				 CorefieldsFactory.eINSTANCE.createMultiLineText()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ContentFragmentPackage.Literals.GROUP_FIELD_TYPE__FIELDS,
 				 CorefieldsFactory.eINSTANCE.createNumber()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(ContentFragmentPackage.Literals.GROUP_FIELD_TYPE__FIELDS,
-				 CorefieldsFactory.eINSTANCE.createSingleLineText()));
+				 CorefieldsFactory.eINSTANCE.createBoolean()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ContentFragmentPackage.Literals.GROUP_FIELD_TYPE__FIELDS,
+				 CorefieldsFactory.eINSTANCE.createDateTime()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ContentFragmentPackage.Literals.GROUP_FIELD_TYPE__FIELDS,
+				 CorefieldsFactory.eINSTANCE.createEnumeration()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ContentFragmentPackage.Literals.GROUP_FIELD_TYPE__FIELDS,
+				 CorefieldsFactory.eINSTANCE.createTags()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ContentFragmentPackage.Literals.GROUP_FIELD_TYPE__FIELDS,
+				 CorefieldsFactory.eINSTANCE.createContentReference()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ContentFragmentPackage.Literals.GROUP_FIELD_TYPE__FIELDS,
+				 CorefieldsFactory.eINSTANCE.createFragmentReference()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ContentFragmentPackage.Literals.GROUP_FIELD_TYPE__FIELDS,
+				 CorefieldsFactory.eINSTANCE.createJson()));
 	}
 
 	/**

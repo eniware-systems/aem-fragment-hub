@@ -9,6 +9,8 @@ import org.eclipse.emf.ecore.EFactory;
 
 import de.enithing.contenthub.model.contentfragment.ContentFragmentFieldType;
 import de.enithing.contenthub.model.contentfragment.ContentFragmentFieldValue;
+import de.enithing.contenthub.model.contentfragment.ContentFragmentModel;
+import de.enithing.contenthub.model.contentfragment.GroupFieldType;
 
 public class ContentFragmentFieldTypeUtils  {
 	private ContentFragmentFieldTypeUtils() {
@@ -36,5 +38,13 @@ public class ContentFragmentFieldTypeUtils  {
 		} catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
 			return null;
 		}
+	}
+	
+	public static ContentFragmentModel getModel(ContentFragmentFieldType<?> fieldType) {
+		if(fieldType.eContainer() instanceof GroupFieldType<?>) {
+			return getModel((ContentFragmentFieldType<?>) fieldType.eContainer());
+		}
+		
+		return (ContentFragmentModel) fieldType.eContainer();
 	}
 }

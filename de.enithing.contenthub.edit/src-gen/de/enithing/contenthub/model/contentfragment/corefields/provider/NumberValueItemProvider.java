@@ -8,6 +8,8 @@ import de.enithing.contenthub.edit.ContentHubEditPlugin;
 import de.enithing.contenthub.model.contentfragment.corefields.CorefieldsPackage;
 import de.enithing.contenthub.model.contentfragment.corefields.NumberValue;
 
+import java.math.BigDecimal;
+
 import java.util.Collection;
 import java.util.List;
 
@@ -84,7 +86,7 @@ public class NumberValueItemProvider
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -108,8 +110,11 @@ public class NumberValueItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		NumberValue numberValue = (NumberValue)object;
-		return getString("_UI_NumberValue_type") + " " + numberValue.getValue();
+		BigDecimal labelValue = ((NumberValue)object).getValue();
+		String label = labelValue == null ? null : labelValue.toString();
+		return label == null || label.length() == 0 ?
+			getString("_UI_NumberValue_type") :
+			getString("_UI_NumberValue_type") + " " + label;
 	}
 
 

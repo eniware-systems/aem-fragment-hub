@@ -12,6 +12,9 @@ Export-Package: de.enithing.contenthub.model.contentfragment,
  de.enithing.contenthub.model.contentfragment.corefields,
  de.enithing.contenthub.model.contentfragment.corefields.impl,
  de.enithing.contenthub.model.contentfragment.corefields.util,
+ de.enithing.contenthub.model.contentfragment.corefields.validation,
+ de.enithing.contenthub.model.contentfragment.corefields.validation.impl,
+ de.enithing.contenthub.model.contentfragment.corefields.validation.util,
  de.enithing.contenthub.model.contentfragment.impl,
  de.enithing.contenthub.model.contentfragment.util,
  de.enithing.contenthub.model.contenthub,
@@ -19,5 +22,5 @@ Export-Package: de.enithing.contenthub.model.contentfragment,
  de.enithing.contenthub.model.contenthub.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
- org.apache.commons.lang;bundle-version="2.6.0"
+ org.apache.commons.lang
 Bundle-ActivationPolicy: lazy

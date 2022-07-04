@@ -2,11 +2,12 @@
  */
 package de.enithing.contenthub.model.contenthub.util;
 
-import de.enithing.contenthub.model.contenthub.ChildContext;
 import de.enithing.contenthub.model.contenthub.ContentHubPackage;
 import de.enithing.contenthub.model.contenthub.Context;
-import de.enithing.contenthub.model.contenthub.RootContext;
-
+import de.enithing.contenthub.model.contenthub.ContextPath;
+import de.enithing.contenthub.model.contenthub.ContextPolicy;
+import de.enithing.contenthub.model.contenthub.PathProvider;
+import de.enithing.contenthub.model.contenthub.SimplePath;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -69,6 +70,26 @@ public class ContentHubSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
+			case ContentHubPackage.PATH_PROVIDER: {
+				PathProvider pathProvider = (PathProvider)theEObject;
+				T result = casePathProvider(pathProvider);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ContentHubPackage.SIMPLE_PATH: {
+				SimplePath simplePath = (SimplePath)theEObject;
+				T result = caseSimplePath(simplePath);
+				if (result == null) result = casePathProvider(simplePath);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ContentHubPackage.CONTEXT_PATH: {
+				ContextPath contextPath = (ContextPath)theEObject;
+				T result = caseContextPath(contextPath);
+				if (result == null) result = casePathProvider(contextPath);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case ContentHubPackage.PACKAGE: {
 				de.enithing.contenthub.model.contenthub.Package package_ = (de.enithing.contenthub.model.contenthub.Package)theEObject;
 				T result = casePackage(package_);
@@ -81,22 +102,59 @@ public class ContentHubSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ContentHubPackage.ROOT_CONTEXT: {
-				RootContext rootContext = (RootContext)theEObject;
-				T result = caseRootContext(rootContext);
-				if (result == null) result = caseContext(rootContext);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case ContentHubPackage.CHILD_CONTEXT: {
-				ChildContext childContext = (ChildContext)theEObject;
-				T result = caseChildContext(childContext);
-				if (result == null) result = caseContext(childContext);
+			case ContentHubPackage.CONTEXT_POLICY: {
+				ContextPolicy contextPolicy = (ContextPolicy)theEObject;
+				T result = caseContextPolicy(contextPolicy);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			default: return defaultCase(theEObject);
 		}
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Path Provider</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Path Provider</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePathProvider(PathProvider object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Simple Path</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Simple Path</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSimplePath(SimplePath object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Context Path</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Context Path</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseContextPath(ContextPath object) {
+		return null;
 	}
 
 	/**
@@ -130,32 +188,17 @@ public class ContentHubSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Root Context</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Context Policy</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Root Context</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Context Policy</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseRootContext(RootContext object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Child Context</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Child Context</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseChildContext(ChildContext object) {
+	public T caseContextPolicy(ContextPolicy object) {
 		return null;
 	}
 

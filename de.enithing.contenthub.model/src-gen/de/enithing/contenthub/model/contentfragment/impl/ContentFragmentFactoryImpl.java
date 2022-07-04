@@ -56,12 +56,25 @@ public class ContentFragmentFactoryImpl extends EFactoryImpl implements ContentF
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
+			case ContentFragmentPackage.CONTENT_FRAGMENT_MODEL_SET: return createContentFragmentModelSet();
 			case ContentFragmentPackage.CONTENT_FRAGMENT_MODEL: return createContentFragmentModel();
 			case ContentFragmentPackage.CONTENT_FRAGMENT_INSTANCE: return createContentFragmentInstance();
 			case ContentFragmentPackage.CONTENT_FRAGMENT_FIELD_INSTANCE: return createContentFragmentFieldInstance();
+			case ContentFragmentPackage.ALLOWED_CONTENT_FRAGMENT_MODEL_POLICY: return createAllowedContentFragmentModelPolicy();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ContentFragmentModelSet createContentFragmentModelSet() {
+		ContentFragmentModelSetImpl contentFragmentModelSet = new ContentFragmentModelSetImpl();
+		return contentFragmentModelSet;
 	}
 
 	/**
@@ -95,6 +108,17 @@ public class ContentFragmentFactoryImpl extends EFactoryImpl implements ContentF
 	public ContentFragmentFieldInstance createContentFragmentFieldInstance() {
 		ContentFragmentFieldInstanceImpl contentFragmentFieldInstance = new ContentFragmentFieldInstanceImpl();
 		return contentFragmentFieldInstance;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public AllowedContentFragmentModelPolicy createAllowedContentFragmentModelPolicy() {
+		AllowedContentFragmentModelPolicyImpl allowedContentFragmentModelPolicy = new AllowedContentFragmentModelPolicyImpl();
+		return allowedContentFragmentModelPolicy;
 	}
 
 	/**

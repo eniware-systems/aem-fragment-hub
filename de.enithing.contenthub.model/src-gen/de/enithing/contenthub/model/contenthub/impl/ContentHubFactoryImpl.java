@@ -2,12 +2,12 @@
  */
 package de.enithing.contenthub.model.contenthub.impl;
 
-import de.enithing.contenthub.model.contenthub.ChildContext;
 import de.enithing.contenthub.model.contenthub.ContentHubFactory;
 import de.enithing.contenthub.model.contenthub.ContentHubPackage;
 import de.enithing.contenthub.model.contenthub.Context;
-import de.enithing.contenthub.model.contenthub.RootContext;
-
+import de.enithing.contenthub.model.contenthub.ContextPath;
+import de.enithing.contenthub.model.contenthub.ContextType;
+import de.enithing.contenthub.model.contenthub.SimplePath;
 import java.nio.file.Path;
 
 import org.eclipse.emf.ecore.EClass;
@@ -63,10 +63,10 @@ public class ContentHubFactoryImpl extends EFactoryImpl implements ContentHubFac
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
+			case ContentHubPackage.SIMPLE_PATH: return createSimplePath();
+			case ContentHubPackage.CONTEXT_PATH: return createContextPath();
 			case ContentHubPackage.PACKAGE: return createPackage();
 			case ContentHubPackage.CONTEXT: return createContext();
-			case ContentHubPackage.ROOT_CONTEXT: return createRootContext();
-			case ContentHubPackage.CHILD_CONTEXT: return createChildContext();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -80,6 +80,8 @@ public class ContentHubFactoryImpl extends EFactoryImpl implements ContentHubFac
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
+			case ContentHubPackage.CONTEXT_TYPE:
+				return createContextTypeFromString(eDataType, initialValue);
 			case ContentHubPackage.PATH:
 				return createPathFromString(eDataType, initialValue);
 			default:
@@ -95,11 +97,35 @@ public class ContentHubFactoryImpl extends EFactoryImpl implements ContentHubFac
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
+			case ContentHubPackage.CONTEXT_TYPE:
+				return convertContextTypeToString(eDataType, instanceValue);
 			case ContentHubPackage.PATH:
 				return convertPathToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public SimplePath createSimplePath() {
+		SimplePathImpl simplePath = new SimplePathImpl();
+		return simplePath;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ContextPath createContextPath() {
+		ContextPathImpl contextPath = new ContextPathImpl();
+		return contextPath;
 	}
 
 	/**
@@ -129,10 +155,10 @@ public class ContentHubFactoryImpl extends EFactoryImpl implements ContentHubFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public RootContext createRootContext() {
-		RootContextImpl rootContext = new RootContextImpl();
-		return rootContext;
+	public ContextType createContextTypeFromString(EDataType eDataType, String initialValue) {
+		ContextType result = ContextType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
 	}
 
 	/**
@@ -140,10 +166,8 @@ public class ContentHubFactoryImpl extends EFactoryImpl implements ContentHubFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public ChildContext createChildContext() {
-		ChildContextImpl childContext = new ChildContextImpl();
-		return childContext;
+	public String convertContextTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**

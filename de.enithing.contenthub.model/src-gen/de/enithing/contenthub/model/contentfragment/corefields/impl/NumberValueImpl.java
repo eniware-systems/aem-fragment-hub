@@ -4,11 +4,9 @@ package de.enithing.contenthub.model.contentfragment.corefields.impl;
 
 import de.enithing.contenthub.model.contentfragment.corefields.CorefieldsPackage;
 import de.enithing.contenthub.model.contentfragment.corefields.NumberValue;
-
+import java.math.BigDecimal;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
@@ -34,8 +32,7 @@ public class NumberValueImpl extends MinimalEObjectImpl.Container implements Num
 	 * @generated
 	 * @ordered
 	 */
-	protected static final double VALUE_EDEFAULT = 0.0;
-
+	protected static final BigDecimal VALUE_EDEFAULT = null;
 	/**
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -44,7 +41,7 @@ public class NumberValueImpl extends MinimalEObjectImpl.Container implements Num
 	 * @generated
 	 * @ordered
 	 */
-	protected double value = VALUE_EDEFAULT;
+	protected BigDecimal value = VALUE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -71,7 +68,7 @@ public class NumberValueImpl extends MinimalEObjectImpl.Container implements Num
 	 * @generated
 	 */
 	@Override
-	public double getValue() {
+	public BigDecimal getValue() {
 		return value;
 	}
 
@@ -81,8 +78,8 @@ public class NumberValueImpl extends MinimalEObjectImpl.Container implements Num
 	 * @generated
 	 */
 	@Override
-	public void setValue(double newValue) {
-		double oldValue = value;
+	public void setValue(BigDecimal newValue) {
+		BigDecimal oldValue = value;
 		value = newValue;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, CorefieldsPackage.NUMBER_VALUE__VALUE, oldValue, value));
@@ -111,7 +108,7 @@ public class NumberValueImpl extends MinimalEObjectImpl.Container implements Num
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case CorefieldsPackage.NUMBER_VALUE__VALUE:
-				setValue((Double)newValue);
+				setValue((BigDecimal)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -141,7 +138,7 @@ public class NumberValueImpl extends MinimalEObjectImpl.Container implements Num
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case CorefieldsPackage.NUMBER_VALUE__VALUE:
-				return value != VALUE_EDEFAULT;
+				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
 		}
 		return super.eIsSet(featureID);
 	}

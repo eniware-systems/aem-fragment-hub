@@ -6,11 +6,9 @@ package de.enithing.contenthub.model.contenthub.provider;
 import de.enithing.contenthub.edit.ContentHubEditPlugin;
 
 import de.enithing.contenthub.model.contentfragment.ContentFragmentFactory;
-
 import de.enithing.contenthub.model.contenthub.ContentHubFactory;
 import de.enithing.contenthub.model.contenthub.ContentHubPackage;
 import de.enithing.contenthub.model.contenthub.Context;
-
 import java.util.Collection;
 import java.util.List;
 
@@ -28,6 +26,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
@@ -67,6 +66,9 @@ public class ContextItemProvider
 			super.getPropertyDescriptors(object);
 
 			addChildContextsPropertyDescriptor(object);
+			addNamePropertyDescriptor(object);
+			addTitlePropertyDescriptor(object);
+			addPrimaryTypePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -94,6 +96,72 @@ public class ContextItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Context_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Context_name_feature", "_UI_Context_type"),
+				 ContentHubPackage.Literals.CONTEXT__NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Title feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTitlePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Context_title_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Context_title_feature", "_UI_Context_type"),
+				 ContentHubPackage.Literals.CONTEXT__TITLE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Primary Type feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPrimaryTypePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Context_primaryType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Context_primaryType_feature", "_UI_Context_type"),
+				 ContentHubPackage.Literals.CONTEXT__PRIMARY_TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -106,8 +174,8 @@ public class ContextItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(ContentHubPackage.Literals.CONTEXT__CHILD_CONTEXTS);
-			childrenFeatures.add(ContentHubPackage.Literals.CONTEXT__CONTENT_FRAGMENT_MODELS);
 			childrenFeatures.add(ContentHubPackage.Literals.CONTEXT__CONTENT_FRAGMENTS);
+			childrenFeatures.add(ContentHubPackage.Literals.CONTEXT__POLICIES);
 		}
 		return childrenFeatures;
 	}
@@ -144,7 +212,10 @@ public class ContextItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Context_type");
+		String label = ((Context)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Context_type") :
+			getString("_UI_Context_type") + " " + label;
 	}
 
 
@@ -160,9 +231,14 @@ public class ContextItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Context.class)) {
+			case ContentHubPackage.CONTEXT__NAME:
+			case ContentHubPackage.CONTEXT__TITLE:
+			case ContentHubPackage.CONTEXT__PRIMARY_TYPE:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 			case ContentHubPackage.CONTEXT__CHILD_CONTEXTS:
-			case ContentHubPackage.CONTEXT__CONTENT_FRAGMENT_MODELS:
 			case ContentHubPackage.CONTEXT__CONTENT_FRAGMENTS:
+			case ContentHubPackage.CONTEXT__POLICIES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -183,17 +259,17 @@ public class ContextItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(ContentHubPackage.Literals.CONTEXT__CHILD_CONTEXTS,
-				 ContentHubFactory.eINSTANCE.createChildContext()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ContentHubPackage.Literals.CONTEXT__CONTENT_FRAGMENT_MODELS,
-				 ContentFragmentFactory.eINSTANCE.createContentFragmentModel()));
+				 ContentHubFactory.eINSTANCE.createContext()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(ContentHubPackage.Literals.CONTEXT__CONTENT_FRAGMENTS,
 				 ContentFragmentFactory.eINSTANCE.createContentFragmentInstance()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ContentHubPackage.Literals.CONTEXT__POLICIES,
+				 ContentFragmentFactory.eINSTANCE.createAllowedContentFragmentModelPolicy()));
 	}
 
 	/**

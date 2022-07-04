@@ -22,6 +22,24 @@ public interface ContentHubFactory extends EFactory {
 	ContentHubFactory eINSTANCE = de.enithing.contenthub.model.contenthub.impl.ContentHubFactoryImpl.init();
 
 	/**
+	 * Returns a new object of class '<em>Simple Path</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Simple Path</em>'.
+	 * @generated
+	 */
+	SimplePath createSimplePath();
+
+	/**
+	 * Returns a new object of class '<em>Context Path</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Context Path</em>'.
+	 * @generated
+	 */
+	ContextPath createContextPath();
+
+	/**
 	 * Returns a new object of class '<em>Package</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -38,24 +56,6 @@ public interface ContentHubFactory extends EFactory {
 	 * @generated
 	 */
 	Context createContext();
-
-	/**
-	 * Returns a new object of class '<em>Root Context</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Root Context</em>'.
-	 * @generated
-	 */
-	RootContext createRootContext();
-
-	/**
-	 * Returns a new object of class '<em>Child Context</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Child Context</em>'.
-	 * @generated
-	 */
-	ChildContext createChildContext();
 
 	/**
 	 * Returns the package supported by this factory.
