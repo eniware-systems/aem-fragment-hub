@@ -2,7 +2,7 @@ package de.enithing.contenthub.importer.pkg;
 
 import de.enithing.contenthub.importer.Importer;
 import de.enithing.contenthub.importer.ImporterConfiguration;
-import de.enithing.contenthub.importer.JcrUtils;
+import de.enithing.contenthub.importer.util.JcrUtils;
 import de.enithing.contenthub.importer.contentfragment.ContentFragmentModelImporter;
 import de.enithing.contenthub.model.contentfragment.ContentFragmentFactory;
 import de.enithing.contenthub.model.contentfragment.ContentFragmentModel;
@@ -82,7 +82,7 @@ public class PackageImporter implements Importer<Package> {
 
 
             } catch (IOException | JDOMException e) {
-                getLogger().severe("Error reading " + xml.getName().toString() + ", ignoring");
+                getLogger().severe("Error reading " + xml.getName().toString() + ": " + e.toString());
             }
         }
     }

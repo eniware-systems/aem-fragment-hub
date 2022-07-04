@@ -1,4 +1,4 @@
-package de.enithing.contenthub.importer;
+package de.enithing.contenthub.importer.util;
 
 import org.apache.commons.vfs2.FileObject;
 import org.jdom2.Attribute;
@@ -9,10 +9,7 @@ import org.jdom2.input.SAXBuilder;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 public class JcrUtils {
     public static Document parseXml(FileObject xmlFile) throws IOException, JDOMException {
@@ -76,9 +73,49 @@ public class JcrUtils {
     }
 
     public static Attribute getXmlAttribute(Element element, String attrib) {
-        Attribute result = getXmlAttribute(element, attrib, "");
-
-        return result;
+        return getXmlAttribute(element, attrib, "");
     }
 
+    public static boolean getXmlAttributeBool(Element element, String attrib) {
+        return toBoolean(getXmlAttribute(element, attrib).getValue());
+    }
+
+    public static long getXmlAttributeNumber(Element element, String attrib) {
+        String val = getXmlAttribute(element, attrib).getValue();
+
+        if(val == null || val.isBlank()) {
+            return 0;
+        }
+
+        val = val.replaceAll("\\{.*}", "");
+
+        return Long.parseLong(val);
+    }
+
+    private static boolean toBoolean(Object value) {
+        if (value == null) {
+            return false;
+        }
+
+        if (value instanceof String s) {
+            return s.equals("on");
+        }
+
+        if (value instanceof Boolean b) {
+            return b;
+        }
+
+        return false;
+    }
+
+    public static Collection<String> fromArray(String array) {
+        array = array.trim();
+
+        if (array.startsWith("[") && array.endsWith("]")) {
+            array = array.substring(1, array.length() - 1);
+            return Arrays.stream(array.split(",")).toList();
+        }
+
+        return Collections.singleton(array);
+    }
 }

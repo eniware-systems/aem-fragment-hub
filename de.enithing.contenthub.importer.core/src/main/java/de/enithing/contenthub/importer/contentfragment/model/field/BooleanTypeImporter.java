@@ -14,6 +14,7 @@ public class BooleanTypeImporter extends ContentFragmentFieldTypeImporter<Boolea
     public Boolean createElement() throws Exception {
         Boolean field = CorefieldsFactory.eINSTANCE.createBoolean();
         setFieldDefaults(field);
+
         return field;
     }
 }

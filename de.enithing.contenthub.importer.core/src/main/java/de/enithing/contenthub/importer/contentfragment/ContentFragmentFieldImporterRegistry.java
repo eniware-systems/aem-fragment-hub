@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.NoSuchElementException;
 
 import de.enithing.contenthub.importer.ImporterConfiguration;
-import de.enithing.contenthub.importer.JcrUtils;
+import de.enithing.contenthub.importer.util.JcrUtils;
 import de.enithing.contenthub.importer.contentfragment.model.ContentFragmentFieldTypeImporter;
 import org.jdom2.Element;
 

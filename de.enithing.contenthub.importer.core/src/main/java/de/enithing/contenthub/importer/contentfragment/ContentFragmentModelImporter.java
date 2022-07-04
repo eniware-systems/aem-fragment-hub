@@ -2,7 +2,7 @@ package de.enithing.contenthub.importer.contentfragment;
 
 import de.enithing.contenthub.importer.Importer;
 import de.enithing.contenthub.importer.ImporterConfiguration;
-import de.enithing.contenthub.importer.JcrUtils;
+import de.enithing.contenthub.importer.util.JcrUtils;
 import de.enithing.contenthub.importer.contentfragment.model.ContentFragmentFieldTypeImporter;
 import de.enithing.contenthub.model.contentfragment.ContentFragmentFactory;
 import de.enithing.contenthub.model.contentfragment.ContentFragmentFieldType;
