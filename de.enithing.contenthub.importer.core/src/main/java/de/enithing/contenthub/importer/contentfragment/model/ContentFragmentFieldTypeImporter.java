@@ -30,7 +30,7 @@ public abstract class ContentFragmentFieldTypeImporter<TField extends ContentFra
 
     }
 
-    private static final Logger logger = Logger.getLogger(ContentFragmentFieldTypeImporter.class.getSimpleName());
+    private final Logger logger = Logger.getLogger(getClass().getSimpleName());
 
     @Override
     public Logger getLogger() {
@@ -38,7 +38,7 @@ public abstract class ContentFragmentFieldTypeImporter<TField extends ContentFra
     }
 
     protected void setFieldDefaults(ContentFragmentFieldType<?> field) {
-        Element node = getConfig().node;
+        Element node = getConfig().currentNode;
         field.setPropertyName(JcrUtils.getXmlAttribute(node, "name").getValue());
         field.setDescription(JcrUtils.getXmlAttribute(node, "fieldDescription").getValue());
         field.setFieldLabel(JcrUtils.getXmlAttribute(node, "fieldLabel").getValue());

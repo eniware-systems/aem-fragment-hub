@@ -18,7 +18,7 @@ public class DateTimeTypeImporter extends ContentFragmentFieldTypeImporter<DateT
         DateTime field = CorefieldsFactory.eINSTANCE.createDateTime();
         setFieldDefaults(field);
 
-        Element node = getConfig().node;
+        Element node = getConfig().currentNode;
 
         String placeholder = JcrUtils.getXmlAttribute(node, "emptyText", "[]").getValue();
         field.setPlaceholder( placeholder.substring(1, placeholder.length() - 1) );

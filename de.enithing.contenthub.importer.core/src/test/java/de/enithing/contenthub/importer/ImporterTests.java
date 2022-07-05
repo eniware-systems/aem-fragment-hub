@@ -54,5 +54,4 @@ class ImporterTests {
         resource.getContents().add(pkg);
         resource.save(Collections.EMPTY_MAP);
     }
-
 }

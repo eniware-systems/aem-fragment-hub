@@ -11,6 +11,7 @@ import org.jdom2.Document;
 import org.jdom2.Element;
 
 import java.util.Collection;
+import java.util.NoSuchElementException;
 import java.util.logging.Logger;
 
 public class ContentFragmentModelImporter implements Importer<ContentFragmentModel> {
@@ -38,20 +39,30 @@ public class ContentFragmentModelImporter implements Importer<ContentFragmentMod
         Element content = JcrUtils.getXmlNode(doc.getRootElement(), "jcr:content");
         Collection<Element> fields = JcrUtils.getXmlNode(content, "model/cq:dialog/content/items").getChildren();
 
+        // Get the id by path
+        String id = cfg.sourceFile.getParent().getName().getBaseName();
+        mdl.setId(id);
+
         String title = JcrUtils.getXmlAttribute(content, "jcr:title").getValue();
         mdl.setTitle(title);
 
+        getLogger().info(String.format("Importing content fragment model '%s' (%s)", mdl.getTitle(), mdl.getId()));
+
         for (Element field : fields) {
             ImporterConfiguration childCfg = createChildConfig(mdl);
-            childCfg.node = field;
+            childCfg.currentNode = field;
             ContentFragmentFieldTypeImporter<?> fieldImporter = cfg.getFieldImporterRegistry().getFactory(field).createTypeImporterInstance(childCfg);
 
-            if(fieldImporter == null) {
+            if (fieldImporter == null) {
                 continue;
             }
 
-            ContentFragmentFieldType<?> f = fieldImporter.doImport();
-            mdl.getFields().add(f);
+            try {
+                ContentFragmentFieldType<?> f = fieldImporter.doImport();
+                mdl.getFields().add(f);
+            } catch (Exception e) {
+                logger.severe(e.getMessage());
+            }
         }
     }
 

@@ -2,6 +2,8 @@
 
 SCRIPTPATH="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
 
+echo $SCRIPTPATH
+
 JAR_FILE=$(realpath $(ls ${SCRIPTPATH}/../de.enithing.contenthub.generator.cli/target/de.enithing.contenthub.generator.cli-*-jar-with-dependencies.jar 2> /dev/null) 2> /dev/null)
 OUT_DIR=$(mktemp)
 ZIP_FILE=$HOME/package.zip

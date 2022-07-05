@@ -17,7 +17,7 @@ public class EnumerationTypeImporter extends ContentFragmentFieldTypeImporter<En
         Enumeration field = CorefieldsFactory.eINSTANCE.createEnumeration();
         setFieldDefaults(field);
 
-        Element node = getConfig().node;
+        Element node = getConfig().currentNode;
 
         field.setPlaceholder( JcrUtils.getXmlAttribute(node, "emptyText", "").getValue());
         field.setRequired(JcrUtils.getXmlAttributeBool(node, "required"));

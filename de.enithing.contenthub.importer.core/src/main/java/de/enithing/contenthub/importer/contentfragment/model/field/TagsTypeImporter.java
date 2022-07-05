@@ -21,7 +21,7 @@ public class TagsTypeImporter extends ContentFragmentFieldTypeImporter<Tags> {
         Tags field = CorefieldsFactory.eINSTANCE.createTags();
         setFieldDefaults(field);
 
-        Element node = getConfig().node;
+        Element node = getConfig().currentNode;
 
         field.setPlaceholder(JcrUtils.getXmlAttribute(node, "emptyText").getValue());
         field.setAllowMultiple(JcrUtils.getXmlAttributeBool(node, "multiple"));

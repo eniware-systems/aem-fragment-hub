@@ -6,11 +6,18 @@ import java.util.NoSuchElementException;
 import de.enithing.contenthub.importer.ImporterConfiguration;
 import de.enithing.contenthub.importer.util.JcrUtils;
 import de.enithing.contenthub.importer.contentfragment.model.ContentFragmentFieldTypeImporter;
+import de.enithing.contenthub.model.contentfragment.ContentFragmentFieldType;
 import org.jdom2.Element;
 
 public class ContentFragmentFieldImporterRegistry {
 	public void registerFactory(ContentFragmentFieldImporterFactory factory) {
 		factories.add(factory);
+	}
+
+	public ContentFragmentFieldImporterFactory getFactory(ContentFragmentFieldType<?> fieldType) {
+		return factories.stream().filter(f -> f.accepts(fieldType)).findFirst()
+				.orElseThrow(() -> new NoSuchElementException(
+						"No registered factory that supports fields of type " + fieldType.getClass().getName()));
 	}
 
 	public ContentFragmentFieldImporterFactory getFactory(Element node) {

@@ -67,7 +67,7 @@ public class JcrUtils {
         String finalAttrib = attrib;
 
         return element.getAttributes().stream()
-                .filter(a -> a.getName().equals(finalSegment) && (finalNamespace == null || a.getNamespacePrefix().equals(finalNamespace)))
+                .filter(a -> a.getName().equalsIgnoreCase(finalSegment) && (finalNamespace == null || a.getNamespacePrefix().equalsIgnoreCase(finalNamespace)))
                 .findFirst()
                 .orElseGet(() -> new Attribute(finalAttrib, defaultValue));
     }
@@ -98,6 +98,11 @@ public class JcrUtils {
         }
 
         if (value instanceof String s) {
+            if(s.startsWith("{Boolean}")) {
+                String boolStr = s.substring(9);
+                return boolStr.equalsIgnoreCase("true");
+            }
+
             return s.equals("on");
         }
 

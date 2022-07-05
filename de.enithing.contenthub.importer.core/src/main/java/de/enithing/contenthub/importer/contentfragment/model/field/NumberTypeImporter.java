@@ -18,7 +18,7 @@ public class NumberTypeImporter extends ContentFragmentFieldTypeImporter<Number>
         Number field = CorefieldsFactory.eINSTANCE.createNumber();
         setFieldDefaults(field);
 
-        Element node = getConfig().node;
+        Element node = getConfig().currentNode;
 
         field.setPlaceholder(JcrUtils.getXmlAttribute(node, "emptyText").getValue());
         field.setRequired(JcrUtils.getXmlAttributeBool(node, "required"));

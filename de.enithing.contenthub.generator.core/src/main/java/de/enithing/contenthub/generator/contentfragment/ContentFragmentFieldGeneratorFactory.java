@@ -6,13 +6,13 @@ import de.enithing.contenthub.generator.contentfragment.model.ContentFragmentFie
 import de.enithing.contenthub.model.contentfragment.ContentFragmentFieldType;
 
 public interface ContentFragmentFieldGeneratorFactory {
-	public Class<?> getFieldTypeClass();
+	Class<?> getFieldTypeClass();
 	
 	default public boolean accepts(ContentFragmentFieldType<?> type) {
 		return getFieldTypeClass().isAssignableFrom(type.getClass());
 	}
 	
-	public ContentFragmentFieldTypeGenerator<?> createTypeGeneratorInstance(GeneratorConfiguration cfg);
+	ContentFragmentFieldTypeGenerator<?> createTypeGeneratorInstance(GeneratorConfiguration cfg);
 	
-	public ContentFragmentFieldInstanceGenerator<?> createInstanceGeneratorInstance(GeneratorConfiguration cfg);
+	ContentFragmentFieldInstanceGenerator<?> createInstanceGeneratorInstance(GeneratorConfiguration cfg);
 }

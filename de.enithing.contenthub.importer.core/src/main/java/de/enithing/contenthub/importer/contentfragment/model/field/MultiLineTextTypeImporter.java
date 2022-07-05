@@ -18,7 +18,7 @@ public class MultiLineTextTypeImporter extends ContentFragmentFieldTypeImporter<
         MultiLineText field = CorefieldsFactory.eINSTANCE.createMultiLineText();
         setFieldDefaults(field);
 
-        Element node = getConfig().node;
+        Element node = getConfig().currentNode;
 
         field.setFieldLabel(JcrUtils.getXmlAttribute(node, "cfm-element").getValue());
 

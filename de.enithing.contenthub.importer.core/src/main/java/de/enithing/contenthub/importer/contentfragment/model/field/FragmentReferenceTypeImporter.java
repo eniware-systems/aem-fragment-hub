@@ -21,11 +21,12 @@ public class FragmentReferenceTypeImporter extends ContentFragmentFieldTypeImpor
         FragmentReference field = CorefieldsFactory.eINSTANCE.createFragmentReference();
         setFieldDefaults(field);
 
-        Element node = getConfig().node;
+        Element node = getConfig().currentNode;
 
         field.setAllowMultiple(JcrUtils.getXmlAttributeBool(node, "isMultifield"));
 
         // TODO set allowed model types
+
         // field.getAllowedModels()
 
         field.setAllowFragmentCreation(JcrUtils.getXmlAttributeBool(node, "allowNew"));
