@@ -2,7 +2,9 @@ package de.enithing.contenthub.importer.contentfragment.instance;
 
 import de.enithing.contenthub.importer.Importer;
 import de.enithing.contenthub.importer.ImporterConfiguration;
+import de.enithing.contenthub.model.contentfragment.ContentFragmentFieldInstance;
 import de.enithing.contenthub.model.contentfragment.ContentFragmentFieldValue;
+import de.enithing.contenthub.model.contentfragment.ContentFragmentInstance;
 
 import java.util.logging.Logger;
 
@@ -33,5 +35,8 @@ public abstract class ContentFragmentFieldValueImporter<TValue extends ContentFr
     @Override
     public Logger getLogger() {
         return logger;
+    }
+
+    public void onPostImportPackage(ContentFragmentFieldInstance fieldInstance) throws Exception {
     }
 }

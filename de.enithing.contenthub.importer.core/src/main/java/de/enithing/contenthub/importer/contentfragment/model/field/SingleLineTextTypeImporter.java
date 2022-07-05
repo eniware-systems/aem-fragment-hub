@@ -19,7 +19,7 @@ public class SingleLineTextTypeImporter extends ContentFragmentFieldTypeImporter
 
         Element node = getConfig().currentNode;
 
-        field.setMaxLength((int) JcrUtils.getXmlAttributeNumber(node, "maxlength"));
+        field.setMaxLength(JcrUtils.getXmlAttributeNumber(node, "maxlength").intValue());
         field.setPlaceholder(JcrUtils.getXmlAttribute(node, "emptyText").getValue());
 
         field.setUnique(JcrUtils.getXmlAttributeBool(node, "unique"));

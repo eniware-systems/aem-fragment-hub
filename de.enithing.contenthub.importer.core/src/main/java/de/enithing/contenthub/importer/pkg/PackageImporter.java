@@ -2,9 +2,12 @@ package de.enithing.contenthub.importer.pkg;
 
 import de.enithing.contenthub.importer.Importer;
 import de.enithing.contenthub.importer.ImporterConfiguration;
+import de.enithing.contenthub.importer.contentfragment.ContentFragmentFieldImporterFactory;
+import de.enithing.contenthub.importer.contentfragment.instance.ContentFragmentFieldValueImporter;
 import de.enithing.contenthub.importer.contentfragment.instance.ContentFragmentImporter;
 import de.enithing.contenthub.importer.util.JcrUtils;
 import de.enithing.contenthub.importer.contentfragment.ContentFragmentModelImporter;
+import de.enithing.contenthub.importer.util.PackageUtils;
 import de.enithing.contenthub.model.contentfragment.*;
 import de.enithing.contenthub.model.contenthub.ContentHubFactory;
 import de.enithing.contenthub.model.contenthub.Context;
@@ -23,6 +26,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 import java.util.logging.Logger;
+import java.util.stream.Stream;
 
 public class PackageImporter implements Importer<Package> {
 
@@ -160,10 +164,22 @@ public class PackageImporter implements Importer<Package> {
         }
     }
 
+    private void doPostImport(Package pkg) throws Exception {
+        for (ContentFragmentInstance inst : PackageUtils.getAllContentFragmentInstances(pkg)) {
+            for (ContentFragmentFieldInstance field : inst.getFields()) {
+                ContentFragmentFieldImporterFactory factory = getConfig().getFieldImporterRegistry().getFactory(field.getFieldtype());
+                ContentFragmentFieldValueImporter<?> importer = factory.createValueImporterInstance(createChildConfig(pkg));
+
+                importer.onPostImportPackage(field);
+            }
+        }
+    }
+
     @Override
     public void onEnter(Package pkg) throws Exception {
         parseContentFragmentModels(pkg);
         parseContentFragments(pkg);
+        doPostImport(pkg);
     }
 
     @Override

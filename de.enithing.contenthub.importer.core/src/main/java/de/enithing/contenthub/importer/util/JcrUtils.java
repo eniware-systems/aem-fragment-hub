@@ -80,16 +80,23 @@ public class JcrUtils {
         return toBoolean(getXmlAttribute(element, attrib).getValue());
     }
 
-    public static long getXmlAttributeNumber(Element element, String attrib) {
+    public static Number getXmlAttributeNumber(Element element, String attrib) {
         String val = getXmlAttribute(element, attrib).getValue();
 
-        if(val == null || val.isBlank()) {
+        if (val == null || val.isBlank()) {
             return 0;
         }
 
-        val = val.replaceAll("\\{.*}", "");
+        if (val.startsWith("{Long}")) {
+            return Long.parseLong(val.substring(6));
+        }
 
-        return Long.parseLong(val);
+        try {
+            return Long.parseLong(val);
+        } catch (NumberFormatException ignored) {
+        }
+
+        return Double.parseDouble(val);
     }
 
     private static boolean toBoolean(Object value) {
@@ -98,7 +105,7 @@ public class JcrUtils {
         }
 
         if (value instanceof String s) {
-            if(s.startsWith("{Boolean}")) {
+            if (s.startsWith("{Boolean}")) {
                 String boolStr = s.substring(9);
                 return boolStr.equalsIgnoreCase("true");
             }
@@ -119,6 +126,10 @@ public class JcrUtils {
         if (array.startsWith("[") && array.endsWith("]")) {
             array = array.substring(1, array.length() - 1);
             return Arrays.stream(array.split(",")).toList();
+        }
+
+        if(array.isBlank()) {
+            return Collections.emptyList();
         }
 
         return Collections.singleton(array);

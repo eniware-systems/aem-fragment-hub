@@ -27,9 +27,9 @@ public class ImporterConfiguration {
         Ignore,
     }
 
-    public enum FragmentModelResolution {
-        FullPath,
-        NameOnly,
+    public enum ReferenceResolutionMode {
+        Exact,
+        MatchInPackage,
     }
 
     public FileObject targetFile;
@@ -40,7 +40,8 @@ public class ImporterConfiguration {
     public Element currentNode;
 
     public UnknownFieldHandlingMode unknownFieldHandling = UnknownFieldHandlingMode.Error;
-    public FragmentModelResolution fragmentModelResolution = FragmentModelResolution.NameOnly;
+    public ReferenceResolutionMode fragmentModelResolution = ReferenceResolutionMode.MatchInPackage;
+    public ReferenceResolutionMode fragmentReferenceResolution = ReferenceResolutionMode.MatchInPackage;
 
     final private ContentFragmentFieldImporterRegistry fieldImporterRegistry;
 

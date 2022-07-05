@@ -6,14 +6,11 @@ import de.enithing.contenthub.importer.contentfragment.ContentFragmentFieldImpor
 import de.enithing.contenthub.importer.util.JcrUtils;
 import de.enithing.contenthub.importer.util.VelocityUtils;
 import de.enithing.contenthub.model.contentfragment.*;
-import de.enithing.contenthub.model.contentfragment.corefields.Tab;
 import de.enithing.contenthub.model.contenthub.Package;
 import org.apache.velocity.VelocityContext;
 import org.jdom2.Element;
 
-import java.lang.reflect.Field;
 import java.nio.file.Path;
-import java.util.NoSuchElementException;
 import java.util.Optional;
 import java.util.logging.Logger;
 
@@ -41,9 +38,14 @@ public class ContentFragmentImporter implements Importer<ContentFragmentInstance
         Path modelPath = Path.of(JcrUtils.getXmlAttribute(node, "cq:model").getValue());
 
         Optional<ContentFragmentModel> mdl;
-        String id = modelPath.getFileName().toString();
+        String id = JcrUtils.getXmlAttribute(node.getParentElement(), "cq:name").getValue();
 
-        if (getConfig().fragmentModelResolution == ImporterConfiguration.FragmentModelResolution.FullPath) {
+        if(id.isBlank()) {
+            id = getConfig().sourceFile.getPath().getParent().getFileName().toString();
+            getLogger().warning(String.format("No cq:name property set for content fragment instance, using path based id '%s'", id));
+        }
+
+        if (getConfig().fragmentModelResolution == ImporterConfiguration.ReferenceResolutionMode.Exact) {
             mdl = pkg.getContentFragmentModelSets().stream().flatMap(s -> s.getModels().stream()).filter(m -> {
                 VelocityContext velocityContext = new VelocityContext();
                 velocityContext.put("packageName", pkg.getName());
@@ -51,17 +53,19 @@ public class ContentFragmentImporter implements Importer<ContentFragmentInstance
                 return myPath.equals(modelPath);
             }).findFirst();
         } else {
-            mdl = pkg.getContentFragmentModelSets().stream().flatMap(s -> s.getModels().stream()).filter(m -> m.getId().equals(id)).findFirst();
+            String modelId = modelPath.getFileName().toString();
+            mdl = pkg.getContentFragmentModelSets().stream().flatMap(s -> s.getModels().stream()).filter(m -> m.getId().equals(modelId)).findFirst();
         }
 
         if (mdl.isEmpty()) {
-            throw new RuntimeException(String.format("Failed to resolve content fragment model '%s'", id));
+            throw new RuntimeException(String.format("Failed to resolve model for content fragment '%s'", id));
         }
 
-        getLogger().fine(String.format("Resolved model '%s'", mdl.get().getId()));
+        getLogger().info(String.format("Resolved model '%s' for content fragment '%s'", mdl.get().getId(), id));
 
         inst.setTitle(JcrUtils.getXmlAttribute(node.getParentElement(), "jcr:title").getValue());
         inst.setModel(mdl.get());
+        inst.setId(id);
     }
 
     @Override

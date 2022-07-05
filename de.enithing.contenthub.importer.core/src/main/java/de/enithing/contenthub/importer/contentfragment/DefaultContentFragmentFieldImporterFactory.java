@@ -63,7 +63,7 @@ public class DefaultContentFragmentFieldImporterFactory extends ContentFragmentF
 
             @Override
             public ContentFragmentFieldValueImporter<?> createValueImporterInstance(ImporterConfiguration cfg) {
-                return new MultiLineTextValueImporter(cfg);
+                return new StringValueImporter(cfg);
             }
         });
 
