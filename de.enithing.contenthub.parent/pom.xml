@@ -157,6 +157,29 @@
 				<module>../de.enithing.contenthub.generator</module>
 			</modules>
 		</profile>
+
+		<profile>
+			<id>cli-tools</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+
+			<modules>
+				<module>../de.enithing.contenthub.importer.cli</module>
+				<module>../de.enithing.contenthub.generator.cli</module>
+			</modules>
+		</profile>
+
+		<profile>
+			<id>model</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+
+			<modules>
+				<module>../de.enithing.contenthub.model</module>
+			</modules>
+		</profile>
 	</profiles>
 
 	<repositories>
@@ -168,9 +191,8 @@
 	</repositories>
 
 	<modules>
-		<module>../de.enithing.contenthub.model</module>
-		<module>../de.enithing.contenthub.generator.core</module>
-		<module>../de.enithing.contenthub.generator.cli</module>
 		<module>../de.enithing.contenthub.importer.core</module>
+		<module>../de.enithing.contenthub.generator.core</module>
 	</modules>
+
 </project>
