@@ -125,6 +125,11 @@ public class JcrUtils {
 
         if (array.startsWith("[") && array.endsWith("]")) {
             array = array.substring(1, array.length() - 1);
+
+            if(array.isBlank()) {
+                return Collections.emptyList();
+            }
+
             return Arrays.stream(array.split(",")).toList();
         }
 

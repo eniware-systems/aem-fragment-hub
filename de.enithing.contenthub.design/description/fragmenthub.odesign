@@ -3,7 +3,7 @@
   <ownedViewpoints name="PackageViewpoint">
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="PackageDiagram" initialisation="true" showOnStartup="true" domainClass="contenthub::Package" enablePopupBars="true">
       <defaultLayer name="Default">
-        <edgeMappings name="fragmentReference" sourceMapping="//@ownedViewpoints[name='PackageViewpoint']/@ownedRepresentations[name='PackageDiagram']/@defaultLayer/@containerMappings[name='modelNode']" targetMapping="//@ownedViewpoints[name='PackageViewpoint']/@ownedRepresentations[name='PackageDiagram']/@defaultLayer/@containerMappings[name='modelNode']" targetFinderExpression="aql:self.fields.allowedModels">
+        <edgeMappings name="fragmentReference" sourceMapping="//@ownedViewpoints[name='PackageViewpoint']/@ownedRepresentations[name='PackageDiagram']/@defaultLayer/@containerMappings[name='modelNode']" targetMapping="//@ownedViewpoints[name='PackageViewpoint']/@ownedRepresentations[name='PackageDiagram']/@defaultLayer/@containerMappings[name='modelNode']" targetFinderExpression="aql:self.fields.allowedModels + self.fields.fields.allowedModels">
           <style lineStyle="dash" sizeComputationExpression="2" routingStyle="tree">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription labelSize="12">
@@ -12,7 +12,7 @@
           </style>
         </edgeMappings>
         <containerMappings name="modelNode" semanticCandidatesExpression="aql:self.contentFragmentModelSets.models" domainClass="contentfragment::ContentFragmentModel" childrenPresentation="List">
-          <subNodeMappings name="fieldNode" semanticCandidatesExpression="aql:self.fields" domainClass="contentfragment::ContentFragmentFieldType">
+          <subNodeMappings name="fieldNode" semanticCandidatesExpression="aql:self.fields + self.fields.fields" domainClass="contentfragment::ContentFragmentFieldType">
             <style xsi:type="style:LozengeNodeDescription" labelSize="12" labelExpression="aql:self.fieldLabel.concat(' (').concat(self.propertyName).concat(')')" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>

@@ -166,7 +166,7 @@ public class PackageImporter implements Importer<Package> {
 
     private void doPostImport(Package pkg) throws Exception {
         for(ContentFragmentModel mdl : pkg.getAllContentFragmentModels()) {
-            for (ContentFragmentFieldType<?> field : mdl.getFields()) {
+            for (ContentFragmentFieldType<?> field : mdl.getFields().stream().toList()) {
                 ContentFragmentFieldImporterFactory factory = getConfig().getFieldImporterRegistry().getFactory(field);
                 ContentFragmentFieldTypeImporter<?> importer = factory.createTypeImporterInstance(createChildConfig(pkg));
 
@@ -175,7 +175,7 @@ public class PackageImporter implements Importer<Package> {
         }
 
         for (ContentFragmentInstance inst : PackageUtils.getAllContentFragmentInstances(pkg)) {
-            for (ContentFragmentFieldInstance field : inst.getFields()) {
+            for (ContentFragmentFieldInstance field : inst.getFields().stream().toList()) {
                 ContentFragmentFieldImporterFactory factory = getConfig().getFieldImporterRegistry().getFactory(field.getFieldtype());
                 ContentFragmentFieldValueImporter<?> importer = factory.createValueImporterInstance(createChildConfig(pkg));
 
