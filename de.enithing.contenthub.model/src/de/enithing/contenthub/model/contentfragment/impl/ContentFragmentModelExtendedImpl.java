@@ -49,6 +49,10 @@ public class ContentFragmentModelExtendedImpl extends ContentFragmentModelImpl {
 		Adapter adapter = new AdapterImpl() {
 			@Override
 			public void notifyChanged(Notification msg) {
+				if(msg.getFeature() == null) {
+					super.notifyChanged(msg);
+					return;
+				}
 
 				if (msg.getFeature().equals(ContentFragmentPackage.eINSTANCE.getContentFragmentModel_Fields())) {
 					// Collect the new/updated fields ...

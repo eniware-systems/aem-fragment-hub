@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.junit.jupiter.api.BeforeEach;
 import de.enithing.contenthub.importer.TestUtils.TestConfig;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.nio.file.Path;
@@ -34,13 +35,14 @@ class ImporterTests {
     private PackageImporter createPackageImporter() throws FileSystemException {
         ImporterConfiguration cfg = new ImporterConfiguration();
 
-        cfg.sourceFile = vfsManager.resolveFile("file:///home/mvonkeil/Projects/AIDA/test-repo");
+        cfg.sourceFile = vfsManager.resolveFile("file:///tmp/test-repo");
         cfg.targetFile = vfsManager.resolveFile("file:///tmp/out.chub");
 
         return new PackageImporter(cfg);
     }
 
     @Test
+    @Disabled
     public void importTest() throws Exception {
         PackageImporter importer = createPackageImporter();
         Package pkg = importer.doImport();

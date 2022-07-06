@@ -5,6 +5,7 @@ import de.enithing.contenthub.importer.contentfragment.model.ContentFragmentFiel
 import de.enithing.contenthub.importer.util.JcrUtils;
 import de.enithing.contenthub.model.contentfragment.corefields.CorefieldsFactory;
 import de.enithing.contenthub.model.contentfragment.corefields.Enumeration;
+import de.enithing.contenthub.model.contentfragment.corefields.EnumerationOption;
 import org.jdom2.Element;
 
 public class EnumerationTypeImporter extends ContentFragmentFieldTypeImporter<Enumeration> {
@@ -22,6 +23,17 @@ public class EnumerationTypeImporter extends ContentFragmentFieldTypeImporter<En
         field.setPlaceholder( JcrUtils.getXmlAttribute(node, "emptyText", "").getValue());
         field.setRequired(JcrUtils.getXmlAttributeBool(node, "required"));
         field.setUnique(JcrUtils.getXmlAttributeBool(node, "unique"));
+
+        for (Element item : JcrUtils.getXmlNode(node, "optionsmultifield").getChildren()) {
+            String value = JcrUtils.getXmlAttribute(item, "fieldLabel").getValue();
+            String label = JcrUtils.getXmlAttribute(item, "fieldValue").getValue();
+            EnumerationOption opt = CorefieldsFactory.eINSTANCE.createEnumerationOption();
+
+            opt.setKey(value);
+            opt.setValue(label);
+
+            field.getOptions().add(opt);
+        }
 
         return field;
     }

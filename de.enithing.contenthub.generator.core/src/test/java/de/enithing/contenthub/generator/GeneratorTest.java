@@ -14,6 +14,7 @@ import org.apache.commons.vfs2.provider.ram.RamFileProvider;
 import org.eclipse.emf.common.util.URI;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import de.enithing.contenthub.generator.GeneratorConfiguration.UnknownFieldHandlingMode;
 import de.enithing.contenthub.generator.TestUtils.TestConfig;
@@ -69,6 +70,7 @@ class GeneratorTest {
 
 	
 	@Test
+	@Disabled
 	void resourceTest() throws FileSystemException {
 		PackageGenerator gen = createPackageGenerator();
 
