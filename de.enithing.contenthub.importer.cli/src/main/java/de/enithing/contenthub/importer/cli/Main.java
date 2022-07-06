@@ -56,6 +56,9 @@ public class Main {
         opt = new Option("f", "ignore-unknown-fields", false, "Ignore fields that cannot be generated.");
         opts.addOption(opt);
 
+        opt = new Option("c", "no-content", false, "Skip content import (import models only).");
+        opts.addOption(opt);
+
         return opts;
     }
 
@@ -103,6 +106,10 @@ public class Main {
 
         DefaultFileSystemManager manager = new DefaultFileSystemManager();
         ImporterConfiguration cfg = new ImporterConfiguration();
+
+        if (params.hasOption("c")) {
+            cfg.importContent = false;
+        }
 
         final String targetPath = Path.of(params.getOptionValue('o')).toAbsolutePath().toString();
         String targetUri;

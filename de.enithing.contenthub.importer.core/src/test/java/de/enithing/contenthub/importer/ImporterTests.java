@@ -35,7 +35,7 @@ class ImporterTests {
     private PackageImporter createPackageImporter() throws FileSystemException {
         ImporterConfiguration cfg = new ImporterConfiguration();
 
-        cfg.sourceFile = vfsManager.resolveFile("file:///tmp/test-repo");
+        cfg.sourceFile = vfsManager.resolveFile("file:///home/mvonkeil/Projects/AIDA/test-repo");
         cfg.targetFile = vfsManager.resolveFile("file:///tmp/out.chub");
 
         return new PackageImporter(cfg);

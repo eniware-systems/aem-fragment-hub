@@ -32,6 +32,8 @@ public class ImporterConfiguration {
         MatchInPackage,
     }
 
+    public boolean importContent = true;
+
     public FileObject targetFile;
     public FileObject sourceFile;
     public String modelSetName = "Default model set";

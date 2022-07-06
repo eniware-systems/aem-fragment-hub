@@ -35,6 +35,8 @@ public class EnumerationTypeImporter extends ContentFragmentFieldTypeImporter<En
             field.getOptions().add(opt);
         }
 
+        getLogger().info(String.format("Imported %s options for enumeration '%s'", field.getOptions().size(), field.getPropertyName()));
+
         return field;
     }
 }

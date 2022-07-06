@@ -147,7 +147,8 @@
 				<module>../de.enithing.contenthub.product</module>
 			</modules>
 		</profile>
-		<profile>
+
+		<!--<profile>
 			<id>generator-bundle</id>
 			<activation>
 				<activeByDefault>false</activeByDefault>
@@ -156,7 +157,7 @@
 			<modules>
 				<module>../de.enithing.contenthub.generator</module>
 			</modules>
-		</profile>
+		</profile>-->
 
 		<profile>
 			<id>cli-tools</id>

@@ -1,5 +1,7 @@
 package de.enithing.contenthub.importer;
 
+import de.enithing.contenthub.model.contentfragment.ContentFragmentFieldInstance;
+
 import java.util.logging.Logger;
 
 public interface Importer<T> {

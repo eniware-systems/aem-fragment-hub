@@ -5,6 +5,7 @@ import de.enithing.contenthub.importer.ImporterConfiguration;
 import de.enithing.contenthub.importer.contentfragment.ContentFragmentFieldImporterFactory;
 import de.enithing.contenthub.importer.contentfragment.instance.ContentFragmentFieldValueImporter;
 import de.enithing.contenthub.importer.contentfragment.instance.ContentFragmentImporter;
+import de.enithing.contenthub.importer.contentfragment.model.ContentFragmentFieldTypeImporter;
 import de.enithing.contenthub.importer.util.JcrUtils;
 import de.enithing.contenthub.importer.contentfragment.ContentFragmentModelImporter;
 import de.enithing.contenthub.importer.util.PackageUtils;
@@ -26,7 +27,6 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 import java.util.logging.Logger;
-import java.util.stream.Stream;
 
 public class PackageImporter implements Importer<Package> {
 
@@ -104,7 +104,7 @@ public class PackageImporter implements Importer<Package> {
         for (Path ctxId : path) {
             Optional<Context> child = currentContext.getChildContexts().stream().filter(c -> c.getName().equals(ctxId.toString())).findFirst();
 
-            if(child.isPresent()) {
+            if (child.isPresent()) {
                 currentContext = child.get();
             } else {
                 Context newContext = ContentHubFactory.eINSTANCE.createContext();
@@ -128,7 +128,7 @@ public class PackageImporter implements Importer<Package> {
                 List<Element> dataNodes = nodes.stream().filter(n -> n.getName().equals("data")).toList();
 
                 for (Element data : dataNodes) {
-                    if(!JcrUtils.getXmlAttributeBool(data.getParentElement(), "contentFragment")) {
+                    if (!JcrUtils.getXmlAttributeBool(data.getParentElement(), "contentFragment")) {
                         // Not a content fragment, ignore
                         continue;
                     }
@@ -137,7 +137,7 @@ public class PackageImporter implements Importer<Package> {
                     Path path = xml.getPath();
                     Path relativePath = rootPath.relativize(path);
                     // Skip the first path and the filename
-                    relativePath = relativePath.subpath(1, relativePath.getNameCount()-1).getParent();
+                    relativePath = relativePath.subpath(1, relativePath.getNameCount() - 1).getParent();
 
                     Context context = getOrCreateContext(pkg, relativePath);
 
@@ -165,6 +165,15 @@ public class PackageImporter implements Importer<Package> {
     }
 
     private void doPostImport(Package pkg) throws Exception {
+        for(ContentFragmentModel mdl : pkg.getAllContentFragmentModels()) {
+            for (ContentFragmentFieldType<?> field : mdl.getFields()) {
+                ContentFragmentFieldImporterFactory factory = getConfig().getFieldImporterRegistry().getFactory(field);
+                ContentFragmentFieldTypeImporter<?> importer = factory.createTypeImporterInstance(createChildConfig(pkg));
+
+                importer.onPostImportPackage(field);
+            }
+        }
+
         for (ContentFragmentInstance inst : PackageUtils.getAllContentFragmentInstances(pkg)) {
             for (ContentFragmentFieldInstance field : inst.getFields()) {
                 ContentFragmentFieldImporterFactory factory = getConfig().getFieldImporterRegistry().getFactory(field.getFieldtype());
@@ -178,7 +187,11 @@ public class PackageImporter implements Importer<Package> {
     @Override
     public void onEnter(Package pkg) throws Exception {
         parseContentFragmentModels(pkg);
-        parseContentFragments(pkg);
+        if (getConfig().importContent) {
+            parseContentFragments(pkg);
+        } else {
+            getLogger().info("Skipping content import by configuration");
+        }
         doPostImport(pkg);
     }
 
