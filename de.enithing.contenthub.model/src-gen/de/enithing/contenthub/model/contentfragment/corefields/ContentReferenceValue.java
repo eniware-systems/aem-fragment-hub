@@ -3,6 +3,7 @@
 package de.enithing.contenthub.model.contentfragment.corefields;
 
 import de.enithing.contenthub.model.contentfragment.ContentFragmentFieldValue;
+
 import java.nio.file.Path;
 
 /**
@@ -22,7 +23,6 @@ import java.nio.file.Path;
  * @generated
  */
 public interface ContentReferenceValue extends ContentFragmentFieldValue {
-
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -44,4 +44,5 @@ public interface ContentReferenceValue extends ContentFragmentFieldValue {
 	 * @generated
 	 */
 	void setValue(Path value);
+
 } // ContentReferenceValue

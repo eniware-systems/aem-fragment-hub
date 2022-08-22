@@ -4,8 +4,8 @@ package de.enithing.contenthub.model.contentfragment.corefields.impl;
 
 import de.enithing.contenthub.model.contentfragment.corefields.CorefieldsPackage;
 import de.enithing.contenthub.model.contentfragment.corefields.Json;
-
 import de.enithing.contenthub.model.contentfragment.corefields.StringValue;
+
 import de.enithing.contenthub.model.contentfragment.impl.ContentFragmentFieldTypeImpl;
 
 import java.lang.Boolean;

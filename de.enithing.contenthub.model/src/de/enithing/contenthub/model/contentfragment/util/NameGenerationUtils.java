@@ -6,7 +6,8 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.function.Function;
 
-import org.apache.commons.lang.StringUtils;
+import de.enithing.contenthub.StringUtils;
+
 
 /**
  * Utilities for name generation

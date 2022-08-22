@@ -4,6 +4,7 @@ package de.enithing.contenthub.model.contentfragment.corefields.provider;
 
 
 import de.enithing.contenthub.edit.ContentHubEditPlugin;
+
 import de.enithing.contenthub.model.contentfragment.ContentFragmentPackage;
 
 import de.enithing.contenthub.model.contentfragment.corefields.ContentReference;
@@ -14,6 +15,7 @@ import de.enithing.contenthub.model.contentfragment.corefields.validation.Valida
 import de.enithing.contenthub.model.contentfragment.provider.ContentFragmentFieldTypeItemProvider;
 
 import de.enithing.contenthub.model.contenthub.ContentHubFactory;
+
 import java.util.Collection;
 import java.util.List;
 

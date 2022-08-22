@@ -4,6 +4,7 @@ package de.enithing.contenthub.model.contentfragment.corefields.provider;
 
 
 import de.enithing.contenthub.edit.ContentHubEditPlugin;
+
 import de.enithing.contenthub.model.contentfragment.ContentFragmentPackage;
 
 import de.enithing.contenthub.model.contentfragment.corefields.CorefieldsPackage;
@@ -12,6 +13,7 @@ import de.enithing.contenthub.model.contentfragment.corefields.FragmentReference
 import de.enithing.contenthub.model.contentfragment.provider.ContentFragmentFieldTypeItemProvider;
 
 import de.enithing.contenthub.model.contenthub.ContentHubFactory;
+
 import java.util.Collection;
 import java.util.List;
 
@@ -21,6 +23,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;

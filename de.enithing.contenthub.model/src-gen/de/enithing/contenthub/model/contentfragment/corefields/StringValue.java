@@ -21,7 +21,6 @@ import de.enithing.contenthub.model.contentfragment.ContentFragmentFieldValue;
  * @generated
  */
 public interface StringValue extends ContentFragmentFieldValue {
-
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -43,4 +42,5 @@ public interface StringValue extends ContentFragmentFieldValue {
 	 * @generated
 	 */
 	void setValue(String value);
+
 } // StringValue

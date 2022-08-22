@@ -3,6 +3,7 @@
 package de.enithing.contenthub.model.contentfragment.corefields;
 
 import de.enithing.contenthub.model.contentfragment.ContentFragmentFieldValue;
+
 import java.util.Date;
 
 /**
@@ -22,7 +23,6 @@ import java.util.Date;
  * @generated
  */
 public interface DateTimeValue extends ContentFragmentFieldValue {
-
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -44,4 +44,5 @@ public interface DateTimeValue extends ContentFragmentFieldValue {
 	 * @generated
 	 */
 	void setValue(Date value);
+
 } // DateTimeValue

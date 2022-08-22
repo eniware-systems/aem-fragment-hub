@@ -4,9 +4,13 @@ package de.enithing.contenthub.model.contentfragment.corefields.impl;
 
 import de.enithing.contenthub.model.contentfragment.corefields.CorefieldsPackage;
 import de.enithing.contenthub.model.contentfragment.corefields.DateTimeValue;
+
 import java.util.Date;
+
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EClass;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
@@ -33,6 +37,7 @@ public class DateTimeValueImpl extends MinimalEObjectImpl.Container implements D
 	 * @ordered
 	 */
 	protected static final Date VALUE_EDEFAULT = null;
+
 	/**
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->

@@ -3,6 +3,7 @@
 package de.enithing.contenthub.model.contentfragment.corefields;
 
 import de.enithing.contenthub.model.contentfragment.MultiFieldType;
+
 import de.enithing.contenthub.model.contenthub.PathProvider;
 
 /**

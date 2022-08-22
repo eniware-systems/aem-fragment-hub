@@ -6,8 +6,8 @@ package de.enithing.contenthub.model.contentfragment.corefields.provider;
 import de.enithing.contenthub.edit.ContentHubEditPlugin;
 
 import de.enithing.contenthub.model.contentfragment.corefields.CorefieldsPackage;
-
 import de.enithing.contenthub.model.contentfragment.corefields.FragmentReferenceValue;
+
 import java.util.Collection;
 import java.util.List;
 

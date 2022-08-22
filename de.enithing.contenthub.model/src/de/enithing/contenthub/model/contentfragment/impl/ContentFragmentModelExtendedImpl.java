@@ -1,14 +1,15 @@
 package de.enithing.contenthub.model.contentfragment.impl;
 
 import java.util.ArrayList;
+
 import java.util.Collection;
 import java.util.List;
 
-import org.apache.commons.lang.StringUtils;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.impl.AdapterImpl;
 
+import de.enithing.contenthub.StringUtils;
 import de.enithing.contenthub.model.contentfragment.ContentFragmentFieldType;
 import de.enithing.contenthub.model.contentfragment.ContentFragmentModel;
 import de.enithing.contenthub.model.contentfragment.ContentFragmentPackage;
@@ -48,6 +49,10 @@ public class ContentFragmentModelExtendedImpl extends ContentFragmentModelImpl {
 		Adapter adapter = new AdapterImpl() {
 			@Override
 			public void notifyChanged(Notification msg) {
+				if(msg.getFeature() == null) {
+					super.notifyChanged(msg);
+					return;
+				}
 
 				if (msg.getFeature().equals(ContentFragmentPackage.eINSTANCE.getContentFragmentModel_Fields())) {
 					// Collect the new/updated fields ...

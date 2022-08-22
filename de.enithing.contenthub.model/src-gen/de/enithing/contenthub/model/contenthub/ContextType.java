@@ -36,7 +36,9 @@ public enum ContextType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ORDERED_FOLDER(1, "orderedFolder", "sling:OrderedFolder"), /**
+	ORDERED_FOLDER(1, "orderedFolder", "sling:OrderedFolder"),
+
+	/**
 	 * The '<em><b>Page</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

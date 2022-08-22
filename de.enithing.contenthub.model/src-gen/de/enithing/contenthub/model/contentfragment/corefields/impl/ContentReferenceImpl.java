@@ -6,11 +6,14 @@ import de.enithing.contenthub.model.contentfragment.corefields.ContentReference;
 import de.enithing.contenthub.model.contentfragment.corefields.ContentReferenceType;
 import de.enithing.contenthub.model.contentfragment.corefields.ContentReferenceValue;
 import de.enithing.contenthub.model.contentfragment.corefields.CorefieldsPackage;
+
 import de.enithing.contenthub.model.contentfragment.corefields.validation.FileSizeValue;
 import de.enithing.contenthub.model.contentfragment.corefields.validation.ValidationConstraint;
 
 import de.enithing.contenthub.model.contentfragment.impl.ContentFragmentFieldTypeImpl;
+
 import de.enithing.contenthub.model.contenthub.PathProvider;
+
 import java.lang.Boolean;
 
 import java.math.BigInteger;
