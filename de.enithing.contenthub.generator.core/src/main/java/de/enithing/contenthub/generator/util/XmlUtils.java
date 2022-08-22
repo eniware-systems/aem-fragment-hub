@@ -2,6 +2,7 @@ package de.enithing.contenthub.generator.util;
 
 import org.dom4j.Document;
 import org.dom4j.DocumentHelper;
+import org.dom4j.DocumentType;
 import org.dom4j.Element;
 import org.dom4j.io.OutputFormat;
 import org.dom4j.io.SAXWriter;
@@ -36,7 +37,6 @@ public class XmlUtils {
                 throw new RuntimeException(e);
             }
         }
-
         private int getIndentLevel() {
             try {
                 return indentLevel.getInt(this);
@@ -138,7 +138,9 @@ public class XmlUtils {
     public static String prettyPrint(String raw) {
         try {
             OutputStream os = new ByteArrayOutputStream();
-            XMLWriter writer = new ModifiedXMLWriter(os, OutputFormat.createPrettyPrint());
+            OutputFormat format = OutputFormat.createPrettyPrint();
+            format.setNewLineAfterDeclaration(false);
+            XMLWriter writer = new ModifiedXMLWriter(os, format);
             SAXWriter sw = new ModifiedSAXWriter(writer);
             Document doc = DocumentHelper.parseText(raw);
             sw.write(doc);

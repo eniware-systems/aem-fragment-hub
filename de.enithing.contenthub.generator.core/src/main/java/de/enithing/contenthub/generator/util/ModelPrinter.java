@@ -35,7 +35,6 @@ public class ModelPrinter {
 		if (o instanceof Context) {
 			return toString((Context) o);
 		}
-		
 
 		return o.toString();
 	}
@@ -61,6 +60,6 @@ public class ModelPrinter {
 	}
 	
 	public static String toString(Context ctx) {
-		return String.format("Context %s", ctx.getName());
+		return String.format("Context %s (%s)", ctx.getName(), ctx.getPath());
 	}
 }
