@@ -57,7 +57,13 @@ public class XmlUtils {
         protected void writeAttribute(Attributes attributes, int index) throws IOException {
             writePrintln();
             indent();
-            super.writeAttribute(attributes, index);
+
+            char quote = getOutputFormat().getAttributeQuoteCharacter();
+            this.writer.write(attributes.getQName(index));
+            this.writer.write("=");
+            this.writer.write(quote);
+            this.writeEscapeAttributeEntities(attributes.getValue(index));
+            this.writer.write(quote);
         }
 
         @Override
@@ -139,6 +145,7 @@ public class XmlUtils {
         try {
             OutputStream os = new ByteArrayOutputStream();
             OutputFormat format = OutputFormat.createPrettyPrint();
+            format.setIndentSize(4);
             format.setNewLineAfterDeclaration(false);
             XMLWriter writer = new ModifiedXMLWriter(os, format);
             SAXWriter sw = new ModifiedSAXWriter(writer);
