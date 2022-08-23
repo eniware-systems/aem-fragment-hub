@@ -5,22 +5,22 @@ import java.util.logging.Logger;
 import de.enithing.contenthub.generator.util.ModelPrinter;
 
 public interface Generator<T> {
-	public GeneratorConfiguration getConfig();
+	GeneratorConfiguration getConfig();
 
-	default public GeneratorConfiguration createChildConfig(T element) {
+	default GeneratorConfiguration createChildConfig(T element) {
 		GeneratorConfiguration cfg = getConfig().clone();
 		cfg.parentElement = element;
 		cfg.parentGenerator = this;
 		return cfg;
 	}
 
-	public void onEnter(T element) throws Exception;
+	void onEnter(T element) throws Exception;
 
-	public void onExit(T element) throws Exception;
+	void onExit(T element) throws Exception;
 
-	public Logger getLogger();
+	Logger getLogger();
 
-	default public void generate(T element) throws Exception {
+	default void generate(T element) throws Exception {
 		Logger logger = getLogger();
 
 		try {

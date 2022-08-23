@@ -26,7 +26,7 @@ import de.enithing.contenthub.model.contenthub.Package;
 
 public abstract class ContentFragmentFieldInstanceGenerator<TValue extends ContentFragmentFieldValue>
 		implements TemplateBasedGenerator<ContentFragmentFieldInstance> {
-	private GeneratorConfiguration config;
+	private final GeneratorConfiguration config;
 	private String renderedField;
 
 	public ContentFragmentFieldInstanceGenerator(GeneratorConfiguration cfg) {
@@ -94,7 +94,7 @@ public abstract class ContentFragmentFieldInstanceGenerator<TValue extends Conte
 		ctx.put("field", prefixedAttribs);
 	}
 
-	private static Logger logger = Logger.getLogger(ContentFragmentFieldInstanceGenerator.class.getSimpleName());
+	private static final Logger logger = Logger.getLogger(ContentFragmentFieldInstanceGenerator.class.getSimpleName());
 
 	@Override
 	public Logger getLogger() {

@@ -39,8 +39,7 @@ public class JcrUtils {
 			return StringEscapeUtils.escapeXml((String) value);
 		}
 
-		if (value instanceof Boolean) {
-			Boolean v = (Boolean) value;
+		if (value instanceof Boolean v) {
 			return String.format("{Boolean}%s", v ? "true" : "false");
 		}
 

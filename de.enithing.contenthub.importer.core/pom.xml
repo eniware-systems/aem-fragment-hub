@@ -50,7 +50,6 @@
 			<groupId>de.enithing.contenthub</groupId>
 			<artifactId>de.enithing.contenthub.generator.core</artifactId>
 			<version>${project.version}</version>
-			<scope>test</scope>
 		</dependency>
 	</dependencies>
 

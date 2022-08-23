@@ -1,65 +1,118 @@
 package de.enithing.contenthub.generator.util;
 
-import de.enithing.contenthub.model.contentfragment.ContentFragmentFieldInstance;
-import de.enithing.contenthub.model.contentfragment.ContentFragmentFieldType;
-import de.enithing.contenthub.model.contentfragment.ContentFragmentInstance;
-import de.enithing.contenthub.model.contentfragment.ContentFragmentModel;
+import de.enithing.contenthub.model.contentfragment.*;
 import de.enithing.contenthub.model.contenthub.Context;
 import de.enithing.contenthub.model.contenthub.Package;
 
 public class ModelPrinter {
-	private ModelPrinter() {
-	}
+    private ModelPrinter() {
+    }
 
-	public static String toString(Object o) {
-		if (o instanceof Package) {
-			return toString((Package) o);
-		}
+    public static String toString(Object o) {
+        return toString(o, true);
+    }
 
-		if (o instanceof ContentFragmentModel) {
-			return toString((ContentFragmentModel) o);
-		}
+    public static String toString(Object o, boolean withParents) {
+        if (o instanceof Package) {
+            return toString((Package) o);
+        }
 
-		if (o instanceof ContentFragmentFieldType<?>) {
-			return toString((ContentFragmentFieldType<?>) o);
-		}
+        if (o instanceof ContentFragmentModelSet) {
+            return toString((ContentFragmentModelSet) o, withParents);
+        }
 
-		if (o instanceof ContentFragmentInstance) {
-			return toString((ContentFragmentInstance) o);
-		}
+        if (o instanceof ContentFragmentModel) {
+            return toString((ContentFragmentModel) o, withParents);
+        }
 
-		if (o instanceof ContentFragmentFieldInstance) {
-			return toString((ContentFragmentFieldInstance) o);
-		}
-		
-		if (o instanceof Context) {
-			return toString((Context) o);
-		}
+        if (o instanceof ContentFragmentFieldType<?>) {
+            return toString((ContentFragmentFieldType<?>) o, withParents);
+        }
 
-		return o.toString();
-	}
+        if (o instanceof ContentFragmentInstance) {
+            return toString((ContentFragmentInstance) o, withParents);
+        }
 
-	public static String toString(Package pkg) {
-		return String.format("Package %s.%s", pkg.getGroup(), pkg.getName());
-	}
+        if (o instanceof ContentFragmentFieldInstance) {
+            return toString((ContentFragmentFieldInstance) o, withParents);
+        }
 
-	public static String toString(ContentFragmentModel mdl) {
-		return String.format("Content fragment model %s", mdl.getId());
-	}
+        if (o instanceof Context) {
+            return toString((Context) o, withParents);
+        }
 
-	public static String toString(ContentFragmentFieldType<?> fieldType) {
-		return String.format("Content fragment model field type %s", fieldType.getPropertyName());
-	}
+        return o.toString();
+    }
 
-	public static String toString(ContentFragmentInstance inst) {
-		return String.format("Content fragment %s", inst.getId());
-	}
+    private static String concat(String a, String b) {
+        return String.format("%s -> %s", a, b);
+    }
 
-	public static String toString(ContentFragmentFieldInstance field) {
-		return String.format("Content fragment field %s", field.getFieldtype().getPropertyName());
-	}
-	
-	public static String toString(Context ctx) {
-		return String.format("Context %s (%s)", ctx.getName(), ctx.getPath());
-	}
+    public static String toString(Package pkg) {
+        return String.format("(Package)%s.%s", pkg.getGroup(), pkg.getName());
+    }
+
+    public static String toString(ContentFragmentModelSet set, boolean withParents) {
+        String result = String.format("(ModelSet)%s", set.getName());
+
+        if (withParents) {
+            return concat(ModelPrinter.toString(set.getPackage()), result);
+        }
+
+        return result;
+    }
+
+    public static String toString(ContentFragmentModel mdl, boolean withParents) {
+        String result = String.format("(CFM)%s", mdl.getId());
+
+        if (withParents) {
+            return concat(ModelPrinter.toString(mdl.getModelSet(), true), result);
+        }
+
+        return result;
+    }
+
+    public static String toString(ContentFragmentFieldType<?> fieldType, boolean withParents) {
+        String result = String.format("(CFMField)%s", fieldType.getPropertyName());
+
+        if (withParents) {
+            return concat(ModelPrinter.toString(fieldType.getModel(), true), result);
+        }
+
+        return result;
+    }
+
+    public static String toString(ContentFragmentInstance inst, boolean withParents) {
+        String result = String.format("(CF)%s", inst.getId());
+
+        if (withParents) {
+            return concat(ModelPrinter.toString(inst.getContext(), true), result);
+        }
+
+        return result;
+    }
+
+    public static String toString(ContentFragmentFieldInstance field, boolean withParents) {
+        String result = String.format("(CFField)%s", field.getFieldtype().getPropertyName());
+
+        if (withParents) {
+            return concat(ModelPrinter.toString(field.getInstance(), true), result);
+        }
+
+        return result;
+    }
+
+    public static String toString(Context ctx, boolean withParents) {
+        String result = String.format("(Context)%s", ctx.getPath());
+
+        if (withParents) {
+            Context parent = ctx.getParentContext();
+            if (parent != null) {
+                return concat(ModelPrinter.toString(parent, true), result);
+            }
+            return concat(ModelPrinter.toString(ctx.getPackage()), result);
+        }
+
+        return result;
+    }
 }

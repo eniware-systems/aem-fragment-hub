@@ -5,6 +5,7 @@ import de.enithing.contenthub.generator.TemplateBasedGenerator;
 import de.enithing.contenthub.generator.contentfragment.model.ContentFragmentModelGenerator;
 import de.enithing.contenthub.generator.context.ContextGenerator;
 import de.enithing.contenthub.generator.util.JcrUtils;
+import de.enithing.contenthub.generator.util.ModelPrinter;
 import de.enithing.contenthub.generator.util.PathUtils;
 import de.enithing.contenthub.generator.util.VelocityUtils;
 import de.enithing.contenthub.model.contentfragment.ContentFragmentModel;
@@ -33,14 +34,14 @@ public class PackageGenerator implements TemplateBasedGenerator<Package> {
             this.jcrRoot = jcrRoot;
         }
 
-        private FileObject jcrRoot;
+        private final FileObject jcrRoot;
 
         public FileObject getJcrRoot() {
             return jcrRoot;
         }
     }
 
-    private GeneratorConfiguration config;
+    private final GeneratorConfiguration config;
 
     public PackageGenerator(GeneratorConfiguration cfg) {
         this.config = cfg;
@@ -59,6 +60,34 @@ public class PackageGenerator implements TemplateBasedGenerator<Package> {
     @Override
     public void onEnter(Package pkg) throws Exception {
         FileObject targetRoot = getConfig().targetRoot;
+
+        Path contentRoot = pkg.getContentPath() != null ? Path.of("jcr_root").resolve(PathUtils.makeRelative(pkg.getContentPath())) : Path.of("jcr_root/content/dam/$packageName");
+
+        if (getConfig().removeExistingFiles) {
+            getLogger().info(String.format("Clearing model and content folders for %s", ModelPrinter.toString(pkg)));
+
+            VelocityContext context = getTemplateContext(pkg);
+            String modelsPath = VelocityUtils.replace(Path.of("jcr_root/conf/$packageName/settings/dam/cfm/models").toString(), context);
+            String contentPath = VelocityUtils.replace(contentRoot.toString(), context);
+
+            FileObject modelsFolder = getConfig().targetRoot.resolveFile(modelsPath);
+
+            if (modelsFolder.exists()) {
+                modelsFolder.deleteAll();
+            }
+
+            FileObject contentFolder = getConfig().targetRoot.resolveFile(contentPath);
+
+            if (contentFolder.exists()) {
+                contentFolder.deleteAll();
+            }
+        }
+
+        if (getConfig().skipSkeletonCreation) {
+            getLogger().info(String.format("Skipping skeleton creation for %s", ModelPrinter.toString(pkg)));
+
+            return;
+        }
 
         // Create the META-INF directory
         FileObject metaInfDir = targetRoot.resolveFile("META-INF");
@@ -86,7 +115,6 @@ public class PackageGenerator implements TemplateBasedGenerator<Package> {
         renderTemplate(pkg, targetRoot, Path.of("jcr_root/content/.content.xml"));
         renderTemplate(pkg, targetRoot, Path.of("jcr_root/content/dam/.content.xml"));
 
-        Path contentRoot = pkg.getContentPath() != null ? Path.of("jcr_root").resolve(PathUtils.makeRelative(pkg.getContentPath())) : Path.of("jcr_root/content/dam/$packageName");
         renderTemplate(pkg, targetRoot, contentRoot.resolve(".content.xml"), Path.of("jcr_root/content/dam/$packageName/.content.xml"));
 
         // Create the GraphQL endpoints directory
@@ -181,7 +209,7 @@ public class PackageGenerator implements TemplateBasedGenerator<Package> {
         ctx.put("packageDate", format.format(packageDate));
     }
 
-    private static Logger logger = Logger.getLogger(PackageGenerator.class.getSimpleName());
+    private static final Logger logger = Logger.getLogger(PackageGenerator.class.getSimpleName());
 
     @Override
     public Logger getLogger() {

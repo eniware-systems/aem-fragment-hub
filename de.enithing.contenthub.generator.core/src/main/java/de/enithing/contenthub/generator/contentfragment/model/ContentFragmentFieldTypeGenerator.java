@@ -24,7 +24,7 @@ import de.enithing.contenthub.model.contentfragment.MultiFieldType;
 
 public abstract class ContentFragmentFieldTypeGenerator<TField extends ContentFragmentFieldType<?>>
 		implements TemplateBasedGenerator<TField> {
-	private GeneratorConfiguration config;
+	private final GeneratorConfiguration config;
 
 	public ContentFragmentFieldTypeGenerator(GeneratorConfiguration cfg) {
 		this.config = cfg;
@@ -147,7 +147,7 @@ public abstract class ContentFragmentFieldTypeGenerator<TField extends ContentFr
 		return String.format("_x0031_%s", StringUtils.generateNumericId(12));
 	}
 
-	private static Logger logger = Logger.getLogger(ContentFragmentFieldTypeGenerator.class.getSimpleName());
+	private static final Logger logger = Logger.getLogger(ContentFragmentFieldTypeGenerator.class.getSimpleName());
 
 	@Override
 	public Logger getLogger() {

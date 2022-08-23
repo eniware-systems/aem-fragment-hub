@@ -110,7 +110,7 @@ public abstract class ContentFragmentMultiFieldTypeGenerator<TField extends Mult
 	public void populateTemplateContext(TField element, VelocityContext ctx) throws IOException, ParseException {
 		super.populateTemplateContext(element, ctx);
 
-		MultiFieldType<?> multiField = (MultiFieldType<?>) element;
+		MultiFieldType<?> multiField = element;
 
 		ctx.put("isMultifield", multiField.isAllowMultiple());
 

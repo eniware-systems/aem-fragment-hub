@@ -51,6 +51,12 @@ public class Main {
         opt = new Option("f", "force", false, "Force write into existing folders.");
         opts.addOption(opt);
 
+        opt = new Option("S", "skip-skeleton", false, "Skip the package skeleton creation.");
+        opts.addOption(opt);
+
+        opt = new Option("r", "remove-existing", false, "Remove existing files from content and models folders before generating.");
+        opts.addOption(opt);
+
         return opts;
     }
 
@@ -173,6 +179,9 @@ public class Main {
         if (params.hasOption("i")) {
             cfg.unknownFieldHandling = UnknownFieldHandlingMode.Ignore;
         }
+
+        cfg.skipSkeletonCreation = params.hasOption("S");
+        cfg.removeExistingFiles = params.hasOption("r");
 
         GeneratorUtils.initFactories();
         PackageGenerator gen = new PackageGenerator(cfg);

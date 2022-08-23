@@ -70,13 +70,11 @@ public class NumberTypeGenerator extends ContentFragmentMultiFieldTypeGenerator<
 	public void populateGraniteAttribs(Number element, VelocityContext ctx, Map<String, Object> attribs) {
 		ValidationConstraint<BigDecimal> validation = element.getValidationConstraint();
 
-		if (validation instanceof LowerBoundConstraint<BigDecimal>) {
-			LowerBoundConstraint<BigDecimal> constraint = (LowerBoundConstraint<BigDecimal>) validation;
+		if (validation instanceof LowerBoundConstraint<BigDecimal> constraint) {
 			attribs.put("number-min", constraint.getMin());
 		}
 
-		if (validation instanceof UpperBoundConstraint<BigDecimal>) {
-			UpperBoundConstraint<BigDecimal> constraint = (UpperBoundConstraint<BigDecimal>) validation;
+		if (validation instanceof UpperBoundConstraint<BigDecimal> constraint) {
 			attribs.put("number-max", constraint.getMax());
 		}
 	}

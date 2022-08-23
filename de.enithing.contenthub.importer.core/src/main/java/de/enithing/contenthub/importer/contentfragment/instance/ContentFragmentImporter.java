@@ -1,10 +1,10 @@
 package de.enithing.contenthub.importer.contentfragment.instance;
 
+import de.enithing.contenthub.generator.util.VelocityUtils;
 import de.enithing.contenthub.importer.Importer;
 import de.enithing.contenthub.importer.ImporterConfiguration;
 import de.enithing.contenthub.importer.contentfragment.ContentFragmentFieldImporterFactory;
 import de.enithing.contenthub.importer.util.JcrUtils;
-import de.enithing.contenthub.importer.util.VelocityUtils;
 import de.enithing.contenthub.model.contentfragment.*;
 import de.enithing.contenthub.model.contenthub.Package;
 import org.apache.velocity.VelocityContext;

@@ -21,29 +21,28 @@ import de.enithing.contenthub.generator.util.VelocityUtils;
 import de.enithing.contenthub.model.contenthub.Package;
 
 public interface TemplateBasedGenerator<T> extends Generator<T> {
-	public static final String TemplateUtilsKey = "util";
+	String TemplateUtilsKey = "util";
 
-	public void populateTemplateContext(T element, VelocityContext ctx) throws IOException, ParseException;
+	void populateTemplateContext(T element, VelocityContext ctx) throws IOException, ParseException;
 
-	default public Path getTemplatesPath() {
+	default Path getTemplatesPath() {
 		return Path.of("/");
 	}
 
-	default public Path getTemplateBasePath(T element, String templateType) {
+	default Path getTemplateBasePath(T element, String templateType) {
 		return PathUtils.makeRelative(getTemplatesPath().resolve(templateType));
 	}
 
 	@SuppressWarnings("unchecked")
-	default public VelocityContext getTemplateContext(Object element, Class<?> elementClass)
+	default VelocityContext getTemplateContext(Object element, Class<?> elementClass)
 			throws IOException, ParseException {
 		return getTemplateContext((T) element);
 	}
 
-	default public VelocityContext getTemplateContext(T element) throws IOException, ParseException {
+	default VelocityContext getTemplateContext(T element) throws IOException, ParseException {
 		VelocityContext ctx;
 
-		if (getConfig().parentGenerator instanceof TemplateBasedGenerator<?>) {
-			TemplateBasedGenerator<?> parentGenerator = (TemplateBasedGenerator<?>) getConfig().parentGenerator;
+		if (getConfig().parentGenerator instanceof TemplateBasedGenerator<?> parentGenerator) {
 			ctx = parentGenerator.getTemplateContext(getConfig().parentElement, getConfig().parentElement.getClass());
 		} else {
 			ctx = new VelocityContext();
@@ -56,15 +55,15 @@ public interface TemplateBasedGenerator<T> extends Generator<T> {
 		return ctx;
 	}
 	
-	default public Template resolveTemplate(T element) {
+	default Template resolveTemplate(T element) {
 		return resolveTemplate(element, StringUtils.EMPTY);
 	}
 
-	default public Template resolveTemplate(T element, String templateType) {
+	default Template resolveTemplate(T element, String templateType) {
 		return resolveTemplate(element, templateType, new String[] {});
 	}
 
-	default public Template resolveTemplate(T element, String templateType, String[] metaTypes) {
+	default Template resolveTemplate(T element, String templateType, String[] metaTypes) {
 		Path templateRoot = Path.of("templates");
 		Path basePath = templateRoot.resolve(PathUtils.makeRelative(getTemplateBasePath(element, templateType)));
 
@@ -72,10 +71,10 @@ public interface TemplateBasedGenerator<T> extends Generator<T> {
 
 		List<String> templatesToTest = new ArrayList<String>();
 
-		templatesToTest.add(basePath.toString() + suffix);
+		templatesToTest.add(basePath + suffix);
 
 		for (String metaType : metaTypes) {
-			templatesToTest.add(basePath.toString() + metaType + suffix);
+			templatesToTest.add(basePath + metaType + suffix);
 		}
 
 		VelocityUtils.initVelocity();
