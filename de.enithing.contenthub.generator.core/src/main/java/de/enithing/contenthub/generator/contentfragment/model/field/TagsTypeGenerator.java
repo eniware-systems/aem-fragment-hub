@@ -39,7 +39,9 @@ public class TagsTypeGenerator extends ContentFragmentFieldTypeGenerator<Tags> {
 		attribs.put("emptyText", element.getPlaceholder());
 		attribs.put("multiple", element.isAllowMultiple());
 		attribs.put("required", JcrUtils.toFlag(element.isRequired()));
-		attribs.put("rootPath", element.getRootPath());
+		if(element.getRootPath() != null) {
+			attribs.put("rootPath", element.getRootPath().getPath().toString());
+		}
 	}
 
 }

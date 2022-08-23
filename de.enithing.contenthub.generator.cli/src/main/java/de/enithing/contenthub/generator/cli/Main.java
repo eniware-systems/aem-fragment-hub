@@ -2,10 +2,9 @@ package de.enithing.contenthub.generator.cli;
 
 import de.enithing.contenthub.generator.GeneratorConfiguration;
 import de.enithing.contenthub.generator.GeneratorConfiguration.UnknownFieldHandlingMode;
-import de.enithing.contenthub.generator.pkg.PackageGenerator;
 import de.enithing.contenthub.generator.GeneratorUtils;
+import de.enithing.contenthub.generator.pkg.PackageGenerator;
 import de.enithing.contenthub.model.contenthub.Package;
-
 import org.apache.commons.cli.*;
 import org.apache.commons.vfs2.FileSystemException;
 import org.apache.commons.vfs2.impl.DefaultFileSystemManager;
@@ -17,15 +16,19 @@ import org.eclipse.emf.common.util.URI;
 import java.nio.file.Path;
 import java.util.logging.Logger;
 
-public class Main {	
-	static {
-		System.setProperty("java.util.logging.SimpleFormatter.format",
-	              "[%4$-7s] %5$s %n");
-	}
-	
+public class Main {
+    static {
+        System.setProperty("java.util.logging.SimpleFormatter.format",
+                "[%4$-7s] %5$s %n");
+    }
+
     private static String getBanner() {
 
-        return "ContentHub Generator 0.1a";
+        return "FragmentHub Generator 0.3";
+    }
+
+    private static String getExecutableName() {
+        return "afm-generate";
     }
 
     private static Option getHelpOption() {
@@ -39,20 +42,13 @@ public class Main {
 
         opts.addOption(getHelpOption());
 
-        opt = new Option("i", "input", true, "The .cfcore model to generate from");
-        opt.setRequired(true);
-        opt.setArgName("INPUT");
-        opts.addOption(opt);
-
-        opt = new Option("o", "output", true, "The directory to put the generated results to");
-        opt.setRequired(true);
-        opt.setArgName("OUTPUT");
-        opts.addOption(opt);
-
         opt = new Option("s", "dry-run", false, "Don't modify anything on disk, just simulate the generation.");
         opts.addOption(opt);
-        
-        opt = new Option("f", "ignore-unknown-fields", false, "Ignore fields that cannot be generated.");
+
+        opt = new Option("i", "ignore-unknown-fields", false, "Ignore fields that cannot be generated.");
+        opts.addOption(opt);
+
+        opt = new Option("f", "force", false, "Force write into existing folders.");
         opts.addOption(opt);
 
         return opts;
@@ -81,6 +77,16 @@ public class Main {
         }
     }
 
+    private static void printHelp() {
+        HelpFormatter formatter = new HelpFormatter();
+        formatter.printHelp(getExecutableName(), getOptions(), true);
+        System.out.println();
+    }
+
+    private static Path resolvePath(URI path) {
+        return Path.of(path.toString().replaceFirst("^~", System.getProperty("user.home"))).toAbsolutePath();
+    }
+
     public static void main(String[] args) {
         System.out.println(getBanner());
 
@@ -91,13 +97,26 @@ public class Main {
         }
 
         if (params.hasOption("h")) {
-            HelpFormatter formatter = new HelpFormatter();
-            formatter.printHelp("cf-generate", getOptions(), true);
-            System.out.println();
+            printHelp();
             return;
         }
 
-        final String rootPath = Path.of(params.getOptionValue('o')).toAbsolutePath().toString();
+        if (params.getArgList().size() == 0) {
+            printHelp();
+            System.out.println("Missing source and target, aborting.");
+            return;
+        }
+
+        if (params.getArgList().size() != 2) {
+            printHelp();
+            System.out.println("Missing target, aborting.");
+            return;
+        }
+
+        Path sourcePath = resolvePath(URI.createURI(params.getArgList().get(0)));
+        Path targetPath = resolvePath(URI.createURI(params.getArgList().get(1)));
+
+        final String rootPath = targetPath.toString();
         String rootUri;
 
         DefaultFileSystemManager manager = new DefaultFileSystemManager();
@@ -124,8 +143,25 @@ public class Main {
             manager.init();
 
             manager.createVirtualFileSystem(rootUri);
-            
+
             cfg.targetRoot = manager.resolveFile(rootUri);
+
+            if (cfg.targetRoot.isFile()) {
+                Logger.getGlobal().severe(String.format("Target %s is not a folder", rootPath));
+                System.out.println();
+                return;
+            }
+
+            if (cfg.targetRoot.isFolder() && cfg.targetRoot.getChildren().length != 0) {
+                if (params.hasOption('f')) {
+                    Logger.getGlobal().warning(String.format("Forced to write in existing folder %s%n", rootPath));
+                } else {
+                    Logger.getGlobal().severe(String.format("Target folder %s is not empty%n", rootPath));
+                    System.out.println();
+                    return;
+                }
+            }
+
         } catch (FileSystemException e) {
             e.printStackTrace();
             System.err.println("Generation failed");
@@ -134,19 +170,19 @@ public class Main {
 
         // Todo: Add config options here
         cfg.unknownFieldHandling = UnknownFieldHandlingMode.Error;
-        if(params.hasOption("f")) {
-        	cfg.unknownFieldHandling = UnknownFieldHandlingMode.Ignore;
+        if (params.hasOption("i")) {
+            cfg.unknownFieldHandling = UnknownFieldHandlingMode.Ignore;
         }
-        
-        GeneratorUtils.initFactories();
-        PackageGenerator gen = new PackageGenerator(cfg); 
 
-        Package pkg = GeneratorUtils.loadPackageFromUri(URI.createURI(params.getOptionValue('i')));
-        
+        GeneratorUtils.initFactories();
+        PackageGenerator gen = new PackageGenerator(cfg);
+
+        Package pkg = GeneratorUtils.loadPackageFromUri(URI.createURI(sourcePath.toString()));
+
         Logger.getGlobal().info(String.format("Will generate into %s\n", rootUri));
 
         try {
-        	gen.generate(pkg);
+            gen.generate(pkg);
         } catch (Exception e) {
             e.printStackTrace();
             System.err.println("Generation failed");
