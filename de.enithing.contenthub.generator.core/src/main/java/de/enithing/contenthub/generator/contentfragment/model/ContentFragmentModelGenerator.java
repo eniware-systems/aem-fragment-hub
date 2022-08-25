@@ -5,6 +5,7 @@ import java.io.Writer;
 import java.nio.file.Path;
 import java.util.logging.Logger;
 
+import de.enithing.contenthub.generator.util.StringUtils;
 import org.apache.commons.vfs2.FileObject;
 import org.apache.velocity.Template;
 import org.apache.velocity.VelocityContext;
@@ -45,6 +46,7 @@ public class ContentFragmentModelGenerator implements TemplateBasedGenerator<Con
 		Path modelPath = VelocityUtils.replace(mdl.getPath(), ctx);
 		ctx.put("scaffolding", modelPath.toString());
 		ctx.put("title", JcrUtils.toStringValue(mdl.getTitle()));
+		ctx.put("graphQLApiName", StringUtils.toPascalCase(mdl.getId()));
 
 		ContentFragmentFieldGeneratorRegistry fieldGeneratorRegistry = getConfig().getFieldGeneratorRegistry();
 

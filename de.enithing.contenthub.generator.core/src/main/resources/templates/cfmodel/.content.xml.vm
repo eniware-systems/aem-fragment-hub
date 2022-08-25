@@ -35,5 +35,12 @@
                 </content>
             </cq:dialog>
         </model>
+        <metadata jcr:primaryType="nt:unstructured">
+            <graphQL
+                    jcr:primaryType="nt:unstructured"
+                    apiName="$graphQLApiName"
+                    queryFieldMultiple="${graphQLApiName}List"
+                    queryFieldSingle="${graphQLApiName}ByPath"/>
+        </metadata>
     </jcr:content>
 </jcr:root>

@@ -1,5 +1,7 @@
 package de.enithing.contenthub.generator.util;
 
+import org.apache.commons.lang.WordUtils;
+
 import java.util.Locale;
 import java.util.Random;
 
@@ -10,6 +12,11 @@ public class StringUtils {
 	public static String toLowerSnakeCase(String s) {
 		String value = s.toLowerCase(Locale.ROOT).replaceAll("[^a-zA-Z0-9]+", "-");
 		return org.apache.commons.lang3.StringUtils.strip(value, "-");
+	}
+
+	public static String toPascalCase(String s) {
+		String value = toLowerSnakeCase(s);
+		return WordUtils.capitalizeFully(value, new char[]{'-'}).replace("-", "");
 	}
 
 	public static String generateNumericId(int length) {
