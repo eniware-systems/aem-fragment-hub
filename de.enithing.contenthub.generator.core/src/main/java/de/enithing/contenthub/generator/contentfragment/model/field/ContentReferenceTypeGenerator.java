@@ -56,14 +56,12 @@ public class ContentReferenceTypeGenerator extends ContentFragmentMultiFieldType
 	public void populateGraniteAttribs(ContentReference element, VelocityContext ctx, Map<String, Object> attribs) {
 		ValidationConstraint<FileSizeValue> fileSize = element.getFileSizeValidationConstraint();
 
-		if (fileSize instanceof LowerBoundConstraint<FileSizeValue>) {
-			LowerBoundConstraint<FileSizeValue> constraint = (LowerBoundConstraint<FileSizeValue>) fileSize;
+		if (fileSize instanceof LowerBoundConstraint<FileSizeValue> constraint) {
 			attribs.put("filesize-min", constraint.getMin().getValue());
 			attribs.put("filesize-minunit", constraint.getMin().getUnit());
 		}
 
-		if (fileSize instanceof UpperBoundConstraint<FileSizeValue>) {
-			UpperBoundConstraint<FileSizeValue> constraint = (UpperBoundConstraint<FileSizeValue>) fileSize;
+		if (fileSize instanceof UpperBoundConstraint<FileSizeValue> constraint) {
 			attribs.put("filesize-max", constraint.getMax().getValue());
 			attribs.put("filesize-maxunit", constraint.getMax().getUnit());
 		}
@@ -72,13 +70,11 @@ public class ContentReferenceTypeGenerator extends ContentFragmentMultiFieldType
 
 		ValidationConstraint<BigInteger> imageWidth = element.getImageWidthConstraint();
 
-		if (imageWidth instanceof LowerBoundConstraint<BigInteger>) {
-			LowerBoundConstraint<BigInteger> constraint = (LowerBoundConstraint<BigInteger>) imageWidth;
+		if (imageWidth instanceof LowerBoundConstraint<BigInteger> constraint) {
 			attribs.put("imagewidth-min", constraint.getMin());
 		}
 
-		if (imageWidth instanceof UpperBoundConstraint<BigInteger>) {
-			UpperBoundConstraint<BigInteger> constraint = (UpperBoundConstraint<BigInteger>) imageWidth;
+		if (imageWidth instanceof UpperBoundConstraint<BigInteger> constraint) {
 			attribs.put("imagewidth-max", constraint.getMax());
 		}
 
@@ -86,13 +82,11 @@ public class ContentReferenceTypeGenerator extends ContentFragmentMultiFieldType
 
 		ValidationConstraint<BigInteger> imageHeight = element.getImageHeightConstraint();
 
-		if (imageHeight instanceof LowerBoundConstraint<BigInteger>) {
-			LowerBoundConstraint<BigInteger> constraint = (LowerBoundConstraint<BigInteger>) imageHeight;
+		if (imageHeight instanceof LowerBoundConstraint<BigInteger> constraint) {
 			attribs.put("imageheight-min", constraint.getMin());
 		}
 
-		if (imageHeight instanceof UpperBoundConstraint<BigInteger>) {
-			UpperBoundConstraint<BigInteger> constraint = (UpperBoundConstraint<BigInteger>) imageHeight;
+		if (imageHeight instanceof UpperBoundConstraint<BigInteger> constraint) {
 			attribs.put("imageheight-max", constraint.getMax());
 		}
 

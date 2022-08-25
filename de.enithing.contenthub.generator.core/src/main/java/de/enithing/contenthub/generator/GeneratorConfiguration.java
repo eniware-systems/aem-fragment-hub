@@ -15,6 +15,10 @@ public class GeneratorConfiguration {
 	public Generator<?> parentGenerator;
 	public Object parentElement;
 	public UnknownFieldHandlingMode unknownFieldHandling = UnknownFieldHandlingMode.Error;
+
+	public boolean skipSkeletonCreation = false;
+
+	public boolean removeExistingFiles = false;
 	
 	final private ContentFragmentFieldGeneratorRegistry fieldGeneratorRegistry;
 	

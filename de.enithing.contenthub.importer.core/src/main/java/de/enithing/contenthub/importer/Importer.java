@@ -5,20 +5,20 @@ import de.enithing.contenthub.model.contentfragment.ContentFragmentFieldInstance
 import java.util.logging.Logger;
 
 public interface Importer<T> {
-    public ImporterConfiguration getConfig();
+    ImporterConfiguration getConfig();
 
-    default public ImporterConfiguration createChildConfig(T element) {
+    default ImporterConfiguration createChildConfig(T element) {
         ImporterConfiguration cfg = getConfig().clone();
         return cfg;
     }
 
-    public T createElement() throws Exception;
+    T createElement() throws Exception;
 
-    public void onEnter(T element) throws Exception;
+    void onEnter(T element) throws Exception;
 
-    public void onExit(T element) throws Exception;
+    void onExit(T element) throws Exception;
 
-    public Logger getLogger();
+    Logger getLogger();
 
     default T doImport() throws Exception {
         T element = createElement();

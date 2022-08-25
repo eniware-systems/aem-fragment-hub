@@ -22,7 +22,7 @@ import de.enithing.contenthub.model.contenthub.util.ContextUtils;
 
 public class ContentFragmentModelGenerator implements TemplateBasedGenerator<ContentFragmentModel> {
 
-	private GeneratorConfiguration config;
+	private final GeneratorConfiguration config;
 
 	public ContentFragmentModelGenerator(GeneratorConfiguration cfg) {
 		this.config = cfg;
@@ -90,7 +90,7 @@ public class ContentFragmentModelGenerator implements TemplateBasedGenerator<Con
 	public void populateTemplateContext(ContentFragmentModel mdl, VelocityContext ctx) {
 	}
 
-	private static Logger logger = Logger.getLogger(ContentFragmentModelGenerator.class.getSimpleName());
+	private static final Logger logger = Logger.getLogger(ContentFragmentModelGenerator.class.getSimpleName());
 
 	@Override
 	public Logger getLogger() {

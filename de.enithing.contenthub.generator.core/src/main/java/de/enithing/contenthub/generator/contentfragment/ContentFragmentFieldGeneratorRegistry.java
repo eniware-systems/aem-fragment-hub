@@ -49,5 +49,5 @@ public class ContentFragmentFieldGeneratorRegistry {
 		}
 	}
 
-	private HashSet<ContentFragmentFieldGeneratorFactory> factories = new HashSet<>();
+	private final HashSet<ContentFragmentFieldGeneratorFactory> factories = new HashSet<>();
 }

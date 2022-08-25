@@ -1,18 +1,13 @@
 package de.enithing.contenthub.importer.contentfragment.model.field;
 
 import de.enithing.contenthub.importer.ImporterConfiguration;
-import de.enithing.contenthub.importer.contentfragment.instance.field.FragmentReferenceValueImporter;
 import de.enithing.contenthub.importer.contentfragment.model.ContentFragmentFieldTypeImporter;
 import de.enithing.contenthub.importer.util.JcrUtils;
-import de.enithing.contenthub.importer.util.PackageUtils;
 import de.enithing.contenthub.importer.util.PathUtils;
-import de.enithing.contenthub.model.contentfragment.ContentFragmentFieldInstance;
 import de.enithing.contenthub.model.contentfragment.ContentFragmentFieldType;
-import de.enithing.contenthub.model.contentfragment.ContentFragmentInstance;
 import de.enithing.contenthub.model.contentfragment.ContentFragmentModel;
 import de.enithing.contenthub.model.contentfragment.corefields.CorefieldsFactory;
 import de.enithing.contenthub.model.contentfragment.corefields.FragmentReference;
-import de.enithing.contenthub.model.contentfragment.impl.ContentFragmentInstanceImpl;
 import de.enithing.contenthub.model.contentfragment.impl.ContentFragmentModelImpl;
 import de.enithing.contenthub.model.contenthub.ContentHubFactory;
 import de.enithing.contenthub.model.contenthub.Package;
@@ -21,7 +16,6 @@ import org.jdom2.Element;
 
 import java.nio.file.Path;
 import java.util.List;
-import java.util.Objects;
 
 public class FragmentReferenceTypeImporter extends ContentFragmentFieldTypeImporter<FragmentReference> {
     public FragmentReferenceTypeImporter(ImporterConfiguration cfg) {

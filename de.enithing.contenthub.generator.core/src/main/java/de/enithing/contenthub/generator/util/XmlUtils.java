@@ -25,7 +25,7 @@ public class XmlUtils {
 
     private static class ModifiedXMLWriter extends XMLWriter {
         // indentLevel is private, need reflection to read it
-        private Field indentLevel;
+        private final Field indentLevel;
         boolean currentElementHasChildren = false;
 
         public ModifiedXMLWriter(OutputStream out, OutputFormat format) throws UnsupportedEncodingException {
@@ -111,7 +111,7 @@ public class XmlUtils {
     }
 
     private static class ModifiedSAXWriter extends SAXWriter {
-        private Stack<Boolean> hasChildrenStack = new Stack<>();
+        private final Stack<Boolean> hasChildrenStack = new Stack<>();
 
         public ModifiedSAXWriter(ContentHandler contentHandler) {
             super(contentHandler);

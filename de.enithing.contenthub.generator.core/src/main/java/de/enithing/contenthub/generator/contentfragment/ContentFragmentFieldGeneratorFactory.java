@@ -8,7 +8,7 @@ import de.enithing.contenthub.model.contentfragment.ContentFragmentFieldType;
 public interface ContentFragmentFieldGeneratorFactory {
 	Class<?> getFieldTypeClass();
 	
-	default public boolean accepts(ContentFragmentFieldType<?> type) {
+	default boolean accepts(ContentFragmentFieldType<?> type) {
 		return getFieldTypeClass().isAssignableFrom(type.getClass());
 	}
 	

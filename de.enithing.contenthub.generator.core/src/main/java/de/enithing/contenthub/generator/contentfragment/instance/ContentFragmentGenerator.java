@@ -24,7 +24,7 @@ import de.enithing.contenthub.model.contentfragment.ContentFragmentInstance;
 
 public class ContentFragmentGenerator implements TemplateBasedGenerator<ContentFragmentInstance> {
 
-	private GeneratorConfiguration config;
+	private final GeneratorConfiguration config;
 
 	public ContentFragmentGenerator(GeneratorConfiguration cfg) {
 		this.config = cfg;
@@ -117,7 +117,7 @@ public class ContentFragmentGenerator implements TemplateBasedGenerator<ContentF
 
 	}
 
-	private static Logger logger = Logger.getLogger(ContentFragmentGenerator.class.getSimpleName());
+	private static final Logger logger = Logger.getLogger(ContentFragmentGenerator.class.getSimpleName());
 
 	@Override
 	public Logger getLogger() {

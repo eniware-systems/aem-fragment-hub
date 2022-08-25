@@ -93,7 +93,7 @@ public class PackageImporter implements Importer<Package> {
                     set.getModels().add(mdl);
                 }
             } catch (IOException | JDOMException e) {
-                getLogger().severe("Error reading " + xml.getName().toString() + ": " + e.toString());
+                getLogger().severe("Error reading " + xml.getName().toString() + ": " + e);
             }
         }
     }
@@ -159,7 +159,7 @@ public class PackageImporter implements Importer<Package> {
 
 
             } catch (IOException | JDOMException e) {
-                getLogger().severe("Error reading " + xml.getName().toString() + ": " + e.toString());
+                getLogger().severe("Error reading " + xml.getName().toString() + ": " + e);
             }
         }
     }
