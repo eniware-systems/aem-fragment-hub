@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="ContentHub Product" uid="fragmenthub.product" id="org.eclipse.equinox.p2.director.app.product" application="org.eclipse.ui.ide.workbench" version="1.0.0.qualifier" useFeatures="true" includeLaunchers="true" autoIncludeRequirements="true">
+<product name="fragmenthub Product" uid="fragmenthub.product" id="org.eclipse.equinox.p2.director.app.product" application="org.eclipse.ui.ide.workbench" version="1.0.0.qualifier" useFeatures="true" includeLaunchers="true" autoIncludeRequirements="true">
 
    <configIni use="default">
    </configIni>
@@ -24,7 +24,7 @@
    </plugins>
 
    <features>
-      <feature id="de.enithing.contenthub.feature" installMode="root"/>
+      <feature id="de.enithing.fragmenthub.feature" installMode="root"/>
       <feature id="org.eclipse.platform" installMode="root"/>
    </features>
 
