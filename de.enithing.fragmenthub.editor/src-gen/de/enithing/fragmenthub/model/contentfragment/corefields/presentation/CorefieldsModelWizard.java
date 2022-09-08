@@ -70,7 +70,7 @@ import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.ISetSelectionTarget;
 
 import de.enithing.fragmenthub.edit.FragmentHubEditPlugin;
-import de.enithing.fragmenthub.editor.ContentHubEditorPlugin;
+import de.enithing.fragmenthub.editor.FragmentHubEditorPlugin;
 import de.enithing.fragmenthub.model.contentfragment.corefields.CorefieldsFactory;
 import de.enithing.fragmenthub.model.contentfragment.corefields.CorefieldsPackage;
 
@@ -99,7 +99,7 @@ public class CorefieldsModelWizard extends Wizard implements INewWizard {
 	 * @generated
 	 */
 	public static final List<String> FILE_EXTENSIONS =
-		Collections.unmodifiableList(Arrays.asList(ContentHubEditorPlugin.INSTANCE.getString("_UI_CorefieldsEditorFilenameExtensions").split("\\s*,\\s*")));
+		Collections.unmodifiableList(Arrays.asList(FragmentHubEditorPlugin.INSTANCE.getString("_UI_CorefieldsEditorFilenameExtensions").split("\\s*,\\s*")));
 
 	/**
 	 * A formatted list of supported file extensions, suitable for display.
@@ -108,7 +108,7 @@ public class CorefieldsModelWizard extends Wizard implements INewWizard {
 	 * @generated
 	 */
 	public static final String FORMATTED_FILE_EXTENSIONS =
-		ContentHubEditorPlugin.INSTANCE.getString("_UI_CorefieldsEditorFilenameExtensions").replaceAll("\\s*,\\s*", ", ");
+		FragmentHubEditorPlugin.INSTANCE.getString("_UI_CorefieldsEditorFilenameExtensions").replaceAll("\\s*,\\s*", ", ");
 
 	/**
 	 * This caches an instance of the model package.
@@ -176,8 +176,8 @@ public class CorefieldsModelWizard extends Wizard implements INewWizard {
 	public void init(IWorkbench workbench, IStructuredSelection selection) {
 		this.workbench = workbench;
 		this.selection = selection;
-		setWindowTitle(ContentHubEditorPlugin.INSTANCE.getString("_UI_Wizard_label"));
-		setDefaultPageImageDescriptor(ExtendedImageRegistry.INSTANCE.getImageDescriptor(ContentHubEditorPlugin.INSTANCE.getImage("full/wizban/NewCorefields")));
+		setWindowTitle(FragmentHubEditorPlugin.INSTANCE.getString("_UI_Wizard_label"));
+		setDefaultPageImageDescriptor(ExtendedImageRegistry.INSTANCE.getImageDescriptor(FragmentHubEditorPlugin.INSTANCE.getImage("full/wizban/NewCorefields")));
 	}
 
 	/**
@@ -260,7 +260,7 @@ public class CorefieldsModelWizard extends Wizard implements INewWizard {
 							resource.save(options);
 						}
 						catch (Exception exception) {
-							ContentHubEditorPlugin.INSTANCE.log(exception);
+							FragmentHubEditorPlugin.INSTANCE.log(exception);
 						}
 						finally {
 							progressMonitor.done();
@@ -294,14 +294,14 @@ public class CorefieldsModelWizard extends Wizard implements INewWizard {
 					 workbench.getEditorRegistry().getDefaultEditor(modelFile.getFullPath().toString()).getId());					 	 
 			}
 			catch (PartInitException exception) {
-				MessageDialog.openError(workbenchWindow.getShell(), ContentHubEditorPlugin.INSTANCE.getString("_UI_OpenEditorError_label"), exception.getMessage());
+				MessageDialog.openError(workbenchWindow.getShell(), FragmentHubEditorPlugin.INSTANCE.getString("_UI_OpenEditorError_label"), exception.getMessage());
 				return false;
 			}
 
 			return true;
 		}
 		catch (Exception exception) {
-			ContentHubEditorPlugin.INSTANCE.log(exception);
+			FragmentHubEditorPlugin.INSTANCE.log(exception);
 			return false;
 		}
 	}
@@ -335,7 +335,7 @@ public class CorefieldsModelWizard extends Wizard implements INewWizard {
 				String extension = new Path(getFileName()).getFileExtension();
 				if (extension == null || !FILE_EXTENSIONS.contains(extension)) {
 					String key = FILE_EXTENSIONS.size() > 1 ? "_WARN_FilenameExtensions" : "_WARN_FilenameExtension";
-					setErrorMessage(ContentHubEditorPlugin.INSTANCE.getString(key, new Object [] { FORMATTED_FILE_EXTENSIONS }));
+					setErrorMessage(FragmentHubEditorPlugin.INSTANCE.getString(key, new Object [] { FORMATTED_FILE_EXTENSIONS }));
 					return false;
 				}
 				return true;
@@ -413,7 +413,7 @@ public class CorefieldsModelWizard extends Wizard implements INewWizard {
 
 			Label containerLabel = new Label(composite, SWT.LEFT);
 			{
-				containerLabel.setText(ContentHubEditorPlugin.INSTANCE.getString("_UI_ModelObject"));
+				containerLabel.setText(FragmentHubEditorPlugin.INSTANCE.getString("_UI_ModelObject"));
 
 				GridData data = new GridData();
 				data.horizontalAlignment = GridData.FILL;
@@ -439,7 +439,7 @@ public class CorefieldsModelWizard extends Wizard implements INewWizard {
 
 			Label encodingLabel = new Label(composite, SWT.LEFT);
 			{
-				encodingLabel.setText(ContentHubEditorPlugin.INSTANCE.getString("_UI_XMLEncoding"));
+				encodingLabel.setText(FragmentHubEditorPlugin.INSTANCE.getString("_UI_XMLEncoding"));
 
 				GridData data = new GridData();
 				data.horizontalAlignment = GridData.FILL;
@@ -542,7 +542,7 @@ public class CorefieldsModelWizard extends Wizard implements INewWizard {
 				return FragmentHubEditPlugin.INSTANCE.getString("_UI_" + typeName + "_type");
 			}
 			catch(MissingResourceException mre) {
-				ContentHubEditorPlugin.INSTANCE.log(mre);
+				FragmentHubEditorPlugin.INSTANCE.log(mre);
 			}
 			return typeName;
 		}
@@ -555,7 +555,7 @@ public class CorefieldsModelWizard extends Wizard implements INewWizard {
 		protected Collection<String> getEncodings() {
 			if (encodings == null) {
 				encodings = new ArrayList<String>();
-				for (StringTokenizer stringTokenizer = new StringTokenizer(ContentHubEditorPlugin.INSTANCE.getString("_UI_XMLEncodingChoices")); stringTokenizer.hasMoreTokens(); ) {
+				for (StringTokenizer stringTokenizer = new StringTokenizer(FragmentHubEditorPlugin.INSTANCE.getString("_UI_XMLEncodingChoices")); stringTokenizer.hasMoreTokens(); ) {
 					encodings.add(stringTokenizer.nextToken());
 				}
 			}
@@ -574,9 +574,9 @@ public class CorefieldsModelWizard extends Wizard implements INewWizard {
 		// Create a page, set the title, and the initial model file name.
 		//
 		newFileCreationPage = new CorefieldsModelWizardNewFileCreationPage("Whatever", selection);
-		newFileCreationPage.setTitle(ContentHubEditorPlugin.INSTANCE.getString("_UI_CorefieldsModelWizard_label"));
-		newFileCreationPage.setDescription(ContentHubEditorPlugin.INSTANCE.getString("_UI_CorefieldsModelWizard_description"));
-		newFileCreationPage.setFileName(ContentHubEditorPlugin.INSTANCE.getString("_UI_CorefieldsEditorFilenameDefaultBase") + "." + FILE_EXTENSIONS.get(0));
+		newFileCreationPage.setTitle(FragmentHubEditorPlugin.INSTANCE.getString("_UI_CorefieldsModelWizard_label"));
+		newFileCreationPage.setDescription(FragmentHubEditorPlugin.INSTANCE.getString("_UI_CorefieldsModelWizard_description"));
+		newFileCreationPage.setFileName(FragmentHubEditorPlugin.INSTANCE.getString("_UI_CorefieldsEditorFilenameDefaultBase") + "." + FILE_EXTENSIONS.get(0));
 		addPage(newFileCreationPage);
 
 		// Try and get the resource selection to determine a current directory for the file dialog.
@@ -602,7 +602,7 @@ public class CorefieldsModelWizard extends Wizard implements INewWizard {
 
 					// Make up a unique new name here.
 					//
-					String defaultModelBaseFilename = ContentHubEditorPlugin.INSTANCE.getString("_UI_CorefieldsEditorFilenameDefaultBase");
+					String defaultModelBaseFilename = FragmentHubEditorPlugin.INSTANCE.getString("_UI_CorefieldsEditorFilenameDefaultBase");
 					String defaultModelFilenameExtension = FILE_EXTENSIONS.get(0);
 					String modelFilename = defaultModelBaseFilename + "." + defaultModelFilenameExtension;
 					for (int i = 1; ((IContainer)selectedResource).findMember(modelFilename) != null; ++i) {
@@ -613,8 +613,8 @@ public class CorefieldsModelWizard extends Wizard implements INewWizard {
 			}
 		}
 		initialObjectCreationPage = new CorefieldsModelWizardInitialObjectCreationPage("Whatever2");
-		initialObjectCreationPage.setTitle(ContentHubEditorPlugin.INSTANCE.getString("_UI_CorefieldsModelWizard_label"));
-		initialObjectCreationPage.setDescription(ContentHubEditorPlugin.INSTANCE.getString("_UI_Wizard_initial_object_description"));
+		initialObjectCreationPage.setTitle(FragmentHubEditorPlugin.INSTANCE.getString("_UI_CorefieldsModelWizard_label"));
+		initialObjectCreationPage.setDescription(FragmentHubEditorPlugin.INSTANCE.getString("_UI_Wizard_initial_object_description"));
 		addPage(initialObjectCreationPage);
 	}
 

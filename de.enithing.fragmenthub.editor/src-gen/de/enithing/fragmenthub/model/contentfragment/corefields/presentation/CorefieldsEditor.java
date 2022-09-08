@@ -154,8 +154,7 @@ import org.eclipse.emf.edit.ui.util.EditUIMarkerHelper;
 import org.eclipse.emf.edit.ui.util.EditUIUtil;
 
 import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
-
-import de.enithing.fragmenthub.editor.ContentHubEditorPlugin;
+import de.enithing.fragmenthub.editor.FragmentHubEditorPlugin;
 import de.enithing.fragmenthub.model.contentfragment.corefields.provider.CorefieldsItemProviderAdapterFactory;
 import de.enithing.fragmenthub.model.contentfragment.corefields.validation.provider.ValidationItemProviderAdapterFactory;
 import de.enithing.fragmenthub.model.contentfragment.provider.ContentFragmentItemProviderAdapterFactory;
@@ -545,7 +544,7 @@ public class CorefieldsEditor
 					}
 				}
 				catch (CoreException exception) {
-					ContentHubEditorPlugin.INSTANCE.log(exception);
+					FragmentHubEditorPlugin.INSTANCE.log(exception);
 				}
 			}
 		};
@@ -662,7 +661,7 @@ public class CorefieldsEditor
 					showTabs();
 				}
 				catch (PartInitException exception) {
-					ContentHubEditorPlugin.INSTANCE.log(exception);
+					FragmentHubEditorPlugin.INSTANCE.log(exception);
 				}
 			}
 
@@ -671,7 +670,7 @@ public class CorefieldsEditor
 					markerHelper.updateMarkers(diagnostic);
 				}
 				catch (CoreException exception) {
-					ContentHubEditorPlugin.INSTANCE.log(exception);
+					FragmentHubEditorPlugin.INSTANCE.log(exception);
 				}
 			}
 		}
@@ -1553,7 +1552,7 @@ public class CorefieldsEditor
 		catch (Exception exception) {
 			// Something went wrong that shouldn't.
 			//
-			ContentHubEditorPlugin.INSTANCE.log(exception);
+			FragmentHubEditorPlugin.INSTANCE.log(exception);
 		}
 		updateProblemIndication = true;
 		updateProblemIndication();
@@ -1762,7 +1761,7 @@ public class CorefieldsEditor
 	 * @generated
 	 */
 	private static String getString(String key) {
-		return ContentHubEditorPlugin.INSTANCE.getString(key);
+		return FragmentHubEditorPlugin.INSTANCE.getString(key);
 	}
 
 	/**
@@ -1772,7 +1771,7 @@ public class CorefieldsEditor
 	 * @generated
 	 */
 	private static String getString(String key, Object s1) {
-		return ContentHubEditorPlugin.INSTANCE.getString(key, new Object [] { s1 });
+		return FragmentHubEditorPlugin.INSTANCE.getString(key, new Object [] { s1 });
 	}
 
 	/**

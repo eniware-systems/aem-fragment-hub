@@ -9,19 +9,19 @@ import org.eclipse.emf.common.ui.EclipseUIPlugin;
 import org.eclipse.emf.common.util.ResourceLocator;
 
 /**
- * This is the central singleton for the ContentHub editor plugin.
+ * This is the central singleton for the FragmentHub editor plugin.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public final class ContentHubEditorPlugin extends EMFPlugin {
+public final class FragmentHubEditorPlugin extends EMFPlugin {
 	/**
 	 * Keep track of the singleton.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final ContentHubEditorPlugin INSTANCE = new ContentHubEditorPlugin();
+	public static final FragmentHubEditorPlugin INSTANCE = new FragmentHubEditorPlugin();
 	
 	/**
 	 * Keep track of the singleton.
@@ -37,7 +37,7 @@ public final class ContentHubEditorPlugin extends EMFPlugin {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ContentHubEditorPlugin() {
+	public FragmentHubEditorPlugin() {
 		super
 			(new ResourceLocator [] {
 			});

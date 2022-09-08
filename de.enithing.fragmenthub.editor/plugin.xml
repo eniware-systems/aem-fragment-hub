@@ -7,35 +7,35 @@
 <plugin>
 
    <extension point="org.eclipse.ui.newWizards">
-      <!-- @generated ContentHub -->
+      <!-- @generated FragmentHub -->
       <category
             id="org.eclipse.emf.ecore.Wizard.category.ID"
             name="%_UI_Wizard_category"/>
       <wizard
-            id="de.enithing.fragmenthub.model.contenthub.presentation.ContentHubModelWizardID"
-            name="%_UI_ContentHubModelWizard_label"
-            class="de.enithing.fragmenthub.model.contenthub.presentation.ContentHubModelWizard"
+            id="de.enithing.fragmenthub.model.fragmenthub.presentation.FragmentHubModelWizardID"
+            name="%_UI_FragmentHubModelWizard_label"
+            class="de.enithing.fragmenthub.model.fragmenthub.presentation.FragmentHubModelWizard"
             category="org.eclipse.emf.ecore.Wizard.category.ID"
-            icon="icons/full/obj16/ContentHubModelFile.gif">
-         <description>%_UI_ContentHubModelWizard_description</description>
+            icon="icons/full/obj16/FragmentHubModelFile.gif">
+         <description>%_UI_FragmentHubModelWizard_description</description>
          <selection class="org.eclipse.core.resources.IResource"/>
       </wizard>
    </extension>
 
    <extension point="org.eclipse.ui.editors">
-      <!-- @generated ContentHub -->
+      <!-- @generated FragmentHub -->
       <editor
-            id="de.enithing.fragmenthub.model.contenthub.presentation.ContentHubEditorID"
-            name="%_UI_ContentHubEditor_label"
-            icon="icons/full/obj16/ContentHubModelFile.gif"
-            extensions="chub"
-            class="de.enithing.fragmenthub.model.contenthub.presentation.ContentHubEditor"
-            contributorClass="de.enithing.fragmenthub.model.contenthub.presentation.ContentHubActionBarContributor">
+            id="de.enithing.fragmenthub.model.fragmenthub.presentation.FragmentHubEditorID"
+            name="%_UI_FragmentHubEditor_label"
+            icon="icons/full/obj16/FragmentHubModelFile.gif"
+            extensions="afh"
+            class="de.enithing.fragmenthub.model.fragmenthub.presentation.FragmentHubEditor"
+            contributorClass="de.enithing.fragmenthub.model.fragmenthub.presentation.FragmentHubActionBarContributor">
       </editor>
    </extension>
 
    <extension point="org.eclipse.ui.newWizards">
-      <!-- @generated ContentHub -->
+      <!-- @generated FragmentHub -->
       <category
             id="org.eclipse.emf.ecore.Wizard.category.ID"
             name="%_UI_Wizard_category"/>
@@ -51,7 +51,7 @@
    </extension>
 
    <extension point="org.eclipse.ui.editors">
-      <!-- @generated ContentHub -->
+      <!-- @generated FragmentHub -->
       <editor
             id="de.enithing.fragmenthub.model.contentfragment.presentation.ContentFragmentEditorID"
             name="%_UI_ContentFragmentEditor_label"
@@ -63,7 +63,7 @@
    </extension>
 
    <extension point="org.eclipse.ui.newWizards">
-      <!-- @generated ContentHub -->
+      <!-- @generated FragmentHub -->
       <category
             id="org.eclipse.emf.ecore.Wizard.category.ID"
             name="%_UI_Wizard_category"/>
@@ -79,7 +79,7 @@
    </extension>
 
    <extension point="org.eclipse.ui.editors">
-      <!-- @generated ContentHub -->
+      <!-- @generated FragmentHub -->
       <editor
             id="de.enithing.fragmenthub.model.contentfragment.corefields.presentation.CorefieldsEditorID"
             name="%_UI_CorefieldsEditor_label"
@@ -91,7 +91,7 @@
    </extension>
 
    <extension point="org.eclipse.ui.newWizards">
-      <!-- @generated ContentHub -->
+      <!-- @generated FragmentHub -->
       <category
             id="org.eclipse.emf.ecore.Wizard.category.ID"
             name="%_UI_Wizard_category"/>
@@ -107,7 +107,7 @@
    </extension>
 
    <extension point="org.eclipse.ui.editors">
-      <!-- @generated ContentHub -->
+      <!-- @generated FragmentHub -->
       <editor
             id="de.enithing.fragmenthub.model.contentfragment.corefields.validation.presentation.ValidationEditorID"
             name="%_UI_ValidationEditor_label"

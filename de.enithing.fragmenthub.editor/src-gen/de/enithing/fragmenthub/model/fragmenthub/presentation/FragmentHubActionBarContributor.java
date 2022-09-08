@@ -39,15 +39,15 @@ import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.PartInitException;
 
-import de.enithing.fragmenthub.editor.ContentHubEditorPlugin;
+import de.enithing.fragmenthub.editor.FragmentHubEditorPlugin;
 
 /**
- * This is the action bar contributor for the ContentHub model editor.
+ * This is the action bar contributor for the FragmentHub model editor.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ContentHubActionBarContributor
+public class FragmentHubActionBarContributor
 	extends EditingDomainActionBarContributor
 	implements ISelectionChangedListener {
 	/**
@@ -73,14 +73,14 @@ public class ContentHubActionBarContributor
 	 * @generated
 	 */
 	protected IAction showPropertiesViewAction =
-		new Action(ContentHubEditorPlugin.INSTANCE.getString("_UI_ShowPropertiesView_menu_item")) {
+		new Action(FragmentHubEditorPlugin.INSTANCE.getString("_UI_ShowPropertiesView_menu_item")) {
 			@Override
 			public void run() {
 				try {
 					getPage().showView("org.eclipse.ui.views.PropertySheet");
 				}
 				catch (PartInitException exception) {
-					ContentHubEditorPlugin.INSTANCE.log(exception);
+					FragmentHubEditorPlugin.INSTANCE.log(exception);
 				}
 			}
 		};
@@ -93,7 +93,7 @@ public class ContentHubActionBarContributor
 	 * @generated
 	 */
 	protected IAction refreshViewerAction =
-		new Action(ContentHubEditorPlugin.INSTANCE.getString("_UI_RefreshViewer_menu_item")) {
+		new Action(FragmentHubEditorPlugin.INSTANCE.getString("_UI_RefreshViewer_menu_item")) {
 			@Override
 			public boolean isEnabled() {
 				return activeEditorPart instanceof IViewerProvider;
@@ -150,7 +150,7 @@ public class ContentHubActionBarContributor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ContentHubActionBarContributor() {
+	public FragmentHubActionBarContributor() {
 		super(ADDITIONS_LAST_STYLE);
 		loadResourceAction = new LoadResourceAction();
 		validateAction = new ValidateAction();
@@ -166,8 +166,8 @@ public class ContentHubActionBarContributor
 	@Override
 	public void contributeToToolBar(IToolBarManager toolBarManager) {
 		super.contributeToToolBar(toolBarManager);
-		toolBarManager.add(new Separator("contenthub-settings"));
-		toolBarManager.add(new Separator("contenthub-additions"));
+		toolBarManager.add(new Separator("fragmenthub-settings"));
+		toolBarManager.add(new Separator("fragmenthub-additions"));
 	}
 
 	/**
@@ -181,7 +181,7 @@ public class ContentHubActionBarContributor
 	public void contributeToMenu(IMenuManager menuManager) {
 		super.contributeToMenu(menuManager);
 
-		IMenuManager submenuManager = new MenuManager(ContentHubEditorPlugin.INSTANCE.getString("_UI_ContentHubEditor_menu"), "de.enithing.contenthub.model.contenthubMenuID");
+		IMenuManager submenuManager = new MenuManager(FragmentHubEditorPlugin.INSTANCE.getString("_UI_FragmentHubEditor_menu"), "de.enithing.fragmenthub.model.fragmenthubMenuID");
 		menuManager.insertAfter("additions", submenuManager);
 		submenuManager.add(new Separator("settings"));
 		submenuManager.add(new Separator("actions"));
@@ -190,12 +190,12 @@ public class ContentHubActionBarContributor
 
 		// Prepare for CreateChild item addition or removal.
 		//
-		createChildMenuManager = new MenuManager(ContentHubEditorPlugin.INSTANCE.getString("_UI_CreateChild_menu_item"));
+		createChildMenuManager = new MenuManager(FragmentHubEditorPlugin.INSTANCE.getString("_UI_CreateChild_menu_item"));
 		submenuManager.insertBefore("additions", createChildMenuManager);
 
 		// Prepare for CreateSibling item addition or removal.
 		//
-		createSiblingMenuManager = new MenuManager(ContentHubEditorPlugin.INSTANCE.getString("_UI_CreateSibling_menu_item"));
+		createSiblingMenuManager = new MenuManager(FragmentHubEditorPlugin.INSTANCE.getString("_UI_CreateSibling_menu_item"));
 		submenuManager.insertBefore("additions", createSiblingMenuManager);
 
 		// Force an update because Eclipse hides empty menus now.
@@ -388,11 +388,11 @@ public class ContentHubActionBarContributor
 		super.menuAboutToShow(menuManager);
 		MenuManager submenuManager = null;
 
-		submenuManager = new MenuManager(ContentHubEditorPlugin.INSTANCE.getString("_UI_CreateChild_menu_item"));
+		submenuManager = new MenuManager(FragmentHubEditorPlugin.INSTANCE.getString("_UI_CreateChild_menu_item"));
 		populateManager(submenuManager, createChildActions, null);
 		menuManager.insertBefore("edit", submenuManager);
 
-		submenuManager = new MenuManager(ContentHubEditorPlugin.INSTANCE.getString("_UI_CreateSibling_menu_item"));
+		submenuManager = new MenuManager(FragmentHubEditorPlugin.INSTANCE.getString("_UI_CreateSibling_menu_item"));
 		populateManager(submenuManager, createSiblingActions, null);
 		menuManager.insertBefore("edit", submenuManager);
 	}

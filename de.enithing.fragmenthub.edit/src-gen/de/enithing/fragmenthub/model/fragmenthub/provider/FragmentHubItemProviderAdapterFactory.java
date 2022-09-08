@@ -2,7 +2,6 @@
  */
 package de.enithing.fragmenthub.model.fragmenthub.provider;
 
-import de.enithing.fragmenthub.model.fragmenthub.provider.ExtendedContextItemProvider;
 import de.enithing.fragmenthub.model.fragmenthub.util.FragmentHubAdapterFactory;
 
 import java.util.ArrayList;
@@ -72,7 +71,7 @@ public class FragmentHubItemProviderAdapterFactory extends FragmentHubAdapterFac
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.enithing.fragmenthub.model.contenthub.SimplePath} instances.
+	 * This keeps track of the one adapter used for all {@link de.enithing.fragmenthub.model.fragmenthub.SimplePath} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -80,7 +79,7 @@ public class FragmentHubItemProviderAdapterFactory extends FragmentHubAdapterFac
 	protected SimplePathItemProvider simplePathItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.enithing.fragmenthub.model.contenthub.SimplePath}.
+	 * This creates an adapter for a {@link de.enithing.fragmenthub.model.fragmenthub.SimplePath}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -95,7 +94,7 @@ public class FragmentHubItemProviderAdapterFactory extends FragmentHubAdapterFac
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.enithing.fragmenthub.model.contenthub.ContextPath} instances.
+	 * This keeps track of the one adapter used for all {@link de.enithing.fragmenthub.model.fragmenthub.ContextPath} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -103,7 +102,7 @@ public class FragmentHubItemProviderAdapterFactory extends FragmentHubAdapterFac
 	protected ContextPathItemProvider contextPathItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.enithing.fragmenthub.model.contenthub.ContextPath}.
+	 * This creates an adapter for a {@link de.enithing.fragmenthub.model.fragmenthub.ContextPath}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -118,7 +117,7 @@ public class FragmentHubItemProviderAdapterFactory extends FragmentHubAdapterFac
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.enithing.fragmenthub.model.contenthub.Package} instances.
+	 * This keeps track of the one adapter used for all {@link de.enithing.fragmenthub.model.fragmenthub.Package} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -126,7 +125,7 @@ public class FragmentHubItemProviderAdapterFactory extends FragmentHubAdapterFac
 	protected PackageItemProvider packageItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.enithing.fragmenthub.model.contenthub.Package}.
+	 * This creates an adapter for a {@link de.enithing.fragmenthub.model.fragmenthub.Package}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -141,7 +140,7 @@ public class FragmentHubItemProviderAdapterFactory extends FragmentHubAdapterFac
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.enithing.fragmenthub.model.contenthub.Context} instances.
+	 * This keeps track of the one adapter used for all {@link de.enithing.fragmenthub.model.fragmenthub.Context} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated

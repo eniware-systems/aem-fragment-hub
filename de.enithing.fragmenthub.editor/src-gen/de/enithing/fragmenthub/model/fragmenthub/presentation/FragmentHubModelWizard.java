@@ -70,7 +70,7 @@ import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.ISetSelectionTarget;
 
 import de.enithing.fragmenthub.edit.FragmentHubEditPlugin;
-import de.enithing.fragmenthub.editor.ContentHubEditorPlugin;
+import de.enithing.fragmenthub.editor.FragmentHubEditorPlugin;
 import de.enithing.fragmenthub.model.fragmenthub.FragmentHubFactory;
 import de.enithing.fragmenthub.model.fragmenthub.FragmentHubPackage;
 
@@ -91,7 +91,7 @@ import org.eclipse.ui.PartInitException;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ContentHubModelWizard extends Wizard implements INewWizard {
+public class FragmentHubModelWizard extends Wizard implements INewWizard {
 	/**
 	 * The supported extensions for created files.
 	 * <!-- begin-user-doc -->
@@ -99,7 +99,7 @@ public class ContentHubModelWizard extends Wizard implements INewWizard {
 	 * @generated
 	 */
 	public static final List<String> FILE_EXTENSIONS =
-		Collections.unmodifiableList(Arrays.asList(ContentHubEditorPlugin.INSTANCE.getString("_UI_ContentHubEditorFilenameExtensions").split("\\s*,\\s*")));
+		Collections.unmodifiableList(Arrays.asList(FragmentHubEditorPlugin.INSTANCE.getString("_UI_FragmentHubEditorFilenameExtensions").split("\\s*,\\s*")));
 
 	/**
 	 * A formatted list of supported file extensions, suitable for display.
@@ -108,7 +108,7 @@ public class ContentHubModelWizard extends Wizard implements INewWizard {
 	 * @generated
 	 */
 	public static final String FORMATTED_FILE_EXTENSIONS =
-		ContentHubEditorPlugin.INSTANCE.getString("_UI_ContentHubEditorFilenameExtensions").replaceAll("\\s*,\\s*", ", ");
+		FragmentHubEditorPlugin.INSTANCE.getString("_UI_FragmentHubEditorFilenameExtensions").replaceAll("\\s*,\\s*", ", ");
 
 	/**
 	 * This caches an instance of the model package.
@@ -116,7 +116,7 @@ public class ContentHubModelWizard extends Wizard implements INewWizard {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected FragmentHubPackage contentHubPackage = FragmentHubPackage.eINSTANCE;
+	protected FragmentHubPackage fragmentHubPackage = FragmentHubPackage.eINSTANCE;
 
 	/**
 	 * This caches an instance of the model factory.
@@ -124,7 +124,7 @@ public class ContentHubModelWizard extends Wizard implements INewWizard {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected FragmentHubFactory contentHubFactory = contentHubPackage.getContentHubFactory();
+	protected FragmentHubFactory fragmentHubFactory = fragmentHubPackage.getFragmentHubFactory();
 
 	/**
 	 * This is the file creation page.
@@ -132,7 +132,7 @@ public class ContentHubModelWizard extends Wizard implements INewWizard {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ContentHubModelWizardNewFileCreationPage newFileCreationPage;
+	protected FragmentHubModelWizardNewFileCreationPage newFileCreationPage;
 
 	/**
 	 * This is the initial object creation page.
@@ -140,7 +140,7 @@ public class ContentHubModelWizard extends Wizard implements INewWizard {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ContentHubModelWizardInitialObjectCreationPage initialObjectCreationPage;
+	protected FragmentHubModelWizardInitialObjectCreationPage initialObjectCreationPage;
 
 	/**
 	 * Remember the selection during initialization for populating the default container.
@@ -176,8 +176,8 @@ public class ContentHubModelWizard extends Wizard implements INewWizard {
 	public void init(IWorkbench workbench, IStructuredSelection selection) {
 		this.workbench = workbench;
 		this.selection = selection;
-		setWindowTitle(ContentHubEditorPlugin.INSTANCE.getString("_UI_Wizard_label"));
-		setDefaultPageImageDescriptor(ExtendedImageRegistry.INSTANCE.getImageDescriptor(ContentHubEditorPlugin.INSTANCE.getImage("full/wizban/NewContentHub")));
+		setWindowTitle(FragmentHubEditorPlugin.INSTANCE.getString("_UI_Wizard_label"));
+		setDefaultPageImageDescriptor(ExtendedImageRegistry.INSTANCE.getImageDescriptor(FragmentHubEditorPlugin.INSTANCE.getImage("full/wizban/NewFragmentHub")));
 	}
 
 	/**
@@ -189,7 +189,7 @@ public class ContentHubModelWizard extends Wizard implements INewWizard {
 	protected Collection<String> getInitialObjectNames() {
 		if (initialObjectNames == null) {
 			initialObjectNames = new ArrayList<String>();
-			for (EClassifier eClassifier : contentHubPackage.getEClassifiers()) {
+			for (EClassifier eClassifier : fragmentHubPackage.getEClassifiers()) {
 				if (eClassifier instanceof EClass) {
 					EClass eClass = (EClass)eClassifier;
 					if (!eClass.isAbstract()) {
@@ -209,8 +209,8 @@ public class ContentHubModelWizard extends Wizard implements INewWizard {
 	 * @generated
 	 */
 	protected EObject createInitialModel() {
-		EClass eClass = (EClass)contentHubPackage.getEClassifier(initialObjectCreationPage.getInitialObjectName());
-		EObject rootObject = contentHubFactory.create(eClass);
+		EClass eClass = (EClass)fragmentHubPackage.getEClassifier(initialObjectCreationPage.getInitialObjectName());
+		EObject rootObject = fragmentHubFactory.create(eClass);
 		return rootObject;
 	}
 
@@ -260,7 +260,7 @@ public class ContentHubModelWizard extends Wizard implements INewWizard {
 							resource.save(options);
 						}
 						catch (Exception exception) {
-							ContentHubEditorPlugin.INSTANCE.log(exception);
+							FragmentHubEditorPlugin.INSTANCE.log(exception);
 						}
 						finally {
 							progressMonitor.done();
@@ -294,14 +294,14 @@ public class ContentHubModelWizard extends Wizard implements INewWizard {
 					 workbench.getEditorRegistry().getDefaultEditor(modelFile.getFullPath().toString()).getId());					 	 
 			}
 			catch (PartInitException exception) {
-				MessageDialog.openError(workbenchWindow.getShell(), ContentHubEditorPlugin.INSTANCE.getString("_UI_OpenEditorError_label"), exception.getMessage());
+				MessageDialog.openError(workbenchWindow.getShell(), FragmentHubEditorPlugin.INSTANCE.getString("_UI_OpenEditorError_label"), exception.getMessage());
 				return false;
 			}
 
 			return true;
 		}
 		catch (Exception exception) {
-			ContentHubEditorPlugin.INSTANCE.log(exception);
+			FragmentHubEditorPlugin.INSTANCE.log(exception);
 			return false;
 		}
 	}
@@ -312,14 +312,14 @@ public class ContentHubModelWizard extends Wizard implements INewWizard {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public class ContentHubModelWizardNewFileCreationPage extends WizardNewFileCreationPage {
+	public class FragmentHubModelWizardNewFileCreationPage extends WizardNewFileCreationPage {
 		/**
 		 * Pass in the selection.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		public ContentHubModelWizardNewFileCreationPage(String pageId, IStructuredSelection selection) {
+		public FragmentHubModelWizardNewFileCreationPage(String pageId, IStructuredSelection selection) {
 			super(pageId, selection);
 		}
 
@@ -335,7 +335,7 @@ public class ContentHubModelWizard extends Wizard implements INewWizard {
 				String extension = new Path(getFileName()).getFileExtension();
 				if (extension == null || !FILE_EXTENSIONS.contains(extension)) {
 					String key = FILE_EXTENSIONS.size() > 1 ? "_WARN_FilenameExtensions" : "_WARN_FilenameExtension";
-					setErrorMessage(ContentHubEditorPlugin.INSTANCE.getString(key, new Object [] { FORMATTED_FILE_EXTENSIONS }));
+					setErrorMessage(FragmentHubEditorPlugin.INSTANCE.getString(key, new Object [] { FORMATTED_FILE_EXTENSIONS }));
 					return false;
 				}
 				return true;
@@ -359,7 +359,7 @@ public class ContentHubModelWizard extends Wizard implements INewWizard {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public class ContentHubModelWizardInitialObjectCreationPage extends WizardPage {
+	public class FragmentHubModelWizardInitialObjectCreationPage extends WizardPage {
 		/**
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -387,7 +387,7 @@ public class ContentHubModelWizard extends Wizard implements INewWizard {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		public ContentHubModelWizardInitialObjectCreationPage(String pageId) {
+		public FragmentHubModelWizardInitialObjectCreationPage(String pageId) {
 			super(pageId);
 		}
 
@@ -398,7 +398,8 @@ public class ContentHubModelWizard extends Wizard implements INewWizard {
 		 */
 		@Override
 		public void createControl(Composite parent) {
-			Composite composite = new Composite(parent, SWT.NONE); {
+			Composite composite = new Composite(parent, SWT.NONE);
+			{
 				GridLayout layout = new GridLayout();
 				layout.numColumns = 1;
 				layout.verticalSpacing = 12;
@@ -413,7 +414,7 @@ public class ContentHubModelWizard extends Wizard implements INewWizard {
 
 			Label containerLabel = new Label(composite, SWT.LEFT);
 			{
-				containerLabel.setText(ContentHubEditorPlugin.INSTANCE.getString("_UI_ModelObject"));
+				containerLabel.setText(FragmentHubEditorPlugin.INSTANCE.getString("_UI_ModelObject"));
 
 				GridData data = new GridData();
 				data.horizontalAlignment = GridData.FILL;
@@ -439,7 +440,7 @@ public class ContentHubModelWizard extends Wizard implements INewWizard {
 
 			Label encodingLabel = new Label(composite, SWT.LEFT);
 			{
-				encodingLabel.setText(ContentHubEditorPlugin.INSTANCE.getString("_UI_XMLEncoding"));
+				encodingLabel.setText(FragmentHubEditorPlugin.INSTANCE.getString("_UI_XMLEncoding"));
 
 				GridData data = new GridData();
 				data.horizontalAlignment = GridData.FILL;
@@ -542,7 +543,7 @@ public class ContentHubModelWizard extends Wizard implements INewWizard {
 				return FragmentHubEditPlugin.INSTANCE.getString("_UI_" + typeName + "_type");
 			}
 			catch(MissingResourceException mre) {
-				ContentHubEditorPlugin.INSTANCE.log(mre);
+				FragmentHubEditorPlugin.INSTANCE.log(mre);
 			}
 			return typeName;
 		}
@@ -555,7 +556,7 @@ public class ContentHubModelWizard extends Wizard implements INewWizard {
 		protected Collection<String> getEncodings() {
 			if (encodings == null) {
 				encodings = new ArrayList<String>();
-				for (StringTokenizer stringTokenizer = new StringTokenizer(ContentHubEditorPlugin.INSTANCE.getString("_UI_XMLEncodingChoices")); stringTokenizer.hasMoreTokens(); ) {
+				for (StringTokenizer stringTokenizer = new StringTokenizer(FragmentHubEditorPlugin.INSTANCE.getString("_UI_XMLEncodingChoices")); stringTokenizer.hasMoreTokens(); ) {
 					encodings.add(stringTokenizer.nextToken());
 				}
 			}
@@ -573,10 +574,10 @@ public class ContentHubModelWizard extends Wizard implements INewWizard {
 	public void addPages() {
 		// Create a page, set the title, and the initial model file name.
 		//
-		newFileCreationPage = new ContentHubModelWizardNewFileCreationPage("Whatever", selection);
-		newFileCreationPage.setTitle(ContentHubEditorPlugin.INSTANCE.getString("_UI_ContentHubModelWizard_label"));
-		newFileCreationPage.setDescription(ContentHubEditorPlugin.INSTANCE.getString("_UI_ContentHubModelWizard_description"));
-		newFileCreationPage.setFileName(ContentHubEditorPlugin.INSTANCE.getString("_UI_ContentHubEditorFilenameDefaultBase") + "." + FILE_EXTENSIONS.get(0));
+		newFileCreationPage = new FragmentHubModelWizardNewFileCreationPage("Whatever", selection);
+		newFileCreationPage.setTitle(FragmentHubEditorPlugin.INSTANCE.getString("_UI_FragmentHubModelWizard_label"));
+		newFileCreationPage.setDescription(FragmentHubEditorPlugin.INSTANCE.getString("_UI_FragmentHubModelWizard_description"));
+		newFileCreationPage.setFileName(FragmentHubEditorPlugin.INSTANCE.getString("_UI_FragmentHubEditorFilenameDefaultBase") + "." + FILE_EXTENSIONS.get(0));
 		addPage(newFileCreationPage);
 
 		// Try and get the resource selection to determine a current directory for the file dialog.
@@ -602,7 +603,7 @@ public class ContentHubModelWizard extends Wizard implements INewWizard {
 
 					// Make up a unique new name here.
 					//
-					String defaultModelBaseFilename = ContentHubEditorPlugin.INSTANCE.getString("_UI_ContentHubEditorFilenameDefaultBase");
+					String defaultModelBaseFilename = FragmentHubEditorPlugin.INSTANCE.getString("_UI_FragmentHubEditorFilenameDefaultBase");
 					String defaultModelFilenameExtension = FILE_EXTENSIONS.get(0);
 					String modelFilename = defaultModelBaseFilename + "." + defaultModelFilenameExtension;
 					for (int i = 1; ((IContainer)selectedResource).findMember(modelFilename) != null; ++i) {
@@ -612,9 +613,9 @@ public class ContentHubModelWizard extends Wizard implements INewWizard {
 				}
 			}
 		}
-		initialObjectCreationPage = new ContentHubModelWizardInitialObjectCreationPage("Whatever2");
-		initialObjectCreationPage.setTitle(ContentHubEditorPlugin.INSTANCE.getString("_UI_ContentHubModelWizard_label"));
-		initialObjectCreationPage.setDescription(ContentHubEditorPlugin.INSTANCE.getString("_UI_Wizard_initial_object_description"));
+		initialObjectCreationPage = new FragmentHubModelWizardInitialObjectCreationPage("Whatever2");
+		initialObjectCreationPage.setTitle(FragmentHubEditorPlugin.INSTANCE.getString("_UI_FragmentHubModelWizard_label"));
+		initialObjectCreationPage.setDescription(FragmentHubEditorPlugin.INSTANCE.getString("_UI_Wizard_initial_object_description"));
 		addPage(initialObjectCreationPage);
 	}
 

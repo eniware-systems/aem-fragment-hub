@@ -155,7 +155,7 @@ import org.eclipse.emf.edit.ui.util.EditUIUtil;
 
 import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 
-import de.enithing.fragmenthub.editor.ContentHubEditorPlugin;
+import de.enithing.fragmenthub.editor.FragmentHubEditorPlugin;
 import de.enithing.fragmenthub.model.contentfragment.corefields.provider.CorefieldsItemProviderAdapterFactory;
 import de.enithing.fragmenthub.model.contentfragment.corefields.validation.provider.ValidationItemProviderAdapterFactory;
 import de.enithing.fragmenthub.model.contentfragment.provider.ContentFragmentItemProviderAdapterFactory;
@@ -165,12 +165,12 @@ import org.eclipse.ui.actions.WorkspaceModifyOperation;
 
 
 /**
- * This is an example of a ContentHub model editor.
+ * This is an example of a FragmentHub model editor.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ContentHubEditor
+public class FragmentHubEditor
 	extends MultiPageEditorPart
 	implements IEditingDomainProvider, ISelectionProvider, IMenuListener, IViewerProvider, IGotoMarker {
 	/**
@@ -333,18 +333,18 @@ public class ContentHubEditor
 			public void partActivated(IWorkbenchPart p) {
 				if (p instanceof ContentOutline) {
 					if (((ContentOutline)p).getCurrentPage() == contentOutlinePage) {
-						getActionBarContributor().setActiveEditor(ContentHubEditor.this);
+						getActionBarContributor().setActiveEditor(FragmentHubEditor.this);
 
 						setCurrentViewer(contentOutlineViewer);
 					}
 				}
 				else if (p instanceof PropertySheet) {
 					if (propertySheetPages.contains(((PropertySheet)p).getCurrentPage())) {
-						getActionBarContributor().setActiveEditor(ContentHubEditor.this);
+						getActionBarContributor().setActiveEditor(FragmentHubEditor.this);
 						handleActivate();
 					}
 				}
-				else if (p == ContentHubEditor.this) {
+				else if (p == FragmentHubEditor.this) {
 					handleActivate();
 				}
 			}
@@ -525,7 +525,7 @@ public class ContentHubEditor
 								 public void run() {
 									 removedResources.addAll(visitor.getRemovedResources());
 									 if (!isDirty()) {
-										 getSite().getPage().closeEditor(ContentHubEditor.this, false);
+										 getSite().getPage().closeEditor(FragmentHubEditor.this, false);
 									 }
 								 }
 							 });
@@ -537,7 +537,7 @@ public class ContentHubEditor
 								 @Override
 								 public void run() {
 									 changedResources.addAll(visitor.getChangedResources());
-									 if (getSite().getPage().getActiveEditor() == ContentHubEditor.this) {
+									 if (getSite().getPage().getActiveEditor() == FragmentHubEditor.this) {
 										 handleActivate();
 									 }
 								 }
@@ -545,7 +545,7 @@ public class ContentHubEditor
 					}
 				}
 				catch (CoreException exception) {
-					ContentHubEditorPlugin.INSTANCE.log(exception);
+					FragmentHubEditorPlugin.INSTANCE.log(exception);
 				}
 			}
 		};
@@ -569,7 +569,7 @@ public class ContentHubEditor
 
 		if (!removedResources.isEmpty()) {
 			if (handleDirtyConflict()) {
-				getSite().getPage().closeEditor(ContentHubEditor.this, false);
+				getSite().getPage().closeEditor(FragmentHubEditor.this, false);
 			}
 			else {
 				removedResources.clear();
@@ -662,7 +662,7 @@ public class ContentHubEditor
 					showTabs();
 				}
 				catch (PartInitException exception) {
-					ContentHubEditorPlugin.INSTANCE.log(exception);
+					FragmentHubEditorPlugin.INSTANCE.log(exception);
 				}
 			}
 
@@ -671,7 +671,7 @@ public class ContentHubEditor
 					markerHelper.updateMarkers(diagnostic);
 				}
 				catch (CoreException exception) {
-					ContentHubEditorPlugin.INSTANCE.log(exception);
+					FragmentHubEditorPlugin.INSTANCE.log(exception);
 				}
 			}
 		}
@@ -697,7 +697,7 @@ public class ContentHubEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ContentHubEditor() {
+	public FragmentHubEditor() {
 		super();
 		initializeEditingDomain();
 	}
@@ -1044,7 +1044,7 @@ public class ContentHubEditor
 			//
 			{
 				ViewerPane viewerPane =
-					new ViewerPane(getSite().getPage(), ContentHubEditor.this) {
+					new ViewerPane(getSite().getPage(), FragmentHubEditor.this) {
 						@Override
 						public Viewer createViewer(Composite composite) {
 							Tree tree = new Tree(composite, SWT.MULTI);
@@ -1079,7 +1079,7 @@ public class ContentHubEditor
 			//
 			{
 				ViewerPane viewerPane =
-					new ViewerPane(getSite().getPage(), ContentHubEditor.this) {
+					new ViewerPane(getSite().getPage(), FragmentHubEditor.this) {
 						@Override
 						public Viewer createViewer(Composite composite) {
 							Tree tree = new Tree(composite, SWT.MULTI);
@@ -1108,7 +1108,7 @@ public class ContentHubEditor
 			//
 			{
 				ViewerPane viewerPane =
-					new ViewerPane(getSite().getPage(), ContentHubEditor.this) {
+					new ViewerPane(getSite().getPage(), FragmentHubEditor.this) {
 						@Override
 						public Viewer createViewer(Composite composite) {
 							return new ListViewer(composite);
@@ -1133,7 +1133,7 @@ public class ContentHubEditor
 			//
 			{
 				ViewerPane viewerPane =
-					new ViewerPane(getSite().getPage(), ContentHubEditor.this) {
+					new ViewerPane(getSite().getPage(), FragmentHubEditor.this) {
 						@Override
 						public Viewer createViewer(Composite composite) {
 							return new TreeViewer(composite);
@@ -1160,7 +1160,7 @@ public class ContentHubEditor
 			//
 			{
 				ViewerPane viewerPane =
-					new ViewerPane(getSite().getPage(), ContentHubEditor.this) {
+					new ViewerPane(getSite().getPage(), FragmentHubEditor.this) {
 						@Override
 						public Viewer createViewer(Composite composite) {
 							return new TableViewer(composite);
@@ -1203,7 +1203,7 @@ public class ContentHubEditor
 			//
 			{
 				ViewerPane viewerPane =
-					new ViewerPane(getSite().getPage(), ContentHubEditor.this) {
+					new ViewerPane(getSite().getPage(), FragmentHubEditor.this) {
 						@Override
 						public Viewer createViewer(Composite composite) {
 							return new TreeViewer(composite);
@@ -1428,8 +1428,8 @@ public class ContentHubEditor
 			new ExtendedPropertySheetPage(editingDomain, ExtendedPropertySheetPage.Decoration.NONE, null, 0, false) {
 				@Override
 				public void setSelectionToViewer(List<?> selection) {
-					ContentHubEditor.this.setSelectionToViewer(selection);
-					ContentHubEditor.this.setFocus();
+					FragmentHubEditor.this.setSelectionToViewer(selection);
+					FragmentHubEditor.this.setFocus();
 				}
 
 				@Override
@@ -1553,7 +1553,7 @@ public class ContentHubEditor
 		catch (Exception exception) {
 			// Something went wrong that shouldn't.
 			//
-			ContentHubEditorPlugin.INSTANCE.log(exception);
+			FragmentHubEditorPlugin.INSTANCE.log(exception);
 		}
 		updateProblemIndication = true;
 		updateProblemIndication();
@@ -1762,7 +1762,7 @@ public class ContentHubEditor
 	 * @generated
 	 */
 	private static String getString(String key) {
-		return ContentHubEditorPlugin.INSTANCE.getString(key);
+		return FragmentHubEditorPlugin.INSTANCE.getString(key);
 	}
 
 	/**
@@ -1772,7 +1772,7 @@ public class ContentHubEditor
 	 * @generated
 	 */
 	private static String getString(String key, Object s1) {
-		return ContentHubEditorPlugin.INSTANCE.getString(key, new Object [] { s1 });
+		return FragmentHubEditorPlugin.INSTANCE.getString(key, new Object [] { s1 });
 	}
 
 	/**

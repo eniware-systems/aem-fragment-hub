@@ -5,7 +5,7 @@ Bundle-SymbolicName: de.enithing.fragmenthub.editor;singleton:=true
 Automatic-Module-Name: de.enithing.fragmenthub.editor
 Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
-Bundle-Activator: de.enithing.fragmenthub.editor.ContentHubEditorPlugin$Implementation
+Bundle-Activator: de.enithing.fragmenthub.editor.FragmentHubEditorPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-17
