@@ -1,4 +1,4 @@
-package de.enithing.contenthub.design;
+package de.enithing.fragmenthub.design;
 
 import org.eclipse.emf.ecore.EObject;
 
