@@ -8,8 +8,8 @@ import de.enithing.fragmenthub.model.contentfragment.corefields.impl.CorefieldsP
 import de.enithing.fragmenthub.model.contentfragment.corefields.validation.ValidationPackage;
 import de.enithing.fragmenthub.model.contentfragment.corefields.validation.impl.ValidationPackageImpl;
 import de.enithing.fragmenthub.model.contentfragment.impl.ContentFragmentPackageImpl;
-import de.enithing.fragmenthub.model.fragmenthub.ContentHubFactory;
-import de.enithing.fragmenthub.model.fragmenthub.ContentHubPackage;
+import de.enithing.fragmenthub.model.fragmenthub.FragmentHubFactory;
+import de.enithing.fragmenthub.model.fragmenthub.FragmentHubPackage;
 import de.enithing.fragmenthub.model.fragmenthub.Context;
 import de.enithing.fragmenthub.model.fragmenthub.ContextPath;
 import de.enithing.fragmenthub.model.fragmenthub.ContextPolicy;
@@ -36,7 +36,7 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ContentHubPackageImpl extends EPackageImpl implements ContentHubPackage {
+public class FragmentHubPackageImpl extends EPackageImpl implements FragmentHubPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -104,12 +104,12 @@ public class ContentHubPackageImpl extends EPackageImpl implements ContentHubPac
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see org.eclipse.emf.ecore.EPackage.Registry
-	 * @see de.enithing.fragmenthub.model.contenthub.ContentHubPackage#eNS_URI
+	 * @see de.enithing.fragmenthub.model.fragmenthub.FragmentHubPackage#eNS_URI
 	 * @see #init()
 	 * @generated
 	 */
-	private ContentHubPackageImpl() {
-		super(eNS_URI, ContentHubFactory.eINSTANCE);
+	private FragmentHubPackageImpl() {
+		super(eNS_URI, FragmentHubFactory.eINSTANCE);
 	}
 
 	/**
@@ -122,7 +122,7 @@ public class ContentHubPackageImpl extends EPackageImpl implements ContentHubPac
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
 	 *
-	 * <p>This method is used to initialize {@link ContentHubPackage#eINSTANCE} when that field is accessed.
+	 * <p>This method is used to initialize {@link FragmentHubPackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -131,12 +131,12 @@ public class ContentHubPackageImpl extends EPackageImpl implements ContentHubPac
 	 * @see #initializePackageContents()
 	 * @generated
 	 */
-	public static ContentHubPackage init() {
-		if (isInited) return (ContentHubPackage)EPackage.Registry.INSTANCE.getEPackage(ContentHubPackage.eNS_URI);
+	public static FragmentHubPackage init() {
+		if (isInited) return (FragmentHubPackage)EPackage.Registry.INSTANCE.getEPackage(FragmentHubPackage.eNS_URI);
 
 		// Obtain or create and register package
-		Object registeredContentHubPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
-		ContentHubPackageImpl theContentHubPackage = registeredContentHubPackage instanceof ContentHubPackageImpl ? (ContentHubPackageImpl)registeredContentHubPackage : new ContentHubPackageImpl();
+		Object registeredFragmentHubPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
+		FragmentHubPackageImpl theFragmentHubPackage = registeredFragmentHubPackage instanceof FragmentHubPackageImpl ? (FragmentHubPackageImpl)registeredFragmentHubPackage : new FragmentHubPackageImpl();
 
 		isInited = true;
 
@@ -149,23 +149,23 @@ public class ContentHubPackageImpl extends EPackageImpl implements ContentHubPac
 		ValidationPackageImpl theValidationPackage = (ValidationPackageImpl)(registeredPackage instanceof ValidationPackageImpl ? registeredPackage : ValidationPackage.eINSTANCE);
 
 		// Create package meta-data objects
-		theContentHubPackage.createPackageContents();
+		theFragmentHubPackage.createPackageContents();
 		theContentFragmentPackage.createPackageContents();
 		theCorefieldsPackage.createPackageContents();
 		theValidationPackage.createPackageContents();
 
 		// Initialize created meta-data
-		theContentHubPackage.initializePackageContents();
+		theFragmentHubPackage.initializePackageContents();
 		theContentFragmentPackage.initializePackageContents();
 		theCorefieldsPackage.initializePackageContents();
 		theValidationPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
-		theContentHubPackage.freeze();
+		theFragmentHubPackage.freeze();
 
 		// Update the registry and return the package
-		EPackage.Registry.INSTANCE.put(ContentHubPackage.eNS_URI, theContentHubPackage);
-		return theContentHubPackage;
+		EPackage.Registry.INSTANCE.put(FragmentHubPackage.eNS_URI, theFragmentHubPackage);
+		return theFragmentHubPackage;
 	}
 
 	/**
@@ -524,8 +524,8 @@ public class ContentHubPackageImpl extends EPackageImpl implements ContentHubPac
 	 * @generated
 	 */
 	@Override
-	public ContentHubFactory getContentHubFactory() {
-		return (ContentHubFactory)getEFactoryInstance();
+	public FragmentHubFactory getFragmentHubFactory() {
+		return (FragmentHubFactory)getEFactoryInstance();
 	}
 
 	/**
@@ -702,4 +702,4 @@ public class ContentHubPackageImpl extends EPackageImpl implements ContentHubPac
 		createResource(eNS_URI);
 	}
 
-} //ContentHubPackageImpl
+} //FragmentHubPackageImpl

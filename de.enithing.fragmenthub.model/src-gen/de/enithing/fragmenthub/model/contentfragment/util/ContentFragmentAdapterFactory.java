@@ -273,13 +273,13 @@ public class ContentFragmentAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.enithing.fragmenthub.model.contenthub.ContextPolicy <em>Context Policy</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.enithing.fragmenthub.model.fragmenthub.ContextPolicy <em>Context Policy</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.enithing.fragmenthub.model.contenthub.ContextPolicy
+	 * @see de.enithing.fragmenthub.model.fragmenthub.ContextPolicy
 	 * @generated
 	 */
 	public Adapter createContextPolicyAdapter() {

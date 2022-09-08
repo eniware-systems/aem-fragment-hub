@@ -13,10 +13,10 @@ import java.nio.file.Path;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link de.enithing.fragmenthub.model.contenthub.SimplePath#getPath <em>Path</em>}</li>
+ *   <li>{@link de.enithing.fragmenthub.model.fragmenthub.SimplePath#getPath <em>Path</em>}</li>
  * </ul>
  *
- * @see de.enithing.fragmenthub.model.contenthub.ContentHubPackage#getSimplePath()
+ * @see de.enithing.fragmenthub.model.fragmenthub.FragmentHubPackage#getSimplePath()
  * @model
  * @generated
  */
@@ -28,14 +28,14 @@ public interface SimplePath extends PathProvider {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Path</em>' attribute.
 	 * @see #setPath(Path)
-	 * @see de.enithing.fragmenthub.model.contenthub.ContentHubPackage#getSimplePath_Path()
-	 * @model default="" dataType="de.enithing.fragmenthub.model.contenthub.Path" required="true"
+	 * @see de.enithing.fragmenthub.model.fragmenthub.FragmentHubPackage#getSimplePath_Path()
+	 * @model default="" dataType="de.enithing.fragmenthub.model.fragmenthub.Path" required="true"
 	 * @generated
 	 */
 	Path getPath();
 
 	/**
-	 * Sets the value of the '{@link de.enithing.fragmenthub.model.contenthub.SimplePath#getPath <em>Path</em>}' attribute.
+	 * Sets the value of the '{@link de.enithing.fragmenthub.model.fragmenthub.SimplePath#getPath <em>Path</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Path</em>' attribute.

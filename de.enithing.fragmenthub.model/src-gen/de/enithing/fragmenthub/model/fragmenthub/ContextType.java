@@ -13,7 +13,7 @@ import org.eclipse.emf.common.util.Enumerator;
  * A representation of the literals of the enumeration '<em><b>Context Type</b></em>',
  * and utility methods for working with them.
  * <!-- end-user-doc -->
- * @see de.enithing.fragmenthub.model.contenthub.ContentHubPackage#getContextType()
+ * @see de.enithing.fragmenthub.model.fragmenthub.FragmentHubPackage#getContextType()
  * @model
  * @generated
  */

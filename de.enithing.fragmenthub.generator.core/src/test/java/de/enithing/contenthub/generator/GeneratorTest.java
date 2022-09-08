@@ -36,7 +36,7 @@ import de.enithing.fragmenthub.model.contentfragment.corefields.MultiLineText;
 import de.enithing.fragmenthub.model.contentfragment.corefields.SingleLineText;
 import de.enithing.fragmenthub.model.contentfragment.corefields.StringValue;
 import de.enithing.fragmenthub.model.contentfragment.corefields.Tab;
-import de.enithing.fragmenthub.model.fragmenthub.ContentHubFactory;
+import de.enithing.fragmenthub.model.fragmenthub.FragmentHubFactory;
 import de.enithing.fragmenthub.model.fragmenthub.Context;
 import de.enithing.fragmenthub.model.fragmenthub.Package;
 
@@ -82,7 +82,7 @@ class GeneratorTest {
 
 	@Test
 	void bookStoreTest() throws FileSystemException {
-		ContentHubFactory hubFactory = ContentHubFactory.eINSTANCE;
+		FragmentHubFactory hubFactory = FragmentHubFactory.eINSTANCE;
 		ContentFragmentFactory cfFactory = ContentFragmentFactory.eINSTANCE;
 		CorefieldsFactory fieldsFactory = CorefieldsFactory.eINSTANCE;
 

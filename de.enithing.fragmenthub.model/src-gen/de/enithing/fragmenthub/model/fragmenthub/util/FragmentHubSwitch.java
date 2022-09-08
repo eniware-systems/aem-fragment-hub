@@ -7,7 +7,7 @@ import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.util.Switch;
 
-import de.enithing.fragmenthub.model.fragmenthub.ContentHubPackage;
+import de.enithing.fragmenthub.model.fragmenthub.FragmentHubPackage;
 import de.enithing.fragmenthub.model.fragmenthub.Context;
 import de.enithing.fragmenthub.model.fragmenthub.ContextPath;
 import de.enithing.fragmenthub.model.fragmenthub.ContextPolicy;
@@ -24,17 +24,17 @@ import de.enithing.fragmenthub.model.fragmenthub.SimplePath;
  * until a non-null result is returned,
  * which is the result of the switch.
  * <!-- end-user-doc -->
- * @see de.enithing.fragmenthub.model.contenthub.ContentHubPackage
+ * @see de.enithing.fragmenthub.model.fragmenthub.FragmentHubPackage
  * @generated
  */
-public class ContentHubSwitch<T> extends Switch<T> {
+public class FragmentHubSwitch<T> extends Switch<T> {
 	/**
 	 * The cached model package
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static ContentHubPackage modelPackage;
+	protected static FragmentHubPackage modelPackage;
 
 	/**
 	 * Creates an instance of the switch.
@@ -42,9 +42,9 @@ public class ContentHubSwitch<T> extends Switch<T> {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ContentHubSwitch() {
+	public FragmentHubSwitch() {
 		if (modelPackage == null) {
-			modelPackage = ContentHubPackage.eINSTANCE;
+			modelPackage = FragmentHubPackage.eINSTANCE;
 		}
 	}
 
@@ -71,39 +71,39 @@ public class ContentHubSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case ContentHubPackage.PATH_PROVIDER: {
+			case FragmentHubPackage.PATH_PROVIDER: {
 				PathProvider pathProvider = (PathProvider)theEObject;
 				T result = casePathProvider(pathProvider);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ContentHubPackage.SIMPLE_PATH: {
+			case FragmentHubPackage.SIMPLE_PATH: {
 				SimplePath simplePath = (SimplePath)theEObject;
 				T result = caseSimplePath(simplePath);
 				if (result == null) result = casePathProvider(simplePath);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ContentHubPackage.CONTEXT_PATH: {
+			case FragmentHubPackage.CONTEXT_PATH: {
 				ContextPath contextPath = (ContextPath)theEObject;
 				T result = caseContextPath(contextPath);
 				if (result == null) result = casePathProvider(contextPath);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ContentHubPackage.PACKAGE: {
+			case FragmentHubPackage.PACKAGE: {
 				de.enithing.fragmenthub.model.fragmenthub.Package package_ = (de.enithing.fragmenthub.model.fragmenthub.Package)theEObject;
 				T result = casePackage(package_);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ContentHubPackage.CONTEXT: {
+			case FragmentHubPackage.CONTEXT: {
 				Context context = (Context)theEObject;
 				T result = caseContext(context);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ContentHubPackage.CONTEXT_POLICY: {
+			case FragmentHubPackage.CONTEXT_POLICY: {
 				ContextPolicy contextPolicy = (ContextPolicy)theEObject;
 				T result = caseContextPolicy(contextPolicy);
 				if (result == null) result = defaultCase(theEObject);
@@ -219,4 +219,4 @@ public class ContentHubSwitch<T> extends Switch<T> {
 		return null;
 	}
 
-} //ContentHubSwitch
+} //FragmentHubSwitch

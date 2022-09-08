@@ -156,7 +156,7 @@ public interface ContentFragmentModel extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model kind="operation" dataType="de.enithing.fragmenthub.model.contenthub.Path" required="true"
+	 * @model kind="operation" dataType="de.enithing.fragmenthub.model.fragmenthub.Path" required="true"
 	 * @generated
 	 */
 	Path getPath();

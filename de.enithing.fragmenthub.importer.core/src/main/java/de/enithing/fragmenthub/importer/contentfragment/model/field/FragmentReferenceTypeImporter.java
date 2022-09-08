@@ -9,7 +9,7 @@ import de.enithing.fragmenthub.model.contentfragment.ContentFragmentModel;
 import de.enithing.fragmenthub.model.contentfragment.corefields.CorefieldsFactory;
 import de.enithing.fragmenthub.model.contentfragment.corefields.FragmentReference;
 import de.enithing.fragmenthub.model.contentfragment.impl.ContentFragmentModelImpl;
-import de.enithing.fragmenthub.model.fragmenthub.ContentHubFactory;
+import de.enithing.fragmenthub.model.fragmenthub.FragmentHubFactory;
 import de.enithing.fragmenthub.model.fragmenthub.Package;
 import de.enithing.fragmenthub.model.fragmenthub.SimplePath;
 
@@ -54,7 +54,7 @@ public class FragmentReferenceTypeImporter extends ContentFragmentFieldTypeImpor
         field.setAllowFragmentCreation(JcrUtils.getXmlAttributeBool(node, "allowNew"));
         field.setAllowFragmentCreation(JcrUtils.getXmlAttributeBool(node, "required"));
 
-        SimplePath path = ContentHubFactory.eINSTANCE.createSimplePath();
+        SimplePath path = FragmentHubFactory.eINSTANCE.createSimplePath();
         path.setPath(Path.of(JcrUtils.getXmlAttribute(node, "rootPath").getValue()));
         field.setRootPath(path);
 

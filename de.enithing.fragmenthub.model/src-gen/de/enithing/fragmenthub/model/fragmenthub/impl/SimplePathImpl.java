@@ -10,9 +10,8 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import de.enithing.fragmenthub.model.fragmenthub.ContentHubFactory;
-import de.enithing.fragmenthub.model.fragmenthub.ContentHubPackage;
+import de.enithing.fragmenthub.model.fragmenthub.FragmentHubFactory;
+import de.enithing.fragmenthub.model.fragmenthub.FragmentHubPackage;
 import de.enithing.fragmenthub.model.fragmenthub.SimplePath;
 
 /**
@@ -37,7 +36,7 @@ public class SimplePathImpl extends MinimalEObjectImpl.Container implements Simp
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Path PATH_EDEFAULT = (Path)ContentHubFactory.eINSTANCE.createFromString(ContentHubPackage.eINSTANCE.getPath(), "");
+	protected static final Path PATH_EDEFAULT = (Path)FragmentHubFactory.eINSTANCE.createFromString(FragmentHubPackage.eINSTANCE.getPath(), "");
 
 	/**
 	 * The cached value of the '{@link #getPath() <em>Path</em>}' attribute.
@@ -65,7 +64,7 @@ public class SimplePathImpl extends MinimalEObjectImpl.Container implements Simp
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ContentHubPackage.Literals.SIMPLE_PATH;
+		return FragmentHubPackage.Literals.SIMPLE_PATH;
 	}
 
 	/**
@@ -88,7 +87,7 @@ public class SimplePathImpl extends MinimalEObjectImpl.Container implements Simp
 		Path oldPath = path;
 		path = newPath;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ContentHubPackage.SIMPLE_PATH__PATH, oldPath, path));
+			eNotify(new ENotificationImpl(this, Notification.SET, FragmentHubPackage.SIMPLE_PATH__PATH, oldPath, path));
 	}
 
 	/**
@@ -99,7 +98,7 @@ public class SimplePathImpl extends MinimalEObjectImpl.Container implements Simp
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ContentHubPackage.SIMPLE_PATH__PATH:
+			case FragmentHubPackage.SIMPLE_PATH__PATH:
 				return getPath();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -113,7 +112,7 @@ public class SimplePathImpl extends MinimalEObjectImpl.Container implements Simp
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ContentHubPackage.SIMPLE_PATH__PATH:
+			case FragmentHubPackage.SIMPLE_PATH__PATH:
 				setPath((Path)newValue);
 				return;
 		}
@@ -128,7 +127,7 @@ public class SimplePathImpl extends MinimalEObjectImpl.Container implements Simp
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ContentHubPackage.SIMPLE_PATH__PATH:
+			case FragmentHubPackage.SIMPLE_PATH__PATH:
 				setPath(PATH_EDEFAULT);
 				return;
 		}
@@ -143,7 +142,7 @@ public class SimplePathImpl extends MinimalEObjectImpl.Container implements Simp
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ContentHubPackage.SIMPLE_PATH__PATH:
+			case FragmentHubPackage.SIMPLE_PATH__PATH:
 				return PATH_EDEFAULT == null ? path != null : !PATH_EDEFAULT.equals(path);
 		}
 		return super.eIsSet(featureID);

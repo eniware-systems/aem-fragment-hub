@@ -3,8 +3,8 @@
 package de.enithing.fragmenthub.model.fragmenthub.provider;
 
 
-import de.enithing.fragmenthub.edit.ContentHubEditPlugin;
-import de.enithing.fragmenthub.model.fragmenthub.ContentHubPackage;
+import de.enithing.fragmenthub.edit.FragmentHubEditPlugin;
+import de.enithing.fragmenthub.model.fragmenthub.FragmentHubPackage;
 
 import java.util.Collection;
 import java.util.List;
@@ -24,7 +24,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 
 /**
- * This is the item provider adapter for a {@link de.enithing.fragmenthub.model.contenthub.ContextPath} object.
+ * This is the item provider adapter for a {@link de.enithing.fragmenthub.model.fragmenthub.ContextPath} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
@@ -76,7 +76,7 @@ public class ContextPathItemProvider
 				 getResourceLocator(),
 				 getString("_UI_ContextPath_context_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ContextPath_context_feature", "_UI_ContextPath_type"),
-				 ContentHubPackage.Literals.CONTEXT_PATH__CONTEXT,
+				 FragmentHubPackage.Literals.CONTEXT_PATH__CONTEXT,
 				 true,
 				 false,
 				 true,
@@ -141,7 +141,7 @@ public class ContextPathItemProvider
 	 */
 	@Override
 	public ResourceLocator getResourceLocator() {
-		return ContentHubEditPlugin.INSTANCE;
+		return FragmentHubEditPlugin.INSTANCE;
 	}
 
 }

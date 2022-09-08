@@ -12,14 +12,14 @@ import org.eclipse.emf.common.util.ResourceLocator;
  * <!-- end-user-doc -->
  * @generated
  */
-public final class ContentHubEditPlugin extends EMFPlugin {
+public final class FragmentHubEditPlugin extends EMFPlugin {
 	/**
 	 * Keep track of the singleton.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final ContentHubEditPlugin INSTANCE = new ContentHubEditPlugin();
+	public static final FragmentHubEditPlugin INSTANCE = new FragmentHubEditPlugin();
 
 	/**
 	 * Keep track of the singleton.
@@ -35,7 +35,7 @@ public final class ContentHubEditPlugin extends EMFPlugin {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ContentHubEditPlugin() {
+	public FragmentHubEditPlugin() {
 		super
 		  (new ResourceLocator [] {
 		   });

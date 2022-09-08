@@ -42,7 +42,7 @@ public interface CorefieldsPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "https://aemcontenthub.eniware-systems.de/ns/contentfragments/corefields";
+	String eNS_URI = "https://aemfragmenthub.eniware-systems.de/ns/contentfragments/corefields";
 
 	/**
 	 * The package namespace name.

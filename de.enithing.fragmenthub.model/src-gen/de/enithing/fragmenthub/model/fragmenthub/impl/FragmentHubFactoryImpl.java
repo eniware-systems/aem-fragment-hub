@@ -2,14 +2,12 @@
  */
 package de.enithing.fragmenthub.model.fragmenthub.impl;
 
-import de.enithing.fragmenthub.model.fragmenthub.ContentHubFactory;
-import de.enithing.fragmenthub.model.fragmenthub.ContentHubPackage;
+import de.enithing.fragmenthub.model.fragmenthub.FragmentHubFactory;
+import de.enithing.fragmenthub.model.fragmenthub.FragmentHubPackage;
 import de.enithing.fragmenthub.model.fragmenthub.Context;
 import de.enithing.fragmenthub.model.fragmenthub.ContextPath;
 import de.enithing.fragmenthub.model.fragmenthub.ContextType;
 import de.enithing.fragmenthub.model.fragmenthub.SimplePath;
-import de.enithing.fragmenthub.model.fragmenthub.impl.ContentHubFactoryExtendedImpl;
-
 import java.nio.file.Path;
 
 import org.eclipse.emf.ecore.EClass;
@@ -27,15 +25,15 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ContentHubFactoryImpl extends EFactoryImpl implements ContentHubFactory {
+public class FragmentHubFactoryImpl extends EFactoryImpl implements FragmentHubFactory {
 	/**
 	 * Creates the default factory implementation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public static ContentHubFactory init() {
+	public static FragmentHubFactory init() {
 		try {
-			ContentHubFactory theContentHubFactory = (ContentHubFactory)EPackage.Registry.INSTANCE.getEFactory(ContentHubPackage.eNS_URI);
+			FragmentHubFactory theContentHubFactory = (FragmentHubFactory)EPackage.Registry.INSTANCE.getEFactory(FragmentHubPackage.eNS_URI);
 			if (theContentHubFactory != null) {
 				return theContentHubFactory;
 			}
@@ -53,7 +51,7 @@ public class ContentHubFactoryImpl extends EFactoryImpl implements ContentHubFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ContentHubFactoryImpl() {
+	public FragmentHubFactoryImpl() {
 		super();
 	}
 
@@ -65,10 +63,10 @@ public class ContentHubFactoryImpl extends EFactoryImpl implements ContentHubFac
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case ContentHubPackage.SIMPLE_PATH: return createSimplePath();
-			case ContentHubPackage.CONTEXT_PATH: return createContextPath();
-			case ContentHubPackage.PACKAGE: return createPackage();
-			case ContentHubPackage.CONTEXT: return createContext();
+			case FragmentHubPackage.SIMPLE_PATH: return createSimplePath();
+			case FragmentHubPackage.CONTEXT_PATH: return createContextPath();
+			case FragmentHubPackage.PACKAGE: return createPackage();
+			case FragmentHubPackage.CONTEXT: return createContext();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -82,9 +80,9 @@ public class ContentHubFactoryImpl extends EFactoryImpl implements ContentHubFac
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
-			case ContentHubPackage.CONTEXT_TYPE:
+			case FragmentHubPackage.CONTEXT_TYPE:
 				return createContextTypeFromString(eDataType, initialValue);
-			case ContentHubPackage.PATH:
+			case FragmentHubPackage.PATH:
 				return createPathFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
@@ -99,9 +97,9 @@ public class ContentHubFactoryImpl extends EFactoryImpl implements ContentHubFac
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
-			case ContentHubPackage.CONTEXT_TYPE:
+			case FragmentHubPackage.CONTEXT_TYPE:
 				return convertContextTypeToString(eDataType, instanceValue);
-			case ContentHubPackage.PATH:
+			case FragmentHubPackage.PATH:
 				return convertPathToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
@@ -196,8 +194,8 @@ public class ContentHubFactoryImpl extends EFactoryImpl implements ContentHubFac
 	 * @generated
 	 */
 	@Override
-	public ContentHubPackage getContentHubPackage() {
-		return (ContentHubPackage)getEPackage();
+	public FragmentHubPackage getFragmentHubPackage() {
+		return (FragmentHubPackage)getEPackage();
 	}
 
 	/**
@@ -207,8 +205,8 @@ public class ContentHubFactoryImpl extends EFactoryImpl implements ContentHubFac
 	 * @generated
 	 */
 	@Deprecated
-	public static ContentHubPackage getPackage() {
-		return ContentHubPackage.eINSTANCE;
+	public static FragmentHubPackage getPackage() {
+		return FragmentHubPackage.eINSTANCE;
 	}
 
-} //ContentHubFactoryImpl
+} //FragmentHubFactoryImpl

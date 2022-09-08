@@ -4,10 +4,10 @@ package de.enithing.fragmenthub.model.fragmenthub.impl;
 
 import de.enithing.fragmenthub.model.contentfragment.ContentFragmentInstance;
 import de.enithing.fragmenthub.model.contentfragment.ContentFragmentPackage;
-import de.enithing.fragmenthub.model.fragmenthub.ContentHubPackage;
 import de.enithing.fragmenthub.model.fragmenthub.Context;
 import de.enithing.fragmenthub.model.fragmenthub.ContextPolicy;
 import de.enithing.fragmenthub.model.fragmenthub.ContextType;
+import de.enithing.fragmenthub.model.fragmenthub.FragmentHubPackage;
 import de.enithing.fragmenthub.model.fragmenthub.util.ContextUtils;
 
 import java.lang.reflect.InvocationTargetException;
@@ -156,7 +156,7 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ContentHubPackage.Literals.CONTEXT;
+		return FragmentHubPackage.Literals.CONTEXT;
 	}
 
 	/**
@@ -167,7 +167,7 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 	@Override
 	public EList<Context> getChildContexts() {
 		if (childContexts == null) {
-			childContexts = new EObjectContainmentWithInverseEList<Context>(Context.class, this, ContentHubPackage.CONTEXT__CHILD_CONTEXTS, ContentHubPackage.CONTEXT__PARENT_CONTEXT);
+			childContexts = new EObjectContainmentWithInverseEList<Context>(Context.class, this, FragmentHubPackage.CONTEXT__CHILD_CONTEXTS, FragmentHubPackage.CONTEXT__PARENT_CONTEXT);
 		}
 		return childContexts;
 	}
@@ -179,7 +179,7 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 	 */
 	@Override
 	public Context getParentContext() {
-		if (eContainerFeatureID() != ContentHubPackage.CONTEXT__PARENT_CONTEXT) return null;
+		if (eContainerFeatureID() != FragmentHubPackage.CONTEXT__PARENT_CONTEXT) return null;
 		return (Context)eInternalContainer();
 	}
 
@@ -189,7 +189,7 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 	 * @generated
 	 */
 	public NotificationChain basicSetParentContext(Context newParentContext, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newParentContext, ContentHubPackage.CONTEXT__PARENT_CONTEXT, msgs);
+		msgs = eBasicSetContainer((InternalEObject)newParentContext, FragmentHubPackage.CONTEXT__PARENT_CONTEXT, msgs);
 		return msgs;
 	}
 
@@ -200,19 +200,19 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 	 */
 	@Override
 	public void setParentContext(Context newParentContext) {
-		if (newParentContext != eInternalContainer() || (eContainerFeatureID() != ContentHubPackage.CONTEXT__PARENT_CONTEXT && newParentContext != null)) {
+		if (newParentContext != eInternalContainer() || (eContainerFeatureID() != FragmentHubPackage.CONTEXT__PARENT_CONTEXT && newParentContext != null)) {
 			if (EcoreUtil.isAncestor(this, newParentContext))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newParentContext != null)
-				msgs = ((InternalEObject)newParentContext).eInverseAdd(this, ContentHubPackage.CONTEXT__CHILD_CONTEXTS, Context.class, msgs);
+				msgs = ((InternalEObject)newParentContext).eInverseAdd(this, FragmentHubPackage.CONTEXT__CHILD_CONTEXTS, Context.class, msgs);
 			msgs = basicSetParentContext(newParentContext, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ContentHubPackage.CONTEXT__PARENT_CONTEXT, newParentContext, newParentContext));
+			eNotify(new ENotificationImpl(this, Notification.SET, FragmentHubPackage.CONTEXT__PARENT_CONTEXT, newParentContext, newParentContext));
 	}
 
 	/**
@@ -223,7 +223,7 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 	@Override
 	public EList<ContentFragmentInstance> getContentFragments() {
 		if (contentFragments == null) {
-			contentFragments = new EObjectContainmentWithInverseEList<ContentFragmentInstance>(ContentFragmentInstance.class, this, ContentHubPackage.CONTEXT__CONTENT_FRAGMENTS, ContentFragmentPackage.CONTENT_FRAGMENT_INSTANCE__CONTEXT);
+			contentFragments = new EObjectContainmentWithInverseEList<ContentFragmentInstance>(ContentFragmentInstance.class, this, FragmentHubPackage.CONTEXT__CONTENT_FRAGMENTS, ContentFragmentPackage.CONTENT_FRAGMENT_INSTANCE__CONTEXT);
 		}
 		return contentFragments;
 	}
@@ -236,7 +236,7 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 	@Override
 	public EList<ContextPolicy> getPolicies() {
 		if (policies == null) {
-			policies = new EObjectContainmentEList<ContextPolicy>(ContextPolicy.class, this, ContentHubPackage.CONTEXT__POLICIES);
+			policies = new EObjectContainmentEList<ContextPolicy>(ContextPolicy.class, this, FragmentHubPackage.CONTEXT__POLICIES);
 		}
 		return policies;
 	}
@@ -261,7 +261,7 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ContentHubPackage.CONTEXT__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, FragmentHubPackage.CONTEXT__NAME, oldName, name));
 	}
 
 	/**
@@ -284,7 +284,7 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 		String oldTitle = title;
 		title = newTitle;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ContentHubPackage.CONTEXT__TITLE, oldTitle, title));
+			eNotify(new ENotificationImpl(this, Notification.SET, FragmentHubPackage.CONTEXT__TITLE, oldTitle, title));
 	}
 
 	/**
@@ -307,7 +307,7 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 		ContextType oldPrimaryType = primaryType;
 		primaryType = newPrimaryType == null ? PRIMARY_TYPE_EDEFAULT : newPrimaryType;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ContentHubPackage.CONTEXT__PRIMARY_TYPE, oldPrimaryType, primaryType));
+			eNotify(new ENotificationImpl(this, Notification.SET, FragmentHubPackage.CONTEXT__PRIMARY_TYPE, oldPrimaryType, primaryType));
 	}
 
 	/**
@@ -373,13 +373,13 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ContentHubPackage.CONTEXT__CHILD_CONTEXTS:
+			case FragmentHubPackage.CONTEXT__CHILD_CONTEXTS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getChildContexts()).basicAdd(otherEnd, msgs);
-			case ContentHubPackage.CONTEXT__PARENT_CONTEXT:
+			case FragmentHubPackage.CONTEXT__PARENT_CONTEXT:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetParentContext((Context)otherEnd, msgs);
-			case ContentHubPackage.CONTEXT__CONTENT_FRAGMENTS:
+			case FragmentHubPackage.CONTEXT__CONTENT_FRAGMENTS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getContentFragments()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -393,13 +393,13 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ContentHubPackage.CONTEXT__CHILD_CONTEXTS:
+			case FragmentHubPackage.CONTEXT__CHILD_CONTEXTS:
 				return ((InternalEList<?>)getChildContexts()).basicRemove(otherEnd, msgs);
-			case ContentHubPackage.CONTEXT__PARENT_CONTEXT:
+			case FragmentHubPackage.CONTEXT__PARENT_CONTEXT:
 				return basicSetParentContext(null, msgs);
-			case ContentHubPackage.CONTEXT__CONTENT_FRAGMENTS:
+			case FragmentHubPackage.CONTEXT__CONTENT_FRAGMENTS:
 				return ((InternalEList<?>)getContentFragments()).basicRemove(otherEnd, msgs);
-			case ContentHubPackage.CONTEXT__POLICIES:
+			case FragmentHubPackage.CONTEXT__POLICIES:
 				return ((InternalEList<?>)getPolicies()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -413,8 +413,8 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
-			case ContentHubPackage.CONTEXT__PARENT_CONTEXT:
-				return eInternalContainer().eInverseRemove(this, ContentHubPackage.CONTEXT__CHILD_CONTEXTS, Context.class, msgs);
+			case FragmentHubPackage.CONTEXT__PARENT_CONTEXT:
+				return eInternalContainer().eInverseRemove(this, FragmentHubPackage.CONTEXT__CHILD_CONTEXTS, Context.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -427,19 +427,19 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ContentHubPackage.CONTEXT__CHILD_CONTEXTS:
+			case FragmentHubPackage.CONTEXT__CHILD_CONTEXTS:
 				return getChildContexts();
-			case ContentHubPackage.CONTEXT__PARENT_CONTEXT:
+			case FragmentHubPackage.CONTEXT__PARENT_CONTEXT:
 				return getParentContext();
-			case ContentHubPackage.CONTEXT__CONTENT_FRAGMENTS:
+			case FragmentHubPackage.CONTEXT__CONTENT_FRAGMENTS:
 				return getContentFragments();
-			case ContentHubPackage.CONTEXT__POLICIES:
+			case FragmentHubPackage.CONTEXT__POLICIES:
 				return getPolicies();
-			case ContentHubPackage.CONTEXT__NAME:
+			case FragmentHubPackage.CONTEXT__NAME:
 				return getName();
-			case ContentHubPackage.CONTEXT__TITLE:
+			case FragmentHubPackage.CONTEXT__TITLE:
 				return getTitle();
-			case ContentHubPackage.CONTEXT__PRIMARY_TYPE:
+			case FragmentHubPackage.CONTEXT__PRIMARY_TYPE:
 				return getPrimaryType();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -454,28 +454,28 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ContentHubPackage.CONTEXT__CHILD_CONTEXTS:
+			case FragmentHubPackage.CONTEXT__CHILD_CONTEXTS:
 				getChildContexts().clear();
 				getChildContexts().addAll((Collection<? extends Context>)newValue);
 				return;
-			case ContentHubPackage.CONTEXT__PARENT_CONTEXT:
+			case FragmentHubPackage.CONTEXT__PARENT_CONTEXT:
 				setParentContext((Context)newValue);
 				return;
-			case ContentHubPackage.CONTEXT__CONTENT_FRAGMENTS:
+			case FragmentHubPackage.CONTEXT__CONTENT_FRAGMENTS:
 				getContentFragments().clear();
 				getContentFragments().addAll((Collection<? extends ContentFragmentInstance>)newValue);
 				return;
-			case ContentHubPackage.CONTEXT__POLICIES:
+			case FragmentHubPackage.CONTEXT__POLICIES:
 				getPolicies().clear();
 				getPolicies().addAll((Collection<? extends ContextPolicy>)newValue);
 				return;
-			case ContentHubPackage.CONTEXT__NAME:
+			case FragmentHubPackage.CONTEXT__NAME:
 				setName((String)newValue);
 				return;
-			case ContentHubPackage.CONTEXT__TITLE:
+			case FragmentHubPackage.CONTEXT__TITLE:
 				setTitle((String)newValue);
 				return;
-			case ContentHubPackage.CONTEXT__PRIMARY_TYPE:
+			case FragmentHubPackage.CONTEXT__PRIMARY_TYPE:
 				setPrimaryType((ContextType)newValue);
 				return;
 		}
@@ -490,25 +490,25 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ContentHubPackage.CONTEXT__CHILD_CONTEXTS:
+			case FragmentHubPackage.CONTEXT__CHILD_CONTEXTS:
 				getChildContexts().clear();
 				return;
-			case ContentHubPackage.CONTEXT__PARENT_CONTEXT:
+			case FragmentHubPackage.CONTEXT__PARENT_CONTEXT:
 				setParentContext((Context)null);
 				return;
-			case ContentHubPackage.CONTEXT__CONTENT_FRAGMENTS:
+			case FragmentHubPackage.CONTEXT__CONTENT_FRAGMENTS:
 				getContentFragments().clear();
 				return;
-			case ContentHubPackage.CONTEXT__POLICIES:
+			case FragmentHubPackage.CONTEXT__POLICIES:
 				getPolicies().clear();
 				return;
-			case ContentHubPackage.CONTEXT__NAME:
+			case FragmentHubPackage.CONTEXT__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case ContentHubPackage.CONTEXT__TITLE:
+			case FragmentHubPackage.CONTEXT__TITLE:
 				setTitle(TITLE_EDEFAULT);
 				return;
-			case ContentHubPackage.CONTEXT__PRIMARY_TYPE:
+			case FragmentHubPackage.CONTEXT__PRIMARY_TYPE:
 				setPrimaryType(PRIMARY_TYPE_EDEFAULT);
 				return;
 		}
@@ -523,19 +523,19 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ContentHubPackage.CONTEXT__CHILD_CONTEXTS:
+			case FragmentHubPackage.CONTEXT__CHILD_CONTEXTS:
 				return childContexts != null && !childContexts.isEmpty();
-			case ContentHubPackage.CONTEXT__PARENT_CONTEXT:
+			case FragmentHubPackage.CONTEXT__PARENT_CONTEXT:
 				return getParentContext() != null;
-			case ContentHubPackage.CONTEXT__CONTENT_FRAGMENTS:
+			case FragmentHubPackage.CONTEXT__CONTENT_FRAGMENTS:
 				return contentFragments != null && !contentFragments.isEmpty();
-			case ContentHubPackage.CONTEXT__POLICIES:
+			case FragmentHubPackage.CONTEXT__POLICIES:
 				return policies != null && !policies.isEmpty();
-			case ContentHubPackage.CONTEXT__NAME:
+			case FragmentHubPackage.CONTEXT__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case ContentHubPackage.CONTEXT__TITLE:
+			case FragmentHubPackage.CONTEXT__TITLE:
 				return TITLE_EDEFAULT == null ? title != null : !TITLE_EDEFAULT.equals(title);
-			case ContentHubPackage.CONTEXT__PRIMARY_TYPE:
+			case FragmentHubPackage.CONTEXT__PRIMARY_TYPE:
 				return primaryType != PRIMARY_TYPE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
@@ -550,17 +550,17 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 	@SuppressWarnings({"rawtypes", "unchecked" })
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case ContentHubPackage.CONTEXT___GET_ROOT_CONTEXT:
+			case FragmentHubPackage.CONTEXT___GET_ROOT_CONTEXT:
 				return getRootContext();
-			case ContentHubPackage.CONTEXT___GET_POLICIES_BY_TYPE__CLASS:
+			case FragmentHubPackage.CONTEXT___GET_POLICIES_BY_TYPE__CLASS:
 				return getPoliciesByType((Class)arguments.get(0));
-			case ContentHubPackage.CONTEXT___GET_PATH:
+			case FragmentHubPackage.CONTEXT___GET_PATH:
 				return getPath();
-			case ContentHubPackage.CONTEXT___GET_PACKAGE:
+			case FragmentHubPackage.CONTEXT___GET_PACKAGE:
 				return getPackage();
-			case ContentHubPackage.CONTEXT___RESOLVE_CONTEXTS_BY_PATTERN__PATH:
+			case FragmentHubPackage.CONTEXT___RESOLVE_CONTEXTS_BY_PATTERN__PATH:
 				return resolveContextsByPattern((Path)arguments.get(0));
-			case ContentHubPackage.CONTEXT___RESOLVE_CONTENT_FRAGMENT_INSTANCES_BY_PATTERN__PATH:
+			case FragmentHubPackage.CONTEXT___RESOLVE_CONTENT_FRAGMENT_INSTANCES_BY_PATTERN__PATH:
 				return resolveContentFragmentInstancesByPattern((Path)arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);

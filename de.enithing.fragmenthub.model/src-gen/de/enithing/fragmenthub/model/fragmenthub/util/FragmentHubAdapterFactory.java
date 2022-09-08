@@ -9,7 +9,7 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 
 import org.eclipse.emf.ecore.EObject;
 
-import de.enithing.fragmenthub.model.fragmenthub.ContentHubPackage;
+import de.enithing.fragmenthub.model.fragmenthub.FragmentHubPackage;
 import de.enithing.fragmenthub.model.fragmenthub.Context;
 import de.enithing.fragmenthub.model.fragmenthub.ContextPath;
 import de.enithing.fragmenthub.model.fragmenthub.ContextPolicy;
@@ -21,17 +21,17 @@ import de.enithing.fragmenthub.model.fragmenthub.SimplePath;
  * The <b>Adapter Factory</b> for the model.
  * It provides an adapter <code>createXXX</code> method for each class of the model.
  * <!-- end-user-doc -->
- * @see de.enithing.fragmenthub.model.contenthub.ContentHubPackage
+ * @see de.enithing.fragmenthub.model.fragmenthub.FragmentHubPackage
  * @generated
  */
-public class ContentHubAdapterFactory extends AdapterFactoryImpl {
+public class FragmentHubAdapterFactory extends AdapterFactoryImpl {
 	/**
 	 * The cached model package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static ContentHubPackage modelPackage;
+	protected static FragmentHubPackage modelPackage;
 
 	/**
 	 * Creates an instance of the adapter factory.
@@ -39,9 +39,9 @@ public class ContentHubAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ContentHubAdapterFactory() {
+	public FragmentHubAdapterFactory() {
 		if (modelPackage == null) {
-			modelPackage = ContentHubPackage.eINSTANCE;
+			modelPackage = FragmentHubPackage.eINSTANCE;
 		}
 	}
 
@@ -70,8 +70,8 @@ public class ContentHubAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ContentHubSwitch<Adapter> modelSwitch =
-		new ContentHubSwitch<Adapter>() {
+	protected FragmentHubSwitch<Adapter> modelSwitch =
+		new FragmentHubSwitch<Adapter>() {
 			@Override
 			public Adapter casePathProvider(PathProvider object) {
 				return createPathProviderAdapter();
@@ -117,13 +117,13 @@ public class ContentHubAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.enithing.fragmenthub.model.contenthub.PathProvider <em>Path Provider</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.enithing.fragmenthub.model.fragmenthub.PathProvider <em>Path Provider</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.enithing.fragmenthub.model.contenthub.PathProvider
+	 * @see de.enithing.fragmenthub.model.fragmenthub.PathProvider
 	 * @generated
 	 */
 	public Adapter createPathProviderAdapter() {
@@ -131,13 +131,13 @@ public class ContentHubAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.enithing.fragmenthub.model.contenthub.SimplePath <em>Simple Path</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.enithing.fragmenthub.model.fragmenthub.SimplePath <em>Simple Path</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.enithing.fragmenthub.model.contenthub.SimplePath
+	 * @see de.enithing.fragmenthub.model.fragmenthub.SimplePath
 	 * @generated
 	 */
 	public Adapter createSimplePathAdapter() {
@@ -145,13 +145,13 @@ public class ContentHubAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.enithing.fragmenthub.model.contenthub.ContextPath <em>Context Path</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.enithing.fragmenthub.model.fragmenthub.ContextPath <em>Context Path</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.enithing.fragmenthub.model.contenthub.ContextPath
+	 * @see de.enithing.fragmenthub.model.fragmenthub.ContextPath
 	 * @generated
 	 */
 	public Adapter createContextPathAdapter() {
@@ -159,13 +159,13 @@ public class ContentHubAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.enithing.fragmenthub.model.contenthub.Package <em>Package</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.enithing.fragmenthub.model.fragmenthub.Package <em>Package</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.enithing.fragmenthub.model.contenthub.Package
+	 * @see de.enithing.fragmenthub.model.fragmenthub.Package
 	 * @generated
 	 */
 	public Adapter createPackageAdapter() {
@@ -173,13 +173,13 @@ public class ContentHubAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.enithing.fragmenthub.model.contenthub.Context <em>Context</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.enithing.fragmenthub.model.fragmenthub.Context <em>Context</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.enithing.fragmenthub.model.contenthub.Context
+	 * @see de.enithing.fragmenthub.model.fragmenthub.Context
 	 * @generated
 	 */
 	public Adapter createContextAdapter() {
@@ -187,13 +187,13 @@ public class ContentHubAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.enithing.fragmenthub.model.contenthub.ContextPolicy <em>Context Policy</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.enithing.fragmenthub.model.fragmenthub.ContextPolicy <em>Context Policy</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.enithing.fragmenthub.model.contenthub.ContextPolicy
+	 * @see de.enithing.fragmenthub.model.fragmenthub.ContextPolicy
 	 * @generated
 	 */
 	public Adapter createContextPolicyAdapter() {
@@ -212,4 +212,4 @@ public class ContentHubAdapterFactory extends AdapterFactoryImpl {
 		return null;
 	}
 
-} //ContentHubAdapterFactory
+} //FragmentHubAdapterFactory

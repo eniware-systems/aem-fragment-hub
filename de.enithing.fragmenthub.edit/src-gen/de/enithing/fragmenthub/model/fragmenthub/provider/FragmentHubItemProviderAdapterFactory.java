@@ -3,7 +3,7 @@
 package de.enithing.fragmenthub.model.fragmenthub.provider;
 
 import de.enithing.fragmenthub.model.fragmenthub.provider.ExtendedContextItemProvider;
-import de.enithing.fragmenthub.model.fragmenthub.util.ContentHubAdapterFactory;
+import de.enithing.fragmenthub.model.fragmenthub.util.FragmentHubAdapterFactory;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -32,7 +32,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ContentHubItemProviderAdapterFactory extends ContentHubAdapterFactory implements ComposeableAdapterFactory, IChangeNotifier {
+public class FragmentHubItemProviderAdapterFactory extends FragmentHubAdapterFactory implements ComposeableAdapterFactory, IChangeNotifier {
 	/**
 	 * This keeps track of the root adapter factory that delegates to this adapter factory.
 	 * <!-- begin-user-doc -->
@@ -63,7 +63,7 @@ public class ContentHubItemProviderAdapterFactory extends ContentHubAdapterFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ContentHubItemProviderAdapterFactory() {
+	public FragmentHubItemProviderAdapterFactory() {
 		supportedTypes.add(IEditingDomainItemProvider.class);
 		supportedTypes.add(IStructuredItemContentProvider.class);
 		supportedTypes.add(ITreeItemContentProvider.class);

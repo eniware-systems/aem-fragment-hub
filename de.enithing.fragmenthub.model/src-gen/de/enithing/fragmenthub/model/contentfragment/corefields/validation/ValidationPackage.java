@@ -38,7 +38,7 @@ public interface ValidationPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "https://aemcontenthub.eniware-systems.de/ns/contentfragments/corefields/validation";
+	String eNS_URI = "https://aemfragmenthub.eniware-systems.de/ns/contentfragments/corefields/validation";
 
 	/**
 	 * The package namespace name.

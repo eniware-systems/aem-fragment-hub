@@ -10,8 +10,8 @@ import de.enithing.fragmenthub.model.contentfragment.ContentFragmentFactory;
 import de.enithing.fragmenthub.model.contentfragment.ContentFragmentPackage;
 import de.enithing.fragmenthub.model.contentfragment.corefields.CorefieldsFactory;
 import de.enithing.fragmenthub.model.contentfragment.corefields.CorefieldsPackage;
-import de.enithing.fragmenthub.model.fragmenthub.ContentHubFactory;
-import de.enithing.fragmenthub.model.fragmenthub.ContentHubPackage;
+import de.enithing.fragmenthub.model.fragmenthub.FragmentHubFactory;
+import de.enithing.fragmenthub.model.fragmenthub.FragmentHubPackage;
 import de.enithing.fragmenthub.model.fragmenthub.Package;
 
 /**
@@ -29,7 +29,7 @@ public class GeneratorUtils {
 	 * called when needed automatically
 	 */
 	public static void initFactories() {
-		ContentHubFactory.eINSTANCE.eClass();
+		FragmentHubFactory.eINSTANCE.eClass();
 		ContentFragmentFactory.eINSTANCE.eClass();
 		CorefieldsFactory.eINSTANCE.eClass();
 	}
@@ -52,7 +52,7 @@ public class GeneratorUtils {
 				.put(Resource.Factory.Registry.DEFAULT_EXTENSION, new XMIResourceFactoryImpl());
 
 		// Register the package to ensure it is available during loading.
-		resourceSet.getPackageRegistry().put(ContentHubPackage.eNS_URI, ContentHubPackage.eINSTANCE);
+		resourceSet.getPackageRegistry().put(FragmentHubPackage.eNS_URI, FragmentHubPackage.eINSTANCE);
 		resourceSet.getPackageRegistry().put(ContentFragmentPackage.eNS_URI, ContentFragmentPackage.eINSTANCE);
 		resourceSet.getPackageRegistry().put(CorefieldsPackage.eNS_URI, CorefieldsPackage.eINSTANCE);
 

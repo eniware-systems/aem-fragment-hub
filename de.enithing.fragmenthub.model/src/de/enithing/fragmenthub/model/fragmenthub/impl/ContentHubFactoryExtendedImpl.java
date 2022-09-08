@@ -7,16 +7,16 @@ import java.nio.file.Path;
 
 import org.eclipse.emf.ecore.EDataType;
 
-import de.enithing.fragmenthub.model.fragmenthub.ContentHubPackage;
+import de.enithing.fragmenthub.model.fragmenthub.FragmentHubPackage;
 import de.enithing.fragmenthub.model.fragmenthub.Package;
-import de.enithing.fragmenthub.model.fragmenthub.impl.ContentHubFactoryImpl;
+import de.enithing.fragmenthub.model.fragmenthub.impl.FragmentHubFactoryImpl;
 
 /**
  * Extensions for the implementation of the model factory
  */
-public class ContentHubFactoryExtendedImpl extends ContentHubFactoryImpl {
+public class ContentHubFactoryExtendedImpl extends FragmentHubFactoryImpl {
     public ContentHubFactoryExtendedImpl() {
-        setEPackage(ContentHubPackage.eINSTANCE);
+        setEPackage(FragmentHubPackage.eINSTANCE);
     }
 
     /**
@@ -32,4 +32,4 @@ public class ContentHubFactoryExtendedImpl extends ContentHubFactoryImpl {
         return new ExtendedPackageImpl();
     }
 
-} // ContentHubFactoryImpl
+} // FragmentHubFactoryImpl

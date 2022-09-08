@@ -63,13 +63,13 @@ public interface ContentFragmentModelSet extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Package</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link de.enithing.fragmenthub.model.contenthub.Package#getContentFragmentModelSets <em>Content Fragment Model Sets</em>}'.
+	 * It is bidirectional and its opposite is '{@link de.enithing.fragmenthub.model.fragmenthub.Package#getContentFragmentModelSets <em>Content Fragment Model Sets</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Package</em>' container reference.
-	 * @see #setPackage(de.enithing.fragmenthub.model.contenthub.Package)
+	 * @see #setPackage(de.enithing.fragmenthub.model.fragmenthub.Package)
 	 * @see de.enithing.fragmenthub.model.contentfragment.ContentFragmentPackage#getContentFragmentModelSet_Package()
-	 * @see de.enithing.fragmenthub.model.contenthub.Package#getContentFragmentModelSets
+	 * @see de.enithing.fragmenthub.model.fragmenthub.Package#getContentFragmentModelSets
 	 * @model opposite="contentFragmentModelSets" required="true" transient="false"
 	 * @generated
 	 */

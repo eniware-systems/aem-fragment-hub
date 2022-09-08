@@ -14,9 +14,8 @@ import de.enithing.fragmenthub.model.contentfragment.corefields.validation.Valid
 import de.enithing.fragmenthub.model.contentfragment.corefields.validation.ValidationFactory;
 import de.enithing.fragmenthub.model.contentfragment.corefields.validation.ValidationPackage;
 import de.enithing.fragmenthub.model.contentfragment.impl.ContentFragmentPackageImpl;
-import de.enithing.fragmenthub.model.fragmenthub.ContentHubPackage;
-import de.enithing.fragmenthub.model.fragmenthub.impl.ContentHubPackageImpl;
-
+import de.enithing.fragmenthub.model.fragmenthub.FragmentHubPackage;
+import de.enithing.fragmenthub.model.fragmenthub.impl.FragmentHubPackageImpl;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
@@ -123,8 +122,8 @@ public class ValidationPackageImpl extends EPackageImpl implements ValidationPac
 		isInited = true;
 
 		// Obtain or create and register interdependencies
-		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ContentHubPackage.eNS_URI);
-		ContentHubPackageImpl theContentHubPackage = (ContentHubPackageImpl)(registeredPackage instanceof ContentHubPackageImpl ? registeredPackage : ContentHubPackage.eINSTANCE);
+		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(FragmentHubPackage.eNS_URI);
+		FragmentHubPackageImpl theFragmentHubPackage = (FragmentHubPackageImpl)(registeredPackage instanceof FragmentHubPackageImpl ? registeredPackage : FragmentHubPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ContentFragmentPackage.eNS_URI);
 		ContentFragmentPackageImpl theContentFragmentPackage = (ContentFragmentPackageImpl)(registeredPackage instanceof ContentFragmentPackageImpl ? registeredPackage : ContentFragmentPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(CorefieldsPackage.eNS_URI);
@@ -132,13 +131,13 @@ public class ValidationPackageImpl extends EPackageImpl implements ValidationPac
 
 		// Create package meta-data objects
 		theValidationPackage.createPackageContents();
-		theContentHubPackage.createPackageContents();
+		theFragmentHubPackage.createPackageContents();
 		theContentFragmentPackage.createPackageContents();
 		theCorefieldsPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theValidationPackage.initializePackageContents();
-		theContentHubPackage.initializePackageContents();
+		theFragmentHubPackage.initializePackageContents();
 		theContentFragmentPackage.initializePackageContents();
 		theCorefieldsPackage.initializePackageContents();
 

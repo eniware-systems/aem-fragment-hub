@@ -30,7 +30,7 @@ public interface ContentReferenceValue extends ContentFragmentFieldValue {
 	 * @return the value of the '<em>Value</em>' attribute.
 	 * @see #setValue(Path)
 	 * @see de.enithing.fragmenthub.model.contentfragment.corefields.CorefieldsPackage#getContentReferenceValue_Value()
-	 * @model dataType="de.enithing.fragmenthub.model.contenthub.Path" required="true"
+	 * @model dataType="de.enithing.fragmenthub.model.fragmenthub.Path" required="true"
 	 * @generated
 	 */
 	Path getValue();

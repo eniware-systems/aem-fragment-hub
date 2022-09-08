@@ -3,7 +3,7 @@
 package de.enithing.fragmenthub.model.contentfragment.provider;
 
 
-import de.enithing.fragmenthub.edit.ContentHubEditPlugin;
+import de.enithing.fragmenthub.edit.FragmentHubEditPlugin;
 import de.enithing.fragmenthub.model.contentfragment.ContentFragmentFieldInstance;
 import de.enithing.fragmenthub.model.contentfragment.ContentFragmentPackage;
 
@@ -204,7 +204,7 @@ public class ContentFragmentFieldInstanceItemProvider
 	 */
 	@Override
 	public ResourceLocator getResourceLocator() {
-		return ContentHubEditPlugin.INSTANCE;
+		return FragmentHubEditPlugin.INSTANCE;
 	}
 
 }

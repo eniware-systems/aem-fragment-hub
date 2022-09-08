@@ -9,17 +9,17 @@ import org.eclipse.emf.ecore.EFactory;
  * The <b>Factory</b> for the model.
  * It provides a create method for each non-abstract class of the model.
  * <!-- end-user-doc -->
- * @see de.enithing.fragmenthub.model.contenthub.ContentHubPackage
+ * @see de.enithing.fragmenthub.model.fragmenthub.FragmentHubPackage
  * @generated
  */
-public interface ContentHubFactory extends EFactory {
+public interface FragmentHubFactory extends EFactory {
 	/**
 	 * The singleton instance of the factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	ContentHubFactory eINSTANCE = de.enithing.fragmenthub.model.fragmenthub.impl.ContentHubFactoryImpl.init();
+	FragmentHubFactory eINSTANCE = de.enithing.fragmenthub.model.fragmenthub.impl.FragmentHubFactoryImpl.init();
 
 	/**
 	 * Returns a new object of class '<em>Simple Path</em>'.
@@ -64,6 +64,6 @@ public interface ContentHubFactory extends EFactory {
 	 * @return the package supported by this factory.
 	 * @generated
 	 */
-	ContentHubPackage getContentHubPackage();
+	FragmentHubPackage getFragmentHubPackage();
 
-} //ContentHubFactory
+} //FragmentHubFactory

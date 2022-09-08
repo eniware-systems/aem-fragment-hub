@@ -69,7 +69,7 @@ import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
 import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.ISetSelectionTarget;
 
-import de.enithing.fragmenthub.edit.ContentHubEditPlugin;
+import de.enithing.fragmenthub.edit.FragmentHubEditPlugin;
 import de.enithing.fragmenthub.editor.ContentHubEditorPlugin;
 import de.enithing.fragmenthub.model.contentfragment.ContentFragmentFactory;
 import de.enithing.fragmenthub.model.contentfragment.ContentFragmentPackage;
@@ -539,7 +539,7 @@ public class ContentFragmentModelWizard extends Wizard implements INewWizard {
 		 */
 		protected String getLabel(String typeName) {
 			try {
-				return ContentHubEditPlugin.INSTANCE.getString("_UI_" + typeName + "_type");
+				return FragmentHubEditPlugin.INSTANCE.getString("_UI_" + typeName + "_type");
 			}
 			catch(MissingResourceException mre) {
 				ContentHubEditorPlugin.INSTANCE.log(mre);

@@ -2,8 +2,6 @@
  */
 package de.enithing.fragmenthub.model.contentfragment.provider;
 
-import de.enithing.fragmenthub.model.contentfragment.provider.ExtendedContentFragmentFieldInstanceItemProvider;
-import de.enithing.fragmenthub.model.contentfragment.provider.ExtendedContentFragmentInstanceItemProvider;
 import de.enithing.fragmenthub.model.contentfragment.util.ContentFragmentAdapterFactory;
 
 import java.util.ArrayList;

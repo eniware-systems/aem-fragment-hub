@@ -11,7 +11,7 @@ import de.enithing.fragmenthub.model.contentfragment.ContentFragmentInstance;
 import de.enithing.fragmenthub.model.contentfragment.corefields.CorefieldsFactory;
 import de.enithing.fragmenthub.model.contentfragment.corefields.FragmentReferenceValue;
 import de.enithing.fragmenthub.model.contentfragment.impl.ContentFragmentInstanceImpl;
-import de.enithing.fragmenthub.model.fragmenthub.ContentHubFactory;
+import de.enithing.fragmenthub.model.fragmenthub.FragmentHubFactory;
 import de.enithing.fragmenthub.model.fragmenthub.Package;
 
 import org.jdom2.Element;

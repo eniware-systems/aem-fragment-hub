@@ -3,8 +3,8 @@
 package de.enithing.fragmenthub.model.fragmenthub.provider;
 
 
-import de.enithing.fragmenthub.edit.ContentHubEditPlugin;
-import de.enithing.fragmenthub.model.fragmenthub.ContentHubPackage;
+import de.enithing.fragmenthub.edit.FragmentHubEditPlugin;
+import de.enithing.fragmenthub.model.fragmenthub.FragmentHubPackage;
 import de.enithing.fragmenthub.model.fragmenthub.SimplePath;
 
 import java.nio.file.Path;
@@ -29,7 +29,7 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link de.enithing.fragmenthub.model.contenthub.SimplePath} object.
+ * This is the item provider adapter for a {@link de.enithing.fragmenthub.model.fragmenthub.SimplePath} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
@@ -81,7 +81,7 @@ public class SimplePathItemProvider
 				 getResourceLocator(),
 				 getString("_UI_SimplePath_path_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_SimplePath_path_feature", "_UI_SimplePath_type"),
-				 ContentHubPackage.Literals.SIMPLE_PATH__PATH,
+				 FragmentHubPackage.Literals.SIMPLE_PATH__PATH,
 				 true,
 				 false,
 				 false,
@@ -129,7 +129,7 @@ public class SimplePathItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(SimplePath.class)) {
-			case ContentHubPackage.SIMPLE_PATH__PATH:
+			case FragmentHubPackage.SIMPLE_PATH__PATH:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
@@ -156,7 +156,7 @@ public class SimplePathItemProvider
 	 */
 	@Override
 	public ResourceLocator getResourceLocator() {
-		return ContentHubEditPlugin.INSTANCE;
+		return FragmentHubEditPlugin.INSTANCE;
 	}
 
 }

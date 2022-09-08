@@ -5,7 +5,7 @@ import de.enithing.fragmenthub.importer.contentfragment.model.ContentFragmentFie
 import de.enithing.fragmenthub.importer.util.JcrUtils;
 import de.enithing.fragmenthub.model.contentfragment.corefields.CorefieldsFactory;
 import de.enithing.fragmenthub.model.contentfragment.corefields.Tags;
-import de.enithing.fragmenthub.model.fragmenthub.ContentHubFactory;
+import de.enithing.fragmenthub.model.fragmenthub.FragmentHubFactory;
 import de.enithing.fragmenthub.model.fragmenthub.SimplePath;
 
 import org.jdom2.Element;
@@ -28,7 +28,7 @@ public class TagsTypeImporter extends ContentFragmentFieldTypeImporter<Tags> {
         field.setAllowMultiple(JcrUtils.getXmlAttributeBool(node, "multiple"));
         field.setRequired(JcrUtils.getXmlAttributeBool(node, "required"));
 
-        SimplePath path = ContentHubFactory.eINSTANCE.createSimplePath();
+        SimplePath path = FragmentHubFactory.eINSTANCE.createSimplePath();
         path.setPath(Path.of(JcrUtils.getXmlAttribute(node, "rootPath").getValue()));
         field.setRootPath(path);
 

@@ -3,7 +3,7 @@
 package de.enithing.fragmenthub.model.contentfragment.corefields.validation.provider;
 
 
-import de.enithing.fragmenthub.edit.ContentHubEditPlugin;
+import de.enithing.fragmenthub.edit.FragmentHubEditPlugin;
 import de.enithing.fragmenthub.model.contentfragment.corefields.validation.LowerBoundConstraint;
 import de.enithing.fragmenthub.model.contentfragment.corefields.validation.ValidationPackage;
 
@@ -154,7 +154,7 @@ public class LowerBoundConstraintItemProvider
 	 */
 	@Override
 	public ResourceLocator getResourceLocator() {
-		return ContentHubEditPlugin.INSTANCE;
+		return FragmentHubEditPlugin.INSTANCE;
 	}
 
 }

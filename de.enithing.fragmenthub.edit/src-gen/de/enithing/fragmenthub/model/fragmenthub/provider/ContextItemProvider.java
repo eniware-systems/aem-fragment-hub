@@ -3,10 +3,10 @@
 package de.enithing.fragmenthub.model.fragmenthub.provider;
 
 
-import de.enithing.fragmenthub.edit.ContentHubEditPlugin;
+import de.enithing.fragmenthub.edit.FragmentHubEditPlugin;
 import de.enithing.fragmenthub.model.contentfragment.ContentFragmentFactory;
-import de.enithing.fragmenthub.model.fragmenthub.ContentHubFactory;
-import de.enithing.fragmenthub.model.fragmenthub.ContentHubPackage;
+import de.enithing.fragmenthub.model.fragmenthub.FragmentHubFactory;
+import de.enithing.fragmenthub.model.fragmenthub.FragmentHubPackage;
 import de.enithing.fragmenthub.model.fragmenthub.Context;
 
 import java.util.Collection;
@@ -31,7 +31,7 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link de.enithing.fragmenthub.model.contenthub.Context} object.
+ * This is the item provider adapter for a {@link de.enithing.fragmenthub.model.fragmenthub.Context} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
@@ -86,7 +86,7 @@ public class ContextItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Context_childContexts_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Context_childContexts_feature", "_UI_Context_type"),
-				 ContentHubPackage.Literals.CONTEXT__CHILD_CONTEXTS,
+				 FragmentHubPackage.Literals.CONTEXT__CHILD_CONTEXTS,
 				 true,
 				 false,
 				 true,
@@ -108,7 +108,7 @@ public class ContextItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Context_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Context_name_feature", "_UI_Context_type"),
-				 ContentHubPackage.Literals.CONTEXT__NAME,
+				 FragmentHubPackage.Literals.CONTEXT__NAME,
 				 true,
 				 false,
 				 false,
@@ -130,7 +130,7 @@ public class ContextItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Context_title_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Context_title_feature", "_UI_Context_type"),
-				 ContentHubPackage.Literals.CONTEXT__TITLE,
+				 FragmentHubPackage.Literals.CONTEXT__TITLE,
 				 true,
 				 false,
 				 false,
@@ -152,7 +152,7 @@ public class ContextItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Context_primaryType_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Context_primaryType_feature", "_UI_Context_type"),
-				 ContentHubPackage.Literals.CONTEXT__PRIMARY_TYPE,
+				 FragmentHubPackage.Literals.CONTEXT__PRIMARY_TYPE,
 				 true,
 				 false,
 				 false,
@@ -173,9 +173,9 @@ public class ContextItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ContentHubPackage.Literals.CONTEXT__CHILD_CONTEXTS);
-			childrenFeatures.add(ContentHubPackage.Literals.CONTEXT__CONTENT_FRAGMENTS);
-			childrenFeatures.add(ContentHubPackage.Literals.CONTEXT__POLICIES);
+			childrenFeatures.add(FragmentHubPackage.Literals.CONTEXT__CHILD_CONTEXTS);
+			childrenFeatures.add(FragmentHubPackage.Literals.CONTEXT__CONTENT_FRAGMENTS);
+			childrenFeatures.add(FragmentHubPackage.Literals.CONTEXT__POLICIES);
 		}
 		return childrenFeatures;
 	}
@@ -231,14 +231,14 @@ public class ContextItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Context.class)) {
-			case ContentHubPackage.CONTEXT__NAME:
-			case ContentHubPackage.CONTEXT__TITLE:
-			case ContentHubPackage.CONTEXT__PRIMARY_TYPE:
+			case FragmentHubPackage.CONTEXT__NAME:
+			case FragmentHubPackage.CONTEXT__TITLE:
+			case FragmentHubPackage.CONTEXT__PRIMARY_TYPE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case ContentHubPackage.CONTEXT__CHILD_CONTEXTS:
-			case ContentHubPackage.CONTEXT__CONTENT_FRAGMENTS:
-			case ContentHubPackage.CONTEXT__POLICIES:
+			case FragmentHubPackage.CONTEXT__CHILD_CONTEXTS:
+			case FragmentHubPackage.CONTEXT__CONTENT_FRAGMENTS:
+			case FragmentHubPackage.CONTEXT__POLICIES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -258,17 +258,17 @@ public class ContextItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ContentHubPackage.Literals.CONTEXT__CHILD_CONTEXTS,
-				 ContentHubFactory.eINSTANCE.createContext()));
+				(FragmentHubPackage.Literals.CONTEXT__CHILD_CONTEXTS,
+				 FragmentHubFactory.eINSTANCE.createContext()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ContentHubPackage.Literals.CONTEXT__CONTENT_FRAGMENTS,
+				(FragmentHubPackage.Literals.CONTEXT__CONTENT_FRAGMENTS,
 				 ContentFragmentFactory.eINSTANCE.createContentFragmentInstance()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ContentHubPackage.Literals.CONTEXT__POLICIES,
+				(FragmentHubPackage.Literals.CONTEXT__POLICIES,
 				 ContentFragmentFactory.eINSTANCE.createAllowedContentFragmentModelPolicy()));
 	}
 
@@ -280,7 +280,7 @@ public class ContextItemProvider
 	 */
 	@Override
 	public ResourceLocator getResourceLocator() {
-		return ContentHubEditPlugin.INSTANCE;
+		return FragmentHubEditPlugin.INSTANCE;
 	}
 
 }

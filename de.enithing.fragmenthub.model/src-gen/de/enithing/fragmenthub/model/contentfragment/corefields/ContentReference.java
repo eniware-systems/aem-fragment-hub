@@ -67,7 +67,7 @@ public interface ContentReference extends MultiFieldType<ContentReferenceValue> 
 	 * @return the value of the '<em>Default Value</em>' attribute.
 	 * @see #setDefaultValue(Path)
 	 * @see de.enithing.fragmenthub.model.contentfragment.corefields.CorefieldsPackage#getContentReference_DefaultValue()
-	 * @model dataType="de.enithing.fragmenthub.model.contenthub.Path"
+	 * @model dataType="de.enithing.fragmenthub.model.fragmenthub.Path"
 	 * @generated
 	 */
 	Path getDefaultValue();

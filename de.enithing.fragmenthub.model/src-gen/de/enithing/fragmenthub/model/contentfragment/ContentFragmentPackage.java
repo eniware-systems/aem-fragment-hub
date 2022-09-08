@@ -7,8 +7,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
-import de.enithing.fragmenthub.model.fragmenthub.ContentHubPackage;
+import de.enithing.fragmenthub.model.fragmenthub.FragmentHubPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -41,7 +40,7 @@ public interface ContentFragmentPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "https://aemcontenthub.eniware-systems.de/ns/contentfragments";
+	String eNS_URI = "https://aemfragmenthub.eniware-systems.de/ns/contentfragments";
 
 	/**
 	 * The package namespace name.
@@ -643,7 +642,7 @@ public interface ContentFragmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ALLOWED_CONTENT_FRAGMENT_MODEL_POLICY__MODELS = ContentHubPackage.CONTEXT_POLICY_FEATURE_COUNT + 0;
+	int ALLOWED_CONTENT_FRAGMENT_MODEL_POLICY__MODELS = FragmentHubPackage.CONTEXT_POLICY_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Allowed Content Fragment Model Policy</em>' class.
@@ -652,7 +651,7 @@ public interface ContentFragmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ALLOWED_CONTENT_FRAGMENT_MODEL_POLICY_FEATURE_COUNT = ContentHubPackage.CONTEXT_POLICY_FEATURE_COUNT + 1;
+	int ALLOWED_CONTENT_FRAGMENT_MODEL_POLICY_FEATURE_COUNT = FragmentHubPackage.CONTEXT_POLICY_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Allowed Content Fragment Model Policy</em>' class.
@@ -661,7 +660,7 @@ public interface ContentFragmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ALLOWED_CONTENT_FRAGMENT_MODEL_POLICY_OPERATION_COUNT = ContentHubPackage.CONTEXT_POLICY_OPERATION_COUNT + 0;
+	int ALLOWED_CONTENT_FRAGMENT_MODEL_POLICY_OPERATION_COUNT = FragmentHubPackage.CONTEXT_POLICY_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link de.enithing.fragmenthub.model.contentfragment.MultiFieldType <em>Multi Field Type</em>}' class.

@@ -9,7 +9,7 @@ import org.eclipse.emf.edit.command.CommandParameter;
 
 import de.enithing.fragmenthub.model.contentfragment.ContentFragmentModel;
 import de.enithing.fragmenthub.model.contentfragment.util.ContentFragmentUtils;
-import de.enithing.fragmenthub.model.fragmenthub.ContentHubPackage;
+import de.enithing.fragmenthub.model.fragmenthub.FragmentHubPackage;
 import de.enithing.fragmenthub.model.fragmenthub.Context;
 import de.enithing.fragmenthub.model.fragmenthub.provider.ContextItemProvider;
 
@@ -31,7 +31,7 @@ public class ExtendedContextItemProvider extends ContextItemProvider {
 		if (availableModels.isEmpty()) {
 			Stream<CommandParameter> params = newChildDescriptors.stream().filter(d -> d instanceof CommandParameter)
 					.map(d -> (CommandParameter) d);
-			EReference feature = ContentHubPackage.Literals.CONTEXT__CONTENT_FRAGMENTS;
+			EReference feature = FragmentHubPackage.Literals.CONTEXT__CONTENT_FRAGMENTS;
 			CommandParameter param = params.filter(cmd -> cmd.getFeature() == feature).findFirst().orElseThrow();
 
 			newChildDescriptors.remove(param);

@@ -12,7 +12,7 @@ import org.eclipse.emf.ecore.EObject;
  * <!-- end-user-doc -->
  *
  *
- * @see de.enithing.fragmenthub.model.contenthub.ContentHubPackage#getPathProvider()
+ * @see de.enithing.fragmenthub.model.fragmenthub.FragmentHubPackage#getPathProvider()
  * @model interface="true" abstract="true"
  * @generated
  */
@@ -20,7 +20,7 @@ public interface PathProvider extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model kind="operation" dataType="de.enithing.fragmenthub.model.contenthub.Path" required="true"
+	 * @model kind="operation" dataType="de.enithing.fragmenthub.model.fragmenthub.Path" required="true"
 	 * @generated
 	 */
 	Path getPath();

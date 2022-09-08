@@ -2,7 +2,7 @@ package de.enithing.fragmenthub.importer.util;
 
 import de.enithing.fragmenthub.model.contentfragment.ContentFragmentFactory;
 import de.enithing.fragmenthub.model.contentfragment.corefields.CorefieldsFactory;
-import de.enithing.fragmenthub.model.fragmenthub.ContentHubFactory;
+import de.enithing.fragmenthub.model.fragmenthub.FragmentHubFactory;
 import de.enithing.fragmenthub.model.fragmenthub.Package;
 
 import org.apache.commons.vfs2.FileObject;
@@ -25,7 +25,7 @@ public class ImporterUtils {
      * called when needed automatically
      */
     public static void initFactories() {
-        ContentHubFactory.eINSTANCE.eClass();
+        FragmentHubFactory.eINSTANCE.eClass();
         ContentFragmentFactory.eINSTANCE.eClass();
         CorefieldsFactory.eINSTANCE.eClass();
     }

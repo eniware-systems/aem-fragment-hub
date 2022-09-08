@@ -12,10 +12,10 @@ package de.enithing.fragmenthub.model.fragmenthub;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link de.enithing.fragmenthub.model.contenthub.ContextPath#getContext <em>Context</em>}</li>
+ *   <li>{@link de.enithing.fragmenthub.model.fragmenthub.ContextPath#getContext <em>Context</em>}</li>
  * </ul>
  *
- * @see de.enithing.fragmenthub.model.contenthub.ContentHubPackage#getContextPath()
+ * @see de.enithing.fragmenthub.model.fragmenthub.FragmentHubPackage#getContextPath()
  * @model
  * @generated
  */
@@ -26,14 +26,14 @@ public interface ContextPath extends PathProvider {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Context</em>' reference.
 	 * @see #setContext(Context)
-	 * @see de.enithing.fragmenthub.model.contenthub.ContentHubPackage#getContextPath_Context()
+	 * @see de.enithing.fragmenthub.model.fragmenthub.FragmentHubPackage#getContextPath_Context()
 	 * @model required="true"
 	 * @generated
 	 */
 	Context getContext();
 
 	/**
-	 * Sets the value of the '{@link de.enithing.fragmenthub.model.contenthub.ContextPath#getContext <em>Context</em>}' reference.
+	 * Sets the value of the '{@link de.enithing.fragmenthub.model.fragmenthub.ContextPath#getContext <em>Context</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Context</em>' reference.

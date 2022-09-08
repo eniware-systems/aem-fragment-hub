@@ -5,9 +5,9 @@ package de.enithing.fragmenthub.model.fragmenthub.impl;
 import de.enithing.fragmenthub.model.contentfragment.ContentFragmentModel;
 import de.enithing.fragmenthub.model.contentfragment.ContentFragmentModelSet;
 import de.enithing.fragmenthub.model.contentfragment.ContentFragmentPackage;
-import de.enithing.fragmenthub.model.fragmenthub.ContentHubFactory;
-import de.enithing.fragmenthub.model.fragmenthub.ContentHubPackage;
 import de.enithing.fragmenthub.model.fragmenthub.Context;
+import de.enithing.fragmenthub.model.fragmenthub.FragmentHubFactory;
+import de.enithing.fragmenthub.model.fragmenthub.FragmentHubPackage;
 import de.enithing.fragmenthub.model.fragmenthub.util.PackageUtils;
 
 import java.lang.reflect.InvocationTargetException;
@@ -197,7 +197,7 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.enit
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Path CONTENT_FRAGMENT_MODEL_PATH_EDEFAULT = (Path)ContentHubFactory.eINSTANCE.createFromString(ContentHubPackage.eINSTANCE.getPath(), "/conf/$packageName/settings/dam/cfm/models");
+	protected static final Path CONTENT_FRAGMENT_MODEL_PATH_EDEFAULT = (Path)FragmentHubFactory.eINSTANCE.createFromString(FragmentHubPackage.eINSTANCE.getPath(), "/conf/$packageName/settings/dam/cfm/models");
 
 	/**
 	 * The cached value of the '{@link #getContentFragmentModelPath() <em>Content Fragment Model Path</em>}' attribute.
@@ -217,7 +217,7 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.enit
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Path CONTENT_PATH_EDEFAULT = (Path)ContentHubFactory.eINSTANCE.createFromString(ContentHubPackage.eINSTANCE.getPath(), "/content/dam/$packageName");
+	protected static final Path CONTENT_PATH_EDEFAULT = (Path)FragmentHubFactory.eINSTANCE.createFromString(FragmentHubPackage.eINSTANCE.getPath(), "/content/dam/$packageName");
 
 	/**
 	 * The cached value of the '{@link #getContentPath() <em>Content Path</em>}' attribute.
@@ -245,7 +245,7 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.enit
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ContentHubPackage.Literals.PACKAGE;
+		return FragmentHubPackage.Literals.PACKAGE;
 	}
 
 	/**
@@ -268,7 +268,7 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.enit
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ContentHubPackage.PACKAGE__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, FragmentHubPackage.PACKAGE__NAME, oldName, name));
 	}
 
 	/**
@@ -291,7 +291,7 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.enit
 		String oldGroup = group;
 		group = newGroup;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ContentHubPackage.PACKAGE__GROUP, oldGroup, group));
+			eNotify(new ENotificationImpl(this, Notification.SET, FragmentHubPackage.PACKAGE__GROUP, oldGroup, group));
 	}
 
 	/**
@@ -314,7 +314,7 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.enit
 		String oldTitle = title;
 		title = newTitle;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ContentHubPackage.PACKAGE__TITLE, oldTitle, title));
+			eNotify(new ENotificationImpl(this, Notification.SET, FragmentHubPackage.PACKAGE__TITLE, oldTitle, title));
 	}
 
 	/**
@@ -337,7 +337,7 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.enit
 		String oldDescription = description;
 		description = newDescription;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ContentHubPackage.PACKAGE__DESCRIPTION, oldDescription, description));
+			eNotify(new ENotificationImpl(this, Notification.SET, FragmentHubPackage.PACKAGE__DESCRIPTION, oldDescription, description));
 	}
 
 	/**
@@ -360,7 +360,7 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.enit
 		String oldAuthor = author;
 		author = newAuthor;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ContentHubPackage.PACKAGE__AUTHOR, oldAuthor, author));
+			eNotify(new ENotificationImpl(this, Notification.SET, FragmentHubPackage.PACKAGE__AUTHOR, oldAuthor, author));
 	}
 
 	/**
@@ -383,7 +383,7 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.enit
 		String oldVersion = version;
 		version = newVersion;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ContentHubPackage.PACKAGE__VERSION, oldVersion, version));
+			eNotify(new ENotificationImpl(this, Notification.SET, FragmentHubPackage.PACKAGE__VERSION, oldVersion, version));
 	}
 
 	/**
@@ -394,7 +394,7 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.enit
 	@Override
 	public EList<ContentFragmentModelSet> getContentFragmentModelSets() {
 		if (contentFragmentModelSets == null) {
-			contentFragmentModelSets = new EObjectContainmentWithInverseEList<ContentFragmentModelSet>(ContentFragmentModelSet.class, this, ContentHubPackage.PACKAGE__CONTENT_FRAGMENT_MODEL_SETS, ContentFragmentPackage.CONTENT_FRAGMENT_MODEL_SET__PACKAGE);
+			contentFragmentModelSets = new EObjectContainmentWithInverseEList<ContentFragmentModelSet>(ContentFragmentModelSet.class, this, FragmentHubPackage.PACKAGE__CONTENT_FRAGMENT_MODEL_SETS, ContentFragmentPackage.CONTENT_FRAGMENT_MODEL_SET__PACKAGE);
 		}
 		return contentFragmentModelSets;
 	}
@@ -418,7 +418,7 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.enit
 		Context oldContentRoot = contentRoot;
 		contentRoot = newContentRoot;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ContentHubPackage.PACKAGE__CONTENT_ROOT, oldContentRoot, newContentRoot);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FragmentHubPackage.PACKAGE__CONTENT_ROOT, oldContentRoot, newContentRoot);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -434,14 +434,14 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.enit
 		if (newContentRoot != contentRoot) {
 			NotificationChain msgs = null;
 			if (contentRoot != null)
-				msgs = ((InternalEObject)contentRoot).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ContentHubPackage.PACKAGE__CONTENT_ROOT, null, msgs);
+				msgs = ((InternalEObject)contentRoot).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FragmentHubPackage.PACKAGE__CONTENT_ROOT, null, msgs);
 			if (newContentRoot != null)
-				msgs = ((InternalEObject)newContentRoot).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ContentHubPackage.PACKAGE__CONTENT_ROOT, null, msgs);
+				msgs = ((InternalEObject)newContentRoot).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FragmentHubPackage.PACKAGE__CONTENT_ROOT, null, msgs);
 			msgs = basicSetContentRoot(newContentRoot, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ContentHubPackage.PACKAGE__CONTENT_ROOT, newContentRoot, newContentRoot));
+			eNotify(new ENotificationImpl(this, Notification.SET, FragmentHubPackage.PACKAGE__CONTENT_ROOT, newContentRoot, newContentRoot));
 	}
 
 	/**
@@ -464,7 +464,7 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.enit
 		Path oldContentFragmentModelPath = contentFragmentModelPath;
 		contentFragmentModelPath = newContentFragmentModelPath;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ContentHubPackage.PACKAGE__CONTENT_FRAGMENT_MODEL_PATH, oldContentFragmentModelPath, contentFragmentModelPath));
+			eNotify(new ENotificationImpl(this, Notification.SET, FragmentHubPackage.PACKAGE__CONTENT_FRAGMENT_MODEL_PATH, oldContentFragmentModelPath, contentFragmentModelPath));
 	}
 
 	/**
@@ -487,7 +487,7 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.enit
 		Path oldContentPath = contentPath;
 		contentPath = newContentPath;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ContentHubPackage.PACKAGE__CONTENT_PATH, oldContentPath, contentPath));
+			eNotify(new ENotificationImpl(this, Notification.SET, FragmentHubPackage.PACKAGE__CONTENT_PATH, oldContentPath, contentPath));
 	}
 
 	/**
@@ -508,7 +508,7 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.enit
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ContentHubPackage.PACKAGE__CONTENT_FRAGMENT_MODEL_SETS:
+			case FragmentHubPackage.PACKAGE__CONTENT_FRAGMENT_MODEL_SETS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getContentFragmentModelSets()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -522,9 +522,9 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.enit
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ContentHubPackage.PACKAGE__CONTENT_FRAGMENT_MODEL_SETS:
+			case FragmentHubPackage.PACKAGE__CONTENT_FRAGMENT_MODEL_SETS:
 				return ((InternalEList<?>)getContentFragmentModelSets()).basicRemove(otherEnd, msgs);
-			case ContentHubPackage.PACKAGE__CONTENT_ROOT:
+			case FragmentHubPackage.PACKAGE__CONTENT_ROOT:
 				return basicSetContentRoot(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -538,25 +538,25 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.enit
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ContentHubPackage.PACKAGE__NAME:
+			case FragmentHubPackage.PACKAGE__NAME:
 				return getName();
-			case ContentHubPackage.PACKAGE__GROUP:
+			case FragmentHubPackage.PACKAGE__GROUP:
 				return getGroup();
-			case ContentHubPackage.PACKAGE__TITLE:
+			case FragmentHubPackage.PACKAGE__TITLE:
 				return getTitle();
-			case ContentHubPackage.PACKAGE__DESCRIPTION:
+			case FragmentHubPackage.PACKAGE__DESCRIPTION:
 				return getDescription();
-			case ContentHubPackage.PACKAGE__AUTHOR:
+			case FragmentHubPackage.PACKAGE__AUTHOR:
 				return getAuthor();
-			case ContentHubPackage.PACKAGE__VERSION:
+			case FragmentHubPackage.PACKAGE__VERSION:
 				return getVersion();
-			case ContentHubPackage.PACKAGE__CONTENT_FRAGMENT_MODEL_SETS:
+			case FragmentHubPackage.PACKAGE__CONTENT_FRAGMENT_MODEL_SETS:
 				return getContentFragmentModelSets();
-			case ContentHubPackage.PACKAGE__CONTENT_ROOT:
+			case FragmentHubPackage.PACKAGE__CONTENT_ROOT:
 				return getContentRoot();
-			case ContentHubPackage.PACKAGE__CONTENT_FRAGMENT_MODEL_PATH:
+			case FragmentHubPackage.PACKAGE__CONTENT_FRAGMENT_MODEL_PATH:
 				return getContentFragmentModelPath();
-			case ContentHubPackage.PACKAGE__CONTENT_PATH:
+			case FragmentHubPackage.PACKAGE__CONTENT_PATH:
 				return getContentPath();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -571,35 +571,35 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.enit
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ContentHubPackage.PACKAGE__NAME:
+			case FragmentHubPackage.PACKAGE__NAME:
 				setName((String)newValue);
 				return;
-			case ContentHubPackage.PACKAGE__GROUP:
+			case FragmentHubPackage.PACKAGE__GROUP:
 				setGroup((String)newValue);
 				return;
-			case ContentHubPackage.PACKAGE__TITLE:
+			case FragmentHubPackage.PACKAGE__TITLE:
 				setTitle((String)newValue);
 				return;
-			case ContentHubPackage.PACKAGE__DESCRIPTION:
+			case FragmentHubPackage.PACKAGE__DESCRIPTION:
 				setDescription((String)newValue);
 				return;
-			case ContentHubPackage.PACKAGE__AUTHOR:
+			case FragmentHubPackage.PACKAGE__AUTHOR:
 				setAuthor((String)newValue);
 				return;
-			case ContentHubPackage.PACKAGE__VERSION:
+			case FragmentHubPackage.PACKAGE__VERSION:
 				setVersion((String)newValue);
 				return;
-			case ContentHubPackage.PACKAGE__CONTENT_FRAGMENT_MODEL_SETS:
+			case FragmentHubPackage.PACKAGE__CONTENT_FRAGMENT_MODEL_SETS:
 				getContentFragmentModelSets().clear();
 				getContentFragmentModelSets().addAll((Collection<? extends ContentFragmentModelSet>)newValue);
 				return;
-			case ContentHubPackage.PACKAGE__CONTENT_ROOT:
+			case FragmentHubPackage.PACKAGE__CONTENT_ROOT:
 				setContentRoot((Context)newValue);
 				return;
-			case ContentHubPackage.PACKAGE__CONTENT_FRAGMENT_MODEL_PATH:
+			case FragmentHubPackage.PACKAGE__CONTENT_FRAGMENT_MODEL_PATH:
 				setContentFragmentModelPath((Path)newValue);
 				return;
-			case ContentHubPackage.PACKAGE__CONTENT_PATH:
+			case FragmentHubPackage.PACKAGE__CONTENT_PATH:
 				setContentPath((Path)newValue);
 				return;
 		}
@@ -614,34 +614,34 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.enit
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ContentHubPackage.PACKAGE__NAME:
+			case FragmentHubPackage.PACKAGE__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case ContentHubPackage.PACKAGE__GROUP:
+			case FragmentHubPackage.PACKAGE__GROUP:
 				setGroup(GROUP_EDEFAULT);
 				return;
-			case ContentHubPackage.PACKAGE__TITLE:
+			case FragmentHubPackage.PACKAGE__TITLE:
 				setTitle(TITLE_EDEFAULT);
 				return;
-			case ContentHubPackage.PACKAGE__DESCRIPTION:
+			case FragmentHubPackage.PACKAGE__DESCRIPTION:
 				setDescription(DESCRIPTION_EDEFAULT);
 				return;
-			case ContentHubPackage.PACKAGE__AUTHOR:
+			case FragmentHubPackage.PACKAGE__AUTHOR:
 				setAuthor(AUTHOR_EDEFAULT);
 				return;
-			case ContentHubPackage.PACKAGE__VERSION:
+			case FragmentHubPackage.PACKAGE__VERSION:
 				setVersion(VERSION_EDEFAULT);
 				return;
-			case ContentHubPackage.PACKAGE__CONTENT_FRAGMENT_MODEL_SETS:
+			case FragmentHubPackage.PACKAGE__CONTENT_FRAGMENT_MODEL_SETS:
 				getContentFragmentModelSets().clear();
 				return;
-			case ContentHubPackage.PACKAGE__CONTENT_ROOT:
+			case FragmentHubPackage.PACKAGE__CONTENT_ROOT:
 				setContentRoot((Context)null);
 				return;
-			case ContentHubPackage.PACKAGE__CONTENT_FRAGMENT_MODEL_PATH:
+			case FragmentHubPackage.PACKAGE__CONTENT_FRAGMENT_MODEL_PATH:
 				setContentFragmentModelPath(CONTENT_FRAGMENT_MODEL_PATH_EDEFAULT);
 				return;
-			case ContentHubPackage.PACKAGE__CONTENT_PATH:
+			case FragmentHubPackage.PACKAGE__CONTENT_PATH:
 				setContentPath(CONTENT_PATH_EDEFAULT);
 				return;
 		}
@@ -656,25 +656,25 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.enit
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ContentHubPackage.PACKAGE__NAME:
+			case FragmentHubPackage.PACKAGE__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case ContentHubPackage.PACKAGE__GROUP:
+			case FragmentHubPackage.PACKAGE__GROUP:
 				return GROUP_EDEFAULT == null ? group != null : !GROUP_EDEFAULT.equals(group);
-			case ContentHubPackage.PACKAGE__TITLE:
+			case FragmentHubPackage.PACKAGE__TITLE:
 				return TITLE_EDEFAULT == null ? title != null : !TITLE_EDEFAULT.equals(title);
-			case ContentHubPackage.PACKAGE__DESCRIPTION:
+			case FragmentHubPackage.PACKAGE__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
-			case ContentHubPackage.PACKAGE__AUTHOR:
+			case FragmentHubPackage.PACKAGE__AUTHOR:
 				return AUTHOR_EDEFAULT == null ? author != null : !AUTHOR_EDEFAULT.equals(author);
-			case ContentHubPackage.PACKAGE__VERSION:
+			case FragmentHubPackage.PACKAGE__VERSION:
 				return VERSION_EDEFAULT == null ? version != null : !VERSION_EDEFAULT.equals(version);
-			case ContentHubPackage.PACKAGE__CONTENT_FRAGMENT_MODEL_SETS:
+			case FragmentHubPackage.PACKAGE__CONTENT_FRAGMENT_MODEL_SETS:
 				return contentFragmentModelSets != null && !contentFragmentModelSets.isEmpty();
-			case ContentHubPackage.PACKAGE__CONTENT_ROOT:
+			case FragmentHubPackage.PACKAGE__CONTENT_ROOT:
 				return contentRoot != null;
-			case ContentHubPackage.PACKAGE__CONTENT_FRAGMENT_MODEL_PATH:
+			case FragmentHubPackage.PACKAGE__CONTENT_FRAGMENT_MODEL_PATH:
 				return CONTENT_FRAGMENT_MODEL_PATH_EDEFAULT == null ? contentFragmentModelPath != null : !CONTENT_FRAGMENT_MODEL_PATH_EDEFAULT.equals(contentFragmentModelPath);
-			case ContentHubPackage.PACKAGE__CONTENT_PATH:
+			case FragmentHubPackage.PACKAGE__CONTENT_PATH:
 				return CONTENT_PATH_EDEFAULT == null ? contentPath != null : !CONTENT_PATH_EDEFAULT.equals(contentPath);
 		}
 		return super.eIsSet(featureID);
@@ -688,7 +688,7 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.enit
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case ContentHubPackage.PACKAGE___GET_ALL_CONTENT_FRAGMENT_MODELS:
+			case FragmentHubPackage.PACKAGE___GET_ALL_CONTENT_FRAGMENT_MODELS:
 				return getAllContentFragmentModels();
 		}
 		return super.eInvoke(operationID, arguments);

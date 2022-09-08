@@ -5,8 +5,7 @@ package de.enithing.fragmenthub.model.contentfragment.impl;
 import de.enithing.fragmenthub.model.contentfragment.ContentFragmentModel;
 import de.enithing.fragmenthub.model.contentfragment.ContentFragmentModelSet;
 import de.enithing.fragmenthub.model.contentfragment.ContentFragmentPackage;
-import de.enithing.fragmenthub.model.fragmenthub.ContentHubPackage;
-
+import de.enithing.fragmenthub.model.fragmenthub.FragmentHubPackage;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -160,7 +159,7 @@ public class ContentFragmentModelSetImpl extends MinimalEObjectImpl.Container im
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newPackage != null)
-				msgs = ((InternalEObject)newPackage).eInverseAdd(this, ContentHubPackage.PACKAGE__CONTENT_FRAGMENT_MODEL_SETS, de.enithing.fragmenthub.model.fragmenthub.Package.class, msgs);
+				msgs = ((InternalEObject)newPackage).eInverseAdd(this, FragmentHubPackage.PACKAGE__CONTENT_FRAGMENT_MODEL_SETS, de.enithing.fragmenthub.model.fragmenthub.Package.class, msgs);
 			msgs = basicSetPackage(newPackage, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -212,7 +211,7 @@ public class ContentFragmentModelSetImpl extends MinimalEObjectImpl.Container im
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
 			case ContentFragmentPackage.CONTENT_FRAGMENT_MODEL_SET__PACKAGE:
-				return eInternalContainer().eInverseRemove(this, ContentHubPackage.PACKAGE__CONTENT_FRAGMENT_MODEL_SETS, de.enithing.fragmenthub.model.fragmenthub.Package.class, msgs);
+				return eInternalContainer().eInverseRemove(this, FragmentHubPackage.PACKAGE__CONTENT_FRAGMENT_MODEL_SETS, de.enithing.fragmenthub.model.fragmenthub.Package.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}

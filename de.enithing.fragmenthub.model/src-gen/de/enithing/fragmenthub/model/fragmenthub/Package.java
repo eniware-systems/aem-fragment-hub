@@ -19,19 +19,19 @@ import de.enithing.fragmenthub.model.contentfragment.ContentFragmentModelSet;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link de.enithing.fragmenthub.model.contenthub.Package#getName <em>Name</em>}</li>
- *   <li>{@link de.enithing.fragmenthub.model.contenthub.Package#getGroup <em>Group</em>}</li>
- *   <li>{@link de.enithing.fragmenthub.model.contenthub.Package#getTitle <em>Title</em>}</li>
- *   <li>{@link de.enithing.fragmenthub.model.contenthub.Package#getDescription <em>Description</em>}</li>
- *   <li>{@link de.enithing.fragmenthub.model.contenthub.Package#getAuthor <em>Author</em>}</li>
- *   <li>{@link de.enithing.fragmenthub.model.contenthub.Package#getVersion <em>Version</em>}</li>
- *   <li>{@link de.enithing.fragmenthub.model.contenthub.Package#getContentFragmentModelSets <em>Content Fragment Model Sets</em>}</li>
- *   <li>{@link de.enithing.fragmenthub.model.contenthub.Package#getContentRoot <em>Content Root</em>}</li>
- *   <li>{@link de.enithing.fragmenthub.model.contenthub.Package#getContentFragmentModelPath <em>Content Fragment Model Path</em>}</li>
- *   <li>{@link de.enithing.fragmenthub.model.contenthub.Package#getContentPath <em>Content Path</em>}</li>
+ *   <li>{@link de.enithing.fragmenthub.model.fragmenthub.Package#getName <em>Name</em>}</li>
+ *   <li>{@link de.enithing.fragmenthub.model.fragmenthub.Package#getGroup <em>Group</em>}</li>
+ *   <li>{@link de.enithing.fragmenthub.model.fragmenthub.Package#getTitle <em>Title</em>}</li>
+ *   <li>{@link de.enithing.fragmenthub.model.fragmenthub.Package#getDescription <em>Description</em>}</li>
+ *   <li>{@link de.enithing.fragmenthub.model.fragmenthub.Package#getAuthor <em>Author</em>}</li>
+ *   <li>{@link de.enithing.fragmenthub.model.fragmenthub.Package#getVersion <em>Version</em>}</li>
+ *   <li>{@link de.enithing.fragmenthub.model.fragmenthub.Package#getContentFragmentModelSets <em>Content Fragment Model Sets</em>}</li>
+ *   <li>{@link de.enithing.fragmenthub.model.fragmenthub.Package#getContentRoot <em>Content Root</em>}</li>
+ *   <li>{@link de.enithing.fragmenthub.model.fragmenthub.Package#getContentFragmentModelPath <em>Content Fragment Model Path</em>}</li>
+ *   <li>{@link de.enithing.fragmenthub.model.fragmenthub.Package#getContentPath <em>Content Path</em>}</li>
  * </ul>
  *
- * @see de.enithing.fragmenthub.model.contenthub.ContentHubPackage#getPackage()
+ * @see de.enithing.fragmenthub.model.fragmenthub.FragmentHubPackage#getPackage()
  * @model
  * @generated
  */
@@ -43,14 +43,14 @@ public interface Package extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
-	 * @see de.enithing.fragmenthub.model.contenthub.ContentHubPackage#getPackage_Name()
+	 * @see de.enithing.fragmenthub.model.fragmenthub.FragmentHubPackage#getPackage_Name()
 	 * @model default="my.content" required="true"
 	 * @generated
 	 */
 	String getName();
 
 	/**
-	 * Sets the value of the '{@link de.enithing.fragmenthub.model.contenthub.Package#getName <em>Name</em>}' attribute.
+	 * Sets the value of the '{@link de.enithing.fragmenthub.model.fragmenthub.Package#getName <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Name</em>' attribute.
@@ -66,14 +66,14 @@ public interface Package extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Group</em>' attribute.
 	 * @see #setGroup(String)
-	 * @see de.enithing.fragmenthub.model.contenthub.ContentHubPackage#getPackage_Group()
+	 * @see de.enithing.fragmenthub.model.fragmenthub.FragmentHubPackage#getPackage_Group()
 	 * @model default="de.enithing" required="true"
 	 * @generated
 	 */
 	String getGroup();
 
 	/**
-	 * Sets the value of the '{@link de.enithing.fragmenthub.model.contenthub.Package#getGroup <em>Group</em>}' attribute.
+	 * Sets the value of the '{@link de.enithing.fragmenthub.model.fragmenthub.Package#getGroup <em>Group</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Group</em>' attribute.
@@ -89,14 +89,14 @@ public interface Package extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Title</em>' attribute.
 	 * @see #setTitle(String)
-	 * @see de.enithing.fragmenthub.model.contenthub.ContentHubPackage#getPackage_Title()
+	 * @see de.enithing.fragmenthub.model.fragmenthub.FragmentHubPackage#getPackage_Title()
 	 * @model default="My Content" required="true"
 	 * @generated
 	 */
 	String getTitle();
 
 	/**
-	 * Sets the value of the '{@link de.enithing.fragmenthub.model.contenthub.Package#getTitle <em>Title</em>}' attribute.
+	 * Sets the value of the '{@link de.enithing.fragmenthub.model.fragmenthub.Package#getTitle <em>Title</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Title</em>' attribute.
@@ -112,14 +112,14 @@ public interface Package extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Description</em>' attribute.
 	 * @see #setDescription(String)
-	 * @see de.enithing.fragmenthub.model.contenthub.ContentHubPackage#getPackage_Description()
+	 * @see de.enithing.fragmenthub.model.fragmenthub.FragmentHubPackage#getPackage_Description()
 	 * @model default="A new package" required="true"
 	 * @generated
 	 */
 	String getDescription();
 
 	/**
-	 * Sets the value of the '{@link de.enithing.fragmenthub.model.contenthub.Package#getDescription <em>Description</em>}' attribute.
+	 * Sets the value of the '{@link de.enithing.fragmenthub.model.fragmenthub.Package#getDescription <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Description</em>' attribute.
@@ -135,14 +135,14 @@ public interface Package extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Author</em>' attribute.
 	 * @see #setAuthor(String)
-	 * @see de.enithing.fragmenthub.model.contenthub.ContentHubPackage#getPackage_Author()
+	 * @see de.enithing.fragmenthub.model.fragmenthub.FragmentHubPackage#getPackage_Author()
 	 * @model default="admin" required="true"
 	 * @generated
 	 */
 	String getAuthor();
 
 	/**
-	 * Sets the value of the '{@link de.enithing.fragmenthub.model.contenthub.Package#getAuthor <em>Author</em>}' attribute.
+	 * Sets the value of the '{@link de.enithing.fragmenthub.model.fragmenthub.Package#getAuthor <em>Author</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Author</em>' attribute.
@@ -158,14 +158,14 @@ public interface Package extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Version</em>' attribute.
 	 * @see #setVersion(String)
-	 * @see de.enithing.fragmenthub.model.contenthub.ContentHubPackage#getPackage_Version()
+	 * @see de.enithing.fragmenthub.model.fragmenthub.FragmentHubPackage#getPackage_Version()
 	 * @model default="1.0.0" required="true"
 	 * @generated
 	 */
 	String getVersion();
 
 	/**
-	 * Sets the value of the '{@link de.enithing.fragmenthub.model.contenthub.Package#getVersion <em>Version</em>}' attribute.
+	 * Sets the value of the '{@link de.enithing.fragmenthub.model.fragmenthub.Package#getVersion <em>Version</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Version</em>' attribute.
@@ -181,7 +181,7 @@ public interface Package extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Content Fragment Model Sets</em>' containment reference list.
-	 * @see de.enithing.fragmenthub.model.contenthub.ContentHubPackage#getPackage_ContentFragmentModelSets()
+	 * @see de.enithing.fragmenthub.model.fragmenthub.FragmentHubPackage#getPackage_ContentFragmentModelSets()
 	 * @see de.enithing.fragmenthub.model.contentfragment.ContentFragmentModelSet#getPackage
 	 * @model opposite="package" containment="true"
 	 * @generated
@@ -194,14 +194,14 @@ public interface Package extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Content Root</em>' containment reference.
 	 * @see #setContentRoot(Context)
-	 * @see de.enithing.fragmenthub.model.contenthub.ContentHubPackage#getPackage_ContentRoot()
+	 * @see de.enithing.fragmenthub.model.fragmenthub.FragmentHubPackage#getPackage_ContentRoot()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
 	Context getContentRoot();
 
 	/**
-	 * Sets the value of the '{@link de.enithing.fragmenthub.model.contenthub.Package#getContentRoot <em>Content Root</em>}' containment reference.
+	 * Sets the value of the '{@link de.enithing.fragmenthub.model.fragmenthub.Package#getContentRoot <em>Content Root</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Content Root</em>' containment reference.
@@ -217,14 +217,14 @@ public interface Package extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Content Fragment Model Path</em>' attribute.
 	 * @see #setContentFragmentModelPath(Path)
-	 * @see de.enithing.fragmenthub.model.contenthub.ContentHubPackage#getPackage_ContentFragmentModelPath()
-	 * @model default="/conf/$packageName/settings/dam/cfm/models" dataType="de.enithing.fragmenthub.model.contenthub.Path" required="true"
+	 * @see de.enithing.fragmenthub.model.fragmenthub.FragmentHubPackage#getPackage_ContentFragmentModelPath()
+	 * @model default="/conf/$packageName/settings/dam/cfm/models" dataType="de.enithing.fragmenthub.model.fragmenthub.Path" required="true"
 	 * @generated
 	 */
 	Path getContentFragmentModelPath();
 
 	/**
-	 * Sets the value of the '{@link de.enithing.fragmenthub.model.contenthub.Package#getContentFragmentModelPath <em>Content Fragment Model Path</em>}' attribute.
+	 * Sets the value of the '{@link de.enithing.fragmenthub.model.fragmenthub.Package#getContentFragmentModelPath <em>Content Fragment Model Path</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Content Fragment Model Path</em>' attribute.
@@ -240,14 +240,14 @@ public interface Package extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Content Path</em>' attribute.
 	 * @see #setContentPath(Path)
-	 * @see de.enithing.fragmenthub.model.contenthub.ContentHubPackage#getPackage_ContentPath()
-	 * @model default="/content/dam/$packageName" dataType="de.enithing.fragmenthub.model.contenthub.Path" required="true"
+	 * @see de.enithing.fragmenthub.model.fragmenthub.FragmentHubPackage#getPackage_ContentPath()
+	 * @model default="/content/dam/$packageName" dataType="de.enithing.fragmenthub.model.fragmenthub.Path" required="true"
 	 * @generated
 	 */
 	Path getContentPath();
 
 	/**
-	 * Sets the value of the '{@link de.enithing.fragmenthub.model.contenthub.Package#getContentPath <em>Content Path</em>}' attribute.
+	 * Sets the value of the '{@link de.enithing.fragmenthub.model.fragmenthub.Package#getContentPath <em>Content Path</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Content Path</em>' attribute.

@@ -10,7 +10,7 @@ import de.enithing.fragmenthub.importer.contentfragment.model.ContentFragmentFie
 import de.enithing.fragmenthub.importer.util.JcrUtils;
 import de.enithing.fragmenthub.importer.util.PackageUtils;
 import de.enithing.fragmenthub.model.contentfragment.*;
-import de.enithing.fragmenthub.model.fragmenthub.ContentHubFactory;
+import de.enithing.fragmenthub.model.fragmenthub.FragmentHubFactory;
 import de.enithing.fragmenthub.model.fragmenthub.Context;
 import de.enithing.fragmenthub.model.fragmenthub.Package;
 
@@ -44,7 +44,7 @@ public class PackageImporter implements Importer<Package> {
 
     @Override
     public Package createElement() throws Exception {
-        return ContentHubFactory.eINSTANCE.createPackage();
+        return FragmentHubFactory.eINSTANCE.createPackage();
     }
 
     private Collection<FileObject> findContentXmls() throws FileSystemException {
@@ -108,7 +108,7 @@ public class PackageImporter implements Importer<Package> {
             if (child.isPresent()) {
                 currentContext = child.get();
             } else {
-                Context newContext = ContentHubFactory.eINSTANCE.createContext();
+                Context newContext = FragmentHubFactory.eINSTANCE.createContext();
                 newContext.setName(ctxId.toString());
                 newContext.setTitle(ctxId.toString());
                 currentContext.getChildContexts().add(newContext);

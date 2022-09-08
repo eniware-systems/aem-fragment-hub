@@ -159,7 +159,7 @@ import de.enithing.fragmenthub.editor.ContentHubEditorPlugin;
 import de.enithing.fragmenthub.model.contentfragment.corefields.provider.CorefieldsItemProviderAdapterFactory;
 import de.enithing.fragmenthub.model.contentfragment.corefields.validation.provider.ValidationItemProviderAdapterFactory;
 import de.enithing.fragmenthub.model.contentfragment.provider.ContentFragmentItemProviderAdapterFactory;
-import de.enithing.fragmenthub.model.fragmenthub.provider.ContentHubItemProviderAdapterFactory;
+import de.enithing.fragmenthub.model.fragmenthub.provider.FragmentHubItemProviderAdapterFactory;
 
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 
@@ -714,7 +714,7 @@ public class ValidationEditor
 		adapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
 
 		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new ContentHubItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new FragmentHubItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ContentFragmentItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new CorefieldsItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ValidationItemProviderAdapterFactory());

@@ -3,7 +3,7 @@
 package de.enithing.fragmenthub.model.contentfragment.corefields.provider;
 
 
-import de.enithing.fragmenthub.edit.ContentHubEditPlugin;
+import de.enithing.fragmenthub.edit.FragmentHubEditPlugin;
 import de.enithing.fragmenthub.model.contentfragment.corefields.CorefieldsPackage;
 import de.enithing.fragmenthub.model.contentfragment.corefields.EnumerationOption;
 
@@ -177,7 +177,7 @@ public class EnumerationOptionItemProvider
 	 */
 	@Override
 	public ResourceLocator getResourceLocator() {
-		return ContentHubEditPlugin.INSTANCE;
+		return FragmentHubEditPlugin.INSTANCE;
 	}
 
 }

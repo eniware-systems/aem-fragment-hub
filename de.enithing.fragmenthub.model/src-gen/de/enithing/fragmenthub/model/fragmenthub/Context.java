@@ -17,29 +17,29 @@ import de.enithing.fragmenthub.model.contentfragment.ContentFragmentInstance;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link de.enithing.fragmenthub.model.contenthub.Context#getChildContexts <em>Child Contexts</em>}</li>
- *   <li>{@link de.enithing.fragmenthub.model.contenthub.Context#getParentContext <em>Parent Context</em>}</li>
- *   <li>{@link de.enithing.fragmenthub.model.contenthub.Context#getContentFragments <em>Content Fragments</em>}</li>
- *   <li>{@link de.enithing.fragmenthub.model.contenthub.Context#getPolicies <em>Policies</em>}</li>
- *   <li>{@link de.enithing.fragmenthub.model.contenthub.Context#getName <em>Name</em>}</li>
- *   <li>{@link de.enithing.fragmenthub.model.contenthub.Context#getTitle <em>Title</em>}</li>
- *   <li>{@link de.enithing.fragmenthub.model.contenthub.Context#getPrimaryType <em>Primary Type</em>}</li>
+ *   <li>{@link de.enithing.fragmenthub.model.fragmenthub.Context#getChildContexts <em>Child Contexts</em>}</li>
+ *   <li>{@link de.enithing.fragmenthub.model.fragmenthub.Context#getParentContext <em>Parent Context</em>}</li>
+ *   <li>{@link de.enithing.fragmenthub.model.fragmenthub.Context#getContentFragments <em>Content Fragments</em>}</li>
+ *   <li>{@link de.enithing.fragmenthub.model.fragmenthub.Context#getPolicies <em>Policies</em>}</li>
+ *   <li>{@link de.enithing.fragmenthub.model.fragmenthub.Context#getName <em>Name</em>}</li>
+ *   <li>{@link de.enithing.fragmenthub.model.fragmenthub.Context#getTitle <em>Title</em>}</li>
+ *   <li>{@link de.enithing.fragmenthub.model.fragmenthub.Context#getPrimaryType <em>Primary Type</em>}</li>
  * </ul>
  *
- * @see de.enithing.fragmenthub.model.contenthub.ContentHubPackage#getContext()
+ * @see de.enithing.fragmenthub.model.fragmenthub.FragmentHubPackage#getContext()
  * @model
  * @generated
  */
 public interface Context extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Child Contexts</b></em>' containment reference list.
-	 * The list contents are of type {@link de.enithing.fragmenthub.model.contenthub.Context}.
-	 * It is bidirectional and its opposite is '{@link de.enithing.fragmenthub.model.contenthub.Context#getParentContext <em>Parent Context</em>}'.
+	 * The list contents are of type {@link de.enithing.fragmenthub.model.fragmenthub.Context}.
+	 * It is bidirectional and its opposite is '{@link de.enithing.fragmenthub.model.fragmenthub.Context#getParentContext <em>Parent Context</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Child Contexts</em>' containment reference list.
-	 * @see de.enithing.fragmenthub.model.contenthub.ContentHubPackage#getContext_ChildContexts()
-	 * @see de.enithing.fragmenthub.model.contenthub.Context#getParentContext
+	 * @see de.enithing.fragmenthub.model.fragmenthub.FragmentHubPackage#getContext_ChildContexts()
+	 * @see de.enithing.fragmenthub.model.fragmenthub.Context#getParentContext
 	 * @model opposite="parentContext" containment="true"
 	 * @generated
 	 */
@@ -47,20 +47,20 @@ public interface Context extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Parent Context</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link de.enithing.fragmenthub.model.contenthub.Context#getChildContexts <em>Child Contexts</em>}'.
+	 * It is bidirectional and its opposite is '{@link de.enithing.fragmenthub.model.fragmenthub.Context#getChildContexts <em>Child Contexts</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Parent Context</em>' container reference.
 	 * @see #setParentContext(Context)
-	 * @see de.enithing.fragmenthub.model.contenthub.ContentHubPackage#getContext_ParentContext()
-	 * @see de.enithing.fragmenthub.model.contenthub.Context#getChildContexts
+	 * @see de.enithing.fragmenthub.model.fragmenthub.FragmentHubPackage#getContext_ParentContext()
+	 * @see de.enithing.fragmenthub.model.fragmenthub.Context#getChildContexts
 	 * @model opposite="childContexts" transient="false"
 	 * @generated
 	 */
 	Context getParentContext();
 
 	/**
-	 * Sets the value of the '{@link de.enithing.fragmenthub.model.contenthub.Context#getParentContext <em>Parent Context</em>}' container reference.
+	 * Sets the value of the '{@link de.enithing.fragmenthub.model.fragmenthub.Context#getParentContext <em>Parent Context</em>}' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Parent Context</em>' container reference.
@@ -76,7 +76,7 @@ public interface Context extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Content Fragments</em>' containment reference list.
-	 * @see de.enithing.fragmenthub.model.contenthub.ContentHubPackage#getContext_ContentFragments()
+	 * @see de.enithing.fragmenthub.model.fragmenthub.FragmentHubPackage#getContext_ContentFragments()
 	 * @see de.enithing.fragmenthub.model.contentfragment.ContentFragmentInstance#getContext
 	 * @model opposite="context" containment="true"
 	 * @generated
@@ -85,11 +85,11 @@ public interface Context extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Policies</b></em>' containment reference list.
-	 * The list contents are of type {@link de.enithing.fragmenthub.model.contenthub.ContextPolicy}.
+	 * The list contents are of type {@link de.enithing.fragmenthub.model.fragmenthub.ContextPolicy}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Policies</em>' containment reference list.
-	 * @see de.enithing.fragmenthub.model.contenthub.ContentHubPackage#getContext_Policies()
+	 * @see de.enithing.fragmenthub.model.fragmenthub.FragmentHubPackage#getContext_Policies()
 	 * @model containment="true"
 	 * @generated
 	 */
@@ -102,14 +102,14 @@ public interface Context extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
-	 * @see de.enithing.fragmenthub.model.contenthub.ContentHubPackage#getContext_Name()
+	 * @see de.enithing.fragmenthub.model.fragmenthub.FragmentHubPackage#getContext_Name()
 	 * @model default="new_context" required="true"
 	 * @generated
 	 */
 	String getName();
 
 	/**
-	 * Sets the value of the '{@link de.enithing.fragmenthub.model.contenthub.Context#getName <em>Name</em>}' attribute.
+	 * Sets the value of the '{@link de.enithing.fragmenthub.model.fragmenthub.Context#getName <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Name</em>' attribute.
@@ -124,14 +124,14 @@ public interface Context extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Title</em>' attribute.
 	 * @see #setTitle(String)
-	 * @see de.enithing.fragmenthub.model.contenthub.ContentHubPackage#getContext_Title()
+	 * @see de.enithing.fragmenthub.model.fragmenthub.FragmentHubPackage#getContext_Title()
 	 * @model
 	 * @generated
 	 */
 	String getTitle();
 
 	/**
-	 * Sets the value of the '{@link de.enithing.fragmenthub.model.contenthub.Context#getTitle <em>Title</em>}' attribute.
+	 * Sets the value of the '{@link de.enithing.fragmenthub.model.fragmenthub.Context#getTitle <em>Title</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Title</em>' attribute.
@@ -143,24 +143,24 @@ public interface Context extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Primary Type</b></em>' attribute.
 	 * The default value is <code>"sling:Folder"</code>.
-	 * The literals are from the enumeration {@link de.enithing.fragmenthub.model.contenthub.ContextType}.
+	 * The literals are from the enumeration {@link de.enithing.fragmenthub.model.fragmenthub.ContextType}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Primary Type</em>' attribute.
-	 * @see de.enithing.fragmenthub.model.contenthub.ContextType
+	 * @see de.enithing.fragmenthub.model.fragmenthub.ContextType
 	 * @see #setPrimaryType(ContextType)
-	 * @see de.enithing.fragmenthub.model.contenthub.ContentHubPackage#getContext_PrimaryType()
+	 * @see de.enithing.fragmenthub.model.fragmenthub.FragmentHubPackage#getContext_PrimaryType()
 	 * @model default="sling:Folder" required="true"
 	 * @generated
 	 */
 	ContextType getPrimaryType();
 
 	/**
-	 * Sets the value of the '{@link de.enithing.fragmenthub.model.contenthub.Context#getPrimaryType <em>Primary Type</em>}' attribute.
+	 * Sets the value of the '{@link de.enithing.fragmenthub.model.fragmenthub.Context#getPrimaryType <em>Primary Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Primary Type</em>' attribute.
-	 * @see de.enithing.fragmenthub.model.contenthub.ContextType
+	 * @see de.enithing.fragmenthub.model.fragmenthub.ContextType
 	 * @see #getPrimaryType()
 	 * @generated
 	 */
@@ -185,7 +185,7 @@ public interface Context extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model kind="operation" dataType="de.enithing.fragmenthub.model.contenthub.Path" required="true"
+	 * @model kind="operation" dataType="de.enithing.fragmenthub.model.fragmenthub.Path" required="true"
 	 * @generated
 	 */
 	Path getPath();
@@ -201,7 +201,7 @@ public interface Context extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model patternDataType="de.enithing.fragmenthub.model.contenthub.Path" patternRequired="true"
+	 * @model patternDataType="de.enithing.fragmenthub.model.fragmenthub.Path" patternRequired="true"
 	 * @generated
 	 */
 	EList<Context> resolveContextsByPattern(Path pattern);
@@ -209,7 +209,7 @@ public interface Context extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model patternDataType="de.enithing.fragmenthub.model.contenthub.Path" patternRequired="true"
+	 * @model patternDataType="de.enithing.fragmenthub.model.fragmenthub.Path" patternRequired="true"
 	 * @generated
 	 */
 	EList<ContentFragmentInstance> resolveContentFragmentInstancesByPattern(Path pattern);

@@ -69,10 +69,10 @@ import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
 import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.ISetSelectionTarget;
 
-import de.enithing.fragmenthub.edit.ContentHubEditPlugin;
+import de.enithing.fragmenthub.edit.FragmentHubEditPlugin;
 import de.enithing.fragmenthub.editor.ContentHubEditorPlugin;
-import de.enithing.fragmenthub.model.fragmenthub.ContentHubFactory;
-import de.enithing.fragmenthub.model.fragmenthub.ContentHubPackage;
+import de.enithing.fragmenthub.model.fragmenthub.FragmentHubFactory;
+import de.enithing.fragmenthub.model.fragmenthub.FragmentHubPackage;
 
 import org.eclipse.core.runtime.Path;
 
@@ -116,7 +116,7 @@ public class ContentHubModelWizard extends Wizard implements INewWizard {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ContentHubPackage contentHubPackage = ContentHubPackage.eINSTANCE;
+	protected FragmentHubPackage contentHubPackage = FragmentHubPackage.eINSTANCE;
 
 	/**
 	 * This caches an instance of the model factory.
@@ -124,7 +124,7 @@ public class ContentHubModelWizard extends Wizard implements INewWizard {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ContentHubFactory contentHubFactory = contentHubPackage.getContentHubFactory();
+	protected FragmentHubFactory contentHubFactory = contentHubPackage.getContentHubFactory();
 
 	/**
 	 * This is the file creation page.
@@ -539,7 +539,7 @@ public class ContentHubModelWizard extends Wizard implements INewWizard {
 		 */
 		protected String getLabel(String typeName) {
 			try {
-				return ContentHubEditPlugin.INSTANCE.getString("_UI_" + typeName + "_type");
+				return FragmentHubEditPlugin.INSTANCE.getString("_UI_" + typeName + "_type");
 			}
 			catch(MissingResourceException mre) {
 				ContentHubEditorPlugin.INSTANCE.log(mre);

@@ -15,10 +15,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import de.enithing.fragmenthub.model.fragmenthub.ContentHubPackage;
 import de.enithing.fragmenthub.model.fragmenthub.Context;
 import de.enithing.fragmenthub.model.fragmenthub.ContextPath;
+import de.enithing.fragmenthub.model.fragmenthub.FragmentHubPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -60,7 +59,7 @@ public class ContextPathImpl extends MinimalEObjectImpl.Container implements Con
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ContentHubPackage.Literals.CONTEXT_PATH;
+		return FragmentHubPackage.Literals.CONTEXT_PATH;
 	}
 
 	/**
@@ -75,7 +74,7 @@ public class ContextPathImpl extends MinimalEObjectImpl.Container implements Con
 			context = (Context)eResolveProxy(oldContext);
 			if (context != oldContext) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ContentHubPackage.CONTEXT_PATH__CONTEXT, oldContext, context));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, FragmentHubPackage.CONTEXT_PATH__CONTEXT, oldContext, context));
 			}
 		}
 		return context;
@@ -100,7 +99,7 @@ public class ContextPathImpl extends MinimalEObjectImpl.Container implements Con
 		Context oldContext = context;
 		context = newContext;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ContentHubPackage.CONTEXT_PATH__CONTEXT, oldContext, context));
+			eNotify(new ENotificationImpl(this, Notification.SET, FragmentHubPackage.CONTEXT_PATH__CONTEXT, oldContext, context));
 	}
 
 	/**
@@ -123,7 +122,7 @@ public class ContextPathImpl extends MinimalEObjectImpl.Container implements Con
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ContentHubPackage.CONTEXT_PATH__CONTEXT:
+			case FragmentHubPackage.CONTEXT_PATH__CONTEXT:
 				if (resolve) return getContext();
 				return basicGetContext();
 		}
@@ -138,7 +137,7 @@ public class ContextPathImpl extends MinimalEObjectImpl.Container implements Con
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ContentHubPackage.CONTEXT_PATH__CONTEXT:
+			case FragmentHubPackage.CONTEXT_PATH__CONTEXT:
 				setContext((Context)newValue);
 				return;
 		}
@@ -153,7 +152,7 @@ public class ContextPathImpl extends MinimalEObjectImpl.Container implements Con
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ContentHubPackage.CONTEXT_PATH__CONTEXT:
+			case FragmentHubPackage.CONTEXT_PATH__CONTEXT:
 				setContext((Context)null);
 				return;
 		}
@@ -168,7 +167,7 @@ public class ContextPathImpl extends MinimalEObjectImpl.Container implements Con
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ContentHubPackage.CONTEXT_PATH__CONTEXT:
+			case FragmentHubPackage.CONTEXT_PATH__CONTEXT:
 				return context != null;
 		}
 		return super.eIsSet(featureID);
@@ -182,7 +181,7 @@ public class ContextPathImpl extends MinimalEObjectImpl.Container implements Con
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case ContentHubPackage.CONTEXT_PATH___GET_PATH:
+			case FragmentHubPackage.CONTEXT_PATH___GET_PATH:
 				return getPath();
 		}
 		return super.eInvoke(operationID, arguments);

@@ -3,12 +3,12 @@
 package de.enithing.fragmenthub.model.contentfragment.corefields.provider;
 
 
-import de.enithing.fragmenthub.edit.ContentHubEditPlugin;
+import de.enithing.fragmenthub.edit.FragmentHubEditPlugin;
 import de.enithing.fragmenthub.model.contentfragment.ContentFragmentPackage;
 import de.enithing.fragmenthub.model.contentfragment.corefields.CorefieldsPackage;
 import de.enithing.fragmenthub.model.contentfragment.corefields.FragmentReference;
 import de.enithing.fragmenthub.model.contentfragment.provider.ContentFragmentFieldTypeItemProvider;
-import de.enithing.fragmenthub.model.fragmenthub.ContentHubFactory;
+import de.enithing.fragmenthub.model.fragmenthub.FragmentHubFactory;
 
 import java.util.Collection;
 import java.util.List;
@@ -291,12 +291,12 @@ public class FragmentReferenceItemProvider extends ContentFragmentFieldTypeItemP
 		newChildDescriptors.add
 			(createChildParameter
 				(CorefieldsPackage.Literals.FRAGMENT_REFERENCE__ROOT_PATH,
-				 ContentHubFactory.eINSTANCE.createSimplePath()));
+				 FragmentHubFactory.eINSTANCE.createSimplePath()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(CorefieldsPackage.Literals.FRAGMENT_REFERENCE__ROOT_PATH,
-				 ContentHubFactory.eINSTANCE.createContextPath()));
+				 FragmentHubFactory.eINSTANCE.createContextPath()));
 	}
 
 	/**
@@ -307,7 +307,7 @@ public class FragmentReferenceItemProvider extends ContentFragmentFieldTypeItemP
 	 */
 	@Override
 	public ResourceLocator getResourceLocator() {
-		return ContentHubEditPlugin.INSTANCE;
+		return FragmentHubEditPlugin.INSTANCE;
 	}
 
 }

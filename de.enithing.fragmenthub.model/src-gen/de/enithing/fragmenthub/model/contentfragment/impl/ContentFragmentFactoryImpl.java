@@ -11,7 +11,6 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 import de.enithing.fragmenthub.model.contentfragment.*;
-import de.enithing.fragmenthub.model.contentfragment.impl.ContentFragmentFactoryExtendedImpl;
 
 /**
  * <!-- begin-user-doc -->

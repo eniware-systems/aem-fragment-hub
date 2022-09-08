@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link de.enithing.fragmenthub.model.contenthub.Pair#getValue <em>Value</em>}</li>
  * </ul>
  *
- * @see de.enithing.fragmenthub.model.contenthub.ContentHubPackage#getPair()
+ * @see de.enithing.fragmenthub.model.FragmentHubPackage.ContentHubPackage#getPair()
  * @model
  * @generated
  */
@@ -28,7 +28,7 @@ public interface Pair<TKey, TValue> extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Key</em>' attribute.
 	 * @see #setKey(Object)
-	 * @see de.enithing.fragmenthub.model.contenthub.ContentHubPackage#getPair_Key()
+	 * @see de.enithing.fragmenthub.model.FragmentHubPackage.ContentHubPackage#getPair_Key()
 	 * @model required="true"
 	 * @generated
 	 */
@@ -50,7 +50,7 @@ public interface Pair<TKey, TValue> extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Value</em>' attribute.
 	 * @see #setValue(Object)
-	 * @see de.enithing.fragmenthub.model.contenthub.ContentHubPackage#getPair_Value()
+	 * @see de.enithing.fragmenthub.model.FragmentHubPackage.ContentHubPackage#getPair_Value()
 	 * @model required="true"
 	 * @generated
 	 */

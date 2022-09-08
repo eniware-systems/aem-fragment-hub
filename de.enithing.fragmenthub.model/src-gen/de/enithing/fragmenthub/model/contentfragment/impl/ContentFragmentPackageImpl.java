@@ -18,9 +18,8 @@ import de.enithing.fragmenthub.model.contentfragment.corefields.CorefieldsPackag
 import de.enithing.fragmenthub.model.contentfragment.corefields.impl.CorefieldsPackageImpl;
 import de.enithing.fragmenthub.model.contentfragment.corefields.validation.ValidationPackage;
 import de.enithing.fragmenthub.model.contentfragment.corefields.validation.impl.ValidationPackageImpl;
-import de.enithing.fragmenthub.model.fragmenthub.ContentHubPackage;
-import de.enithing.fragmenthub.model.fragmenthub.impl.ContentHubPackageImpl;
-
+import de.enithing.fragmenthub.model.fragmenthub.FragmentHubPackage;
+import de.enithing.fragmenthub.model.fragmenthub.impl.FragmentHubPackageImpl;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EGenericType;
@@ -156,8 +155,8 @@ public class ContentFragmentPackageImpl extends EPackageImpl implements ContentF
 		isInited = true;
 
 		// Obtain or create and register interdependencies
-		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ContentHubPackage.eNS_URI);
-		ContentHubPackageImpl theContentHubPackage = (ContentHubPackageImpl)(registeredPackage instanceof ContentHubPackageImpl ? registeredPackage : ContentHubPackage.eINSTANCE);
+		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(FragmentHubPackage.eNS_URI);
+		FragmentHubPackageImpl theFragmentHubPackage = (FragmentHubPackageImpl)(registeredPackage instanceof FragmentHubPackageImpl ? registeredPackage : FragmentHubPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(CorefieldsPackage.eNS_URI);
 		CorefieldsPackageImpl theCorefieldsPackage = (CorefieldsPackageImpl)(registeredPackage instanceof CorefieldsPackageImpl ? registeredPackage : CorefieldsPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ValidationPackage.eNS_URI);
@@ -165,13 +164,13 @@ public class ContentFragmentPackageImpl extends EPackageImpl implements ContentF
 
 		// Create package meta-data objects
 		theContentFragmentPackage.createPackageContents();
-		theContentHubPackage.createPackageContents();
+		theFragmentHubPackage.createPackageContents();
 		theCorefieldsPackage.createPackageContents();
 		theValidationPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theContentFragmentPackage.initializePackageContents();
-		theContentHubPackage.initializePackageContents();
+		theFragmentHubPackage.initializePackageContents();
 		theCorefieldsPackage.initializePackageContents();
 		theValidationPackage.initializePackageContents();
 
@@ -699,7 +698,7 @@ public class ContentFragmentPackageImpl extends EPackageImpl implements ContentF
 
 		// Obtain other dependent packages
 		CorefieldsPackage theCorefieldsPackage = (CorefieldsPackage)EPackage.Registry.INSTANCE.getEPackage(CorefieldsPackage.eNS_URI);
-		ContentHubPackage theContentHubPackage = (ContentHubPackage)EPackage.Registry.INSTANCE.getEPackage(ContentHubPackage.eNS_URI);
+		FragmentHubPackage theFragmentHubPackage = (FragmentHubPackage)EPackage.Registry.INSTANCE.getEPackage(FragmentHubPackage.eNS_URI);
 
 		// Add subpackages
 		getESubpackages().add(theCorefieldsPackage);
@@ -729,7 +728,7 @@ public class ContentFragmentPackageImpl extends EPackageImpl implements ContentF
 		g2 = createEGenericType(groupFieldTypeEClass_TValue);
 		g1.getETypeArguments().add(g2);
 		groupFieldTypeEClass.getEGenericSuperTypes().add(g1);
-		allowedContentFragmentModelPolicyEClass.getESuperTypes().add(theContentHubPackage.getContextPolicy());
+		allowedContentFragmentModelPolicyEClass.getESuperTypes().add(theFragmentHubPackage.getContextPolicy());
 		g1 = createEGenericType(this.getSimpleFieldType());
 		g2 = createEGenericType(multiFieldTypeEClass_TValue);
 		g1.getETypeArguments().add(g2);
@@ -739,7 +738,7 @@ public class ContentFragmentPackageImpl extends EPackageImpl implements ContentF
 		initEClass(contentFragmentModelSetEClass, ContentFragmentModelSet.class, "ContentFragmentModelSet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getContentFragmentModelSet_Name(), ecorePackage.getEString(), "name", null, 0, 1, ContentFragmentModelSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getContentFragmentModelSet_Models(), this.getContentFragmentModel(), this.getContentFragmentModel_ModelSet(), "models", null, 0, -1, ContentFragmentModelSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getContentFragmentModelSet_Package(), theContentHubPackage.getPackage(), theContentHubPackage.getPackage_ContentFragmentModelSets(), "package", null, 1, 1, ContentFragmentModelSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getContentFragmentModelSet_Package(), theFragmentHubPackage.getPackage(), theFragmentHubPackage.getPackage_ContentFragmentModelSets(), "package", null, 1, 1, ContentFragmentModelSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(contentFragmentModelEClass, ContentFragmentModel.class, "ContentFragmentModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getContentFragmentModel_Fields(), this.getContentFragmentFieldType(), null, "fields", null, 0, -1, ContentFragmentModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -776,7 +775,7 @@ public class ContentFragmentPackageImpl extends EPackageImpl implements ContentF
 		g1.getETypeArguments().add(g2);
 		initEOperation(op, g1);
 
-		initEOperation(getContentFragmentModel__GetPath(), theContentHubPackage.getPath(), "getPath", 1, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getContentFragmentModel__GetPath(), theFragmentHubPackage.getPath(), "getPath", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(contentFragmentFieldTypeEClass, ContentFragmentFieldType.class, "ContentFragmentFieldType", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getContentFragmentFieldType_PropertyName(), ecorePackage.getEString(), "propertyName", null, 1, 1, ContentFragmentFieldType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -795,9 +794,9 @@ public class ContentFragmentPackageImpl extends EPackageImpl implements ContentF
 		initEAttribute(getContentFragmentInstance_Description(), ecorePackage.getEString(), "description", null, 0, 1, ContentFragmentInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getContentFragmentInstance_Model(), this.getContentFragmentModel(), null, "model", null, 1, 1, ContentFragmentInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getContentFragmentInstance_Fields(), this.getContentFragmentFieldInstance(), this.getContentFragmentFieldInstance_Instance(), "fields", null, 0, -1, ContentFragmentInstance.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getContentFragmentInstance_Context(), theContentHubPackage.getContext(), theContentHubPackage.getContext_ContentFragments(), "context", null, 1, 1, ContentFragmentInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getContentFragmentInstance_Context(), theFragmentHubPackage.getContext(), theFragmentHubPackage.getContext_ContentFragments(), "context", null, 1, 1, ContentFragmentInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getContentFragmentInstance__GetPath(), theContentHubPackage.getPath(), "getPath", 1, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getContentFragmentInstance__GetPath(), theFragmentHubPackage.getPath(), "getPath", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(contentFragmentFieldInstanceEClass, ContentFragmentFieldInstance.class, "ContentFragmentFieldInstance", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getContentFragmentFieldInstance_Instance(), this.getContentFragmentInstance(), this.getContentFragmentInstance_Fields(), "instance", null, 1, 1, ContentFragmentFieldInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

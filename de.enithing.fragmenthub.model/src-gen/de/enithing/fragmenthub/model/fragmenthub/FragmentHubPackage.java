@@ -22,18 +22,18 @@ import org.eclipse.emf.ecore.EReference;
  *   <li>and each data type</li>
  * </ul>
  * <!-- end-user-doc -->
- * @see de.enithing.fragmenthub.model.contenthub.ContentHubFactory
+ * @see de.enithing.fragmenthub.model.fragmenthub.FragmentHubFactory
  * @model kind="package"
  * @generated
  */
-public interface ContentHubPackage extends EPackage {
+public interface FragmentHubPackage extends EPackage {
 	/**
 	 * The package name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNAME = "contenthub";
+	String eNAME = "fragmenthub";
 
 	/**
 	 * The package namespace URI.
@@ -41,7 +41,7 @@ public interface ContentHubPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "https://aemcontenthub.eniware-systems.de/ns/contenthub";
+	String eNS_URI = "https://aemfragmenthub.eniware-systems.de/ns/fragmenthub";
 
 	/**
 	 * The package namespace name.
@@ -49,7 +49,7 @@ public interface ContentHubPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_PREFIX = "chub";
+	String eNS_PREFIX = "afh";
 
 	/**
 	 * The singleton instance of the package.
@@ -57,14 +57,14 @@ public interface ContentHubPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	ContentHubPackage eINSTANCE = de.enithing.fragmenthub.model.fragmenthub.impl.ContentHubPackageImpl.init();
+	FragmentHubPackage eINSTANCE = de.enithing.fragmenthub.model.fragmenthub.impl.FragmentHubPackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link de.enithing.fragmenthub.model.contenthub.PathProvider <em>Path Provider</em>}' class.
+	 * The meta object id for the '{@link de.enithing.fragmenthub.model.fragmenthub.PathProvider <em>Path Provider</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see de.enithing.fragmenthub.model.contenthub.PathProvider
-	 * @see de.enithing.fragmenthub.model.fragmenthub.impl.ContentHubPackageImpl#getPathProvider()
+	 * @see de.enithing.fragmenthub.model.fragmenthub.PathProvider
+	 * @see de.enithing.fragmenthub.model.fragmenthub.impl.FragmentHubPackageImpl#getPathProvider()
 	 * @generated
 	 */
 	int PATH_PROVIDER = 0;
@@ -101,7 +101,7 @@ public interface ContentHubPackage extends EPackage {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see de.enithing.fragmenthub.model.fragmenthub.impl.SimplePathImpl
-	 * @see de.enithing.fragmenthub.model.fragmenthub.impl.ContentHubPackageImpl#getSimplePath()
+	 * @see de.enithing.fragmenthub.model.fragmenthub.impl.FragmentHubPackageImpl#getSimplePath()
 	 * @generated
 	 */
 	int SIMPLE_PATH = 1;
@@ -147,7 +147,7 @@ public interface ContentHubPackage extends EPackage {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see de.enithing.fragmenthub.model.fragmenthub.impl.ContextPathImpl
-	 * @see de.enithing.fragmenthub.model.fragmenthub.impl.ContentHubPackageImpl#getContextPath()
+	 * @see de.enithing.fragmenthub.model.fragmenthub.impl.FragmentHubPackageImpl#getContextPath()
 	 * @generated
 	 */
 	int CONTEXT_PATH = 2;
@@ -193,7 +193,7 @@ public interface ContentHubPackage extends EPackage {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see de.enithing.fragmenthub.model.fragmenthub.impl.PackageImpl
-	 * @see de.enithing.fragmenthub.model.fragmenthub.impl.ContentHubPackageImpl#getPackage()
+	 * @see de.enithing.fragmenthub.model.fragmenthub.impl.FragmentHubPackageImpl#getPackage()
 	 * @generated
 	 */
 	int PACKAGE = 3;
@@ -320,7 +320,7 @@ public interface ContentHubPackage extends EPackage {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see de.enithing.fragmenthub.model.fragmenthub.impl.ContextImpl
-	 * @see de.enithing.fragmenthub.model.fragmenthub.impl.ContentHubPackageImpl#getContext()
+	 * @see de.enithing.fragmenthub.model.fragmenthub.impl.FragmentHubPackageImpl#getContext()
 	 * @generated
 	 */
 	int CONTEXT = 4;
@@ -461,11 +461,11 @@ public interface ContentHubPackage extends EPackage {
 	int CONTEXT_OPERATION_COUNT = 6;
 
 	/**
-	 * The meta object id for the '{@link de.enithing.fragmenthub.model.contenthub.ContextPolicy <em>Context Policy</em>}' class.
+	 * The meta object id for the '{@link de.enithing.fragmenthub.model.fragmenthub.ContextPolicy <em>Context Policy</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see de.enithing.fragmenthub.model.contenthub.ContextPolicy
-	 * @see de.enithing.fragmenthub.model.fragmenthub.impl.ContentHubPackageImpl#getContextPolicy()
+	 * @see de.enithing.fragmenthub.model.fragmenthub.ContextPolicy
+	 * @see de.enithing.fragmenthub.model.fragmenthub.impl.FragmentHubPackageImpl#getContextPolicy()
 	 * @generated
 	 */
 	int CONTEXT_POLICY = 5;
@@ -489,11 +489,11 @@ public interface ContentHubPackage extends EPackage {
 	int CONTEXT_POLICY_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link de.enithing.fragmenthub.model.contenthub.ContextType <em>Context Type</em>}' enum.
+	 * The meta object id for the '{@link de.enithing.fragmenthub.model.fragmenthub.ContextType <em>Context Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see de.enithing.fragmenthub.model.contenthub.ContextType
-	 * @see de.enithing.fragmenthub.model.fragmenthub.impl.ContentHubPackageImpl#getContextType()
+	 * @see de.enithing.fragmenthub.model.fragmenthub.ContextType
+	 * @see de.enithing.fragmenthub.model.fragmenthub.impl.FragmentHubPackageImpl#getContextType()
 	 * @generated
 	 */
 	int CONTEXT_TYPE = 6;
@@ -503,367 +503,367 @@ public interface ContentHubPackage extends EPackage {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see java.nio.file.Path
-	 * @see de.enithing.fragmenthub.model.fragmenthub.impl.ContentHubPackageImpl#getPath()
+	 * @see de.enithing.fragmenthub.model.fragmenthub.impl.FragmentHubPackageImpl#getPath()
 	 * @generated
 	 */
 	int PATH = 7;
 
 
 	/**
-	 * Returns the meta object for class '{@link de.enithing.fragmenthub.model.contenthub.PathProvider <em>Path Provider</em>}'.
+	 * Returns the meta object for class '{@link de.enithing.fragmenthub.model.fragmenthub.PathProvider <em>Path Provider</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Path Provider</em>'.
-	 * @see de.enithing.fragmenthub.model.contenthub.PathProvider
+	 * @see de.enithing.fragmenthub.model.fragmenthub.PathProvider
 	 * @generated
 	 */
 	EClass getPathProvider();
 
 	/**
-	 * Returns the meta object for the '{@link de.enithing.fragmenthub.model.contenthub.PathProvider#getPath() <em>Get Path</em>}' operation.
+	 * Returns the meta object for the '{@link de.enithing.fragmenthub.model.fragmenthub.PathProvider#getPath() <em>Get Path</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get Path</em>' operation.
-	 * @see de.enithing.fragmenthub.model.contenthub.PathProvider#getPath()
+	 * @see de.enithing.fragmenthub.model.fragmenthub.PathProvider#getPath()
 	 * @generated
 	 */
 	EOperation getPathProvider__GetPath();
 
 	/**
-	 * Returns the meta object for class '{@link de.enithing.fragmenthub.model.contenthub.SimplePath <em>Simple Path</em>}'.
+	 * Returns the meta object for class '{@link de.enithing.fragmenthub.model.fragmenthub.SimplePath <em>Simple Path</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Simple Path</em>'.
-	 * @see de.enithing.fragmenthub.model.contenthub.SimplePath
+	 * @see de.enithing.fragmenthub.model.fragmenthub.SimplePath
 	 * @generated
 	 */
 	EClass getSimplePath();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.enithing.fragmenthub.model.contenthub.SimplePath#getPath <em>Path</em>}'.
+	 * Returns the meta object for the attribute '{@link de.enithing.fragmenthub.model.fragmenthub.SimplePath#getPath <em>Path</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Path</em>'.
-	 * @see de.enithing.fragmenthub.model.contenthub.SimplePath#getPath()
+	 * @see de.enithing.fragmenthub.model.fragmenthub.SimplePath#getPath()
 	 * @see #getSimplePath()
 	 * @generated
 	 */
 	EAttribute getSimplePath_Path();
 
 	/**
-	 * Returns the meta object for class '{@link de.enithing.fragmenthub.model.contenthub.ContextPath <em>Context Path</em>}'.
+	 * Returns the meta object for class '{@link de.enithing.fragmenthub.model.fragmenthub.ContextPath <em>Context Path</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Context Path</em>'.
-	 * @see de.enithing.fragmenthub.model.contenthub.ContextPath
+	 * @see de.enithing.fragmenthub.model.fragmenthub.ContextPath
 	 * @generated
 	 */
 	EClass getContextPath();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.enithing.fragmenthub.model.contenthub.ContextPath#getContext <em>Context</em>}'.
+	 * Returns the meta object for the reference '{@link de.enithing.fragmenthub.model.fragmenthub.ContextPath#getContext <em>Context</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Context</em>'.
-	 * @see de.enithing.fragmenthub.model.contenthub.ContextPath#getContext()
+	 * @see de.enithing.fragmenthub.model.fragmenthub.ContextPath#getContext()
 	 * @see #getContextPath()
 	 * @generated
 	 */
 	EReference getContextPath_Context();
 
 	/**
-	 * Returns the meta object for class '{@link de.enithing.fragmenthub.model.contenthub.Package <em>Package</em>}'.
+	 * Returns the meta object for class '{@link de.enithing.fragmenthub.model.fragmenthub.Package <em>Package</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Package</em>'.
-	 * @see de.enithing.fragmenthub.model.contenthub.Package
+	 * @see de.enithing.fragmenthub.model.fragmenthub.Package
 	 * @generated
 	 */
 	EClass getPackage();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.enithing.fragmenthub.model.contenthub.Package#getName <em>Name</em>}'.
+	 * Returns the meta object for the attribute '{@link de.enithing.fragmenthub.model.fragmenthub.Package#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see de.enithing.fragmenthub.model.contenthub.Package#getName()
+	 * @see de.enithing.fragmenthub.model.fragmenthub.Package#getName()
 	 * @see #getPackage()
 	 * @generated
 	 */
 	EAttribute getPackage_Name();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.enithing.fragmenthub.model.contenthub.Package#getGroup <em>Group</em>}'.
+	 * Returns the meta object for the attribute '{@link de.enithing.fragmenthub.model.fragmenthub.Package#getGroup <em>Group</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Group</em>'.
-	 * @see de.enithing.fragmenthub.model.contenthub.Package#getGroup()
+	 * @see de.enithing.fragmenthub.model.fragmenthub.Package#getGroup()
 	 * @see #getPackage()
 	 * @generated
 	 */
 	EAttribute getPackage_Group();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.enithing.fragmenthub.model.contenthub.Package#getTitle <em>Title</em>}'.
+	 * Returns the meta object for the attribute '{@link de.enithing.fragmenthub.model.fragmenthub.Package#getTitle <em>Title</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Title</em>'.
-	 * @see de.enithing.fragmenthub.model.contenthub.Package#getTitle()
+	 * @see de.enithing.fragmenthub.model.fragmenthub.Package#getTitle()
 	 * @see #getPackage()
 	 * @generated
 	 */
 	EAttribute getPackage_Title();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.enithing.fragmenthub.model.contenthub.Package#getDescription <em>Description</em>}'.
+	 * Returns the meta object for the attribute '{@link de.enithing.fragmenthub.model.fragmenthub.Package#getDescription <em>Description</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Description</em>'.
-	 * @see de.enithing.fragmenthub.model.contenthub.Package#getDescription()
+	 * @see de.enithing.fragmenthub.model.fragmenthub.Package#getDescription()
 	 * @see #getPackage()
 	 * @generated
 	 */
 	EAttribute getPackage_Description();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.enithing.fragmenthub.model.contenthub.Package#getAuthor <em>Author</em>}'.
+	 * Returns the meta object for the attribute '{@link de.enithing.fragmenthub.model.fragmenthub.Package#getAuthor <em>Author</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Author</em>'.
-	 * @see de.enithing.fragmenthub.model.contenthub.Package#getAuthor()
+	 * @see de.enithing.fragmenthub.model.fragmenthub.Package#getAuthor()
 	 * @see #getPackage()
 	 * @generated
 	 */
 	EAttribute getPackage_Author();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.enithing.fragmenthub.model.contenthub.Package#getVersion <em>Version</em>}'.
+	 * Returns the meta object for the attribute '{@link de.enithing.fragmenthub.model.fragmenthub.Package#getVersion <em>Version</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Version</em>'.
-	 * @see de.enithing.fragmenthub.model.contenthub.Package#getVersion()
+	 * @see de.enithing.fragmenthub.model.fragmenthub.Package#getVersion()
 	 * @see #getPackage()
 	 * @generated
 	 */
 	EAttribute getPackage_Version();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link de.enithing.fragmenthub.model.contenthub.Package#getContentFragmentModelSets <em>Content Fragment Model Sets</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.enithing.fragmenthub.model.fragmenthub.Package#getContentFragmentModelSets <em>Content Fragment Model Sets</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Content Fragment Model Sets</em>'.
-	 * @see de.enithing.fragmenthub.model.contenthub.Package#getContentFragmentModelSets()
+	 * @see de.enithing.fragmenthub.model.fragmenthub.Package#getContentFragmentModelSets()
 	 * @see #getPackage()
 	 * @generated
 	 */
 	EReference getPackage_ContentFragmentModelSets();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link de.enithing.fragmenthub.model.contenthub.Package#getContentRoot <em>Content Root</em>}'.
+	 * Returns the meta object for the containment reference '{@link de.enithing.fragmenthub.model.fragmenthub.Package#getContentRoot <em>Content Root</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Content Root</em>'.
-	 * @see de.enithing.fragmenthub.model.contenthub.Package#getContentRoot()
+	 * @see de.enithing.fragmenthub.model.fragmenthub.Package#getContentRoot()
 	 * @see #getPackage()
 	 * @generated
 	 */
 	EReference getPackage_ContentRoot();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.enithing.fragmenthub.model.contenthub.Package#getContentFragmentModelPath <em>Content Fragment Model Path</em>}'.
+	 * Returns the meta object for the attribute '{@link de.enithing.fragmenthub.model.fragmenthub.Package#getContentFragmentModelPath <em>Content Fragment Model Path</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Content Fragment Model Path</em>'.
-	 * @see de.enithing.fragmenthub.model.contenthub.Package#getContentFragmentModelPath()
+	 * @see de.enithing.fragmenthub.model.fragmenthub.Package#getContentFragmentModelPath()
 	 * @see #getPackage()
 	 * @generated
 	 */
 	EAttribute getPackage_ContentFragmentModelPath();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.enithing.fragmenthub.model.contenthub.Package#getContentPath <em>Content Path</em>}'.
+	 * Returns the meta object for the attribute '{@link de.enithing.fragmenthub.model.fragmenthub.Package#getContentPath <em>Content Path</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Content Path</em>'.
-	 * @see de.enithing.fragmenthub.model.contenthub.Package#getContentPath()
+	 * @see de.enithing.fragmenthub.model.fragmenthub.Package#getContentPath()
 	 * @see #getPackage()
 	 * @generated
 	 */
 	EAttribute getPackage_ContentPath();
 
 	/**
-	 * Returns the meta object for the '{@link de.enithing.fragmenthub.model.contenthub.Package#getAllContentFragmentModels() <em>Get All Content Fragment Models</em>}' operation.
+	 * Returns the meta object for the '{@link de.enithing.fragmenthub.model.fragmenthub.Package#getAllContentFragmentModels() <em>Get All Content Fragment Models</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get All Content Fragment Models</em>' operation.
-	 * @see de.enithing.fragmenthub.model.contenthub.Package#getAllContentFragmentModels()
+	 * @see de.enithing.fragmenthub.model.fragmenthub.Package#getAllContentFragmentModels()
 	 * @generated
 	 */
 	EOperation getPackage__GetAllContentFragmentModels();
 
 	/**
-	 * Returns the meta object for class '{@link de.enithing.fragmenthub.model.contenthub.Context <em>Context</em>}'.
+	 * Returns the meta object for class '{@link de.enithing.fragmenthub.model.fragmenthub.Context <em>Context</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Context</em>'.
-	 * @see de.enithing.fragmenthub.model.contenthub.Context
+	 * @see de.enithing.fragmenthub.model.fragmenthub.Context
 	 * @generated
 	 */
 	EClass getContext();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link de.enithing.fragmenthub.model.contenthub.Context#getChildContexts <em>Child Contexts</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.enithing.fragmenthub.model.fragmenthub.Context#getChildContexts <em>Child Contexts</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Child Contexts</em>'.
-	 * @see de.enithing.fragmenthub.model.contenthub.Context#getChildContexts()
+	 * @see de.enithing.fragmenthub.model.fragmenthub.Context#getChildContexts()
 	 * @see #getContext()
 	 * @generated
 	 */
 	EReference getContext_ChildContexts();
 
 	/**
-	 * Returns the meta object for the container reference '{@link de.enithing.fragmenthub.model.contenthub.Context#getParentContext <em>Parent Context</em>}'.
+	 * Returns the meta object for the container reference '{@link de.enithing.fragmenthub.model.fragmenthub.Context#getParentContext <em>Parent Context</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the container reference '<em>Parent Context</em>'.
-	 * @see de.enithing.fragmenthub.model.contenthub.Context#getParentContext()
+	 * @see de.enithing.fragmenthub.model.fragmenthub.Context#getParentContext()
 	 * @see #getContext()
 	 * @generated
 	 */
 	EReference getContext_ParentContext();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link de.enithing.fragmenthub.model.contenthub.Context#getContentFragments <em>Content Fragments</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.enithing.fragmenthub.model.fragmenthub.Context#getContentFragments <em>Content Fragments</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Content Fragments</em>'.
-	 * @see de.enithing.fragmenthub.model.contenthub.Context#getContentFragments()
+	 * @see de.enithing.fragmenthub.model.fragmenthub.Context#getContentFragments()
 	 * @see #getContext()
 	 * @generated
 	 */
 	EReference getContext_ContentFragments();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link de.enithing.fragmenthub.model.contenthub.Context#getPolicies <em>Policies</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.enithing.fragmenthub.model.fragmenthub.Context#getPolicies <em>Policies</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Policies</em>'.
-	 * @see de.enithing.fragmenthub.model.contenthub.Context#getPolicies()
+	 * @see de.enithing.fragmenthub.model.fragmenthub.Context#getPolicies()
 	 * @see #getContext()
 	 * @generated
 	 */
 	EReference getContext_Policies();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.enithing.fragmenthub.model.contenthub.Context#getName <em>Name</em>}'.
+	 * Returns the meta object for the attribute '{@link de.enithing.fragmenthub.model.fragmenthub.Context#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see de.enithing.fragmenthub.model.contenthub.Context#getName()
+	 * @see de.enithing.fragmenthub.model.fragmenthub.Context#getName()
 	 * @see #getContext()
 	 * @generated
 	 */
 	EAttribute getContext_Name();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.enithing.fragmenthub.model.contenthub.Context#getTitle <em>Title</em>}'.
+	 * Returns the meta object for the attribute '{@link de.enithing.fragmenthub.model.fragmenthub.Context#getTitle <em>Title</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Title</em>'.
-	 * @see de.enithing.fragmenthub.model.contenthub.Context#getTitle()
+	 * @see de.enithing.fragmenthub.model.fragmenthub.Context#getTitle()
 	 * @see #getContext()
 	 * @generated
 	 */
 	EAttribute getContext_Title();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.enithing.fragmenthub.model.contenthub.Context#getPrimaryType <em>Primary Type</em>}'.
+	 * Returns the meta object for the attribute '{@link de.enithing.fragmenthub.model.fragmenthub.Context#getPrimaryType <em>Primary Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Primary Type</em>'.
-	 * @see de.enithing.fragmenthub.model.contenthub.Context#getPrimaryType()
+	 * @see de.enithing.fragmenthub.model.fragmenthub.Context#getPrimaryType()
 	 * @see #getContext()
 	 * @generated
 	 */
 	EAttribute getContext_PrimaryType();
 
 	/**
-	 * Returns the meta object for the '{@link de.enithing.fragmenthub.model.contenthub.Context#getRootContext() <em>Get Root Context</em>}' operation.
+	 * Returns the meta object for the '{@link de.enithing.fragmenthub.model.fragmenthub.Context#getRootContext() <em>Get Root Context</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get Root Context</em>' operation.
-	 * @see de.enithing.fragmenthub.model.contenthub.Context#getRootContext()
+	 * @see de.enithing.fragmenthub.model.fragmenthub.Context#getRootContext()
 	 * @generated
 	 */
 	EOperation getContext__GetRootContext();
 
 	/**
-	 * Returns the meta object for the '{@link de.enithing.fragmenthub.model.contenthub.Context#getPoliciesByType(java.lang.Class) <em>Get Policies By Type</em>}' operation.
+	 * Returns the meta object for the '{@link de.enithing.fragmenthub.model.fragmenthub.Context#getPoliciesByType(java.lang.Class) <em>Get Policies By Type</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get Policies By Type</em>' operation.
-	 * @see de.enithing.fragmenthub.model.contenthub.Context#getPoliciesByType(java.lang.Class)
+	 * @see de.enithing.fragmenthub.model.fragmenthub.Context#getPoliciesByType(java.lang.Class)
 	 * @generated
 	 */
 	EOperation getContext__GetPoliciesByType__Class();
 
 	/**
-	 * Returns the meta object for the '{@link de.enithing.fragmenthub.model.contenthub.Context#getPath() <em>Get Path</em>}' operation.
+	 * Returns the meta object for the '{@link de.enithing.fragmenthub.model.fragmenthub.Context#getPath() <em>Get Path</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get Path</em>' operation.
-	 * @see de.enithing.fragmenthub.model.contenthub.Context#getPath()
+	 * @see de.enithing.fragmenthub.model.fragmenthub.Context#getPath()
 	 * @generated
 	 */
 	EOperation getContext__GetPath();
 
 	/**
-	 * Returns the meta object for the '{@link de.enithing.fragmenthub.model.contenthub.Context#getPackage() <em>Get Package</em>}' operation.
+	 * Returns the meta object for the '{@link de.enithing.fragmenthub.model.fragmenthub.Context#getPackage() <em>Get Package</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get Package</em>' operation.
-	 * @see de.enithing.fragmenthub.model.contenthub.Context#getPackage()
+	 * @see de.enithing.fragmenthub.model.fragmenthub.Context#getPackage()
 	 * @generated
 	 */
 	EOperation getContext__GetPackage();
 
 	/**
-	 * Returns the meta object for the '{@link de.enithing.fragmenthub.model.contenthub.Context#resolveContextsByPattern(java.nio.file.Path) <em>Resolve Contexts By Pattern</em>}' operation.
+	 * Returns the meta object for the '{@link de.enithing.fragmenthub.model.fragmenthub.Context#resolveContextsByPattern(java.nio.file.Path) <em>Resolve Contexts By Pattern</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Resolve Contexts By Pattern</em>' operation.
-	 * @see de.enithing.fragmenthub.model.contenthub.Context#resolveContextsByPattern(java.nio.file.Path)
+	 * @see de.enithing.fragmenthub.model.fragmenthub.Context#resolveContextsByPattern(java.nio.file.Path)
 	 * @generated
 	 */
 	EOperation getContext__ResolveContextsByPattern__Path();
 
 	/**
-	 * Returns the meta object for the '{@link de.enithing.fragmenthub.model.contenthub.Context#resolveContentFragmentInstancesByPattern(java.nio.file.Path) <em>Resolve Content Fragment Instances By Pattern</em>}' operation.
+	 * Returns the meta object for the '{@link de.enithing.fragmenthub.model.fragmenthub.Context#resolveContentFragmentInstancesByPattern(java.nio.file.Path) <em>Resolve Content Fragment Instances By Pattern</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Resolve Content Fragment Instances By Pattern</em>' operation.
-	 * @see de.enithing.fragmenthub.model.contenthub.Context#resolveContentFragmentInstancesByPattern(java.nio.file.Path)
+	 * @see de.enithing.fragmenthub.model.fragmenthub.Context#resolveContentFragmentInstancesByPattern(java.nio.file.Path)
 	 * @generated
 	 */
 	EOperation getContext__ResolveContentFragmentInstancesByPattern__Path();
 
 	/**
-	 * Returns the meta object for class '{@link de.enithing.fragmenthub.model.contenthub.ContextPolicy <em>Context Policy</em>}'.
+	 * Returns the meta object for class '{@link de.enithing.fragmenthub.model.fragmenthub.ContextPolicy <em>Context Policy</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Context Policy</em>'.
-	 * @see de.enithing.fragmenthub.model.contenthub.ContextPolicy
+	 * @see de.enithing.fragmenthub.model.fragmenthub.ContextPolicy
 	 * @generated
 	 */
 	EClass getContextPolicy();
 
 	/**
-	 * Returns the meta object for enum '{@link de.enithing.fragmenthub.model.contenthub.ContextType <em>Context Type</em>}'.
+	 * Returns the meta object for enum '{@link de.enithing.fragmenthub.model.fragmenthub.ContextType <em>Context Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for enum '<em>Context Type</em>'.
-	 * @see de.enithing.fragmenthub.model.contenthub.ContextType
+	 * @see de.enithing.fragmenthub.model.fragmenthub.ContextType
 	 * @generated
 	 */
 	EEnum getContextType();
@@ -886,7 +886,7 @@ public interface ContentHubPackage extends EPackage {
 	 * @return the factory that creates the instances of the model.
 	 * @generated
 	 */
-	ContentHubFactory getContentHubFactory();
+	FragmentHubFactory getFragmentHubFactory();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -903,11 +903,11 @@ public interface ContentHubPackage extends EPackage {
 	 */
 	interface Literals {
 		/**
-		 * The meta object literal for the '{@link de.enithing.fragmenthub.model.contenthub.PathProvider <em>Path Provider</em>}' class.
+		 * The meta object literal for the '{@link de.enithing.fragmenthub.model.fragmenthub.PathProvider <em>Path Provider</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see de.enithing.fragmenthub.model.contenthub.PathProvider
-		 * @see de.enithing.fragmenthub.model.fragmenthub.impl.ContentHubPackageImpl#getPathProvider()
+		 * @see de.enithing.fragmenthub.model.fragmenthub.PathProvider
+		 * @see de.enithing.fragmenthub.model.fragmenthub.impl.FragmentHubPackageImpl#getPathProvider()
 		 * @generated
 		 */
 		EClass PATH_PROVIDER = eINSTANCE.getPathProvider();
@@ -925,7 +925,7 @@ public interface ContentHubPackage extends EPackage {
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @see de.enithing.fragmenthub.model.fragmenthub.impl.SimplePathImpl
-		 * @see de.enithing.fragmenthub.model.fragmenthub.impl.ContentHubPackageImpl#getSimplePath()
+		 * @see de.enithing.fragmenthub.model.fragmenthub.impl.FragmentHubPackageImpl#getSimplePath()
 		 * @generated
 		 */
 		EClass SIMPLE_PATH = eINSTANCE.getSimplePath();
@@ -943,7 +943,7 @@ public interface ContentHubPackage extends EPackage {
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @see de.enithing.fragmenthub.model.fragmenthub.impl.ContextPathImpl
-		 * @see de.enithing.fragmenthub.model.fragmenthub.impl.ContentHubPackageImpl#getContextPath()
+		 * @see de.enithing.fragmenthub.model.fragmenthub.impl.FragmentHubPackageImpl#getContextPath()
 		 * @generated
 		 */
 		EClass CONTEXT_PATH = eINSTANCE.getContextPath();
@@ -961,7 +961,7 @@ public interface ContentHubPackage extends EPackage {
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @see de.enithing.fragmenthub.model.fragmenthub.impl.PackageImpl
-		 * @see de.enithing.fragmenthub.model.fragmenthub.impl.ContentHubPackageImpl#getPackage()
+		 * @see de.enithing.fragmenthub.model.fragmenthub.impl.FragmentHubPackageImpl#getPackage()
 		 * @generated
 		 */
 		EClass PACKAGE = eINSTANCE.getPackage();
@@ -1059,7 +1059,7 @@ public interface ContentHubPackage extends EPackage {
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @see de.enithing.fragmenthub.model.fragmenthub.impl.ContextImpl
-		 * @see de.enithing.fragmenthub.model.fragmenthub.impl.ContentHubPackageImpl#getContext()
+		 * @see de.enithing.fragmenthub.model.fragmenthub.impl.FragmentHubPackageImpl#getContext()
 		 * @generated
 		 */
 		EClass CONTEXT = eINSTANCE.getContext();
@@ -1169,21 +1169,21 @@ public interface ContentHubPackage extends EPackage {
 		EOperation CONTEXT___RESOLVE_CONTENT_FRAGMENT_INSTANCES_BY_PATTERN__PATH = eINSTANCE.getContext__ResolveContentFragmentInstancesByPattern__Path();
 
 		/**
-		 * The meta object literal for the '{@link de.enithing.fragmenthub.model.contenthub.ContextPolicy <em>Context Policy</em>}' class.
+		 * The meta object literal for the '{@link de.enithing.fragmenthub.model.fragmenthub.ContextPolicy <em>Context Policy</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see de.enithing.fragmenthub.model.contenthub.ContextPolicy
-		 * @see de.enithing.fragmenthub.model.fragmenthub.impl.ContentHubPackageImpl#getContextPolicy()
+		 * @see de.enithing.fragmenthub.model.fragmenthub.ContextPolicy
+		 * @see de.enithing.fragmenthub.model.fragmenthub.impl.FragmentHubPackageImpl#getContextPolicy()
 		 * @generated
 		 */
 		EClass CONTEXT_POLICY = eINSTANCE.getContextPolicy();
 
 		/**
-		 * The meta object literal for the '{@link de.enithing.fragmenthub.model.contenthub.ContextType <em>Context Type</em>}' enum.
+		 * The meta object literal for the '{@link de.enithing.fragmenthub.model.fragmenthub.ContextType <em>Context Type</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see de.enithing.fragmenthub.model.contenthub.ContextType
-		 * @see de.enithing.fragmenthub.model.fragmenthub.impl.ContentHubPackageImpl#getContextType()
+		 * @see de.enithing.fragmenthub.model.fragmenthub.ContextType
+		 * @see de.enithing.fragmenthub.model.fragmenthub.impl.FragmentHubPackageImpl#getContextType()
 		 * @generated
 		 */
 		EEnum CONTEXT_TYPE = eINSTANCE.getContextType();
@@ -1193,11 +1193,11 @@ public interface ContentHubPackage extends EPackage {
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @see java.nio.file.Path
-		 * @see de.enithing.fragmenthub.model.fragmenthub.impl.ContentHubPackageImpl#getPath()
+		 * @see de.enithing.fragmenthub.model.fragmenthub.impl.FragmentHubPackageImpl#getPath()
 		 * @generated
 		 */
 		EDataType PATH = eINSTANCE.getPath();
 
 	}
 
-} //ContentHubPackage
+} //FragmentHubPackage

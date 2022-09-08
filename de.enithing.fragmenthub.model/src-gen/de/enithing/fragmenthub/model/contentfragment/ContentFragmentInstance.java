@@ -135,13 +135,13 @@ public interface ContentFragmentInstance extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Context</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link de.enithing.fragmenthub.model.contenthub.Context#getContentFragments <em>Content Fragments</em>}'.
+	 * It is bidirectional and its opposite is '{@link de.enithing.fragmenthub.model.fragmenthub.Context#getContentFragments <em>Content Fragments</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Context</em>' container reference.
 	 * @see #setContext(Context)
 	 * @see de.enithing.fragmenthub.model.contentfragment.ContentFragmentPackage#getContentFragmentInstance_Context()
-	 * @see de.enithing.fragmenthub.model.contenthub.Context#getContentFragments
+	 * @see de.enithing.fragmenthub.model.fragmenthub.Context#getContentFragments
 	 * @model opposite="contentFragments" required="true" transient="false"
 	 * @generated
 	 */
@@ -160,7 +160,7 @@ public interface ContentFragmentInstance extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model kind="operation" dataType="de.enithing.fragmenthub.model.contenthub.Path" required="true"
+	 * @model kind="operation" dataType="de.enithing.fragmenthub.model.fragmenthub.Path" required="true"
 	 * @generated
 	 */
 	Path getPath();

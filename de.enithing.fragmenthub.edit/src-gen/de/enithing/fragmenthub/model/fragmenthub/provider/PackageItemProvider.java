@@ -3,10 +3,10 @@
 package de.enithing.fragmenthub.model.fragmenthub.provider;
 
 
-import de.enithing.fragmenthub.edit.ContentHubEditPlugin;
+import de.enithing.fragmenthub.edit.FragmentHubEditPlugin;
 import de.enithing.fragmenthub.model.contentfragment.ContentFragmentFactory;
-import de.enithing.fragmenthub.model.fragmenthub.ContentHubFactory;
-import de.enithing.fragmenthub.model.fragmenthub.ContentHubPackage;
+import de.enithing.fragmenthub.model.fragmenthub.FragmentHubFactory;
+import de.enithing.fragmenthub.model.fragmenthub.FragmentHubPackage;
 
 import java.util.Collection;
 import java.util.List;
@@ -30,7 +30,7 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link de.enithing.fragmenthub.model.contenthub.Package} object.
+ * This is the item provider adapter for a {@link de.enithing.fragmenthub.model.fragmenthub.Package} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
@@ -89,7 +89,7 @@ public class PackageItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Package_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Package_name_feature", "_UI_Package_type"),
-				 ContentHubPackage.Literals.PACKAGE__NAME,
+				 FragmentHubPackage.Literals.PACKAGE__NAME,
 				 true,
 				 false,
 				 false,
@@ -111,7 +111,7 @@ public class PackageItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Package_group_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Package_group_feature", "_UI_Package_type"),
-				 ContentHubPackage.Literals.PACKAGE__GROUP,
+				 FragmentHubPackage.Literals.PACKAGE__GROUP,
 				 true,
 				 false,
 				 false,
@@ -133,7 +133,7 @@ public class PackageItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Package_title_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Package_title_feature", "_UI_Package_type"),
-				 ContentHubPackage.Literals.PACKAGE__TITLE,
+				 FragmentHubPackage.Literals.PACKAGE__TITLE,
 				 true,
 				 false,
 				 false,
@@ -155,7 +155,7 @@ public class PackageItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Package_description_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Package_description_feature", "_UI_Package_type"),
-				 ContentHubPackage.Literals.PACKAGE__DESCRIPTION,
+				 FragmentHubPackage.Literals.PACKAGE__DESCRIPTION,
 				 true,
 				 false,
 				 false,
@@ -177,7 +177,7 @@ public class PackageItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Package_author_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Package_author_feature", "_UI_Package_type"),
-				 ContentHubPackage.Literals.PACKAGE__AUTHOR,
+				 FragmentHubPackage.Literals.PACKAGE__AUTHOR,
 				 true,
 				 false,
 				 false,
@@ -199,7 +199,7 @@ public class PackageItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Package_version_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Package_version_feature", "_UI_Package_type"),
-				 ContentHubPackage.Literals.PACKAGE__VERSION,
+				 FragmentHubPackage.Literals.PACKAGE__VERSION,
 				 true,
 				 false,
 				 false,
@@ -221,7 +221,7 @@ public class PackageItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Package_contentFragmentModelPath_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Package_contentFragmentModelPath_feature", "_UI_Package_type"),
-				 ContentHubPackage.Literals.PACKAGE__CONTENT_FRAGMENT_MODEL_PATH,
+				 FragmentHubPackage.Literals.PACKAGE__CONTENT_FRAGMENT_MODEL_PATH,
 				 true,
 				 false,
 				 false,
@@ -243,7 +243,7 @@ public class PackageItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Package_contentPath_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Package_contentPath_feature", "_UI_Package_type"),
-				 ContentHubPackage.Literals.PACKAGE__CONTENT_PATH,
+				 FragmentHubPackage.Literals.PACKAGE__CONTENT_PATH,
 				 true,
 				 false,
 				 false,
@@ -264,8 +264,8 @@ public class PackageItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ContentHubPackage.Literals.PACKAGE__CONTENT_FRAGMENT_MODEL_SETS);
-			childrenFeatures.add(ContentHubPackage.Literals.PACKAGE__CONTENT_ROOT);
+			childrenFeatures.add(FragmentHubPackage.Literals.PACKAGE__CONTENT_FRAGMENT_MODEL_SETS);
+			childrenFeatures.add(FragmentHubPackage.Literals.PACKAGE__CONTENT_ROOT);
 		}
 		return childrenFeatures;
 	}
@@ -321,18 +321,18 @@ public class PackageItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(de.enithing.fragmenthub.model.fragmenthub.Package.class)) {
-			case ContentHubPackage.PACKAGE__NAME:
-			case ContentHubPackage.PACKAGE__GROUP:
-			case ContentHubPackage.PACKAGE__TITLE:
-			case ContentHubPackage.PACKAGE__DESCRIPTION:
-			case ContentHubPackage.PACKAGE__AUTHOR:
-			case ContentHubPackage.PACKAGE__VERSION:
-			case ContentHubPackage.PACKAGE__CONTENT_FRAGMENT_MODEL_PATH:
-			case ContentHubPackage.PACKAGE__CONTENT_PATH:
+			case FragmentHubPackage.PACKAGE__NAME:
+			case FragmentHubPackage.PACKAGE__GROUP:
+			case FragmentHubPackage.PACKAGE__TITLE:
+			case FragmentHubPackage.PACKAGE__DESCRIPTION:
+			case FragmentHubPackage.PACKAGE__AUTHOR:
+			case FragmentHubPackage.PACKAGE__VERSION:
+			case FragmentHubPackage.PACKAGE__CONTENT_FRAGMENT_MODEL_PATH:
+			case FragmentHubPackage.PACKAGE__CONTENT_PATH:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case ContentHubPackage.PACKAGE__CONTENT_FRAGMENT_MODEL_SETS:
-			case ContentHubPackage.PACKAGE__CONTENT_ROOT:
+			case FragmentHubPackage.PACKAGE__CONTENT_FRAGMENT_MODEL_SETS:
+			case FragmentHubPackage.PACKAGE__CONTENT_ROOT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -352,13 +352,13 @@ public class PackageItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ContentHubPackage.Literals.PACKAGE__CONTENT_FRAGMENT_MODEL_SETS,
+				(FragmentHubPackage.Literals.PACKAGE__CONTENT_FRAGMENT_MODEL_SETS,
 				 ContentFragmentFactory.eINSTANCE.createContentFragmentModelSet()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ContentHubPackage.Literals.PACKAGE__CONTENT_ROOT,
-				 ContentHubFactory.eINSTANCE.createContext()));
+				(FragmentHubPackage.Literals.PACKAGE__CONTENT_ROOT,
+				 FragmentHubFactory.eINSTANCE.createContext()));
 	}
 
 	/**
@@ -369,7 +369,7 @@ public class PackageItemProvider
 	 */
 	@Override
 	public ResourceLocator getResourceLocator() {
-		return ContentHubEditPlugin.INSTANCE;
+		return FragmentHubEditPlugin.INSTANCE;
 	}
 
 }
