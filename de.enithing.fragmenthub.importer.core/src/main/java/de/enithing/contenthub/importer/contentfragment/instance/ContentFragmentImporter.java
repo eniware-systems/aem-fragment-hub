@@ -5,8 +5,9 @@ import de.enithing.contenthub.importer.Importer;
 import de.enithing.contenthub.importer.ImporterConfiguration;
 import de.enithing.contenthub.importer.contentfragment.ContentFragmentFieldImporterFactory;
 import de.enithing.contenthub.importer.util.JcrUtils;
-import de.enithing.contenthub.model.contentfragment.*;
-import de.enithing.contenthub.model.contenthub.Package;
+import de.enithing.fragmenthub.model.contentfragment.*;
+import de.enithing.fragmenthub.model.fragmenthub.Package;
+
 import org.apache.velocity.VelocityContext;
 import org.jdom2.Element;
 

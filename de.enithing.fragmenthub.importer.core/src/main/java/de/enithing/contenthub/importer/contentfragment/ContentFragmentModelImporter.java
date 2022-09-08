@@ -3,10 +3,11 @@ package de.enithing.contenthub.importer.contentfragment;
 import de.enithing.contenthub.importer.Importer;
 import de.enithing.contenthub.importer.ImporterConfiguration;
 import de.enithing.contenthub.importer.util.JcrUtils;
+import de.enithing.fragmenthub.model.contentfragment.ContentFragmentFactory;
+import de.enithing.fragmenthub.model.contentfragment.ContentFragmentFieldType;
+import de.enithing.fragmenthub.model.contentfragment.ContentFragmentModel;
 import de.enithing.contenthub.importer.contentfragment.model.ContentFragmentFieldTypeImporter;
-import de.enithing.contenthub.model.contentfragment.ContentFragmentFactory;
-import de.enithing.contenthub.model.contentfragment.ContentFragmentFieldType;
-import de.enithing.contenthub.model.contentfragment.ContentFragmentModel;
+
 import org.jdom2.Document;
 import org.jdom2.Element;
 

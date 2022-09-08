@@ -7,7 +7,7 @@ import org.apache.velocity.VelocityContext;
 
 import de.enithing.contenthub.generator.GeneratorConfiguration;
 import de.enithing.contenthub.generator.util.JcrUtils;
-import de.enithing.contenthub.model.contentfragment.corefields.SingleLineText;
+import de.enithing.fragmenthub.model.contentfragment.corefields.SingleLineText;
 
 public class SingleLineTextTypeGenerator extends ContentFragmentMultiFieldTypeGenerator<SingleLineText> {
 

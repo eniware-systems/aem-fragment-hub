@@ -5,8 +5,9 @@ import java.util.NoSuchElementException;
 
 import de.enithing.contenthub.importer.ImporterConfiguration;
 import de.enithing.contenthub.importer.util.JcrUtils;
+import de.enithing.fragmenthub.model.contentfragment.ContentFragmentFieldType;
 import de.enithing.contenthub.importer.contentfragment.model.ContentFragmentFieldTypeImporter;
-import de.enithing.contenthub.model.contentfragment.ContentFragmentFieldType;
+
 import org.jdom2.Element;
 
 public class ContentFragmentFieldImporterRegistry {

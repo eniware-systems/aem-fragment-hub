@@ -18,9 +18,9 @@ import de.enithing.contenthub.generator.util.JcrUtils;
 import de.enithing.contenthub.generator.util.StringUtils;
 import de.enithing.contenthub.generator.util.VelocityUtils;
 import de.enithing.contenthub.generator.util.XmlUtils;
-import de.enithing.contenthub.model.contentfragment.ContentFragmentFieldInstance;
-import de.enithing.contenthub.model.contentfragment.ContentFragmentFieldValue;
-import de.enithing.contenthub.model.contentfragment.ContentFragmentInstance;
+import de.enithing.fragmenthub.model.contentfragment.ContentFragmentFieldInstance;
+import de.enithing.fragmenthub.model.contentfragment.ContentFragmentFieldValue;
+import de.enithing.fragmenthub.model.contentfragment.ContentFragmentInstance;
 
 public class ContentFragmentGenerator implements TemplateBasedGenerator<ContentFragmentInstance> {
 

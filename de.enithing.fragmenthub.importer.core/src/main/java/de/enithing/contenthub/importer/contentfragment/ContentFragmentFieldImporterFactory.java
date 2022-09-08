@@ -3,7 +3,8 @@ package de.enithing.contenthub.importer.contentfragment;
 import de.enithing.contenthub.importer.ImporterConfiguration;
 import de.enithing.contenthub.importer.contentfragment.instance.ContentFragmentFieldValueImporter;
 import de.enithing.contenthub.importer.contentfragment.model.ContentFragmentFieldTypeImporter;
-import de.enithing.contenthub.model.contentfragment.ContentFragmentFieldType;
+import de.enithing.fragmenthub.model.contentfragment.ContentFragmentFieldType;
+
 import org.apache.commons.lang3.StringUtils;
 
 public interface ContentFragmentFieldImporterFactory {

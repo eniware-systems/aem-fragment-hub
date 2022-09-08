@@ -6,10 +6,11 @@ import de.enithing.contenthub.generator.contentfragment.instance.ContentFragment
 import de.enithing.contenthub.generator.util.JcrUtils;
 import de.enithing.contenthub.generator.util.VelocityUtils;
 import de.enithing.contenthub.generator.util.XmlUtils;
-import de.enithing.contenthub.model.contentfragment.AllowedContentFragmentModelPolicy;
-import de.enithing.contenthub.model.contentfragment.ContentFragmentInstance;
-import de.enithing.contenthub.model.contenthub.Context;
-import de.enithing.contenthub.model.contenthub.ContextPolicy;
+import de.enithing.fragmenthub.model.contentfragment.AllowedContentFragmentModelPolicy;
+import de.enithing.fragmenthub.model.contentfragment.ContentFragmentInstance;
+import de.enithing.fragmenthub.model.fragmenthub.Context;
+import de.enithing.fragmenthub.model.fragmenthub.ContextPolicy;
+
 import org.apache.commons.lang.NotImplementedException;
 import org.apache.commons.vfs2.FileObject;
 import org.apache.velocity.Template;

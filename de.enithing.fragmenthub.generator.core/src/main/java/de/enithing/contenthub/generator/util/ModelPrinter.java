@@ -1,8 +1,8 @@
 package de.enithing.contenthub.generator.util;
 
-import de.enithing.contenthub.model.contentfragment.*;
-import de.enithing.contenthub.model.contenthub.Context;
-import de.enithing.contenthub.model.contenthub.Package;
+import de.enithing.fragmenthub.model.contentfragment.*;
+import de.enithing.fragmenthub.model.fragmenthub.Context;
+import de.enithing.fragmenthub.model.fragmenthub.Package;
 
 public class ModelPrinter {
     private ModelPrinter() {

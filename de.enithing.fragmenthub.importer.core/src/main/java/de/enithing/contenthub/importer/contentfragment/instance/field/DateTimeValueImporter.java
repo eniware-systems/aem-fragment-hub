@@ -3,8 +3,9 @@ package de.enithing.contenthub.importer.contentfragment.instance.field;
 import de.enithing.contenthub.importer.ImporterConfiguration;
 import de.enithing.contenthub.importer.contentfragment.instance.ContentFragmentFieldValueImporter;
 import de.enithing.contenthub.importer.util.JcrUtils;
-import de.enithing.contenthub.model.contentfragment.corefields.CorefieldsFactory;
-import de.enithing.contenthub.model.contentfragment.corefields.DateTimeValue;
+import de.enithing.fragmenthub.model.contentfragment.corefields.CorefieldsFactory;
+import de.enithing.fragmenthub.model.contentfragment.corefields.DateTimeValue;
+
 import org.jdom2.Element;
 
 import java.text.SimpleDateFormat;

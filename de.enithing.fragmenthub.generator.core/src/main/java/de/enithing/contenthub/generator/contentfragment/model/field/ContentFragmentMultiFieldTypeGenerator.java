@@ -11,7 +11,7 @@ import org.apache.velocity.runtime.parser.ParseException;
 
 import de.enithing.contenthub.generator.GeneratorConfiguration;
 import de.enithing.contenthub.generator.contentfragment.model.ContentFragmentFieldTypeGenerator;
-import de.enithing.contenthub.model.contentfragment.MultiFieldType;
+import de.enithing.fragmenthub.model.contentfragment.MultiFieldType;
 
 public abstract class ContentFragmentMultiFieldTypeGenerator<TField extends MultiFieldType<?>>
 		extends ContentFragmentFieldTypeGenerator<TField> {

@@ -4,14 +4,15 @@ import de.enithing.contenthub.importer.ImporterConfiguration;
 import de.enithing.contenthub.importer.contentfragment.model.ContentFragmentFieldTypeImporter;
 import de.enithing.contenthub.importer.util.JcrUtils;
 import de.enithing.contenthub.importer.util.PathUtils;
-import de.enithing.contenthub.model.contentfragment.ContentFragmentFieldType;
-import de.enithing.contenthub.model.contentfragment.ContentFragmentModel;
-import de.enithing.contenthub.model.contentfragment.corefields.CorefieldsFactory;
-import de.enithing.contenthub.model.contentfragment.corefields.FragmentReference;
-import de.enithing.contenthub.model.contentfragment.impl.ContentFragmentModelImpl;
-import de.enithing.contenthub.model.contenthub.ContentHubFactory;
-import de.enithing.contenthub.model.contenthub.Package;
-import de.enithing.contenthub.model.contenthub.SimplePath;
+import de.enithing.fragmenthub.model.contentfragment.ContentFragmentFieldType;
+import de.enithing.fragmenthub.model.contentfragment.ContentFragmentModel;
+import de.enithing.fragmenthub.model.contentfragment.corefields.CorefieldsFactory;
+import de.enithing.fragmenthub.model.contentfragment.corefields.FragmentReference;
+import de.enithing.fragmenthub.model.contentfragment.impl.ContentFragmentModelImpl;
+import de.enithing.fragmenthub.model.fragmenthub.ContentHubFactory;
+import de.enithing.fragmenthub.model.fragmenthub.Package;
+import de.enithing.fragmenthub.model.fragmenthub.SimplePath;
+
 import org.jdom2.Element;
 
 import java.nio.file.Path;

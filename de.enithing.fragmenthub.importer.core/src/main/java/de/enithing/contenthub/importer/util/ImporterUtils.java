@@ -1,9 +1,10 @@
 package de.enithing.contenthub.importer.util;
 
-import de.enithing.contenthub.model.contentfragment.ContentFragmentFactory;
-import de.enithing.contenthub.model.contentfragment.corefields.CorefieldsFactory;
-import de.enithing.contenthub.model.contenthub.ContentHubFactory;
-import de.enithing.contenthub.model.contenthub.Package;
+import de.enithing.fragmenthub.model.contentfragment.ContentFragmentFactory;
+import de.enithing.fragmenthub.model.contentfragment.corefields.CorefieldsFactory;
+import de.enithing.fragmenthub.model.fragmenthub.ContentHubFactory;
+import de.enithing.fragmenthub.model.fragmenthub.Package;
+
 import org.apache.commons.vfs2.FileObject;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;

@@ -5,9 +5,7 @@ import de.enithing.contenthub.importer.contentfragment.instance.ContentFragmentF
 import de.enithing.contenthub.importer.contentfragment.instance.field.*;
 import de.enithing.contenthub.importer.contentfragment.model.ContentFragmentFieldTypeImporter;
 import de.enithing.contenthub.importer.contentfragment.model.field.*;
-import de.enithing.contenthub.model.contentfragment.corefields.*;
-import de.enithing.contenthub.model.contentfragment.corefields.Boolean;
-import de.enithing.contenthub.model.contentfragment.corefields.Number;
+import de.enithing.fragmenthub.model.contentfragment.corefields.*;
 
 public class DefaultContentFragmentFieldImporterFactory extends ContentFragmentFieldImporterRegistry {
     public DefaultContentFragmentFieldImporterFactory() {

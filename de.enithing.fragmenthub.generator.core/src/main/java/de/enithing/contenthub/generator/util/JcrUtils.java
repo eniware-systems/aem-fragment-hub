@@ -9,10 +9,10 @@ import java.util.Objects;
 
 import org.apache.commons.lang.StringEscapeUtils;
 
-import de.enithing.contenthub.model.contentfragment.corefields.validation.LowerBoundConstraint;
-import de.enithing.contenthub.model.contentfragment.corefields.validation.LowerUpperBoundConstraint;
-import de.enithing.contenthub.model.contentfragment.corefields.validation.UpperBoundConstraint;
-import de.enithing.contenthub.model.contentfragment.corefields.validation.ValidationConstraint;
+import de.enithing.fragmenthub.model.contentfragment.corefields.validation.LowerBoundConstraint;
+import de.enithing.fragmenthub.model.contentfragment.corefields.validation.LowerUpperBoundConstraint;
+import de.enithing.fragmenthub.model.contentfragment.corefields.validation.UpperBoundConstraint;
+import de.enithing.fragmenthub.model.contentfragment.corefields.validation.ValidationConstraint;
 
 /**
  * Utilities for generating JCR related code

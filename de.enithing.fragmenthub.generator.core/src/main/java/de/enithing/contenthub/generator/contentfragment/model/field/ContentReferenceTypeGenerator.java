@@ -8,12 +8,12 @@ import org.apache.velocity.VelocityContext;
 
 import de.enithing.contenthub.generator.GeneratorConfiguration;
 import de.enithing.contenthub.generator.util.JcrUtils;
-import de.enithing.contenthub.model.contentfragment.corefields.ContentReference;
-import de.enithing.contenthub.model.contentfragment.corefields.validation.FileSizeValue;
-import de.enithing.contenthub.model.contentfragment.corefields.validation.LowerBoundConstraint;
-import de.enithing.contenthub.model.contentfragment.corefields.validation.LowerUpperBoundConstraint;
-import de.enithing.contenthub.model.contentfragment.corefields.validation.UpperBoundConstraint;
-import de.enithing.contenthub.model.contentfragment.corefields.validation.ValidationConstraint;
+import de.enithing.fragmenthub.model.contentfragment.corefields.ContentReference;
+import de.enithing.fragmenthub.model.contentfragment.corefields.validation.FileSizeValue;
+import de.enithing.fragmenthub.model.contentfragment.corefields.validation.LowerBoundConstraint;
+import de.enithing.fragmenthub.model.contentfragment.corefields.validation.LowerUpperBoundConstraint;
+import de.enithing.fragmenthub.model.contentfragment.corefields.validation.UpperBoundConstraint;
+import de.enithing.fragmenthub.model.contentfragment.corefields.validation.ValidationConstraint;
 
 public class ContentReferenceTypeGenerator extends ContentFragmentMultiFieldTypeGenerator<ContentReference> {
 

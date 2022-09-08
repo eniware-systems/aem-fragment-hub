@@ -19,16 +19,16 @@ import de.enithing.contenthub.generator.contentfragment.model.field.NumberTypeGe
 import de.enithing.contenthub.generator.contentfragment.model.field.SingleLineTextTypeGenerator;
 import de.enithing.contenthub.generator.contentfragment.model.field.TabTypeGenerator;
 import de.enithing.contenthub.generator.contentfragment.model.field.TagsTypeGenerator;
-import de.enithing.contenthub.model.contentfragment.corefields.Boolean;
-import de.enithing.contenthub.model.contentfragment.corefields.Number;
-import de.enithing.contenthub.model.contentfragment.corefields.ContentReference;
-import de.enithing.contenthub.model.contentfragment.corefields.DateTime;
-import de.enithing.contenthub.model.contentfragment.corefields.Enumeration;
-import de.enithing.contenthub.model.contentfragment.corefields.FragmentReference;
-import de.enithing.contenthub.model.contentfragment.corefields.MultiLineText;
-import de.enithing.contenthub.model.contentfragment.corefields.SingleLineText;
-import de.enithing.contenthub.model.contentfragment.corefields.Tab;
-import de.enithing.contenthub.model.contentfragment.corefields.Tags;
+import de.enithing.fragmenthub.model.contentfragment.corefields.Boolean;
+import de.enithing.fragmenthub.model.contentfragment.corefields.ContentReference;
+import de.enithing.fragmenthub.model.contentfragment.corefields.DateTime;
+import de.enithing.fragmenthub.model.contentfragment.corefields.Enumeration;
+import de.enithing.fragmenthub.model.contentfragment.corefields.FragmentReference;
+import de.enithing.fragmenthub.model.contentfragment.corefields.MultiLineText;
+import de.enithing.fragmenthub.model.contentfragment.corefields.Number;
+import de.enithing.fragmenthub.model.contentfragment.corefields.SingleLineText;
+import de.enithing.fragmenthub.model.contentfragment.corefields.Tab;
+import de.enithing.fragmenthub.model.contentfragment.corefields.Tags;
 
 public class DefaultContentFragmentFieldGeneratorFactory extends ContentFragmentFieldGeneratorRegistry {
 	public DefaultContentFragmentFieldGeneratorFactory() {

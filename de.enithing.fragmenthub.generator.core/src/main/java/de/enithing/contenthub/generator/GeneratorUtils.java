@@ -6,13 +6,13 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
-import de.enithing.contenthub.model.contentfragment.ContentFragmentFactory;
-import de.enithing.contenthub.model.contentfragment.ContentFragmentPackage;
-import de.enithing.contenthub.model.contentfragment.corefields.CorefieldsFactory;
-import de.enithing.contenthub.model.contentfragment.corefields.CorefieldsPackage;
-import de.enithing.contenthub.model.contenthub.ContentHubFactory;
-import de.enithing.contenthub.model.contenthub.ContentHubPackage;
-import de.enithing.contenthub.model.contenthub.Package;
+import de.enithing.fragmenthub.model.contentfragment.ContentFragmentFactory;
+import de.enithing.fragmenthub.model.contentfragment.ContentFragmentPackage;
+import de.enithing.fragmenthub.model.contentfragment.corefields.CorefieldsFactory;
+import de.enithing.fragmenthub.model.contentfragment.corefields.CorefieldsPackage;
+import de.enithing.fragmenthub.model.fragmenthub.ContentHubFactory;
+import de.enithing.fragmenthub.model.fragmenthub.ContentHubPackage;
+import de.enithing.fragmenthub.model.fragmenthub.Package;
 
 /**
  * Utility methods for loading packages and initializing the generator

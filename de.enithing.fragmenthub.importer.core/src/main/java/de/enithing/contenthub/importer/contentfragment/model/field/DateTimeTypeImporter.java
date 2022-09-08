@@ -3,7 +3,8 @@ package de.enithing.contenthub.importer.contentfragment.model.field;
 import de.enithing.contenthub.importer.ImporterConfiguration;
 import de.enithing.contenthub.importer.contentfragment.model.ContentFragmentFieldTypeImporter;
 import de.enithing.contenthub.importer.util.JcrUtils;
-import de.enithing.contenthub.model.contentfragment.corefields.*;
+import de.enithing.fragmenthub.model.contentfragment.corefields.*;
+
 import org.jdom2.Element;
 
 import java.sql.Date;

@@ -19,26 +19,26 @@ import org.junit.jupiter.api.Test;
 import de.enithing.contenthub.generator.GeneratorConfiguration.UnknownFieldHandlingMode;
 import de.enithing.contenthub.generator.TestUtils.TestConfig;
 import de.enithing.contenthub.generator.pkg.PackageGenerator;
-import de.enithing.contenthub.model.contentfragment.AllowedContentFragmentModelPolicy;
-import de.enithing.contenthub.model.contentfragment.ContentFragmentFactory;
-import de.enithing.contenthub.model.contentfragment.ContentFragmentFieldInstance;
-import de.enithing.contenthub.model.contentfragment.ContentFragmentInstance;
-import de.enithing.contenthub.model.contentfragment.ContentFragmentModel;
-import de.enithing.contenthub.model.contentfragment.ContentFragmentModelSet;
-import de.enithing.contenthub.model.contentfragment.corefields.CorefieldsFactory;
-import de.enithing.contenthub.model.contentfragment.corefields.DateTime;
-import de.enithing.contenthub.model.contentfragment.corefields.DateTimeValue;
-import de.enithing.contenthub.model.contentfragment.corefields.Enumeration;
-import de.enithing.contenthub.model.contentfragment.corefields.EnumerationOption;
-import de.enithing.contenthub.model.contentfragment.corefields.FragmentReference;
-import de.enithing.contenthub.model.contentfragment.corefields.FragmentReferenceValue;
-import de.enithing.contenthub.model.contentfragment.corefields.MultiLineText;
-import de.enithing.contenthub.model.contentfragment.corefields.SingleLineText;
-import de.enithing.contenthub.model.contentfragment.corefields.StringValue;
-import de.enithing.contenthub.model.contentfragment.corefields.Tab;
-import de.enithing.contenthub.model.contenthub.ContentHubFactory;
-import de.enithing.contenthub.model.contenthub.Context;
-import de.enithing.contenthub.model.contenthub.Package;
+import de.enithing.fragmenthub.model.contentfragment.AllowedContentFragmentModelPolicy;
+import de.enithing.fragmenthub.model.contentfragment.ContentFragmentFactory;
+import de.enithing.fragmenthub.model.contentfragment.ContentFragmentFieldInstance;
+import de.enithing.fragmenthub.model.contentfragment.ContentFragmentInstance;
+import de.enithing.fragmenthub.model.contentfragment.ContentFragmentModel;
+import de.enithing.fragmenthub.model.contentfragment.ContentFragmentModelSet;
+import de.enithing.fragmenthub.model.contentfragment.corefields.CorefieldsFactory;
+import de.enithing.fragmenthub.model.contentfragment.corefields.DateTime;
+import de.enithing.fragmenthub.model.contentfragment.corefields.DateTimeValue;
+import de.enithing.fragmenthub.model.contentfragment.corefields.Enumeration;
+import de.enithing.fragmenthub.model.contentfragment.corefields.EnumerationOption;
+import de.enithing.fragmenthub.model.contentfragment.corefields.FragmentReference;
+import de.enithing.fragmenthub.model.contentfragment.corefields.FragmentReferenceValue;
+import de.enithing.fragmenthub.model.contentfragment.corefields.MultiLineText;
+import de.enithing.fragmenthub.model.contentfragment.corefields.SingleLineText;
+import de.enithing.fragmenthub.model.contentfragment.corefields.StringValue;
+import de.enithing.fragmenthub.model.contentfragment.corefields.Tab;
+import de.enithing.fragmenthub.model.fragmenthub.ContentHubFactory;
+import de.enithing.fragmenthub.model.fragmenthub.Context;
+import de.enithing.fragmenthub.model.fragmenthub.Package;
 
 class GeneratorTest {
 	private FileSystemManager vfsManager;
@@ -88,7 +88,7 @@ class GeneratorTest {
 
 		Package myPackage = hubFactory.createPackage();
 
-		myPackage.setGroup("de.enithing.contenthub");
+		myPackage.setGroup("de.enithing.fragmenthub");
 		myPackage.setName("bookstore");
 		myPackage.setTitle("Bookstore package");
 		myPackage.setVersion("1.0.0");

@@ -3,7 +3,8 @@ package de.enithing.contenthub.generator.contentfragment.model.field;
 import de.enithing.contenthub.generator.GeneratorConfiguration;
 import de.enithing.contenthub.generator.util.JcrUtils;
 import de.enithing.contenthub.generator.util.VelocityUtils;
-import de.enithing.contenthub.model.contentfragment.corefields.FragmentReference;
+import de.enithing.fragmenthub.model.contentfragment.corefields.FragmentReference;
+
 import org.apache.velocity.VelocityContext;
 
 import java.nio.file.Path;

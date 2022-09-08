@@ -10,7 +10,7 @@
       <!-- @generated ContentHub -->
       <factory
             uri="https://aemcontenthub.eniware-systems.de/ns/contenthub"
-            class="de.enithing.contenthub.model.contenthub.provider.ContentHubItemProviderAdapterFactory"
+            class="de.enithing.fragmenthub.model.contenthub.provider.ContentHubItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider
@@ -23,7 +23,7 @@
       <!-- @generated ContentHub -->
       <factory
             uri="https://aemcontenthub.eniware-systems.de/ns/contentfragments"
-            class="de.enithing.contenthub.model.contentfragment.provider.ContentFragmentItemProviderAdapterFactory"
+            class="de.enithing.fragmenthub.model.contentfragment.provider.ContentFragmentItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider
@@ -36,7 +36,7 @@
       <!-- @generated ContentHub -->
       <factory
             uri="https://aemcontenthub.eniware-systems.de/ns/contentfragments/corefields"
-            class="de.enithing.contenthub.model.contentfragment.corefields.provider.CorefieldsItemProviderAdapterFactory"
+            class="de.enithing.fragmenthub.model.contentfragment.corefields.provider.CorefieldsItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider
@@ -49,7 +49,7 @@
       <!-- @generated ContentHub -->
       <factory
             uri="https://aemcontenthub.eniware-systems.de/ns/contentfragments/corefields/validation"
-            class="de.enithing.contenthub.model.contentfragment.corefields.validation.provider.ValidationItemProviderAdapterFactory"
+            class="de.enithing.fragmenthub.model.contentfragment.corefields.validation.provider.ValidationItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider

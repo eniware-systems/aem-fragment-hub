@@ -9,10 +9,11 @@ import de.enithing.contenthub.importer.contentfragment.model.ContentFragmentFiel
 import de.enithing.contenthub.importer.util.JcrUtils;
 import de.enithing.contenthub.importer.contentfragment.ContentFragmentModelImporter;
 import de.enithing.contenthub.importer.util.PackageUtils;
-import de.enithing.contenthub.model.contentfragment.*;
-import de.enithing.contenthub.model.contenthub.ContentHubFactory;
-import de.enithing.contenthub.model.contenthub.Context;
-import de.enithing.contenthub.model.contenthub.Package;
+import de.enithing.fragmenthub.model.contentfragment.*;
+import de.enithing.fragmenthub.model.fragmenthub.ContentHubFactory;
+import de.enithing.fragmenthub.model.fragmenthub.Context;
+import de.enithing.fragmenthub.model.fragmenthub.Package;
+
 import org.apache.commons.vfs2.FileObject;
 import org.apache.commons.vfs2.FileSelectInfo;
 import org.apache.commons.vfs2.FileSelector;

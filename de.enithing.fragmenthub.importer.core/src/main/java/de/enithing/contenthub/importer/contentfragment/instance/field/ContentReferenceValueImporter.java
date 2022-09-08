@@ -2,8 +2,8 @@ package de.enithing.contenthub.importer.contentfragment.instance.field;
 
 import de.enithing.contenthub.importer.ImporterConfiguration;
 import de.enithing.contenthub.importer.contentfragment.instance.ContentFragmentFieldValueImporter;
-import de.enithing.contenthub.model.contentfragment.ContentFragmentFieldType;
-import de.enithing.contenthub.model.contentfragment.corefields.ContentReferenceValue;
+import de.enithing.fragmenthub.model.contentfragment.ContentFragmentFieldType;
+import de.enithing.fragmenthub.model.contentfragment.corefields.ContentReferenceValue;
 
 public class ContentReferenceValueImporter extends ContentFragmentFieldValueImporter<ContentReferenceValue> {
     public ContentReferenceValueImporter(ImporterConfiguration cfg) {

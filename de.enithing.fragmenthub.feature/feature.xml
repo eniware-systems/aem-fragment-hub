@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="de.enithing.contenthub.feature"
+      id="de.enithing.fragmenthub.feature"
       label="Feature"
       version="1.0.0.qualifier">
 
@@ -23,35 +23,35 @@
    </requires>
 
    <plugin
-         id="de.enithing.contenthub.design"
+         id="de.enithing.fragmenthub.design"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="de.enithing.contenthub.edit"
+         id="de.enithing.fragmenthub.edit"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="de.enithing.contenthub.editor"
+         id="de.enithing.fragmenthub.editor"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="de.enithing.contenthub.model"
+         id="de.enithing.fragmenthub.model"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <!--<plugin
-         id="de.enithing.contenthub.generator"
+         id="de.enithing.fragmenthub.generator"
          download-size="0"
          install-size="0"
          version="0.0.0"

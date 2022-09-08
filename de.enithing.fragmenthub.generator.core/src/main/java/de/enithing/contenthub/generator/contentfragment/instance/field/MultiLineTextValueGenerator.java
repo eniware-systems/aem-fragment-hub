@@ -5,9 +5,9 @@ import java.util.Map;
 import org.apache.velocity.VelocityContext;
 
 import de.enithing.contenthub.generator.GeneratorConfiguration;
-import de.enithing.contenthub.model.contentfragment.ContentFragmentFieldInstance;
-import de.enithing.contenthub.model.contentfragment.corefields.MultiLineText;
-import de.enithing.contenthub.model.contentfragment.corefields.StringValue;
+import de.enithing.fragmenthub.model.contentfragment.ContentFragmentFieldInstance;
+import de.enithing.fragmenthub.model.contentfragment.corefields.MultiLineText;
+import de.enithing.fragmenthub.model.contentfragment.corefields.StringValue;
 
 public class MultiLineTextValueGenerator extends StringValueGenerator {
 

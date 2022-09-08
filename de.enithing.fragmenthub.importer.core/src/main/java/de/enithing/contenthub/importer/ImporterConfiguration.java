@@ -2,9 +2,10 @@ package de.enithing.contenthub.importer;
 
 import de.enithing.contenthub.importer.contentfragment.ContentFragmentFieldImporterRegistry;
 import de.enithing.contenthub.importer.contentfragment.DefaultContentFragmentFieldImporterFactory;
-import de.enithing.contenthub.model.contentfragment.ContentFragmentFieldType;
-import de.enithing.contenthub.model.contenthub.Context;
-import de.enithing.contenthub.model.contenthub.Package;
+import de.enithing.fragmenthub.model.contentfragment.ContentFragmentFieldType;
+import de.enithing.fragmenthub.model.fragmenthub.Context;
+import de.enithing.fragmenthub.model.fragmenthub.Package;
+
 import org.apache.commons.vfs2.FileObject;
 import org.jdom2.Element;
 

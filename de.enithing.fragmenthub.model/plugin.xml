@@ -12,7 +12,7 @@
       <!-- @generated ContentHub -->
       <package
             uri="https://aemcontenthub.eniware-systems.de/ns/contenthub"
-            class="de.enithing.contenthub.model.contenthub.ContentHubPackage"
+            class="de.enithing.fragmenthub.model.contenthub.ContentHubPackage"
             genModel="model/ContentHub.genmodel"/>
    </extension>
 
@@ -20,7 +20,7 @@
       <!-- @generated ContentHub -->
       <package
             uri="https://aemcontenthub.eniware-systems.de/ns/contentfragments"
-            class="de.enithing.contenthub.model.contentfragment.ContentFragmentPackage"
+            class="de.enithing.fragmenthub.model.contentfragment.ContentFragmentPackage"
             genModel="model/ContentHub.genmodel"/>
    </extension>
 
@@ -28,7 +28,7 @@
       <!-- @generated ContentHub -->
       <package
             uri="https://aemcontenthub.eniware-systems.de/ns/contentfragments/corefields"
-            class="de.enithing.contenthub.model.contentfragment.corefields.CorefieldsPackage"
+            class="de.enithing.fragmenthub.model.contentfragment.corefields.CorefieldsPackage"
             genModel="model/ContentHub.genmodel"/>
    </extension>
 
@@ -36,7 +36,7 @@
       <!-- @generated ContentHub -->
       <package
             uri="https://aemcontenthub.eniware-systems.de/ns/contentfragments/corefields/validation"
-            class="de.enithing.contenthub.model.contentfragment.corefields.validation.ValidationPackage"
+            class="de.enithing.fragmenthub.model.contentfragment.corefields.validation.ValidationPackage"
             genModel="model/ContentHub.genmodel"/>
    </extension>
 

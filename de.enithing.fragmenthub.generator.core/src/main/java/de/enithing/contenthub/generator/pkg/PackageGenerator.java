@@ -8,8 +8,9 @@ import de.enithing.contenthub.generator.util.JcrUtils;
 import de.enithing.contenthub.generator.util.ModelPrinter;
 import de.enithing.contenthub.generator.util.PathUtils;
 import de.enithing.contenthub.generator.util.VelocityUtils;
-import de.enithing.contenthub.model.contentfragment.ContentFragmentModel;
-import de.enithing.contenthub.model.contenthub.Package;
+import de.enithing.fragmenthub.model.contentfragment.ContentFragmentModel;
+import de.enithing.fragmenthub.model.fragmenthub.Package;
+
 import org.apache.commons.vfs2.FileObject;
 import org.apache.velocity.Template;
 import org.apache.velocity.VelocityContext;
@@ -141,7 +142,7 @@ public class PackageGenerator implements TemplateBasedGenerator<Package> {
         }
 
         // Create the content
-        de.enithing.contenthub.model.contenthub.Context contentRoot = pkg.getContentRoot();
+        de.enithing.fragmenthub.model.fragmenthub.Context contentRoot = pkg.getContentRoot();
         if (contentRoot != null) {
             String rootPath = pkg.getContentPath() != null ? pkg.getContentPath().toString() : String.format("/content/dam/%s", pkg.getName());
             VelocityContext templateContext = getTemplateContext(pkg);

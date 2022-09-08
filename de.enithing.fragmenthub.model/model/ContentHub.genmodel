@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
-    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/de.enithing.contenthub.model/src-gen" editDirectory="/de.enithing.contenthub.edit/src-gen"
-    editorDirectory="/de.enithing.contenthub.editor/src-gen" modelPluginID="de.enithing.contenthub.model"
-    modelName="ContentHub" editPluginClass="de.enithing.contenthub.edit.ContentHubEditPlugin"
-    editorPluginClass="de.enithing.contenthub.editor.ContentHubEditorPlugin" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/de.enithing.fragmenthub.model/src-gen" editDirectory="/de.enithing.fragmenthub.edit/src-gen"
+    editorDirectory="/de.enithing.fragmenthub.editor/src-gen" modelPluginID="de.enithing.fragmenthub.model"
+    modelName="ContentHub" editPluginClass="de.enithing.fragmenthub.edit.ContentHubEditPlugin"
+    editorPluginClass="de.enithing.fragmenthub.editor.ContentHubEditorPlugin" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     rootImplementsInterface="" importerID="org.eclipse.emf.importer.ecore" complianceLevel="17.0"
-    copyrightFields="false" editPluginID="de.enithing.contenthub.edit" editorPluginID="de.enithing.contenthub.editor"
+    copyrightFields="false" editPluginID="de.enithing.fragmenthub.edit" editorPluginID="de.enithing.fragmenthub.editor"
     operationReflection="true" importOrganizing="true">
   <foreignModel>ContentHub.ecore</foreignModel>
-  <genPackages prefix="ContentHub" basePackage="de.enithing.contenthub.model" fileExtensions="chub"
+  <genPackages prefix="ContentHub" basePackage="de.enithing.fragmenthub.model" fileExtensions="chub"
       ecorePackage="ContentHub.ecore#/" loadInitializationFileExtension="chub">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="ContentHub.ecore#//ContextType">
       <genEnumLiterals ecoreEnumLiteral="ContentHub.ecore#//ContextType/folder"/>
@@ -58,7 +58,7 @@
       </genOperations>
     </genClasses>
     <genClasses image="false" ecoreClass="ContentHub.ecore#//ContextPolicy"/>
-    <nestedGenPackages prefix="ContentFragment" basePackage="de.enithing.contenthub.model"
+    <nestedGenPackages prefix="ContentFragment" basePackage="de.enithing.fragmenthub.model"
         disposableProviderFactory="true" ecorePackage="ContentHub.ecore#//contentfragment">
       <genClasses ecoreClass="ContentHub.ecore#//contentfragment/ContentFragmentModelSet">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/ContentFragmentModelSet/name"/>
@@ -125,7 +125,7 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/MultiFieldType/allowMultiple"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ContentHub.ecore#//contentfragment/MultiFieldType/maxItems"/>
       </genClasses>
-      <nestedGenPackages prefix="Corefields" basePackage="de.enithing.contenthub.model.contentfragment"
+      <nestedGenPackages prefix="Corefields" basePackage="de.enithing.fragmenthub.model.contentfragment"
           disposableProviderFactory="true" ecorePackage="ContentHub.ecore#//contentfragment/corefields">
         <genEnums typeSafeEnumCompatible="false" ecoreEnum="ContentHub.ecore#//contentfragment/corefields/TextMimeType">
           <genEnumLiterals ecoreEnumLiteral="ContentHub.ecore#//contentfragment/corefields/TextMimeType/Richtext"/>

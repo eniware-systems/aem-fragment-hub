@@ -18,7 +18,7 @@ import org.apache.velocity.runtime.parser.ParseException;
 import de.enithing.contenthub.generator.util.PathUtils;
 import de.enithing.contenthub.generator.util.VelocityHelper;
 import de.enithing.contenthub.generator.util.VelocityUtils;
-import de.enithing.contenthub.model.contenthub.Package;
+import de.enithing.fragmenthub.model.fragmenthub.Package;
 
 public interface TemplateBasedGenerator<T> extends Generator<T> {
 	String TemplateUtilsKey = "util";

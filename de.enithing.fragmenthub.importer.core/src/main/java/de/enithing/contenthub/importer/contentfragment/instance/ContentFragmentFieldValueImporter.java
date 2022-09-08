@@ -2,9 +2,9 @@ package de.enithing.contenthub.importer.contentfragment.instance;
 
 import de.enithing.contenthub.importer.Importer;
 import de.enithing.contenthub.importer.ImporterConfiguration;
-import de.enithing.contenthub.model.contentfragment.ContentFragmentFieldInstance;
-import de.enithing.contenthub.model.contentfragment.ContentFragmentFieldValue;
-import de.enithing.contenthub.model.contentfragment.ContentFragmentInstance;
+import de.enithing.fragmenthub.model.contentfragment.ContentFragmentFieldInstance;
+import de.enithing.fragmenthub.model.contentfragment.ContentFragmentFieldValue;
+import de.enithing.fragmenthub.model.contentfragment.ContentFragmentInstance;
 
 import java.util.logging.Logger;
 

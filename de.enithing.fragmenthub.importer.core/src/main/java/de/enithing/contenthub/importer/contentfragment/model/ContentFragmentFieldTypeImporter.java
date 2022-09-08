@@ -5,8 +5,9 @@ import java.util.logging.Logger;
 import de.enithing.contenthub.importer.Importer;
 import de.enithing.contenthub.importer.ImporterConfiguration;
 import de.enithing.contenthub.importer.util.JcrUtils;
-import de.enithing.contenthub.model.contentfragment.ContentFragmentFieldInstance;
-import de.enithing.contenthub.model.contentfragment.ContentFragmentFieldType;
+import de.enithing.fragmenthub.model.contentfragment.ContentFragmentFieldInstance;
+import de.enithing.fragmenthub.model.contentfragment.ContentFragmentFieldType;
+
 import org.jdom2.Element;
 
 public abstract class ContentFragmentFieldTypeImporter<TField extends ContentFragmentFieldType<?>>

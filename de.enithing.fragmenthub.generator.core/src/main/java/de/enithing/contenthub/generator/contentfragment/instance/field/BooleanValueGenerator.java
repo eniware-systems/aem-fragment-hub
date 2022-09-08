@@ -6,8 +6,8 @@ import org.apache.velocity.VelocityContext;
 
 import de.enithing.contenthub.generator.GeneratorConfiguration;
 import de.enithing.contenthub.generator.contentfragment.instance.ContentFragmentFieldInstanceGenerator;
-import de.enithing.contenthub.model.contentfragment.ContentFragmentFieldInstance;
-import de.enithing.contenthub.model.contentfragment.corefields.BooleanValue;
+import de.enithing.fragmenthub.model.contentfragment.ContentFragmentFieldInstance;
+import de.enithing.fragmenthub.model.contentfragment.corefields.BooleanValue;
 
 public class BooleanValueGenerator extends ContentFragmentFieldInstanceGenerator<BooleanValue> {
 

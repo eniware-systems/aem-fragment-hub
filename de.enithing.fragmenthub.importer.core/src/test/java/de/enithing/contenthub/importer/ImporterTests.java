@@ -3,7 +3,8 @@ package de.enithing.contenthub.importer;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
 import de.enithing.contenthub.importer.pkg.PackageImporter;
-import de.enithing.contenthub.model.contenthub.Package;
+import de.enithing.fragmenthub.model.fragmenthub.Package;
+
 import org.apache.commons.vfs2.FileSystemException;
 import org.apache.commons.vfs2.FileSystemManager;
 import org.eclipse.emf.common.util.URI;

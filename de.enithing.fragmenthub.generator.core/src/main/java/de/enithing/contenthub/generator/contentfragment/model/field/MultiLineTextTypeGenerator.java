@@ -10,9 +10,9 @@ import org.apache.velocity.VelocityContext;
 
 import de.enithing.contenthub.generator.GeneratorConfiguration;
 import de.enithing.contenthub.generator.util.VelocityUtils;
-import de.enithing.contenthub.model.contentfragment.corefields.MultiLineText;
-import de.enithing.contenthub.model.contentfragment.corefields.SingleLineText;
-import de.enithing.contenthub.model.contenthub.util.ContextUtils;
+import de.enithing.fragmenthub.model.contentfragment.corefields.MultiLineText;
+import de.enithing.fragmenthub.model.contentfragment.corefields.SingleLineText;
+import de.enithing.fragmenthub.model.fragmenthub.util.ContextUtils;
 
 public class MultiLineTextTypeGenerator extends ContentFragmentMultiFieldTypeGenerator<MultiLineText> {
 

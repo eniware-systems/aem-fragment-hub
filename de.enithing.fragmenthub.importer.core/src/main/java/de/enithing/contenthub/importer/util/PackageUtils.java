@@ -1,8 +1,8 @@
 package de.enithing.contenthub.importer.util;
 
-import de.enithing.contenthub.model.contentfragment.ContentFragmentInstance;
-import de.enithing.contenthub.model.contenthub.Context;
-import de.enithing.contenthub.model.contenthub.Package;
+import de.enithing.fragmenthub.model.contentfragment.ContentFragmentInstance;
+import de.enithing.fragmenthub.model.fragmenthub.Context;
+import de.enithing.fragmenthub.model.fragmenthub.Package;
 
 import java.util.Collection;
 import java.util.stream.Stream;

@@ -9,11 +9,11 @@ import org.apache.velocity.VelocityContext;
 
 import de.enithing.contenthub.generator.GeneratorConfiguration;
 import de.enithing.contenthub.generator.util.JcrUtils;
-import de.enithing.contenthub.model.contentfragment.corefields.Number;
-import de.enithing.contenthub.model.contentfragment.corefields.validation.LowerBoundConstraint;
-import de.enithing.contenthub.model.contentfragment.corefields.validation.LowerUpperBoundConstraint;
-import de.enithing.contenthub.model.contentfragment.corefields.validation.UpperBoundConstraint;
-import de.enithing.contenthub.model.contentfragment.corefields.validation.ValidationConstraint;
+import de.enithing.fragmenthub.model.contentfragment.corefields.Number;
+import de.enithing.fragmenthub.model.contentfragment.corefields.validation.LowerBoundConstraint;
+import de.enithing.fragmenthub.model.contentfragment.corefields.validation.LowerUpperBoundConstraint;
+import de.enithing.fragmenthub.model.contentfragment.corefields.validation.UpperBoundConstraint;
+import de.enithing.fragmenthub.model.contentfragment.corefields.validation.ValidationConstraint;
 
 public class NumberTypeGenerator extends ContentFragmentMultiFieldTypeGenerator<Number> {
 

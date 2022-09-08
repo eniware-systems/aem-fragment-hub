@@ -17,10 +17,10 @@ import de.enithing.contenthub.generator.context.ContextGenerator;
 import de.enithing.contenthub.generator.util.JcrUtils;
 import de.enithing.contenthub.generator.util.StringUtils;
 import de.enithing.contenthub.generator.util.VelocityUtils;
-import de.enithing.contenthub.model.contentfragment.ContentFragmentFieldType;
-import de.enithing.contenthub.model.contentfragment.ContentFragmentModel;
-import de.enithing.contenthub.model.contentfragment.GroupFieldType;
-import de.enithing.contenthub.model.contentfragment.MultiFieldType;
+import de.enithing.fragmenthub.model.contentfragment.ContentFragmentFieldType;
+import de.enithing.fragmenthub.model.contentfragment.ContentFragmentModel;
+import de.enithing.fragmenthub.model.contentfragment.GroupFieldType;
+import de.enithing.fragmenthub.model.contentfragment.MultiFieldType;
 
 public abstract class ContentFragmentFieldTypeGenerator<TField extends ContentFragmentFieldType<?>>
 		implements TemplateBasedGenerator<TField> {
