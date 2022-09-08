@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="contenthub" nsURI="https://aemcontenthub.eniware-systems.de/ns/contenthub"
-    nsPrefix="chub">
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="fragmenthub" nsURI="https://aemfragmenthub.eniware-systems.de/ns/fragmenthub"
+    nsPrefix="afh">
   <eClassifiers xsi:type="ecore:EClass" name="PathProvider" abstract="true" interface="true">
     <eOperations name="getPath" lowerBound="1" eType="#//Path"/>
   </eClassifiers>
@@ -79,7 +79,7 @@
         eType="#//ContextType" defaultValueLiteral="sling:Folder"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ContextPolicy" abstract="true" interface="true"/>
-  <eSubpackages name="contentfragment" nsURI="https://aemcontenthub.eniware-systems.de/ns/contentfragments"
+  <eSubpackages name="contentfragment" nsURI="https://aemfragmenthub.eniware-systems.de/ns/contentfragments"
       nsPrefix="chub">
     <eClassifiers xsi:type="ecore:EClass" name="ContentFragmentModelSet">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -198,7 +198,7 @@
         <eTypeArguments eTypeParameter="#//contentfragment/MultiFieldType/TValue"/>
       </eGenericSuperTypes>
     </eClassifiers>
-    <eSubpackages name="corefields" nsURI="https://aemcontenthub.eniware-systems.de/ns/contentfragments/corefields"
+    <eSubpackages name="corefields" nsURI="https://aemfragmenthub.eniware-systems.de/ns/contentfragments/corefields"
         nsPrefix="chub">
       <eClassifiers xsi:type="ecore:EClass" name="StringValue" eSuperTypes="#//contentfragment/ContentFragmentFieldValue">
         <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1"
@@ -456,7 +456,7 @@
           <eTypeArguments eClassifier="#//contentfragment/ContentFragmentFieldValue"/>
         </eGenericSuperTypes>
       </eClassifiers>
-      <eSubpackages name="validation" nsURI="https://aemcontenthub.eniware-systems.de/ns/contentfragments/corefields/validation"
+      <eSubpackages name="validation" nsURI="https://aemfragmenthub.eniware-systems.de/ns/contentfragments/corefields/validation"
           nsPrefix="chub">
         <eClassifiers xsi:type="ecore:EClass" name="ValidationConstraint" abstract="true"
             interface="true">

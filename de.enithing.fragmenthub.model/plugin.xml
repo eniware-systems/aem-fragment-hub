@@ -13,7 +13,7 @@
       <package
             uri="https://aemcontenthub.eniware-systems.de/ns/contenthub"
             class="de.enithing.fragmenthub.model.contenthub.ContentHubPackage"
-            genModel="model/ContentHub.genmodel"/>
+            genModel="model/FragmentHub.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
@@ -21,7 +21,7 @@
       <package
             uri="https://aemcontenthub.eniware-systems.de/ns/contentfragments"
             class="de.enithing.fragmenthub.model.contentfragment.ContentFragmentPackage"
-            genModel="model/ContentHub.genmodel"/>
+            genModel="model/FragmentHub.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
@@ -29,7 +29,7 @@
       <package
             uri="https://aemcontenthub.eniware-systems.de/ns/contentfragments/corefields"
             class="de.enithing.fragmenthub.model.contentfragment.corefields.CorefieldsPackage"
-            genModel="model/ContentHub.genmodel"/>
+            genModel="model/FragmentHub.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
@@ -37,7 +37,7 @@
       <package
             uri="https://aemcontenthub.eniware-systems.de/ns/contentfragments/corefields/validation"
             class="de.enithing.fragmenthub.model.contentfragment.corefields.validation.ValidationPackage"
-            genModel="model/ContentHub.genmodel"/>
+            genModel="model/FragmentHub.genmodel"/>
    </extension>
 
 </plugin>
