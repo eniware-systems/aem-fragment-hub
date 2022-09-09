@@ -32,17 +32,8 @@ public class FragmentHubFactoryImpl extends EFactoryImpl implements FragmentHubF
 	 * <!-- end-user-doc -->
 	 */
 	public static FragmentHubFactory init() {
-		try {
-			FragmentHubFactory theContentHubFactory = (FragmentHubFactory)EPackage.Registry.INSTANCE.getEFactory(FragmentHubPackage.eNS_URI);
-			if (theContentHubFactory != null) {
-				return theContentHubFactory;
-			}
-		}
-		catch (Exception exception) {
-			EcorePlugin.INSTANCE.log(exception);
-		}
 		// This was changed manually to get the extended factory.
-		return new ContentHubFactoryExtendedImpl();
+		return new FragmentHubFactoryExtendedImpl();
 	}
 
 	/**

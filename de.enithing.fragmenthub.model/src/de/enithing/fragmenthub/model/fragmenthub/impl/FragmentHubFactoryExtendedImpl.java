@@ -14,8 +14,8 @@ import de.enithing.fragmenthub.model.fragmenthub.impl.FragmentHubFactoryImpl;
 /**
  * Extensions for the implementation of the model factory
  */
-public class ContentHubFactoryExtendedImpl extends FragmentHubFactoryImpl {
-    public ContentHubFactoryExtendedImpl() {
+public class FragmentHubFactoryExtendedImpl extends FragmentHubFactoryImpl {
+    public FragmentHubFactoryExtendedImpl() {
         setEPackage(FragmentHubPackage.eINSTANCE);
     }
 
