@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>de.enithing.fragmenthub.generator.core</artifactId>
 
-	<name>ContentHub Generator Core</name>
+	<name>FragmentHub Generator Core</name>
 
 	<parent>
 		<groupId>de.enithing.fragmenthub</groupId>

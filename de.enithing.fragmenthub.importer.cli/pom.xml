@@ -3,20 +3,20 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>de.enithing.contenthub</groupId>
-        <artifactId>de.enithing.contenthub.parent</artifactId>
-        <relativePath>../de.enithing.contenthub.parent</relativePath>
+        <groupId>de.enithing.fragmenthub</groupId>
+        <artifactId>de.enithing.fragmenthub.parent</artifactId>
+        <relativePath>../de.enithing.fragmenthub.parent</relativePath>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>de.enithing.contenthub.importer.cli</artifactId>
+    <artifactId>de.enithing.fragmenthub.importer.cli</artifactId>
 
-    <name>ContentHub Importer CLI</name>
+    <name>FragmentHub Importer CLI</name>
 
     <dependencies>
         <dependency>
-            <groupId>de.enithing.contenthub</groupId>
-            <artifactId>de.enithing.contenthub.importer.core</artifactId>
+            <groupId>de.enithing.fragmenthub</groupId>
+            <artifactId>de.enithing.fragmenthub.importer.core</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
@@ -41,7 +41,7 @@
                             <archive>
                                 <manifest>
                                     <mainClass>
-                                        de.enithing.contenthub.importer.cli.Main
+                                        de.enithing.fragmenthub.importer.cli.Main
                                     </mainClass>
                                 </manifest>
                             </archive>

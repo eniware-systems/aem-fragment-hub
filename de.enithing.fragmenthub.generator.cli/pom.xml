@@ -11,7 +11,7 @@
 
     <artifactId>de.enithing.fragmenthub.generator.cli</artifactId>
 
-    <name>ContentHub Generator CLI</name>
+    <name>FragmentHub Generator CLI</name>
 
     <dependencies>
         <dependency>

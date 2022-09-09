@@ -3,7 +3,7 @@
 <plugin>
   <extension point="org.eclipse.sirius.componentization">
     <component class="de.enithing.fragmenthub.design.Activator"
-               id="de.enithing.contenthub.design"
+               id="de.enithing.fragmenthub.design"
 	       name="contenthub">
     </component>
   </extension>

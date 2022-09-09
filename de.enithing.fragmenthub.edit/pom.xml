@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <artifactId>de.enithing.fragmenthub.edit</artifactId>
   <packaging>eclipse-plugin</packaging>
-  <name>ContentHub Edit</name>
+  <name>FragmentHub Edit</name>
   <parent>
   	<groupId>de.enithing.fragmenthub</groupId>
   	<artifactId>de.enithing.fragmenthub.parent</artifactId>

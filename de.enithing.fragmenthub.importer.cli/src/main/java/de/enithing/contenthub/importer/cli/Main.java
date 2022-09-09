@@ -26,7 +26,7 @@ public class Main {
 
     private static String getBanner() {
 
-        return "ContentHub Generator 0.1a";
+        return "FragmentHub Generator 0.1a";
     }
 
     private static Option getHelpOption() {
