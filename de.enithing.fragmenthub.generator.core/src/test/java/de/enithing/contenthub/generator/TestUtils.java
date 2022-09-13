@@ -1,4 +1,4 @@
-package de.enithing.contenthub.generator;
+package de.enithing.fragmenthub.generator;
 
 import java.nio.file.Path;
 

@@ -1,6 +1,6 @@
 package de.enithing.fragmenthub.importer.contentfragment.instance;
 
-import de.enithing.contenthub.generator.util.VelocityUtils;
+import de.enithing.fragmenthub.generator.util.VelocityUtils;
 import de.enithing.fragmenthub.importer.Importer;
 import de.enithing.fragmenthub.importer.ImporterConfiguration;
 import de.enithing.fragmenthub.importer.contentfragment.ContentFragmentFieldImporterFactory;

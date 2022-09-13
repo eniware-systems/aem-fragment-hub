@@ -1,4 +1,4 @@
-package de.enithing.contenthub.generator;
+package de.enithing.fragmenthub.generator;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
@@ -16,9 +16,9 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-import de.enithing.contenthub.generator.GeneratorConfiguration.UnknownFieldHandlingMode;
-import de.enithing.contenthub.generator.TestUtils.TestConfig;
-import de.enithing.contenthub.generator.pkg.PackageGenerator;
+import de.enithing.fragmenthub.generator.GeneratorConfiguration.UnknownFieldHandlingMode;
+import de.enithing.fragmenthub.generator.TestUtils.TestConfig;
+import de.enithing.fragmenthub.generator.pkg.PackageGenerator;
 import de.enithing.fragmenthub.model.contentfragment.AllowedContentFragmentModelPolicy;
 import de.enithing.fragmenthub.model.contentfragment.ContentFragmentFactory;
 import de.enithing.fragmenthub.model.contentfragment.ContentFragmentFieldInstance;

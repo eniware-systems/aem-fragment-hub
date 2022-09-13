@@ -1,4 +1,4 @@
-package de.enithing.contenthub.generator;
+package de.enithing.fragmenthub.generator;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;

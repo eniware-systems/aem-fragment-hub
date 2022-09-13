@@ -1,4 +1,4 @@
-package de.enithing.contenthub.generator.util;
+package de.enithing.fragmenthub.generator.util;
 
 import org.dom4j.Document;
 import org.dom4j.DocumentHelper;

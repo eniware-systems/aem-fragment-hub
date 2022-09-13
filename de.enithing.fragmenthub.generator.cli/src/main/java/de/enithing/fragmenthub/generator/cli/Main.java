@@ -1,9 +1,9 @@
 package de.enithing.fragmenthub.generator.cli;
 
-import de.enithing.contenthub.generator.GeneratorConfiguration;
-import de.enithing.contenthub.generator.GeneratorConfiguration.UnknownFieldHandlingMode;
-import de.enithing.contenthub.generator.GeneratorUtils;
-import de.enithing.contenthub.generator.pkg.PackageGenerator;
+import de.enithing.fragmenthub.generator.GeneratorConfiguration;
+import de.enithing.fragmenthub.generator.GeneratorConfiguration.UnknownFieldHandlingMode;
+import de.enithing.fragmenthub.generator.GeneratorUtils;
+import de.enithing.fragmenthub.generator.pkg.PackageGenerator;
 import de.enithing.fragmenthub.model.fragmenthub.Package;
 
 import org.apache.commons.cli.*;

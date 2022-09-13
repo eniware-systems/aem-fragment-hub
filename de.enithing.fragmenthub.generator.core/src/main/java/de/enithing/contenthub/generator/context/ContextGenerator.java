@@ -1,11 +1,11 @@
-package de.enithing.contenthub.generator.context;
+package de.enithing.fragmenthub.generator.context;
 
-import de.enithing.contenthub.generator.GeneratorConfiguration;
-import de.enithing.contenthub.generator.TemplateBasedGenerator;
-import de.enithing.contenthub.generator.contentfragment.instance.ContentFragmentGenerator;
-import de.enithing.contenthub.generator.util.JcrUtils;
-import de.enithing.contenthub.generator.util.VelocityUtils;
-import de.enithing.contenthub.generator.util.XmlUtils;
+import de.enithing.fragmenthub.generator.GeneratorConfiguration;
+import de.enithing.fragmenthub.generator.TemplateBasedGenerator;
+import de.enithing.fragmenthub.generator.contentfragment.instance.ContentFragmentGenerator;
+import de.enithing.fragmenthub.generator.util.JcrUtils;
+import de.enithing.fragmenthub.generator.util.VelocityUtils;
+import de.enithing.fragmenthub.generator.util.XmlUtils;
 import de.enithing.fragmenthub.model.contentfragment.AllowedContentFragmentModelPolicy;
 import de.enithing.fragmenthub.model.contentfragment.ContentFragmentInstance;
 import de.enithing.fragmenthub.model.fragmenthub.Context;

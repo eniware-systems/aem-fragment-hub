@@ -1,4 +1,4 @@
-package de.enithing.contenthub.generator.contentfragment.instance;
+package de.enithing.fragmenthub.generator.contentfragment.instance;
 
 import java.io.IOException;
 import java.io.OutputStream;
@@ -11,11 +11,11 @@ import org.apache.velocity.Template;
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.runtime.parser.ParseException;
 
-import de.enithing.contenthub.generator.GeneratorConfiguration;
-import de.enithing.contenthub.generator.TemplateBasedGenerator;
-import de.enithing.contenthub.generator.contentfragment.model.ContentFragmentFieldTypeGenerator;
-import de.enithing.contenthub.generator.util.JcrUtils;
-import de.enithing.contenthub.generator.util.StringUtils;
+import de.enithing.fragmenthub.generator.GeneratorConfiguration;
+import de.enithing.fragmenthub.generator.TemplateBasedGenerator;
+import de.enithing.fragmenthub.generator.contentfragment.model.ContentFragmentFieldTypeGenerator;
+import de.enithing.fragmenthub.generator.util.JcrUtils;
+import de.enithing.fragmenthub.generator.util.StringUtils;
 import de.enithing.contenthub.generator.util.VelocityUtils;
 import de.enithing.contenthub.generator.util.XmlUtils;
 import de.enithing.fragmenthub.model.contentfragment.ContentFragmentFieldInstance;

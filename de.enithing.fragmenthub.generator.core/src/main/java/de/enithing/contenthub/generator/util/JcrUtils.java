@@ -1,4 +1,4 @@
-package de.enithing.contenthub.generator.util;
+package de.enithing.fragmenthub.generator.util;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;

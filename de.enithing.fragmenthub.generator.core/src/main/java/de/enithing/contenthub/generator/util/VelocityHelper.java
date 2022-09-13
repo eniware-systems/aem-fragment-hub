@@ -1,10 +1,10 @@
-package de.enithing.contenthub.generator.util;
+package de.enithing.fragmenthub.generator.util;
 
 import java.util.Objects;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import de.enithing.contenthub.generator.TemplateBasedGenerator;
+import de.enithing.fragmenthub.generator.TemplateBasedGenerator;
 
 /**
  * This class provides helper methods for use inside Velocity templates. Use it by accessing the $util variable defined by

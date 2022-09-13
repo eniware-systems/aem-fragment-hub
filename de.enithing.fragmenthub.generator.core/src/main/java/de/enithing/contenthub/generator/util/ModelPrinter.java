@@ -1,4 +1,4 @@
-package de.enithing.contenthub.generator.util;
+package de.enithing.fragmenthub.generator.util;
 
 import de.enithing.fragmenthub.model.contentfragment.*;
 import de.enithing.fragmenthub.model.fragmenthub.Context;

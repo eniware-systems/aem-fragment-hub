@@ -1,10 +1,10 @@
-package de.enithing.contenthub.generator.contentfragment;
+package de.enithing.fragmenthub.generator.contentfragment;
 
-import de.enithing.contenthub.generator.GeneratorConfiguration;
-import de.enithing.contenthub.generator.contentfragment.instance.ContentFragmentFieldInstanceGenerator;
-import de.enithing.contenthub.generator.contentfragment.instance.field.BooleanValueGenerator;
-import de.enithing.contenthub.generator.contentfragment.instance.field.DateTimeValueGenerator;
-import de.enithing.contenthub.generator.contentfragment.instance.field.FragmentReferenceValueGenerator;
+import de.enithing.fragmenthub.generator.GeneratorConfiguration;
+import de.enithing.fragmenthub.generator.contentfragment.instance.ContentFragmentFieldInstanceGenerator;
+import de.enithing.fragmenthub.generator.contentfragment.instance.field.BooleanValueGenerator;
+import de.enithing.fragmenthub.generator.contentfragment.instance.field.DateTimeValueGenerator;
+import de.enithing.fragmenthub.generator.contentfragment.instance.field.FragmentReferenceValueGenerator;
 import de.enithing.contenthub.generator.contentfragment.instance.field.MultiLineTextValueGenerator;
 import de.enithing.contenthub.generator.contentfragment.instance.field.NumberValueGenerator;
 import de.enithing.contenthub.generator.contentfragment.instance.field.StringValueGenerator;

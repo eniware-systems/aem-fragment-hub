@@ -1,9 +1,9 @@
-package de.enithing.contenthub.generator;
+package de.enithing.fragmenthub.generator;
 
 import org.apache.commons.vfs2.FileObject;
 
-import de.enithing.contenthub.generator.contentfragment.ContentFragmentFieldGeneratorRegistry;
-import de.enithing.contenthub.generator.contentfragment.DefaultContentFragmentFieldGeneratorFactory;
+import de.enithing.fragmenthub.generator.contentfragment.ContentFragmentFieldGeneratorRegistry;
+import de.enithing.fragmenthub.generator.contentfragment.DefaultContentFragmentFieldGeneratorFactory;
 
 public class GeneratorConfiguration {
 	public enum UnknownFieldHandlingMode {

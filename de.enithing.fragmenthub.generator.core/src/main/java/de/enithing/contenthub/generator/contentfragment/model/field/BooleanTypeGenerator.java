@@ -1,10 +1,10 @@
-package de.enithing.contenthub.generator.contentfragment.model.field;
+package de.enithing.fragmenthub.generator.contentfragment.model.field;
 
 import java.util.Map;
 
 import org.apache.velocity.VelocityContext;
 
-import de.enithing.contenthub.generator.GeneratorConfiguration;
+import de.enithing.fragmenthub.generator.GeneratorConfiguration;
 import de.enithing.contenthub.generator.contentfragment.model.ContentFragmentFieldTypeGenerator;
 import de.enithing.contenthub.generator.util.JcrUtils;
 import de.enithing.fragmenthub.model.contentfragment.corefields.Boolean;

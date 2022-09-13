@@ -1,9 +1,9 @@
-package de.enithing.contenthub.importer.cli;
+package de.enithing.fragmenthub.importer.cli;
 
-import de.enithing.contenthub.importer.ImporterConfiguration;
-import de.enithing.contenthub.importer.pkg.PackageImporter;
-import de.enithing.contenthub.importer.util.ImporterUtils;
-import de.enithing.contenthub.model.contenthub.Package;
+import de.enithing.fragmenthub.importer.ImporterConfiguration;
+import de.enithing.fragmenthub.importer.pkg.PackageImporter;
+import de.enithing.fragmenthub.importer.util.ImporterUtils;
+import de.enithing.fragmenthub.model.fragmenthub.Package;
 
 import org.apache.commons.cli.*;
 import org.apache.commons.vfs2.FileObject;

@@ -1,8 +1,8 @@
-package de.enithing.contenthub.generator;
+package de.enithing.fragmenthub.generator;
 
 import java.util.logging.Logger;
 
-import de.enithing.contenthub.generator.util.ModelPrinter;
+import de.enithing.fragmenthub.generator.util.ModelPrinter;
 
 public interface Generator<T> {
 	GeneratorConfiguration getConfig();

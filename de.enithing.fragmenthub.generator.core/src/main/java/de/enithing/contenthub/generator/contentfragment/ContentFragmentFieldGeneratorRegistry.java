@@ -1,12 +1,12 @@
-package de.enithing.contenthub.generator.contentfragment;
+package de.enithing.fragmenthub.generator.contentfragment;
 
 import java.util.HashSet;
 import java.util.NoSuchElementException;
 
-import de.enithing.contenthub.generator.GeneratorConfiguration;
-import de.enithing.contenthub.generator.GeneratorConfiguration.UnknownFieldHandlingMode;
-import de.enithing.contenthub.generator.contentfragment.instance.ContentFragmentFieldInstanceGenerator;
-import de.enithing.contenthub.generator.contentfragment.model.ContentFragmentFieldTypeGenerator;
+import de.enithing.fragmenthub.generator.GeneratorConfiguration;
+import de.enithing.fragmenthub.generator.GeneratorConfiguration.UnknownFieldHandlingMode;
+import de.enithing.fragmenthub.generator.contentfragment.instance.ContentFragmentFieldInstanceGenerator;
+import de.enithing.fragmenthub.generator.contentfragment.model.ContentFragmentFieldTypeGenerator;
 import de.enithing.fragmenthub.model.contentfragment.ContentFragmentFieldType;
 
 public class ContentFragmentFieldGeneratorRegistry {

@@ -1,4 +1,4 @@
-package de.enithing.contenthub.generator.contentfragment.model.field;
+package de.enithing.fragmenthub.generator.contentfragment.model.field;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -7,8 +7,8 @@ import java.util.Set;
 
 import org.apache.velocity.VelocityContext;
 
-import de.enithing.contenthub.generator.GeneratorConfiguration;
-import de.enithing.contenthub.generator.util.JcrUtils;
+import de.enithing.fragmenthub.generator.GeneratorConfiguration;
+import de.enithing.fragmenthub.generator.util.JcrUtils;
 import de.enithing.fragmenthub.model.contentfragment.corefields.Number;
 import de.enithing.fragmenthub.model.contentfragment.corefields.validation.LowerBoundConstraint;
 import de.enithing.fragmenthub.model.contentfragment.corefields.validation.LowerUpperBoundConstraint;

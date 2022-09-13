@@ -1,20 +1,20 @@
-package de.enithing.contenthub.generator.contentfragment.model;
+package de.enithing.fragmenthub.generator.contentfragment.model;
 
 import java.io.OutputStream;
 import java.io.Writer;
 import java.nio.file.Path;
 import java.util.logging.Logger;
 
-import de.enithing.contenthub.generator.util.StringUtils;
+import de.enithing.fragmenthub.generator.util.StringUtils;
 import org.apache.commons.vfs2.FileObject;
 import org.apache.velocity.Template;
 import org.apache.velocity.VelocityContext;
 
-import de.enithing.contenthub.generator.GeneratorConfiguration;
-import de.enithing.contenthub.generator.TemplateBasedGenerator;
-import de.enithing.contenthub.generator.contentfragment.ContentFragmentFieldGeneratorRegistry;
-import de.enithing.contenthub.generator.context.ContextGenerator;
-import de.enithing.contenthub.generator.util.JcrUtils;
+import de.enithing.fragmenthub.generator.GeneratorConfiguration;
+import de.enithing.fragmenthub.generator.TemplateBasedGenerator;
+import de.enithing.fragmenthub.generator.contentfragment.ContentFragmentFieldGeneratorRegistry;
+import de.enithing.fragmenthub.generator.context.ContextGenerator;
+import de.enithing.fragmenthub.generator.util.JcrUtils;
 import de.enithing.contenthub.generator.util.VelocityUtils;
 import de.enithing.contenthub.generator.util.XmlUtils;
 import de.enithing.fragmenthub.model.contentfragment.ContentFragmentFieldType;
