@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>de.enithing.fragmenthub.importer.core</artifactId>
 
-	<name>fragmenthub Importer Core</name>
+	<name>FragmentHub Importer Core</name>
 
 	<parent>
 		<groupId>de.enithing.fragmenthub</groupId>

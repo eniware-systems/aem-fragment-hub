@@ -4,12 +4,12 @@
 	<artifactId>de.enithing.fragmenthub.parent</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
-	<name>fragmenthub Parent</name>
+	<name>FragmentHub Parent</name>
 
 	<properties>
 		<tycho.version>2.7.1</tycho.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<eclipse-repo.url>http://download.eclipse.org/releases/latest</eclipse-repo.url>
+		<eclipse-repo.url>https://download.eclipse.org/releases/2022-09</eclipse-repo.url>
 		<maven.compiler.source>17</maven.compiler.source>
 		<maven.compiler.target>17</maven.compiler.target>
 	</properties>
@@ -141,7 +141,7 @@
 		<profile>
 			<id>product</id>
 			<activation>
-				<activeByDefault>true</activeByDefault>
+				<activeByDefault>false</activeByDefault>
 			</activation>
 
 			<modules>
@@ -153,17 +153,6 @@
 			</modules>
 		</profile>
 
-		<!--<profile>
-			<id>generator-bundle</id>
-			<activation>
-				<activeByDefault>false</activeByDefault>
-			</activation>
-
-			<modules>
-				<module>../de.enithing.fragmenthub.generator</module>
-			</modules>
-		</profile>-->
-
 		<profile>
 			<id>cli-tools</id>
 			<activation>
@@ -171,6 +160,8 @@
 			</activation>
 
 			<modules>
+				<module>../de.enithing.fragmenthub.importer.core</module>
+				<module>../de.enithing.fragmenthub.generator.core</module>
 				<module>../de.enithing.fragmenthub.importer.cli</module>
 				<module>../de.enithing.fragmenthub.generator.cli</module>
 			</modules>
@@ -186,6 +177,18 @@
 				<module>../de.enithing.fragmenthub.model</module>
 			</modules>
 		</profile>
+
+		<profile>
+			<id>generator</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+
+			<modules>
+				<module>../de.enithing.fragmenthub.importer.core</module>
+				<module>../de.enithing.fragmenthub.generator.core</module>
+			</modules>
+		</profile>
 	</profiles>
 
 	<repositories>
@@ -195,10 +198,5 @@
 			<layout>p2</layout>
 		</repository>
 	</repositories>
-
-	<modules>
-		<module>../de.enithing.fragmenthub.importer.core</module>
-		<module>../de.enithing.fragmenthub.generator.core</module>
-	</modules>
 
 </project>
