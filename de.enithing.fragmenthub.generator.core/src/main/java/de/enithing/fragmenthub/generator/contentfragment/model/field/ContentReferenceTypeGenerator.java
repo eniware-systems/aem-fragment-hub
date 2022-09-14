@@ -4,6 +4,7 @@ import java.math.BigInteger;
 import java.util.Map;
 import java.util.Set;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.velocity.VelocityContext;
 
 import de.enithing.fragmenthub.generator.GeneratorConfiguration;
@@ -44,10 +45,8 @@ public class ContentReferenceTypeGenerator extends ContentFragmentMultiFieldType
 	@Override
 	public void populateAttribs(ContentReference element, VelocityContext ctx, Map<String, Object> attribs) {
 		attribs.put("filter", "hierarchy");
-
 		attribs.put("emptyText", element.getPlaceholder());
 		attribs.put("required", JcrUtils.toFlag(element.isRequired()));
-
 		attribs.put("showThumbnail", element.isShowThumbnail());
 		attribs.put("validation", element.getAllowedContentTypes());
 	}

@@ -2,6 +2,7 @@ package de.enithing.fragmenthub.generator.contentfragment.model.field;
 
 import java.util.Map;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.velocity.VelocityContext;
 
 import de.enithing.fragmenthub.generator.GeneratorConfiguration;
@@ -35,7 +36,6 @@ public class TagsTypeGenerator extends ContentFragmentFieldTypeGenerator<Tags> {
 		attribs.put("cq:showOnCreate", true);
 		attribs.put("autocreateTag", true);
 		attribs.put("forceSelection", false);
-
 		attribs.put("emptyText", element.getPlaceholder());
 		attribs.put("multiple", element.isAllowMultiple());
 		attribs.put("required", JcrUtils.toFlag(element.isRequired()));

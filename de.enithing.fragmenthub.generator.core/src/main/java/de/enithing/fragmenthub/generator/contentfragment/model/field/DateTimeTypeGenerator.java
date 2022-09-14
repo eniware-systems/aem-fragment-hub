@@ -2,6 +2,7 @@ package de.enithing.fragmenthub.generator.contentfragment.model.field;
 
 import java.util.Map;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.velocity.VelocityContext;
 
 import de.enithing.fragmenthub.generator.GeneratorConfiguration;

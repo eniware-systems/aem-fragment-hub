@@ -178,6 +178,7 @@ public class XmlUtils {
 
         @Override
         public void close() throws IOException {
+            sink.write("\n");
             flushBuffer();
             sink.close();
         }

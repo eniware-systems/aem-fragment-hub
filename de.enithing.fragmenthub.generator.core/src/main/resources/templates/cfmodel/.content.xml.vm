@@ -5,7 +5,6 @@
     ranking="{Long}100">
     <jcr:content
         cq:lastModified="{Date}$packageDate"
-        cq:lastModifiedBy="$packageCreator"
         cq:scaffolding="$scaffolding"
         cq:templateType="/libs/settings/dam/cfm/model-types/fragment"
         jcr:primaryType="cq:PageContent"
@@ -23,8 +22,6 @@
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="cq/gui/components/authoring/dialog">
                 <content
-                    jcr:lastModified="{Date}$packageDate"
-                    jcr:lastModifiedBy="$packageCreator"
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
                     <items
