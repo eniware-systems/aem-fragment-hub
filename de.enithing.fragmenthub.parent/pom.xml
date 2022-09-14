@@ -125,9 +125,6 @@
 											</goal>
 										</goals>
 									</pluginExecutionFilter>
-									<action>
-										<ignore></ignore>
-									</action>
 								</pluginExecution>
 							</pluginExecutions>
 						</lifecycleMappingMetadata>
@@ -138,35 +135,6 @@
 	</build>
 
 	<profiles>
-		<profile>
-			<id>product</id>
-			<activation>
-				<activeByDefault>false</activeByDefault>
-			</activation>
-
-			<modules>
-				<module>../de.enithing.fragmenthub.design</module>
-				<module>../de.enithing.fragmenthub.edit</module>
-				<module>../de.enithing.fragmenthub.editor</module>
-				<module>../de.enithing.fragmenthub.feature</module>
-				<module>../de.enithing.fragmenthub.product</module>
-			</modules>
-		</profile>
-
-		<profile>
-			<id>cli-tools</id>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
-
-			<modules>
-				<module>../de.enithing.fragmenthub.importer.core</module>
-				<module>../de.enithing.fragmenthub.generator.core</module>
-				<module>../de.enithing.fragmenthub.importer.cli</module>
-				<module>../de.enithing.fragmenthub.generator.cli</module>
-			</modules>
-		</profile>
-
 		<profile>
 			<id>model</id>
 			<activation>
@@ -187,6 +155,35 @@
 			<modules>
 				<module>../de.enithing.fragmenthub.importer.core</module>
 				<module>../de.enithing.fragmenthub.generator.core</module>
+			</modules>
+		</profile>
+
+		<profile>
+			<id>cli-tools</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+
+			<modules>
+				<module>../de.enithing.fragmenthub.importer.core</module>
+				<module>../de.enithing.fragmenthub.generator.core</module>
+				<module>../de.enithing.fragmenthub.importer.cli</module>
+				<module>../de.enithing.fragmenthub.generator.cli</module>
+			</modules>
+		</profile>
+
+		<profile>
+			<id>product</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+
+			<modules>
+				<module>../de.enithing.fragmenthub.design</module>
+				<module>../de.enithing.fragmenthub.edit</module>
+				<module>../de.enithing.fragmenthub.editor</module>
+				<module>../de.enithing.fragmenthub.feature</module>
+				<module>../de.enithing.fragmenthub.product</module>
 			</modules>
 		</profile>
 	</profiles>
