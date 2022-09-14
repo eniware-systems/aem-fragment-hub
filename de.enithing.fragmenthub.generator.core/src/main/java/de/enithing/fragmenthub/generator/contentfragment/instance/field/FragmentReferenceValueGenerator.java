@@ -1,4 +1,4 @@
-package de.enithing.contenthub.generator.contentfragment.instance.field;
+package de.enithing.fragmenthub.generator.contentfragment.instance.field;
 
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -15,9 +15,9 @@ import java.util.stream.Collectors;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.velocity.VelocityContext;
 
-import de.enithing.contenthub.generator.GeneratorConfiguration;
-import de.enithing.contenthub.generator.contentfragment.instance.ContentFragmentFieldInstanceGenerator;
-import de.enithing.contenthub.generator.util.VelocityUtils;
+import de.enithing.fragmenthub.generator.GeneratorConfiguration;
+import de.enithing.fragmenthub.generator.contentfragment.instance.ContentFragmentFieldInstanceGenerator;
+import de.enithing.fragmenthub.generator.util.VelocityUtils;
 import de.enithing.fragmenthub.model.contentfragment.ContentFragmentFieldInstance;
 import de.enithing.fragmenthub.model.contentfragment.ContentFragmentInstance;
 import de.enithing.fragmenthub.model.contentfragment.corefields.ContentFragmentReference;
