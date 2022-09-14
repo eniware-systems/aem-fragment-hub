@@ -11,7 +11,7 @@
       </vmArgsMac>
    </launcherArgs>
 
-   <launcher name="AEM FragmentHub">
+   <launcher name="AEMFragmentHub">
       <win useIco="false">
          <bmp/>
       </win>

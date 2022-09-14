@@ -29,7 +29,7 @@ public class Main {
     }
 
     private static String getExecutableName() {
-        return "afm-generate";
+        return "afh-generate";
     }
 
     private static Option getHelpOption() {
