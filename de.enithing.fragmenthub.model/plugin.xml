@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated FragmentHub -->
+      <package
+            uri="https://aemfragmenthub.eniware-systems.de/ns/fragmenthub"
+            class="de.enithing.fragmenthub.model.fragmenthub.FragmentHubPackage"
+            genModel="model/FragmentHub.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated FragmentHub -->
+      <package
+            uri="https://aemfragmenthub.eniware-systems.de/ns/contentfragments"
+            class="de.enithing.fragmenthub.model.contentfragment.ContentFragmentPackage"
+            genModel="model/FragmentHub.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated FragmentHub -->
+      <package
+            uri="https://aemfragmenthub.eniware-systems.de/ns/contentfragments/corefields"
+            class="de.enithing.fragmenthub.model.contentfragment.corefields.CorefieldsPackage"
+            genModel="model/FragmentHub.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated FragmentHub -->
+      <package
+            uri="https://aemfragmenthub.eniware-systems.de/ns/contentfragments/corefields/validation"
+            class="de.enithing.fragmenthub.model.contentfragment.corefields.validation.ValidationPackage"
+            genModel="model/FragmentHub.genmodel"/>
+   </extension>
+
+</plugin>

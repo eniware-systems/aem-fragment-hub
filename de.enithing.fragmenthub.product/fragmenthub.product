@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?pde version="3.5"?>
+
+<product name="fragmenthub Product" uid="fragmenthub.product" id="org.eclipse.equinox.p2.director.app.product" application="org.eclipse.ui.ide.workbench" version="1.0.0.qualifier" useFeatures="true" includeLaunchers="true" autoIncludeRequirements="true">
+
+   <configIni use="default">
+   </configIni>
+
+   <launcherArgs>
+      <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts
+      </vmArgsMac>
+   </launcherArgs>
+
+   <launcher name="AEMFragmentHub">
+      <win useIco="false">
+         <bmp/>
+      </win>
+   </launcher>
+
+   <vm>
+   </vm>
+
+   <plugins>
+   </plugins>
+
+   <features>
+      <feature id="de.enithing.fragmenthub.feature" installMode="root"/>
+      <feature id="org.eclipse.platform" installMode="root"/>
+   </features>
+
+   <configurations>
+      <plugin id="org.apache.felix.scr" autoStart="true" startLevel="2" />
+      <plugin id="org.eclipse.core.runtime" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.equinox.common" autoStart="true" startLevel="2" />
+      <plugin id="org.eclipse.equinox.event" autoStart="true" startLevel="2" />
+      <plugin id="org.eclipse.equinox.simpleconfigurator" autoStart="true" startLevel="1" />
+   </configurations>
+
+</product>

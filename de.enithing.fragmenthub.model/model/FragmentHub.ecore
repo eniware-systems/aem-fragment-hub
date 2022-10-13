@@ -1,0 +1,508 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="fragmenthub" nsURI="https://aemfragmenthub.eniware-systems.de/ns/fragmenthub"
+    nsPrefix="afh">
+  <eClassifiers xsi:type="ecore:EClass" name="PathProvider" abstract="true" interface="true">
+    <eOperations name="getPath" lowerBound="1" eType="#//Path"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SimplePath" eSuperTypes="#//PathProvider">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="path" lowerBound="1" eType="#//Path"
+        defaultValueLiteral=""/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ContextPath" eSuperTypes="#//PathProvider">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="context" lowerBound="1"
+        eType="#//Context"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="Path" instanceClassName="java.nio.file.Path"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Package">
+    <eOperations name="getAllContentFragmentModels" upperBound="-1" eType="#//contentfragment/ContentFragmentModel"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="my.content"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="group" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="de.enithing"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="My Content"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="A new package"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="author" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="admin"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="1.0.0"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contentFragmentModelSets"
+        upperBound="-1" eType="#//contentfragment/ContentFragmentModelSet" containment="true"
+        eOpposite="#//contentfragment/ContentFragmentModelSet/package"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contentRoot" lowerBound="1"
+        eType="#//Context" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="contentFragmentModelPath"
+        lowerBound="1" eType="#//Path" defaultValueLiteral="/conf/$packageName/settings/dam/cfm/models"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="contentPath" lowerBound="1"
+        eType="#//Path" defaultValueLiteral="/content/dam/$packageName"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ContextType">
+    <eLiterals name="folder" literal="sling:Folder"/>
+    <eLiterals name="orderedFolder" value="1" literal="sling:OrderedFolder"/>
+    <eLiterals name="page" value="2" literal="cq:Page"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Context">
+    <eOperations name="getRootContext" lowerBound="1" eType="#//Context"/>
+    <eOperations name="getPoliciesByType" upperBound="-1">
+      <eGenericType eTypeParameter="#//Context/getPoliciesByType/TPolicy"/>
+      <eTypeParameters name="TPolicy">
+        <eBounds eClassifier="#//ContextPolicy"/>
+      </eTypeParameters>
+      <eParameters name="clazz">
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaClass">
+          <eTypeArguments eTypeParameter="#//Context/getPoliciesByType/TPolicy"/>
+        </eGenericType>
+      </eParameters>
+    </eOperations>
+    <eOperations name="getPath" lowerBound="1" eType="#//Path"/>
+    <eOperations name="getPackage" lowerBound="1" eType="#//Package"/>
+    <eOperations name="resolveContextsByPattern" upperBound="-1" eType="#//Context">
+      <eParameters name="pattern" lowerBound="1" eType="#//Path"/>
+    </eOperations>
+    <eOperations name="resolveContentFragmentInstancesByPattern" upperBound="-1" eType="#//contentfragment/ContentFragmentInstance">
+      <eParameters name="pattern" lowerBound="1" eType="#//Path"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="childContexts" upperBound="-1"
+        eType="#//Context" containment="true" eOpposite="#//Context/parentContext"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parentContext" eType="#//Context"
+        eOpposite="#//Context/childContexts"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contentFragments" upperBound="-1"
+        eType="#//contentfragment/ContentFragmentInstance" containment="true" eOpposite="#//contentfragment/ContentFragmentInstance/context"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="policies" upperBound="-1"
+        eType="#//ContextPolicy" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="new_context"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="primaryType" lowerBound="1"
+        eType="#//ContextType" defaultValueLiteral="sling:Folder"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ContextPolicy" abstract="true" interface="true"/>
+  <eSubpackages name="contentfragment" nsURI="https://aemfragmenthub.eniware-systems.de/ns/contentfragments"
+      nsPrefix="chub">
+    <eClassifiers xsi:type="ecore:EClass" name="ContentFragmentModelSet">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="models" upperBound="-1"
+          eType="#//contentfragment/ContentFragmentModel" containment="true" eOpposite="#//contentfragment/ContentFragmentModel/modelSet"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="package" lowerBound="1"
+          eType="#//Package" eOpposite="#//Package/contentFragmentModelSets"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ContentFragmentModel">
+      <eOperations name="getAllFields" upperBound="-1">
+        <eGenericType eClassifier="#//contentfragment/ContentFragmentFieldType">
+          <eTypeArguments/>
+        </eGenericType>
+      </eOperations>
+      <eOperations name="getFieldByName" lowerBound="1">
+        <eGenericType eTypeParameter="#//contentfragment/ContentFragmentModel/getFieldByName/TField"/>
+        <eTypeParameters name="TField">
+          <eBounds eClassifier="#//contentfragment/ContentFragmentFieldType">
+            <eTypeArguments/>
+          </eBounds>
+        </eTypeParameters>
+        <eParameters name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eParameters name="clazz" lowerBound="1">
+          <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaClass">
+            <eTypeArguments eTypeParameter="#//contentfragment/ContentFragmentModel/getFieldByName/TField"/>
+          </eGenericType>
+        </eParameters>
+      </eOperations>
+      <eOperations name="getFieldByName" lowerBound="1">
+        <eGenericType eClassifier="#//contentfragment/ContentFragmentFieldType">
+          <eTypeArguments/>
+        </eGenericType>
+        <eParameters name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eOperations name="getPath" lowerBound="1" eType="#//Path"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="fields" upperBound="-1"
+          eType="#//contentfragment/ContentFragmentFieldType" containment="true" eKeys="#//contentfragment/ContentFragmentFieldType/propertyName"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="modelSet" lowerBound="1"
+          eType="#//contentfragment/ContentFragmentModelSet" eOpposite="#//contentfragment/ContentFragmentModelSet/models"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ContentFragmentFieldType" abstract="true">
+      <eTypeParameters name="TValue">
+        <eBounds eClassifier="#//contentfragment/ContentFragmentFieldValue"/>
+      </eTypeParameters>
+      <eOperations name="createEmptyValue" lowerBound="1">
+        <eGenericType eTypeParameter="#//contentfragment/ContentFragmentFieldType/TValue"/>
+      </eOperations>
+      <eOperations name="getModel" lowerBound="1" eType="#//contentfragment/ContentFragmentModel"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="propertyName" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="fieldLabel" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ContentFragmentInstance">
+      <eOperations name="getPath" lowerBound="1" eType="#//Path"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="model" lowerBound="1"
+          eType="#//contentfragment/ContentFragmentModel"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="fields" upperBound="-1"
+          eType="#//contentfragment/ContentFragmentFieldInstance" changeable="false"
+          containment="true" eOpposite="#//contentfragment/ContentFragmentFieldInstance/instance"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="context" lowerBound="1"
+          eType="#//Context" eOpposite="#//Context/contentFragments"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ContentFragmentFieldInstance">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="instance" lowerBound="1"
+          eType="#//contentfragment/ContentFragmentInstance" eOpposite="#//contentfragment/ContentFragmentInstance/fields"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="fieldtype" lowerBound="1"
+          eType="#//contentfragment/ContentFragmentFieldType"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1"
+          eType="#//contentfragment/ContentFragmentFieldValue" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SimpleFieldType" abstract="true" interface="true">
+      <eTypeParameters name="TValue">
+        <eBounds eClassifier="#//contentfragment/ContentFragmentFieldValue"/>
+      </eTypeParameters>
+      <eGenericSuperTypes eClassifier="#//contentfragment/ContentFragmentFieldType">
+        <eTypeArguments eTypeParameter="#//contentfragment/SimpleFieldType/TValue"/>
+      </eGenericSuperTypes>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="GroupFieldType" abstract="true" interface="true">
+      <eTypeParameters name="TValue">
+        <eBounds eClassifier="#//contentfragment/ContentFragmentFieldValue"/>
+      </eTypeParameters>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="fields" upperBound="-1"
+          eType="#//contentfragment/SimpleFieldType" containment="true" eKeys="#//contentfragment/ContentFragmentFieldType/propertyName"/>
+      <eGenericSuperTypes eClassifier="#//contentfragment/ContentFragmentFieldType">
+        <eTypeArguments eTypeParameter="#//contentfragment/GroupFieldType/TValue"/>
+      </eGenericSuperTypes>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ContentFragmentFieldValue" abstract="true"
+        interface="true"/>
+    <eClassifiers xsi:type="ecore:EClass" name="AllowedContentFragmentModelPolicy"
+        eSuperTypes="#//ContextPolicy">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="models" upperBound="-1"
+          eType="#//contentfragment/ContentFragmentModel"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="MultiFieldType" abstract="true" interface="true">
+      <eTypeParameters name="TValue">
+        <eBounds eClassifier="#//contentfragment/ContentFragmentFieldValue"/>
+      </eTypeParameters>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="allowMultiple" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+          defaultValueLiteral="false"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxItems" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eGenericSuperTypes eClassifier="#//contentfragment/SimpleFieldType">
+        <eTypeArguments eTypeParameter="#//contentfragment/MultiFieldType/TValue"/>
+      </eGenericSuperTypes>
+    </eClassifiers>
+    <eSubpackages name="corefields" nsURI="https://aemfragmenthub.eniware-systems.de/ns/contentfragments/corefields"
+        nsPrefix="chub">
+      <eClassifiers xsi:type="ecore:EClass" name="StringValue" eSuperTypes="#//contentfragment/ContentFragmentFieldValue">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1"
+            eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EEnum" name="TextMimeType">
+        <eLiterals name="Richtext" literal="text/html"/>
+        <eLiterals name="Markdown" value="1" literal="text/x-markdown"/>
+        <eLiterals name="Plaintext" value="2" literal="text/plain"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EEnum" name="TextValidationType">
+        <eLiterals name="None" literal="None"/>
+        <eLiterals name="Email" value="1" literal="cfm.validation.email"/>
+        <eLiterals name="URL" value="2" literal="cfm.validation.url"/>
+        <eLiterals name="Custom" value="3" literal="cfm.validation.custom"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="SingleLineText">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="placeholder" lowerBound="1"
+            eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultValue" lowerBound="1"
+            eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxLength" lowerBound="1"
+            eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="255"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="required" lowerBound="1"
+            eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+            defaultValueLiteral="false"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="unique" lowerBound="1"
+            eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+            defaultValueLiteral="false"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="translatable" lowerBound="1"
+            eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+            defaultValueLiteral="false"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="validationType" lowerBound="1"
+            eType="#//contentfragment/corefields/TextValidationType" defaultValueLiteral="None"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="validationRegex" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="customErrorMessage"
+            lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eGenericSuperTypes eClassifier="#//contentfragment/MultiFieldType">
+          <eTypeArguments eClassifier="#//contentfragment/corefields/StringValue"/>
+        </eGenericSuperTypes>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="MultiLineText">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultType" lowerBound="1"
+            eType="#//contentfragment/corefields/TextMimeType" defaultValueLiteral="text/html"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="allowedFragmentModels"
+            upperBound="-1" eType="#//contentfragment/ContentFragmentModel" unsettable="true"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="required" lowerBound="1"
+            eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+            defaultValueLiteral="false"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="translatable" lowerBound="1"
+            eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+            defaultValueLiteral="false"/>
+        <eGenericSuperTypes eClassifier="#//contentfragment/MultiFieldType">
+          <eTypeArguments eClassifier="#//contentfragment/corefields/StringValue"/>
+        </eGenericSuperTypes>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EEnum" name="NumberTypeHint">
+        <eLiterals name="Integer" literal="long"/>
+        <eLiterals name="Fraction" value="1" literal="double"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EEnum" name="NumberValidationType">
+        <eLiterals name="None"/>
+        <eLiterals name="GreaterThanOrEqualTo" value="1" literal="cfm.validation.number.min"/>
+        <eLiterals name="LessThanOrEqualTo" value="2" literal="cfm.validation.number.max"/>
+        <eLiterals name="Between" value="3" literal="cfm.validation.number.interval"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="Number">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="placeholder" lowerBound="1"
+            eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1"
+            eType="#//contentfragment/corefields/NumberTypeHint" defaultValueLiteral="long"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultValue" lowerBound="1"
+            eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigDecimal"
+            defaultValueLiteral="0"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="required" lowerBound="1"
+            eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+            defaultValueLiteral="false"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="validationConstraint"
+            containment="true">
+          <eGenericType eClassifier="#//contentfragment/corefields/validation/ValidationConstraint">
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigDecimal"/>
+          </eGenericType>
+        </eStructuralFeatures>
+        <eGenericSuperTypes eClassifier="#//contentfragment/MultiFieldType">
+          <eTypeArguments eClassifier="#//contentfragment/corefields/NumberValue"/>
+        </eGenericSuperTypes>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="NumberValue" eSuperTypes="#//contentfragment/ContentFragmentFieldValue">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1"
+            eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigDecimal"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="Boolean">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultValue" lowerBound="1"
+            eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+            defaultValueLiteral="false"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="required" lowerBound="1"
+            eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+            defaultValueLiteral="false"/>
+        <eGenericSuperTypes eClassifier="#//contentfragment/SimpleFieldType">
+          <eTypeArguments eClassifier="#//contentfragment/corefields/BooleanValue"/>
+        </eGenericSuperTypes>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="BooleanValue" eSuperTypes="#//contentfragment/ContentFragmentFieldValue">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1"
+            eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EDataType" name="Date" instanceClassName="java.util.Date"/>
+      <eClassifiers xsi:type="ecore:EEnum" name="DateTimeType">
+        <eLiterals name="DateAndTime" literal="datetime"/>
+        <eLiterals name="DateOnly" value="1" literal="date"/>
+        <eLiterals name="TimeOnly" value="2" literal="time"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="DateTime">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="placeholder" lowerBound="1"
+            eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+            defaultValueLiteral="YYYY-MM-DD HH:mm:ss"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1"
+            eType="#//contentfragment/corefields/DateTimeType" defaultValueLiteral="datetime"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultValue" eType="#//contentfragment/corefields/Date"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="required" lowerBound="1"
+            eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+            defaultValueLiteral="false"/>
+        <eGenericSuperTypes eClassifier="#//contentfragment/SimpleFieldType">
+          <eTypeArguments eClassifier="#//contentfragment/corefields/DateTimeValue"/>
+        </eGenericSuperTypes>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="DateTimeValue" eSuperTypes="#//contentfragment/ContentFragmentFieldValue">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1"
+            eType="#//contentfragment/corefields/Date"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="EnumerationOption">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1"
+            eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1"
+            eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="Enumeration">
+        <eStructuralFeatures xsi:type="ecore:EReference" name="options" upperBound="-1"
+            eType="#//contentfragment/corefields/EnumerationOption" containment="true"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="placeholder" lowerBound="1"
+            eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="required" lowerBound="1"
+            eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+            defaultValueLiteral="false"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="unique" lowerBound="1"
+            eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+            defaultValueLiteral="false"/>
+        <eGenericSuperTypes eClassifier="#//contentfragment/SimpleFieldType">
+          <eTypeArguments eClassifier="#//contentfragment/corefields/StringValue"/>
+        </eGenericSuperTypes>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="Tags">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="placeholder" lowerBound="1"
+            eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="required" lowerBound="1"
+            eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+            defaultValueLiteral="false"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="rootPath" lowerBound="1"
+            eType="#//PathProvider" containment="true"/>
+        <eGenericSuperTypes eClassifier="#//contentfragment/MultiFieldType">
+          <eTypeArguments eClassifier="#//contentfragment/corefields/StringValue"/>
+        </eGenericSuperTypes>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EEnum" name="ContentReferenceType">
+        <eLiterals name="Richtext" literal="cfm.validation.contenttype.richtext"/>
+        <eLiterals name="Plaintext" value="1" literal="cfm.validation.contenttype.plaintext"/>
+        <eLiterals name="Image" value="2" literal="cfm.validation.contenttype.image"/>
+        <eLiterals name="Audio" value="3" literal="cfm.validation.contenttype.audio"/>
+        <eLiterals name="Video" value="4" literal="cfm.validation.contenttype.video"/>
+        <eLiterals name="ContentFragment" value="5" literal="cfm.validation.contenttype.contentfragment"/>
+        <eLiterals name="PDF" value="6" literal="cfm.validation.contenttype.pdf"/>
+        <eLiterals name="SpreadSheet" value="7" literal="cfm.validation.contenttype.spreadsheet"/>
+        <eLiterals name="Presentation" value="8" literal="cfm.validation.contenttype.presentation"/>
+        <eLiterals name="Archive" value="9" literal="cfm.validation.contenttype.archive"/>
+        <eLiterals name="Markup" value="10" literal="cfm.validation.contenttype.markup"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="ContentReference">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="placeholder" lowerBound="1"
+            eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultValue" eType="#//Path"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="rootPath" lowerBound="1"
+            eType="#//PathProvider" containment="true"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="required" lowerBound="1"
+            eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+            defaultValueLiteral="false"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="allowedContentTypes"
+            upperBound="-1" eType="#//contentfragment/corefields/ContentReferenceType"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="showThumbnail" lowerBound="1"
+            eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+            defaultValueLiteral="false"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="fileSizeValidationConstraint"
+            containment="true">
+          <eGenericType eClassifier="#//contentfragment/corefields/validation/ValidationConstraint">
+            <eTypeArguments eClassifier="#//contentfragment/corefields/validation/FileSizeValue"/>
+          </eGenericType>
+        </eStructuralFeatures>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="imageWidthConstraint"
+            containment="true">
+          <eGenericType eClassifier="#//contentfragment/corefields/validation/ValidationConstraint">
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigInteger"/>
+          </eGenericType>
+        </eStructuralFeatures>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="imageHeightConstraint"
+            containment="true">
+          <eGenericType eClassifier="#//contentfragment/corefields/validation/ValidationConstraint">
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigInteger"/>
+          </eGenericType>
+        </eStructuralFeatures>
+        <eGenericSuperTypes eClassifier="#//contentfragment/MultiFieldType">
+          <eTypeArguments eClassifier="#//contentfragment/corefields/ContentReferenceValue"/>
+        </eGenericSuperTypes>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="ContentReferenceValue" eSuperTypes="#//contentfragment/ContentFragmentFieldValue">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1"
+            eType="#//Path"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="FragmentReference">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="placeholder" lowerBound="1"
+            eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="allowedModels" upperBound="-1"
+            eType="#//contentfragment/ContentFragmentModel"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="rootPath" lowerBound="1"
+            eType="#//PathProvider" containment="true"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="allowFragmentCreation"
+            lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+            defaultValueLiteral="true"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="required" lowerBound="1"
+            eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+            defaultValueLiteral="false"/>
+        <eGenericSuperTypes eClassifier="#//contentfragment/MultiFieldType">
+          <eTypeArguments eClassifier="#//contentfragment/corefields/FragmentReferenceValue"/>
+        </eGenericSuperTypes>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="FragmentReferenceValue" eSuperTypes="#//contentfragment/ContentFragmentFieldValue">
+        <eStructuralFeatures xsi:type="ecore:EReference" name="fragments" upperBound="-1"
+            eType="#//contentfragment/ContentFragmentInstance"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="fragmentsByPathPattern"
+            eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="Json">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="placeholder" lowerBound="1"
+            eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="required" lowerBound="1"
+            eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+            defaultValueLiteral="false"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="translatable" lowerBound="1"
+            eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+            defaultValueLiteral="false"/>
+        <eGenericSuperTypes eClassifier="#//contentfragment/SimpleFieldType">
+          <eTypeArguments eClassifier="#//contentfragment/corefields/StringValue"/>
+        </eGenericSuperTypes>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="Tab">
+        <eGenericSuperTypes eClassifier="#//contentfragment/GroupFieldType">
+          <eTypeArguments eClassifier="#//contentfragment/ContentFragmentFieldValue"/>
+        </eGenericSuperTypes>
+      </eClassifiers>
+      <eSubpackages name="validation" nsURI="https://aemfragmenthub.eniware-systems.de/ns/contentfragments/corefields/validation"
+          nsPrefix="chub">
+        <eClassifiers xsi:type="ecore:EClass" name="ValidationConstraint" abstract="true"
+            interface="true">
+          <eTypeParameters name="TValue"/>
+        </eClassifiers>
+        <eClassifiers xsi:type="ecore:EClass" name="LowerBoundConstraint">
+          <eTypeParameters name="TValue"/>
+          <eStructuralFeatures xsi:type="ecore:EAttribute" name="min">
+            <eGenericType eTypeParameter="#//contentfragment/corefields/validation/LowerBoundConstraint/TValue"/>
+          </eStructuralFeatures>
+          <eGenericSuperTypes eClassifier="#//contentfragment/corefields/validation/ValidationConstraint">
+            <eTypeArguments eTypeParameter="#//contentfragment/corefields/validation/LowerBoundConstraint/TValue"/>
+          </eGenericSuperTypes>
+        </eClassifiers>
+        <eClassifiers xsi:type="ecore:EClass" name="UpperBoundConstraint">
+          <eTypeParameters name="TValue"/>
+          <eStructuralFeatures xsi:type="ecore:EAttribute" name="max">
+            <eGenericType eTypeParameter="#//contentfragment/corefields/validation/UpperBoundConstraint/TValue"/>
+          </eStructuralFeatures>
+          <eGenericSuperTypes eClassifier="#//contentfragment/corefields/validation/ValidationConstraint">
+            <eTypeArguments eTypeParameter="#//contentfragment/corefields/validation/UpperBoundConstraint/TValue"/>
+          </eGenericSuperTypes>
+        </eClassifiers>
+        <eClassifiers xsi:type="ecore:EClass" name="LowerUpperBoundConstraint">
+          <eTypeParameters name="TValue"/>
+          <eGenericSuperTypes eClassifier="#//contentfragment/corefields/validation/LowerBoundConstraint">
+            <eTypeArguments eTypeParameter="#//contentfragment/corefields/validation/LowerUpperBoundConstraint/TValue"/>
+          </eGenericSuperTypes>
+          <eGenericSuperTypes eClassifier="#//contentfragment/corefields/validation/UpperBoundConstraint">
+            <eTypeArguments eTypeParameter="#//contentfragment/corefields/validation/LowerUpperBoundConstraint/TValue"/>
+          </eGenericSuperTypes>
+        </eClassifiers>
+        <eClassifiers xsi:type="ecore:EEnum" name="FileSizeUnit">
+          <eLiterals name="B"/>
+          <eLiterals name="KB" value="1"/>
+          <eLiterals name="MB" value="2"/>
+          <eLiterals name="GB" value="3"/>
+          <eLiterals name="TB" value="4"/>
+        </eClassifiers>
+        <eClassifiers xsi:type="ecore:EClass" name="FileSizeValue">
+          <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1"
+              eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigInteger"/>
+          <eStructuralFeatures xsi:type="ecore:EAttribute" name="unit" lowerBound="1"
+              eType="#//contentfragment/corefields/validation/FileSizeUnit" defaultValueLiteral="MB"/>
+        </eClassifiers>
+      </eSubpackages>
+    </eSubpackages>
+  </eSubpackages>
+</ecore:EPackage>

@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+SCRIPTPATH="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
+
+JAR_FILE=$(realpath $(ls ${SCRIPTPATH}/../de.enithing.fragmenthub.importer.cli/target/de.enithing.fragmenthub.importer.cli-*-jar-with-dependencies.jar 2> /dev/null) 2> /dev/null)
+
+java -jar $JAR_FILE $@ || { exit 1; }

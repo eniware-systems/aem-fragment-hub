@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+SCRIPTPATH="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
+
+EDITOR_BIN="${SCRIPTPATH}/../de.enithing.fragmenthub.product/target/products/fragmenthub.product/linux/gtk/x86_64/AEMFragmentHub"
+
+$EDITOR_BIN
+
