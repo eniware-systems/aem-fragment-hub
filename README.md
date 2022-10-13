@@ -1,4 +1,4 @@
-# AEM FragmentHub
+# AEM Fragment Hub
 
 # Quick start
 
